@@ -1,0 +1,442 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CH">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animate-animo.min.css">
+    <link rel="stylesheet" href="css/buttons.min.css">
+    <!-- <link rel="stylesheet" href="css/jquery-ui.css"> -->
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <!-- <link rel="stylesheet" href="css/select2.min.css"> -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- <link rel="stylesheet" href="css/lightbox.css"> -->
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<nav class="navbar navbar-mynavbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="#">Buy+</a>-->
+            <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的需求<span class="caret"></span></a>
+                    <ul class="dropdown-menu e" style="text-align: center;">
+                        <!--<li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 购物车</a></li>-->
+                        <li><a href="demand_forecast.html"><i class="fa fa-bullseye" aria-hidden="true"></i> 预测需求</a></li>
+                        <li><a href="demand_period.html"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> 周期需求</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">我的供给</a></li>
+                <li><a href="my_space.html">我的空间</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">南艺璇<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="my.html">个人中心</a></li>
+                        <li><a href="#">我的消息</a></li>
+                        <li><a href="#">设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-no-border" placeholder="我好想搜点什么">
+                        <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container-fluid" style="text-align: left;margin-top: 53px;" id='bb'>
+    <!--         <div class="row">
+        <canvas id="c" height="100" width="100" style="position: relative;"></canvas>
+    </div> -->
+    <div class="row">
+        <div class="col-md-12">
+            <h4 style="text-align: center" class="animated fadeIn" id="auto">自动生成供应链中...ヽ(•̀ω•́ )ゝ</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 smart-chain" id="smart-chain1">
+            <div class="guxblock">
+                <div class="row">
+                    <p style="text-align: center" id='chainhead1' class="font-gray">原材料供应商</p>
+                    <select multiple="multiple" class="form-control multiselect multiselect-info col-md-12">
+                        <option value="北京首农牧场" selected>北京首农牧场</option>
+                        <option value="张家口察北牧场">张家口察北牧场</option>
+                        <option value="内蒙大兴牧场">内蒙大兴牧场</option>
+                        <option value="赤峰红光牧场">赤峰红光牧场</option>
+                        <!--<option value="孙骁">孙骁</option>-->
+                        <!--<option value="王瓅">王瓅</option>-->
+                    </select>
+                </div>
+                <hr style="border-top: 2px solid #666666;">
+                <div class="chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 smart-chain" id="smart-chain2">
+            <div class="guxblock">
+                <div class="row">
+                    <p style="text-align: center" id='chainhead2' class="font-gray">原材料加工商</p>
+                    <select multiple="multiple" class="form-control multiselect multiselect-info">
+                        <option value="北京首农食品有限公司" selected>北京首农食品有限公司</option>
+                        <option value="双汇食品有限公司">双汇食品有限公司</option>
+                        <option value="新发地食品有限公司">新发地食品有限公司</option>
+                        <option value="中粮食品有限公司">中粮食品有限公司</option>
+                        <!--<option value="房山服装制造厂">房山服装制造厂</option>-->
+                        <!--<option value="顺义服装制造厂">顺义服装制造厂</option>-->
+                    </select>
+                </div>
+                <hr style="border-top: 2px solid #666666;">
+                <div class="chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 smart-chain" id="smart-chain3">
+            <div class="guxblock">
+                <div class="row">
+                    <p style="text-align: center" id='chainhead3' class="font-gray">集散中心</p>
+                    <select multiple="multiple" class="form-control multiselect multiselect-info">
+                        <option value="北京首农生鲜物流" selected>北京首农生鲜物流</option>
+                        <option value="鲁谷集散中心">鲁谷集散中心</option>
+                        <option value="六里桥集散中心">六里桥集散中心</option>
+                        <option value="四惠集散中心">四惠集散中心</option>
+                        <!--<option value="上地集散中心">上地集散中心</option>-->
+                        <!--<option value="三元桥集散中心">三元桥集散中心</option>-->
+                    </select>
+                </div>
+                <hr style="border-top: 2px solid #666666;">
+                <div class="chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 smart-chain" id="smart-chain4">
+            <div class="guxblock">
+                <div class="row">
+                    <p style="text-align: center" id='chainhead4' class="font-gray">配送服务商</p>
+                    <select multiple="multiple" class="form-control multiselect multiselect-info">
+                        <option value="顺丰" selected>顺丰</option>
+                        <option value="申通">申通</option>
+                        <option value="中通">中通</option>
+                        <option value="圆通">圆通</option>
+                        <!--<option value="德邦">德邦</option>-->
+                        <!--<option value="韵达">韵达</option>-->
+                    </select>
+                </div>
+                <hr style="border-top: 2px solid #666666;">
+                <div class="chart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="text-align: center"><a id="enter" class="button button-glow button-rounded button-jumbo button-action hide">确认订单</a></h1>
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<!-- <script src="js/jquery-2.1.1.js"></script> -->
+<script src="js/vendor/animo.min.js"></script>
+<script src="js/vendor/flat-ui.js"></script>
+<script src="js/vendor/select2.full.min.js"></script>
+<!-- <script src="js/vendor/lightbox.js"></script> -->
+<script src="js/main.js"></script>
+<script src="js/vendor/echarts.min.js"></script>
+<script>
+    jQuery(document).ready(function($) {
+        // 这部分是动态供应链的页面smart_chain.html相关的代码
+
+        function animateAllChain(pos, callback) {
+            $('#smart-chain' + pos).show();
+            if ($('#smart-chain' + pos).length) {
+                $('#smart-chain' + pos).animo({
+                    animation: 'fadeInLeft',
+                    duration: 1,
+                    timing: "easy-in"
+                }, function() {
+                    animateAllChain(pos + 1, callback);
+                });
+            } else {
+                callback();
+            }
+        }
+
+        function fadeAllChain(pos, callback) {
+            $('#smart-chain' + pos).show();
+            if ($('#smart-chain' + pos).length) {
+                $('#smart-chain' + pos).animo({
+                            animation: 'fadeOut',
+                            duration: 0.5,
+                            timing: "easy-in",
+                            keep: true
+                        },
+                        function() {
+                            fadeAllChain(pos + 1, callback)
+                        }
+                );
+            } else {
+                callback();
+            }
+        }
+        animateAllChain(1, function() {
+            $('#auto').animo({
+                animation: 'fadeOutUp',
+                duration: 1,
+                timing: "easy-in",
+                keep: true
+            });
+            $('#enter').removeClass('hide');
+
+        });
+        $('#enter').click(function(event) {
+            /* Act on the event */
+            flag = 0;
+            for (var i = 1; i <= 4; i++) {
+                buf = $('#smart-chain' + i).find('select').val();
+                if (buf)
+                    if (buf.length != 1) {
+                        flag = 1;
+                    }
+
+            }
+            if (flag) {
+                flag = 0;
+                $(this).popover({
+                    animation: true,
+                    content: '供应链不完整或有冗余',
+                    title: '警告',
+                    placement: 'top'
+                })
+            } else {
+                buf = [];
+                for (var i = 1; i <= 4; i++) {
+                    buf.push($('#smart-chain' + i).find('select').val());
+                }
+                fadeAllChain(1, function() {
+                    $('.smart-chain').hide();
+                    $('#enter').hide();
+                    $('#bb').append('<div class="col-md-4 col-md-offset-4"><div class="guxblock-move"><p style="text-align: center" class="font-gray">' + $('#chainhead1')[0].innerText + '：' + buf[0] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead2')[0].innerText + '：' + buf[1] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead3')[0].innerText + '：' + buf[2] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead4')[0].innerText + '：' + buf[3] + '</p><p style="text-align: center" class="font-gray">动态成交价：900￥</p><button onclick="window.location.href='+"'demand_period.html'"+'" class="button button-primary button-rounded" style="width: 49%;margin-top: 20px;">查看订单</button> <button onclick="window.location.href='+"'index.html'"+'" class="button button-highlight button-rounded" style="width: 49%;margin-top: 10px;">继续购物</button></div></div>')
+                })
+            }
+        });
+        $(".multiselect").select2({
+            dropdownCssClass: 'dropdown-inverse',
+        });
+        $('.chart').width($('.chart').width());
+        $('.chart').css('height', 400);
+        var myChart1 = echarts.init($('#smart-chain1 .chart')[0]);
+        var myChart2 = echarts.init($('#smart-chain2 .chart')[0]);
+        var myChart3 = echarts.init($('#smart-chain3 .chart')[0]);
+        var myChart4 = echarts.init($('#smart-chain4 .chart')[0]);
+        data1 = [];
+        data2 = [];
+        data3 = [];
+        data4 = [];
+        $(".multiselect").each(function(event) {
+            /* Act on the event */
+            text = $(this).parents('.smart-chain')[0].id;
+            var value = text.replace(/[^0-9]/ig, "");
+            buf = $(this).val();
+            for (var i = buf.length - 1; i >= 0; i--) {
+                arr = [];
+                for (var j = 0; j < 5; j++)
+                    arr.push(parseInt(Math.random() * (100 - 60 + 1) + 60));
+                eval('data' + value).push({
+                    value: arr,
+                    name: buf[i]
+                });
+            }
+        });
+        $(".multiselect").change(function(event) {
+            /* Act on the event */
+            text = $(this).parents('.smart-chain')[0].id;
+            var value = text.replace(/[^0-9]/ig, "");
+            data = [];
+            buf = $(this).val();
+            if (buf) {
+                for (var i = buf.length - 1; i >= 0; i--) {
+                    arr = [];
+                    for (var j = 0; j < 5; j++)
+                        arr.push(parseInt(Math.random() * (100 - 60 + 1) + 60));
+                    data.push({
+                        value: arr,
+                        name: buf[i]
+                    });
+                }
+                data_name = [];
+                for (var j = data.length - 1; j >= 0; j--) {
+                    data_name[j] = data[j].name;
+                }
+            } else {
+                data = [];
+                data_name = [];
+            }
+
+            option = {
+                title: {
+                    subtext: '评价参数对比'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    x: 'center',
+                    data: data_name
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: true,
+                polar: [{
+                    indicator: [{
+                        text: '价格',
+                        max: 100
+                    }, {
+                        text: '速度',
+                        max: 100
+                    }, {
+                        text: '信用',
+                        max: 100
+                    }, {
+                        text: '质量',
+                        max: 100
+                    }, {
+                        text: '销量',
+                        max: 100
+                    }],
+                    radius: 130 * $('.chart').width() / 400
+                }],
+                series: [{
+                    name: '评价参数对比',
+                    type: 'radar',
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: data
+                }]
+            };
+            eval('myChart' + value).clear();
+            eval('myChart' + value).setOption(option);
+        });
+        for (var i = 1; i <= 4; i++) {
+            data_name = [];
+            for (var j = eval('data' + i).length - 1; j >= 0; j--) {
+                data_name[j] = eval('data' + i)[j].name;
+            }
+            option = {
+                title: {
+                    subtext: '评价参数对比'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    x: 'center',
+                    data: data_name
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: true,
+                polar: [{
+                    indicator: [{
+                        text: '价格',
+                        max: 100
+                    }, {
+                        text: '速度',
+                        max: 100
+                    }, {
+                        text: '信用',
+                        max: 100
+                    }, {
+                        text: '质量',
+                        max: 100
+                    }, {
+                        text: '销量',
+                        max: 100
+                    }],
+                    radius: 130 * $('.chart').width() / 400
+                }],
+                series: [{
+                    name: '评价参数对比',
+                    type: 'radar',
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: eval('data' + i)
+                }]
+            };
+            eval('myChart' + i).setOption(option);
+        }
+    });
+</script>
+</body>
+
+</html>

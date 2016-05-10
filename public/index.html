@@ -1,0 +1,328 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animate-animo.min.css">
+    <link rel="stylesheet" href="css/buttons.min.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style>
+    body {
+        background: #3ca2e0;
+        background-size: cover;
+        animation: myfirst 10s infinite ease-in-out;
+        -webkit-animation: myfirst 10s infinite ease-in-out;
+        /* Safari and Chrome */
+    }
+    
+    @keyframes myfirst {
+        0% {
+            background: #3ca2e0;
+        }
+        50% {
+            background: #3ca290;
+        }
+        100% {
+            background: #3ca2e0;
+        }
+    }
+    
+    @-webkit-keyframes myfirst
+    /* Safari and Chrome */
+    
+    {
+        0% {
+            background: #3ca2e0;
+        }
+        50% {
+            background: #3ca290;
+        }
+        100% {
+            background: #3ca2e0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-mynavbar" style='background-color: transparent;'>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的需求<span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="text-align: center;">
+                            <!--<li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 购物车</a></li>-->
+                            <li><a href="demand_forecast.html"><i class="fa fa-bullseye" aria-hidden="true"></i> 预测需求</a></li>
+                            <li><a href="demand_period.html"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> 周期需求</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="my_supply_display.html">我的供给</a></li>
+                    <li><a href="my_space.html">我的空间</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">南艺璇 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="my.html">个人中心</a></li>
+                            <li><a href="#">我的消息</a></li>
+                            <li><a href="#">设置</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="container-fluid">
+        <div id="indexPanel" class="col-md-12 col-xs-12 col-sm-12" style="text-align: center;margin-top: 15%;">
+            <h1 id='hello1' class="hide">嗨,艺璇</h1>
+            <h4 id='hello2' class="hide">我能为你做点什么？</h4>
+        </div>
+        <div class="input-group col-md-8 col-xs-8 col-sm-8 col-md-offset-2 col-xs-offset-2 col-sm-offset-2 hide" style="text-align: center;margin-top: 31%" id='hello-input'>
+            <input id='whatINeed' type="text" class="form-control form-no-border" placeholder="试试看“送一套西装到我家”">
+            <div class="input-group-addon"><i class="fa fa-microphone" aria-hidden="true" style="cursor: pointer;"></i></div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <!-- <script src="js/vendor/bootstrap.min.js"></script> -->
+    <script src="js/vendor/animo.min.js"></script>
+    <script src="js/vendor/flat-ui.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#whatINeed').focus();
+        $('#whatINeed').keydown(function(event) {
+            /* Act on the event */
+            if (event.keyCode == 13) {
+                var desireText = $(this).val();
+                var desireType;
+                var diy;
+                var result = {
+                    'diyGoods': '',
+                    'diyKey': '',
+                    'diy': '',
+                    'desireType': '',
+                    'desireTypeKey': '',
+                };
+                if (diy = detectCloth(desireText)) {
+                    result.diy = "可定制";
+                    result.diyKey = diy;
+                    result.diyGoods = "服装";
+                } else if (diy = detectCar(desireText)) {
+                    result.diy = "可定制";
+                    result.diyKey = diy;
+                    result.diyGoods = "汽车";
+                } else if (diy = detectSheep(desireText)) {
+                    result.diy = "不可定制";
+                    result.diyKey = diy;
+                    result.diyGoods = "羊肉";
+                } else {
+                    result.diy = "none";
+                }
+                if (desireType = detectReserve(desireText)) {
+                    result.desireType = "预定";
+                    result.desireTypeKey = desireType;
+                } else if (desireType = detectImmediate(desireText)) {
+                    result.desireType = "即时";
+                    result.desireTypeKey = desireType;
+                } else if (desireType = detectCycle(desireText)) {
+                    result.desireType = "周期";
+                    result.desireTypeKey = desireType;
+                } else {
+                    result.desireType = "none";
+                }
+                fadeHello(analysis(result));
+            }
+        });
+
+        function detectCloth(string) {
+            var patt_cloth = [new RegExp("衣"), new RegExp("服"), new RegExp("装"), new RegExp("西服"), new RegExp("西装"), new RegExp("恤"), new RegExp("衫"), new RegExp("裤"), new RegExp("外套")];
+            for (var i = patt_cloth.length - 1; i >= 0; i--)
+                if (patt_cloth[i].test(string)) return patt_cloth[i];
+            return false;
+        }
+
+        function detectCar(string) {
+            var patt_car = [new RegExp("车"), new RegExp("奥迪"), new RegExp("宝马"), new RegExp("奔驰"), new RegExp("现代"), new RegExp("北汽"), new RegExp("兰博基尼")];
+            for (var i = patt_car.length - 1; i >= 0; i--)
+                if (patt_car[i].test(string)) return patt_car[i];
+            return false;
+        }
+
+        function detectSheep(string) {
+            var patt_sheep = [new RegExp("羊肉"), new RegExp("羊")];
+            for (var i = patt_sheep.length - 1; i >= 0; i--)
+                if (patt_sheep[i].test(string)) return patt_sheep[i];
+            return false;
+        }
+
+        function detectReserve(string) {
+            var patt_reserve = [new RegExp("明天"), new RegExp("后天"), new RegExp("大后天"), new RegExp("明早"), new RegExp("明晚"), new RegExp("下周"), new RegExp("下个月"), new RegExp("明年")];
+            for (var i = patt_reserve.length - 1; i >= 0; i--)
+                if (patt_reserve[i].test(string)) return patt_reserve[i];
+            return false;
+        }
+
+        function detectImmediate(string) {
+            var patt_immediate = [new RegExp("今天"), new RegExp("尽快"), new RegExp("马上"), new RegExp("立马"), new RegExp("现在"), new RegExp("下午"), new RegExp("中午")];
+            for (var i = patt_immediate.length - 1; i >= 0; i--)
+                if (patt_immediate[i].test(string)) return patt_immediate[i];
+            return false;
+        }
+
+        function detectCycle(string) {
+            var patt_cycle = [new RegExp("每周"), new RegExp("每天"), new RegExp("每小时"), new RegExp("每月"), new RegExp("每年"), new RegExp("每半个月")];
+            for (var i = patt_cycle.length - 1; i >= 0; i--)
+                if (patt_cycle[i].test(string)) return patt_cycle[i];
+            return false;
+        }
+
+        function fadeHello(callback) {
+            $('#hello1').animo({
+                animation: 'fadeOut',
+                duration: 1,
+                keep: true
+            });
+            $('#hello2').animo({
+                animation: 'fadeOut',
+                duration: 1,
+                keep: true
+            });
+            $('#hello-input').animo({
+                animation: 'fadeOut',
+                duration: 1,
+                keep: true
+            }, callback);
+        }
+
+        function analysis(result) {
+            $('#hello1').remove();
+            $('#hello2').remove();
+            $('#hello-input').remove();
+            if (result.diy != "none") {
+                $('#indexPanel').append('<h3 class="hide" id="h31">检测到关键字<kbd>' + result.diyKey + '</kbd>商品类型<kbd>' + result.diyGoods + '</kbd></h3>');
+                $('#indexPanel').append('<h3 class="hide" id="h32">商品<kbd>' + result.diy + '</kbd></h3>');
+                if (result.desireType != "none") {
+                    $('#indexPanel').append('<h3 class="hide" id="h33">检测到关键字<kbd>' + result.desireTypeKey + '</kbd></h3>');
+                    $('#indexPanel').append('<h3 class="hide" id="h34">需求类型为<kbd>' + result.desireType + '需求</kbd></h3>');
+                    $('#indexPanel').append('<h3 class="hide" id="h35">需求分析为<kbd>' + result.diy + result.desireType + '需求(ง •̀_•́)ง</kbd></h3>');
+                    if (result.diyGoods == "服装") {
+                        $('#indexPanel').append('<h3 class="hide" id="h36">身高<kbd>' + '175cm</kbd>' + ' 体重<kbd>' +'45kg</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h37">胸围<kbd>' + '25cm</kbd>' + ' 腰围<kbd>' + '21cm</kbd>'+ ' 臀围<kbd>' + '23cm</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h38">风格偏好<kbd>' + '极简/中国风/牛仔/英伦/韩系/OL</kbd></h3>');
+                    }
+                    if (result.diyGoods == "汽车") {
+                        $('#indexPanel').append('<h3 class="hide" id="h36">收入水平<kbd>' + '中等偏上</kbd>' + ' 当前状况<kbd>' +'存款盈余</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h37">品牌商偏好<kbd>' + '北京汽车/北京现代/丰田/本田/一汽大众/宝马/奔驰/保时捷</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h38">类型偏好<kbd>' + '商务车/轿车/越野车/跑车</kbd></h3>');
+                    }
+                    if (result.diyGoods == "羊肉") {
+                        $('#indexPanel').append('<h3 class="hide" id="h36">评价偏好<kbd>' + '销量/价格/速度</kbd></h3>');
+                    }
+                } else {
+                    $('#indexPanel').append('<h3 class="hide" id="h33">需求分析为<kbd>' + result.diy + '未知需求(ง •̀_•́)ง</kbd></h3>');
+                    if (result.diyGoods == "服装") {
+//                    $('#indexPanel').append('<h3 class="hide" id="h36">三维信息 </h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h34">身高<kbd>' + '175cm</kbd>' + ' 体重<kbd>' +'45kg</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h35">胸围<kbd>' + '25cm</kbd>' + ' 腰围<kbd>' + '21cm</kbd>'+ ' 臀围<kbd>' + '23cm</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h36">风格偏好<kbd>' + '极简/中国风/牛仔/英伦/韩系/OL</kbd></h3>');
+                    }
+                    if (result.diyGoods == "汽车") {
+                        $('#indexPanel').append('<h3 class="hide" id="h34">收入水平<kbd>' + '中等偏上</kbd>' + ' 当前状况<kbd>' +'存款盈余</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h35">品牌商偏好<kbd>' + '北京汽车/北京现代/丰田/本田/一汽大众/宝马/奔驰/保时捷</kbd></h3>');
+                        $('#indexPanel').append('<h3 class="hide" id="h36">类型偏好<kbd>' + '商务车/轿车/越野车/跑车</kbd></h3>');
+                    }
+                    if (result.diyGoods == "羊肉") {
+                        $('#indexPanel').append('<h3 class="hide" id="h34">评价偏好<kbd>' + '销量/价格/速度</kbd></h3>');
+                    }
+                }
+
+            } else {
+                $('#indexPanel').append('<h3 class="hide" id="h31">您需要的商品我们这儿没有( >﹏<。)</h3>');
+            }
+            if (result.diyGoods == "汽车")
+                animateAllH3(1, function() {
+                    $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">进入选购</a>');
+                    $('#enter').removeClass('hide');
+                    $('#enter')[0].href = "desire_car_display.html";
+                    $('#enter').focus();
+                });
+            if (result.diyGoods == "羊肉")
+                animateAllH3(1, function() {
+                    $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">进入选购</a>');
+                    $('#enter').removeClass('hide');
+                    $('#enter')[0].href = "smart_chain_fresh.html";
+                    $('#enter').focus();
+                });
+            if (result.diyGoods == "服装") {
+                animateAllH3(1, function () {
+                    $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">进入选购</a>');
+                    $('#enter').removeClass('hide');
+                    $('#enter')[0].href = "desire_cloth_style_display.html";
+                    $('#enter').focus();
+                });
+            }
+            if (result.diy == "none") {
+                animateAllH3(1, function() {
+                    $('#indexPanel').append('<br><a id="return" class="button button-glow button-rounded button-jumbo button-action hide">返回</a>');
+                    $('#return').removeClass('hide');
+                    $('#return')[0].href = "index.html";
+                    $('#return').focus();
+                });
+            }
+        }
+
+        function animateAllH3(pos, callback) {
+            if ($('#h3' + pos).length) {
+                $('#h3' + pos).removeClass('hide');
+                $('#h3' + pos).animo({
+                    animation: 'rubberBand',
+                    duration: 1,
+                    timing: "easy-in"
+                }, function() {
+                    animateAllH3(pos + 1, callback);
+                });
+            } else {
+                callback();
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

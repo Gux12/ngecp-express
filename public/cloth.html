@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animate-animo.min.css">
+    <link rel="stylesheet" href="css/buttons.min.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-mynavbar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="index.html">NGECP</a>-->
+                <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的需求<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-inverse" style="text-align: center;">
+                            <!--<li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 购物车</a></li>-->
+                            <li><a href="demand_forecast.html"><i class="fa fa-bullseye" aria-hidden="true"></i> 预测需求</a></li>
+                            <li><a href="demand_period.html"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> 周期需求</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">我的供给</a></li>
+                    <li><a href="my_space.html">我的空间</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">南艺璇<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-inverse">
+                            <li><a href="my.html">个人中心</a></li>
+                            <li><a href="#">我的消息</a></li>
+                            <li><a href="#">设置</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-no-border" placeholder="我好想搜点什么">
+                            <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-sm-6" style="width: 400px;height: 600px;margin-top: 50px;" id="goods">
+                <!--<iframe src="/cloth3" frameborder="0" id="web3d_cloth" height="100%"></iframe>-->
+                <img src="cloth.png" style="width: 400px;height: 600px;">
+            </div>
+            <div class="col-sm-6" style="width: 400px;margin-left: 200px;margin-top: 20px;" id="property">
+                <h4 style="text-align: center;"><strong>PETITE Neppy Chambray Shirt</strong></h4>
+                <div style="text-align: center;">32.00</div>
+                <div class="row" style="margin-top: 20px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/胸围2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">胸围</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <div class="slider" id="slider1" style="margin-top: 28px;width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/腰围2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">腰围</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <div class="slider" id="slider2" style="margin-top: 28px;width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/肩宽2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">肩宽</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <div class="slider" id="slider3" style="margin-top: 28px;width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/面料2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">面料</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <!--<div class="slider" id="slider4" style="margin-top: 28px;width: 100%;"></div>-->
+                        <div class="col-md-1" style="overflow: hidden;width: 50px;margin-top: 5px;padding: 0px;">
+                            <img class="change-size-btn" src="img/matrial/1.jpg" style="width: 40px;margin-top: 5px;">
+                        </div>
+                        <div class="col-md-1" style="overflow: hidden;width: 50px;margin-top: 5px;padding: 0px;">
+                            <img class="change-size-btn" src="img/matrial/2.jpg" style="width: 40px;margin-top: 5px;">
+                        </div>
+                        <div class="col-md-1" style="overflow: hidden;width: 50px;margin-top: 5px;padding: 0px;">
+                            <img class="change-size-btn" src="img/matrial/3.jpg" style="width: 40px;margin-top: 5px;">
+                        </div>
+                        <div class="col-md-1" style="overflow: hidden;width: 50px;margin-top: 5px;padding: 0px;">
+                            <img class="change-size-btn" src="img/matrial/4.jpg" style="width: 40px;margin-top: 5px;">
+                        </div>
+                        <div class="col-md-1" style="overflow: hidden;width: 50px;margin-top: 5px;padding: 0px;">
+                            <img class="change-size-btn" src="img/matrial/5.jpg" style="width: 40px;margin-top: 5px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/领口2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">领口</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <div class="slider" id="slider5" style="margin-top: 28px;width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/袖口2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">袖口</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <div class="slider" id="slider6" style="margin-top: 28px;width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;height: 65px;">
+                    <div class="col-md-2" style="text-align: center;background-color: white;height: inherit;">
+                        <div class="row"><img src="img/logo/尺寸2.png" style="width: 50px;margin-top: 5px;"></div>
+                        <div style="font-size: 10px;margin-top: -10px;"><strong style="color: black;">尺寸</strong></div>
+                    </div>
+                    <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
+                        <div class="slider" id="slider7" style="margin-top: 28px;width: 100%;"></div>
+                    </div>
+                </div>
+                <button class="button button-large button-plain button-border button-rounded" style="width: 100%;margin-top: 20px;" id='cor'>
+                    协同设计
+                </button>
+                <button class="button button-large button-plain button-border button-rounded" style="width: 100%;margin-top: 10px;" id="confirm">
+                    确认订单
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/vendor/animo.min.js"></script>
+<script src="js/vendor/flat-ui.js"></script>
+<script src="js/main.js"></script>
+<script>
+$(document).ready(function() {
+    // slider
+    $('#cor').click(function(event) {
+        /* Act on the event */
+        window.location.href = '/3Dmodels/collaboration'
+    });
+    $('#confirm').click(function(event) {
+        /* Act on the event */
+        window.location.href = '/smart_chain.html'
+    });
+    var $slider = $(".slider");
+    $slider.slider({
+        min: 0,
+        max: 100,
+        value: 20,
+        orientation: "horizontal",
+        range: "min"
+    });
+    $("#slider1").slider({
+        value: 70,
+    });
+    $("#slider2").slider({
+        value: 30
+    });
+    $("#slider3").slider({
+        value: 50
+    });
+    $("#slider4").slider({
+        value: 50
+    });
+    $("#slider5").slider({
+        value: 60
+    });
+    $("#slider6").slider({
+        value: 70
+    });
+    $("#slider7").slider({
+        value: 40
+    });
+    //        $(".ui-slider").css('background-color','white');
+    $(".ui-slider-range").css('background-color', '#3ca2e0');
+    $(".ui-slider-handle").css('background-color', '#3489bf');
+    $(".change-size-btn").hover(function() {
+        $(this).css("width", "45px");
+    }, function() {
+        $(this).css("width", "40px");
+    });
+
+
+
+    $('#goods').animo({
+            animation: 'bounceInLeft',
+            duration: 1,
+            timing: "easy-in",
+        })
+    nodes = $('#property').children();
+    nodes.each(function(index, el) {
+        $(this).addClass('hide');
+    });
+    for (var i = nodes.length - 1; i >= 0; i--) {
+        buf = $(nodes[i]);
+        buf.removeClass('hide');
+        buf.animo({
+            animation: 'fadeInRight',
+            duration: 0.3,
+            timing: "easy-in",
+            delay: i * 0.1
+        })
+    }
+})
+</script>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>聊天窗</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style2.css" media="screen" type="text/css"/>
+
+    <!--font-->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!--jquery-->
+    <script src='js/vendor/jquery-1.11.2.min.js'></script>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+     <!-- <script src="js/vendor/bootstrap.min.js"></script> -->
+    <!--flat ui-->
+    <link rel="stylesheet" href="css/flat-ui.css">
+
+    <script src="js/vendor/flat-ui.js"></script>
+    <style>
+        i {
+            /*color: #00aced;*/
+        }
+        .input-group-addon {
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-mynavbar" style='background-color: transparent;'>
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="index.html">NGECP</a>-->
+            <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的需求<span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="text-align: center;">
+                        <!--<li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 购物车</a></li>-->
+                        <li><a href="demand_forecast.html"><i class="fa fa-bullseye" aria-hidden="true"></i> 预测需求</a></li>
+                        <li><a href="demand_period.html"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> 周期需求</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">我的供给</a></li>
+                <li><a href="my_space.html">我的空间</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">南艺璇 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="my.html">个人中心</a></li>
+                        <li><a href="#">我的消息</a></li>
+                        <li><a href="#">设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<div id="convo" data-from="Sonu Joshi">
+    <ul class="chat-thread" style="height: 500px;">
+        <li class="left">最近还好吗?看你刚刚换了辆车?</li>
+        <li class="right">恩,最近换了住的地方,还是买辆车比较方便.</li>
+        <li class="left">怎么想到买北京现代?</li>
+        <li class="right">性价比比较高吧,这款SUV的外形也还可以.</li>
+        <li class="left">是挺不错的,那什么时候开着你的新车大家聚聚?</li>
+        <li class="right">好呀,也挺久没见大家了,这周末就可以.</li>
+        <li class="left">那我问问大家,到时候再联系~</li>
+        <!--<li>yes, what time suits you?</li>-->
+        <!--<li>I was thinking after lunch, I have a meeting in the morning</li>-->
+        <!--<li>Are we meeting today?</li>-->
+        <!--<li>yes, what time suits you?</li>-->
+        <!--<li>I was thinking after lunch, I have a meeting in the morning</li>-->
+    </ul>
+    <div>
+        <div class="col-md-6 col-md-offset-3 form-group" style="margin-top: 25px;">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="输入聊天内容" />
+                <!--<span class="input-group-addon">@</span>-->
+                <div class="input-group-addon"><i class="fa fa-microphone" aria-hidden="true" style="cursor: pointer;"></i></div>
+            </div>
+        </div>
+        <div class="col-md-2 form-group" style="margin-top: 50px;">
+            <!--<img src="">-->
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

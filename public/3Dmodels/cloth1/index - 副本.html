@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>中视典数字科技 - WebVRP/Web3D/VRPIE/VRPHtml5 - 清华商务平台测试</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000;
+				color: #fff;
+				margin: 0px;
+				overflow: hidden;
+			}
+			#info {
+				color: #fff;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+			}
+			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
+		</style>
+	</head>
+
+	<body>
+		<div id="info">
+		<a href="http://www.vistandard.com/" target="_blank">中视典数字科技 </a> - WebVRP/Web3D/VRPIE/VRPHtml5  - 清华商务平台测试
+		</div>
+		<div id="browseInfo">
+		</div>
+
+		<script src="build/three.js"></script>
+		<script src="build/JsonIndexLoader.js"></script>
+		<script src="build/stats.min.js"></script>
+		<script src="build/TrackballControls.js"></script>
+		<script src="build/TransformControls.js"></script>
+		<script src="build/Detector.js"></script>
+
+		<script>
+		
+			var emppath = "tsinghua2";
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			var container;
+			var container, stats;
+			var cameraCube,sceneCube,camera, scene, renderer, controls, viewTransCtrl;
+			var textureCube, cubeMesh;
+
+			var mouseX = 0, mouseY = 0;
+			//var boxlen, bbspere;
+			var bbspere = new THREE.Sphere();
+
+			var sceneBoundingBox = new THREE.Box3();
+			
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+			init();
+			animate1();
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000000 );
+				camera.position.z = 100;
+				cameraCube = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 100000 );
+
+				controls = new THREE.TrackballControls( camera );
+				controls.rotateSpeed = 10.0;
+				controls.zoomSpeed = 1.2 ;
+				controls.panSpeed = 0.5;
+				controls.noZoom = false;
+				controls.noPan = false;
+				controls.staticMoving = true;
+				controls.dynamicDampingFactor = 0.3;
+				controls.keys = [ 65, 83, 68 ];
+				controls.addEventListener( 'change', render );
+				controls.maxDistance = 800;
+
+				sceneBoundingBox.makeEmpty();
+
+				// scene
+
+				scene = new THREE.Scene();
+				sceneCube = new THREE.Scene();
+
+				//var ambient = new THREE.AmbientLight( 0x101030 );
+				var ambient = new THREE.AmbientLight( 0xffffff  );
+				scene.add( ambient );
+
+				var directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+				directionalLight.position.set( 1, 1, 1 );
+				directionalLight.intensity  = 0.8;
+				scene.add( directionalLight );
+
+				
+				// Skybox
+				var r = "build/emp/c_";
+				var urls = [ r + "RT.jpg", r + "LF.jpg",
+							 r + "UP.jpg", r + "DN.jpg",
+							 r + "BK.jpg", r + "FR.jpg" ];
+				textureCube = new THREE.CubeTextureLoader().load( urls );
+				textureCube.format = THREE.RGBFormat;
+				textureCube.mapping = THREE.CubeReflectionMapping;
+				
+				var cubeShader = THREE.ShaderLib[ "cube" ];
+				var cubeMaterial = new THREE.ShaderMaterial( {
+					fragmentShader: cubeShader.fragmentShader,
+					vertexShader: cubeShader.vertexShader,
+					uniforms: cubeShader.uniforms,
+					depthWrite: false,
+					side: THREE.BackSide
+				} );
+				cubeMaterial.uniforms[ "tCube" ].value = textureCube;
+				cubeMesh = new THREE.Mesh( new THREE.BoxGeometry( 10000, 10000, 10000 ), cubeMaterial );
+				sceneCube.add( cubeMesh );
+				
+				// texture
+				var manager = new THREE.LoadingManager();
+				manager.onProgress = function ( item, loaded, total ) {
+
+					//console.log( item, loaded, total );
+				};
+
+				var texture = new THREE.Texture();
+
+				var onProgress = function ( xhr ) {
+					if ( xhr.lengthComputable ) {
+						var percentComplete = xhr.loaded / xhr.total * 100;
+						//console.log( Math.round(percentComplete, 2) + '% downloaded' );
+					}
+				};
+
+				var onError = function ( xhr ) {
+				};
+
+				var loader = new THREE.JSONLoader(  );
+				var indexLoader = new THREE.JSONIndexLoader();
+				indexLoader.load( emppath + '/index.js',  function( jsonData ) { 
+				//console.log('jsonData:', jsonData.guid.length);
+				for( var i = 0; i< jsonData.guid.length; ++i )
+				{
+					var key = jsonData.guid[i];
+					loader.load( emppath + '/' + key +'.js',  
+								//function( geometry, materials, pos, scale, rot) { createScene2( geometry, materials[0],  pos, scale, rot)}  
+								function( geometry, materials, wts) { createScene2( geometry, materials[0],  wts)}  
+								);
+				}
+			} );
+
+				//function createScene2( geometry, material, pos, scale, rot) {
+				function createScene2( geometry, material, wts) {
+					//console.log( ' pos:',pos[0], 1*pos[1], 1*pos[2], rot[0], ' rot:', 1*rot[1], 1*rot[2], 1*rot[3], ' scale:',scale[0], 1*scale[1], 1*scale[2])
+					material.side = THREE.DoubleSide;
+					mesh1 = new THREE.Mesh( geometry, material );
+					mesh1.name = geometry.name;
+					mesh1.applyMatrix( wts );
+					/*
+					if( scale !== undefined )
+						mesh1.scale.set( scale[0], scale[1], scale[2] );
+					
+					//console.log("mat",pos, mesh1.position);
+					if( pos !== undefined )
+						mesh1.position.set( pos[0], pos[1],  pos[2] );
+						
+					if( rot !== undefined )
+						mesh1.quaternion.set( rot[0], rot[1], rot[2], rot[3] );
+					*/
+					//console.log( ' pos:',mesh1.position, ' rot:', mesh1.quaternion, ' scale:',mesh1.scale);
+					geometry.computeBoundingBox();
+					var bb = geometry.boundingBox;
+					bb.applyMatrix4( wts );
+					sceneBoundingBox.expandByPoint( bb.min );
+					sceneBoundingBox.expandByPoint( bb.max );
+
+
+					bbspere = sceneBoundingBox.getBoundingSphere(); //sceneBoundingBox.getBoundingSphere();
+					var bbcenter = sceneBoundingBox.center();
+					var boxlen = bbspere.radius;
+
+					camera.lookAt(bbcenter);
+
+					scene.add( mesh1 );
+				}
+				camera.position.set(233,259,404);
+
+				renderer = new THREE.WebGLRenderer({antialias:true});
+				renderer.autoClear = false;
+				renderer.setClearColor( 0x3a6ea5 ); //lrt
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+
+				window.addEventListener( 'resize', onWindowResize, false );
+				
+				stats = new Stats();
+				stats.domElement.style.position = 'absolute';
+				stats.domElement.style.top = '0px';
+				container.appendChild( stats.domElement );
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				cameraCube.aspect = window.innerWidth / window.innerHeight;
+				cameraCube.updateProjectionMatrix();
+				
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				controls.handleResize();
+
+				//console.log(window.innerWidth, window.innerHeight);
+			}
+
+			function onDocumentMouseMove( event ) {
+
+				mouseX = ( event.clientX - windowHalfX ) / 2;
+				mouseY = ( event.clientY - windowHalfY ) / 2;
+			}
+			function onDocumentTouchMove( event ) {
+				mouseX = ( event.clientX - windowHalfX ) / 2;
+				mouseY = ( event.clientY - windowHalfY ) / 2;
+
+			}
+
+			function animate1() {
+				requestAnimationFrame( animate1 );
+
+ 
+				var vec3len = camera.position.distanceTo( bbspere.center);
+				var lenmin = Math.max(2, vec3len - bbspere.radius );
+				var lenMax = vec3len + bbspere.radius;
+				camera.near =  lenmin ;
+				camera.far = lenMax ;
+
+				//console.log(camera.near, camera.far, camera.position, bbspere.center);
+				controls.update();
+				stats.update();
+
+				render();
+			}
+
+			function render() {
+			
+				cameraCube.rotation.copy( camera.rotation );
+				renderer.clear();
+				renderer.render( sceneCube, cameraCube );
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>

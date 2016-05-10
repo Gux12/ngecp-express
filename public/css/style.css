@@ -1,0 +1,259 @@
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: "Merriweather", serif;
+  /*color: #71495b;*/
+  background-color: #3ca2e0;
+}
+
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 600px;
+  margin-left: 500px;
+  /*margin: 0 auto;*/
+}
+.cd-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+html, body {
+  height: 100%;
+}
+
+@media only screen and (min-width: 300px) {
+  body.new-color-1::before {
+    /*background-color: #335f9e;*/
+    background-color: white;
+  }
+
+  body.new-color-2::before {
+    /*background-color: #bf69c0;*/
+    /*background-color: #308242;*/
+    background-color: white;
+  }
+
+  body.new-color-3::before {
+    /*background-color: #06a65e;*/
+    background-color: white;
+  }
+}
+body::before, body::after {
+  /* the 2 underneath colored sections */
+  content: '';
+  position: fixed;
+  /* trick to remove some annoying flickering on webkit browsers */
+  width: 89.8%;
+  max-width: 300px;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  height: 50%;
+  z-index: -1;
+}
+
+body::before {
+  top: 0;
+  /*-webkit-clip-path: circle(165px at center);*/
+  background-color: #3ca2e0;
+  /*background-color: #3ca2e0;*/
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+body::after {
+  top: 50%;
+  background-color: #618ac8;
+}
+
+header {
+  position: relative;
+  height: 50%;
+  background-color: #3ca2e0;
+  z-index: 2;
+}
+header h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  color: #699ec0;
+  font-size: 26px;
+  font-size: 1.625rem;
+}
+
+.cd-service {
+  position: relative;
+  z-index: 2;
+  min-height: 200px;
+  /*margin-top: -20px;*/
+  margin-left: 156px;
+  background-color: #3ca2e0;
+  padding: 1em 1em 4em;
+}
+.cd-service::before, .cd-service::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  /*margin-top: -20px;*/
+  right: 100%;
+  z-index: 2;
+}
+.cd-service::before {
+  top: 0;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+.cd-service::after {
+  top: 100px;
+  bottom: 0;
+  /*background-image: url("../img/cd-pattern-small.svg");*/
+  margin-left: 150px;
+  background-repeat: repeat-y;
+}
+.cd-service.cd-service-divider::after {
+  top: 0;
+}
+.cd-service.cd-service-divider:last-child {
+  display: none;
+}
+.cd-service.cd-service-1::before {
+  /*background-image: url("../img/cd-icon-1-small.svg");*/
+  /*background-image: url("../img/client.jpg");*/
+}
+.cd-service.cd-service-2::before {
+  /*background-image: url("../img/cd-icon-2-small.svg");*/
+}
+.cd-service.cd-service-3::before {
+  /*background-image: url("../img/cd-pattern-large.svg");*/
+  /*background-image: url("../img/cd-icon-3-small.svg");*/
+}
+.cd-service.cd-service-4::before {
+  /*background-image: url("../img/cd-icon-4-small.svg");*/
+}
+.cd-service h2 {
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 1em;
+  font-family: "Merriweather Sans", sans-serif;
+}
+.cd-service p {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.5);
+}
+@media only screen and (min-width: 600px) {
+  .cd-service {
+    min-height: 320px;
+    margin-left: 150px;
+    padding: 6em 2em;
+  }
+  .cd-service::before, .cd-service::after {
+    width: 300px;
+  }
+  .cd-service::before {
+    height: 200px;
+  }
+  .cd-service::after {
+    top: 200px;
+    /*background-image: url("../img/svg/cd-pattern-large.svg");*/
+  }
+  .cd-service.cd-service-divider:first-child, .cd-service.cd-service-divider:last-child {
+    margin-top: -100px;
+    min-height: 160px;
+    margin-left: 150px;
+    padding: 0;
+  }
+  .cd-service.cd-service-divider:last-child {
+    display: block;
+    margin-left: 150px;
+  }
+  .cd-service.cd-service-1::before {
+    background-image: url("../img/person/designer.png");
+    width: 140px;
+  }
+  .cd-service.cd-service-2::before {
+    background-image: url("../img/person/黄亚东.png");
+    width: 140px;
+  }
+  .cd-service.cd-service-3::before {
+    background-image: url("../img/person/me.png");
+    width: 140px;
+  }
+  .cd-service.cd-service-4::before {
+    background-image: url("../img/person/于超.png");
+    width: 140px;
+  }
+  .cd-service h2, .cd-service p {
+    color: #71495b;
+    -webkit-transition: color, 0.5s;
+    -moz-transition: color, 0.5s;
+    transition: color, 0.5s;
+  }
+  .cd-service h2 {
+    margin-top: -200px;
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+  .cd-service p {
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+  .cd-service.focus h2 {
+    color: white;
+  }
+  .cd-service.focus p {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+footer {
+  position: relative;
+  height: 50%;
+  background: #3ca2e0;
+  z-index: 2;
+}
