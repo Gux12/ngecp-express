@@ -14,11 +14,11 @@ var ResizePolicy = 3;
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/flat-ui.css">
+    <!-- <link rel="stylesheet" href="/css/flat-ui.css"> -->
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/buttons.min.css">
-    <link rel="stylesheet" href="/css/video-js.min.css">
-    <!-- <link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="/css/video-js.min.css"> -->
+    <link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet">
     <script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="../js/three.js"></script>
     <script src="../js/TrackballControls.min.js" type="text/javascript"></script>
@@ -33,62 +33,74 @@ var ResizePolicy = 3;
     <script src="../js/jgestures.min.js" type="text/javascript"></script>
     <script src="../js/pageSwitch.min.js" type="text/javascript"></script>
     <script src="/js/vendor/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/js/vendor/video.min.js" type="text/javascript"></script>
-    <!-- <script src="http://vjs.zencdn.net/5.9.2/video.js"></script> -->
+    <!-- <script src="/js/vendor/video.min.js" type="text/javascript"></script> -->
+    <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
+    <script scr="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="position: relative;z-index: 1000">
-        查看库存
-    </button>
-    <button class="btn btn-info" id="" onclick="playAnimation(0.1)" style="position: relative;z-index: 1000">X10</button>
-    <button class="btn btn-info" id="" onclick="playAnimation(1)" style="position: relative;z-index: 1000">X1</button>
-    <button class="btn btn-info disabled" id="btn-play" style="position: relative;z-index: 1000">动画相机</button>
-    <button class="btn btn-info" id="btn-pause" style="position: relative;z-index: 1000">自由相机</button>
-    <button class="btn btn-info" id="btn-replay" style="position: relative;z-index: 1000">回放 <span class="fui-checkbox-unchecked"></span></button>
-    <button class="button button-circle button-raised button-primary" id="btn-webcam" style="position: relative;z-index: 1000"><i class="fa fa-binoculars" aria-hidden="true"></i></button>
-    <div class="collapse" id="collapseExample" style="position: relative;z-index: 1000">
-        <div style="border: 1px solid #ccc;border-radius: 10px;padding: 20px 15px 0 15px;position: relative;z-index: 1000;background-color: rgba(255,255,255,0.7);">
-            <table class="table table-bordered">
-                <thead>
-                    <th colspan="2">原材料需求</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>底盘</th>
-                        <td>200</td>
-                    </tr>
-                    <tr>
-                        <th>发动机</th>
-                        <td>300</td>
-                    </tr>
-                    <tr>
-                        <th>座椅</th>
-                        <td>500</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container-fluid">
+        <div class="row">
+            <button class="button button-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="position: relative;z-index: 1000">
+                查看库存
+            </button>
+            <button class="button button-primary button-raised button-square" id="" onclick="playAnimation(0.1)" style="z-index: 1000">X10</button>
+            <button class="button button-primary button-raised button-square" id="" onclick="playAnimation(1)" style="z-index: 1000">X1</button>
+            <!-- <button class="button button-primary disabled" id="btn-play" style="z-index: 1000">动画相机</button> -->
+            <!-- <button class="button button-primary" id="btn-pause" style="z-index: 1000">自由相机</button> -->
+            <button class="button button-primary button-raised button-square" id='button-play-toggle' style="z-index: 1000"><i class="fa fa-camera" aria-hidden="true"></i></button>
+            <button class="button button-primary" id="btn-replay" style="z-index: 1000">回放 <span class="fui-checkbox-unchecked"></span></button>
+            <button class="button button-circle button-raised button-primary" id="btn-webcam" style="z-index: 1000"><i class="fa fa-binoculars" aria-hidden="true"></i></button>
+            <div class="collapse" id="collapseExample" style="z-index: 1000">
+                <div style="border: 1px solid #ccc;border-radius: 10px;padding: 20px 15px 0 15px;z-index: 1000;background-color: rgba(255,255,255,0.7);">
+                    <table class="table table-bordered">
+                        <thead>
+                            <th colspan="2">原材料需求</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>底盘</th>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <th>发动机</th>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <th>座椅</th>
+                                <td>500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="guxblock" style="width:640px;height:400px">
+                <video id="my_video_1" class="hide video-js vjs-big-play-centered">
+                    <source src="carline.mp4" type="video/mp4">
+                    <source src="carline.webm" type="video/webm">
+                </video>
+                <!-- <iframe src="http://weblbs.yystatic.com/s/71862053/2514349088/jsscene.swf" frameborder="0" id="my_video_1" class='hide' width=640 height=400></iframe> -->
+            </div>
         </div>
     </div>
-    <video id="my_video_1" class="video-js vjs-default-skin vjs-big-play-centered" style="position: relative;z-index: 1000">
-        <source src="carline.mp4" type='video/mp4'>
-    </video>
     <script>
     $(document).ready(function() {
-        videojs("my_video_1", {
-            "height": 480,
-            "width": 640,
+        var myPlayer = videojs("my_video_1", {
+            // "height": 480,
+            // "width": 600,
             "controls": true,
             "autoplay": false,
             "preload": "auto",
             "loop": true,
-            // "poster": "carline.jpg",
+            "poster": "carline.jpg",
             "controlBar": {
-                "muteToggle": true
+                "muteToggle": false
             }
         }, function() {
             // Player (this) is initialized and ready
-
         });
     });
     </script>
@@ -114,7 +126,7 @@ window.addEventListener("load", (function() {
 <script type="text/javascript">
 (function() { /* page:  汽车展示合_1 */
     var pageElement = empGetElementByID('328025549-555962254-2129857797-1769827767', 'div', null);
-    pageElement.style.cssText = "background-color:rgba(138,0,0,0);position:absolute;margin:0px 0px 0px 0px;  z-index: 1;overflow:hidden;display:none;" + "width:" + document.body.scrollWidth + "px;height:" + document.body.scrollHeight + "px;";
+    pageElement.style.cssText = "background-color:rgba(138,0,0,0);position:absolute;margin:0px 0px 0px 0px;  z-index: 1;overflow:hidden;display:none;" + "width:" + document.body.scrollWidth + "px;height:" + document.body.scrollHeight + "px;z-index:-1";
     PageInitFunc['328025549-555962254-2129857797-1769827767'] = (function() { /*empShowElementByID('1421555384-1552117900-707152488-937763923', 'hidden');  empShowElementByID('1691582227-1485258816-650407005-2039880589', 'visible');  empShowElementByID('513083203-513561875-706164739-1153835674', 'hidden');*/
         _124324387819802023771476550153307121760.enable();
     });
@@ -150,6 +162,7 @@ if (_124324387819802023771476550153307121760) {
         autoPlay: false
     }, function() {
         playAnimation(1);
+        
     });
     (function() {
         var defaultLight = _124324387819802023771476550153307121760.findObjectByName('_1433554002181051684713614094411073901394');
@@ -212,20 +225,35 @@ if (_124324387819802023771476550153307121760) {
     }
 
 } /*addChildrenItems end*/
-$('#btn-play').click(function(event) {
-    $('#btn-pause').removeClass('disabled');
-    $('#btn-play').addClass('disabled');
-    replayAnimation();
+// $('#btn-play').click(function(event) {
+//     $('#btn-pause').removeClass('disabled');
+//     $('#btn-play').addClass('disabled');
+//     replayAnimation();
+// });
+// $('#btn-pause').click(function(event) {
+//     $('#btn-pause').addClass('disabled');
+//     $('#btn-play').removeClass('disabled');
+//     pauseAnimation();
+// });
+// $('#btn-replay').click(function(event) {
+//     $('#btn-pause').removeClass('disabled');
+//     $('#btn-play').addClass('disabled');
+//     resetAnimation(1);
+// });
+$('#button-play-toggle').click(function(event) {
+    /* Act on the event */
+    this.innerText = '';
+    $(this).append('<i class="fa fa-hand-rock-o" aria-hidden="true"></i>');
 });
-$('#btn-pause').click(function(event) {
-    $('#btn-pause').addClass('disabled');
-    $('#btn-play').removeClass('disabled');
-    pauseAnimation();
-});
-$('#btn-replay').click(function(event) {
-    $('#btn-pause').removeClass('disabled');
-    $('#btn-play').addClass('disabled');
-    resetAnimation(1);
+$('#btn-webcam').click(function() {
+    if ($('#my_video_1').hasClass('hide')) {
+        // videojs("my_video_1").play();
+        $('#my_video_1').removeClass('hide');
+    } else {
+        // videojs("my_video_1").pause();
+        $('#my_video_1').addClass('hide');
+    }
+
 });
 document.addEventListener("keydown", function(event) {
     if (event.keyCode === 9 || (event.keyCode >= 32 && event.keyCode <= 34) || (event.keyCode >= 37 && event.keyCode <= 40)) {
@@ -247,13 +275,16 @@ document.addEventListener("keyup", function(event) {
             case 9: // tab
             case 32: // space
                 if (!IsPauseAniCamera("Camera002")) {
-                    $('#btn-pause').addClass('disabled');
-                    $('#btn-play').removeClass('disabled');
+                    // $('#btn-pause').addClass('disabled');
+                    // $('#btn-play').removeClass('disabled');
                     pauseAnimation();
+                    videojs("my_video_1").pause();
                 } else {
-                    $('#btn-pause').removeClass('disabled');
-                    $('#btn-play').addClass('disabled');
+                    // $('#btn-pause').removeClass('disabled');
+                    // $('#btn-play').addClass('disabled');
                     replayAnimation();
+
+                    videojs("my_video_1").play();
                 }
             case 34: // pg down
             case 39: // right

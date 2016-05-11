@@ -23,7 +23,7 @@ var ResizePolicy = 0;
     <script src="../js/Detector.min.js" type="text/javascript"></script>
     <script src="../js/Tween.min.js" type="text/javascript"></script>
     <!-- <script src="../js/jgestures.min.js" type="text/javascript"></script> -->
-    <script src="../js/pageSwitch.min.js" type="text/javascript"></script>
+    <!-- <script src="../js/pageSwitch.min.js" type="text/javascript"></script> -->
     <script src="/js/vendor/animo.min.js"></script>
     <script src="/js/vendor/flat-ui.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -233,12 +233,14 @@ var ResizePolicy = 0;
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="container-fluid" id='cor'>
-        <div class="col-md-5 col-md-offset-4">
+    <div class="container-fluid">
+        <div class="col-md-4" id="3Dmodel">
+        </div>
+        <div class="col-md-5">
             <div class="row">
                 <div class="guxblock-move" style="height: 600px;width: 100%;padding: 20px 0px 20px 0px;">
                     <div class="col-md-9">
-                    <p style="text-align: center;vertical-align: middle;width: 100%"><img src="/img/cloth/cloth2.jpg" alt="" style="max-width: 100%;max-height: 100%;width: 60%"></p>
+                        <p style="text-align: center;vertical-align: middle;width: 100%"><img src="/img/cloth/cloth2.jpg" alt="" style="max-width: 100%;max-height: 100%;width: 60%"></p>
                     </div>
                     <div class="col-md-3">
                         <h3 class="demo-panel-title font-gray">尺寸</h3>
@@ -272,7 +274,8 @@ var ResizePolicy = 0;
                         </label>
                         <label class="radio">
                             <input type="radio" name="optionsRadios3" id="color3" value="red">纯羊毛精纺
-                        </label><hr>
+                        </label>
+                        <hr>
                         <a href="/smart_chain.html" class="button button-primary button-small">确认设计</a>
                         <a href="/cloth.html" class="button button-caution button-small">取消设计</a>
                     </div>
@@ -320,7 +323,7 @@ window.addEventListener("load", (function() {
 </script>
 <script type="text/javascript">
 (function() { /* page:  汽车展示合_1 */
-    var pageElement = empGetElementByID('328025549-555962254-2129857797-1769827767', 'div', $('#cor')[0]);
+    var pageElement = empGetElementByID('328025549-555962254-2129857797-1769827767', 'div', $('#3Dmodel')[0]);
     PageInitFunc['328025549-555962254-2129857797-1769827767'] = (function() {
         _124324387819802023771476550153307121760.enable();
     });
@@ -328,17 +331,17 @@ window.addEventListener("load", (function() {
         _124324387819802023771476550153307121760.disable();
     });
     $(pageElement).addClass('col-md-3');
-    pageElement.style.cssText = "margin:100px 0px 0px auto;  z-index: 1;" + "px;height:" + document.body.scrollHeight * 3 / 4 + "px;";
+    pageElement.style.cssText = "margin:0px 0px 0px auto;z-index: 1;width: 100%;";
 })();
 
 (function() { /*  3DScene:  3D场景_1  */
     var pageElement213 = empGetElementByID('328025549-555962254-2129857797-1769827767', 'div', null);
     var itemElement = empGetElementByID('1243243878-1980202377-1476550153-307121760', 'div', pageElement213);
     pageElement213.appendChild(itemElement);
-    itemElement.style.cssText = "width:" + document.body.scrollWidth / 4 + "px;height:" + document.body.scrollHeight * 3 / 4 + "px;";
+    itemElement.style.cssText = "width:100%";
     $(itemElement).addClass('guxblock-move');
 })();
-var _124324387819802023771476550153307121760 = create3dScene('1243243878-1980202377-1476550153-307121760', document.body.scrollWidth / 4, document.body.scrollHeight * 3 / 4, 0xffffff, 0);
+var _124324387819802023771476550153307121760 = create3dScene('1243243878-1980202377-1476550153-307121760', $('#1243243878-1980202377-1476550153-307121760').width(), document.body.scrollHeight * 3 / 4, 0xffffff, 0);
 if (_124324387819802023771476550153307121760) {
     (function() {
         //car1 23,0,0  47,13,33
@@ -361,7 +364,21 @@ if (_124324387819802023771476550153307121760) {
         autoPlay: false,
         autoLookAtCenter: true
     }, function() {
+        //模型加载完毕以后的函数
+        //
+        //
+        //
+        //
+        //
+        //
         showModel('woman', 'big', 'white');
+        $('#1243243878-1980202377-1476550153-307121760').children('canvas').height(document.body.scrollHeight * 3 / 4);
+        $('#1243243878-1980202377-1476550153-307121760').children('canvas').width($('#1243243878-1980202377-1476550153-307121760').width());
+        // $('#1243243878-1980202377-1476550153-307121760').css('background-image','/img/');
+        $(window).resize(function() {
+            $('#1243243878-1980202377-1476550153-307121760').children('canvas').height(document.body.scrollHeight * 3 / 4);
+            $('#1243243878-1980202377-1476550153-307121760').children('canvas').width($('#1243243878-1980202377-1476550153-307121760').width());
+        })
     });
 
     (function() {
