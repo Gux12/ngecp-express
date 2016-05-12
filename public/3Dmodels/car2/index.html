@@ -35,7 +35,6 @@ var ResizePolicy = 3;
     <script src="/js/vendor/bootstrap.min.js" type="text/javascript"></script>
     <!-- <script src="/js/vendor/video.min.js" type="text/javascript"></script> -->
     <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
-    <script scr="/js/main.js"></script>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -77,8 +76,8 @@ var ResizePolicy = 3;
             </div>
         </div>
         <div>
-            <div class="guxblock" style="width:640px;height:400px">
-                <video id="my_video_1" class="hide video-js vjs-big-play-centered">
+            <div class="guxblock-move hide" style="width:640px;height:400px">
+                <video id="my_video_1" class="video-js vjs-big-play-centered" style="width: 100%;height: 100%">
                     <source src="carline.mp4" type="video/mp4">
                     <source src="carline.webm" type="video/webm">
                 </video>
@@ -89,8 +88,6 @@ var ResizePolicy = 3;
     <script>
     $(document).ready(function() {
         var myPlayer = videojs("my_video_1", {
-            // "height": 480,
-            // "width": 600,
             "controls": true,
             "autoplay": false,
             "preload": "auto",
@@ -105,6 +102,7 @@ var ResizePolicy = 3;
     });
     </script>
 </body>
+<script src="/js/main.js"></script>
 
 </html>
 <script type="text/javascript">
@@ -162,7 +160,7 @@ if (_124324387819802023771476550153307121760) {
         autoPlay: false
     }, function() {
         playAnimation(1);
-        
+
     });
     (function() {
         var defaultLight = _124324387819802023771476550153307121760.findObjectByName('_1433554002181051684713614094411073901394');
@@ -235,23 +233,23 @@ if (_124324387819802023771476550153307121760) {
 //     $('#btn-play').removeClass('disabled');
 //     pauseAnimation();
 // });
-// $('#btn-replay').click(function(event) {
-//     $('#btn-pause').removeClass('disabled');
-//     $('#btn-play').addClass('disabled');
-//     resetAnimation(1);
-// });
+$('#btn-replay').click(function(event) {
+    $('#btn-pause').removeClass('disabled');
+    $('#btn-play').addClass('disabled');
+    resetAnimation(1);
+});
 $('#button-play-toggle').click(function(event) {
     /* Act on the event */
     this.innerText = '';
     $(this).append('<i class="fa fa-hand-rock-o" aria-hidden="true"></i>');
 });
 $('#btn-webcam').click(function() {
-    if ($('#my_video_1').hasClass('hide')) {
+    if ($('#my_video_1').parent().hasClass('hide')) {
         // videojs("my_video_1").play();
-        $('#my_video_1').removeClass('hide');
+        $('#my_video_1').parent().removeClass('hide');
     } else {
         // videojs("my_video_1").pause();
-        $('#my_video_1').addClass('hide');
+        $('#my_video_1').parent().addClass('hide');
     }
 
 });
