@@ -72,10 +72,10 @@ $(document).ready(function() {
     });
     $(".guxblock-move").mousedown(function(event) {
         if (event.which == 1) {
-            isMouseDown = !isMouseDown;
             $NowElement = $(this);
             mousePosX = event.pageX - $NowElement.offset().left;
-            mousePosY = event.pageY - $NowElement.offset().top;
+            mousePosY = event.pageY - $NowElement.offset().top
+            isMouseDown = !isMouseDown;
         }
     });
     $(".guxblock-move").mouseup(function(event) {
