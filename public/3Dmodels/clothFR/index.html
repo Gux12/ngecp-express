@@ -35,70 +35,148 @@ var ResizePolicy = 4;
 </head>
 
 <body style="background-color:#000000;-webkit-touch-callout:none;-webkit-user-select:none;">
-    <div class="guxblock-move hide col-md-3" style="padding:20px;left:50px;top:200px;">
-        <h5 class="demo-panel-title font-gray">尺寸</h5>
-        <div class="row">
-            <div class="col-md-4">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios1" id="big" value="big">大号
-                </label>
+    <div class="col-md-3">
+        <div class="guxblock-move hide col-md-11" style="padding:20px;left:50px;top:200px;">
+            <h5 class="demo-panel-title font-gray">尺寸</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="radio" style="font-size: 20px;">
+                        <input type="radio" name="optionsRadios1" id="big" value="big">大号
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="radio" style="font-size: 20px;">
+                        <input type="radio" name="optionsRadios1" id="mid" value="mid">中号
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="radio" style="font-size: 20px;">
+                        <input type="radio" name="optionsRadios1" id="small" value="small" checked>小号
+                    </label>
+                </div>
             </div>
-            <div class="col-md-3">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios1" id="mid" value="mid">中号
-                </label>
+            <hr>
+            <h5 class="demo-panel-title font-gray">颜色</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color1" value="white" checked>
+                        <i class="fa fa-stop" aria-hidden="true" style="color: white;font-size: 30px;"></i>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color2" value="blue">
+                        <i class="fa fa-stop" aria-hidden="true" style="color: blue;font-size: 30px;"></i>
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color3" value="red">
+                        <i class="fa fa-stop" aria-hidden="true" style="color: red;font-size: 30px;"></i>
+                    </label>
+                </div>
             </div>
-            <div class="col-md-4">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios1" id="small" value="small" checked>小号
-                </label>
+            <hr>
+            <h5 class="demo-panel-title font-gray">面料</h5>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="material1"checked>
+                        <img class="change-size-btn" src="../../img/matrial/1.jpg" style="width: 40px;margin-top: 5px;">
+                    </label>
+                </div>
+                <div class="col-md-2" style="margin-left: 10px;">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="material2">
+                        <img class="change-size-btn" src="../../img/matrial/2.jpg" style="width: 40px;margin-top: 5px;">
+                    </label>
+                </div>
+                <div class="col-md-2" style="margin-left: 10px;">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="material3">
+                        <img class="change-size-btn" src="../../img/matrial/3.jpg" style="width: 40px;margin-top: 5px;">
+                    </label>
+                </div>
+                <div class="col-md-2" style="margin-left: 10px;">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="material4">
+                        <img class="change-size-btn" src="../../img/matrial/4.jpg" style="width: 40px;margin-top: 5px;">
+                    </label>
+                </div>
+                <div class="col-md-2" style="margin-left: 10px;">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="material5">
+                        <img class="change-size-btn" src="../../img/matrial/5.jpg" style="width: 40px;margin-top: 5px;">
+                    </label>
+                </div>
             </div>
-        </div>
-        <hr>
-        <h5 class="demo-panel-title font-gray">颜色</h5>
-        <div class="row">
-            <div class="col-md-4">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color1" value="white" checked><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
-                </label>
+            <hr>
+            <h5 class="demo-panel-title font-gray">胸围</h5>
+            <div class="row">
+                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                    <div class="slider" id="slider1" style="margin-top: 10px;width: 100%;"></div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color2" value="blue"><i class="fa fa-stop" aria-hidden="true" style="color: blue"></i>
-                </label>
+            <!--<hr>-->
+            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">腰围</h5>
+            <div class="row">
+                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                    <div class="slider" id="slider2" style="margin-top: 10px;width: 100%;"></div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
-                </label>
+            <!--<hr>-->
+            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">肩宽</h5>
+            <div class="row">
+                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                    <div class="slider" id="slider3" style="margin-top: 10px;width: 100%;"></div>
+                </div>
             </div>
-        </div>
-        <hr>
-        <h5 class="demo-panel-title font-gray">胸围</h5>
-        <div class="col-md-10" style="background-color: white;height: inherit;margin-left: 10px;width: 80%;">
-            <div class="slider" id="slider1" style="margin-top: 28px;width: 100%;"></div>
-        </div>
-        <!--<div class="row">-->
+            <!--<hr>-->
+            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">领口</h5>
+            <div class="row">
+                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                    <div class="slider" id="slider5" style="margin-top: 10px;width: 100%;"></div>
+                </div>
+            </div>
+            <!--<hr>-->
+            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">袖口</h5>
+            <div class="row">
+                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                    <div class="slider" id="slider6" style="margin-top: 10px;width: 100%;"></div>
+                </div>
+            </div>
+            <hr style="margin-top: 0px;">
+            <!--<div class="row">-->
             <!--<div class="col-md-4">-->
-                <!--<label class="radio">-->
-                    <!--<input type="radio" name="optionsRadios3" value="120Kw·h 200Km/h">120Kw·h 200Km/h-->
-                <!--</label>-->
+            <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios3" value="120Kw·h 200Km/h">120Kw·h 200Km/h-->
+            <!--</label>-->
             <!--</div>-->
             <!--<div class="col-md-3">-->
-                <!--<label class="radio">-->
-                    <!--<input type="radio" name="optionsRadios3" value="280Kw·h 300Km/h" checked="">280Kw·h 300Km/h-->
-                <!--</label>-->
+            <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios3" value="280Kw·h 300Km/h" checked="">280Kw·h 300Km/h-->
+            <!--</label>-->
             <!--</div>-->
             <!--<div class="col-md-4">-->
-                <!--<label class="radio">-->
-                    <!--<input type="radio" name="optionsRadios3" value="310Kw·h 370Km/h">310Kw·h 370Km/h-->
-                <!--</label>-->
+            <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios3" value="310Kw·h 370Km/h">310Kw·h 370Km/h-->
+            <!--</label>-->
             <!--</div>-->
-        <!--</div>-->
-        <hr>
-        <div style="padding: 0px;">
-            <a style="width: 50%;margin: 0px;" href="/smart_chain.html" class="button button-primary button-small">确认订单</a>
-            <a style="width: 50%;margin: 0px;" href="/desire_cloth_style_display.html" class="button button-caution button-small">返回</a>
+            <!--</div>-->
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1" style="padding: 0px;">
+                    <a style="width: 100%;margin: 0px;" href="/smart_chain.html" class="button button-royal button-small">协同设计</a>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-5 col-md-offset-1" style="padding: 0px;">
+                    <a style="width: 95%;margin: 0px;" href="/smart_chain.html" class="button button-primary button-small">确认订单</a>
+                </div>
+                <div class="col-md-5" style="padding: 0px;">
+                    <a style="width: 100%;margin: 0px;" href="/desire_cloth_style_display.html" class="button button-primary button-small">返回</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -296,5 +374,35 @@ $(document).ready(function() {
         eval('size_' + cloth_size + '()');
         eval('color_' + cloth_color + '()');
     });
+    var $slider = $(".slider");
+    $slider.slider({
+        min: 0,
+        max: 100,
+        value: 20,
+        orientation: "horizontal",
+        range: "min"
+    });
+    $("#slider1").slider({
+        value: 70,
+    });
+    $("#slider2").slider({
+        value: 30
+    });
+    $("#slider3").slider({
+        value: 50
+    });
+    $("#slider4").slider({
+        value: 50
+    });
+    $("#slider5").slider({
+        value: 60
+    });
+    $("#slider6").slider({
+        value: 70
+    });
+    $("#slider7").slider({
+        value: 40
+    });
+    $slider.css("background-color", "grey");
 });
 </script>
