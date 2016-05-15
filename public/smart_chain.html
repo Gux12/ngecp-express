@@ -207,7 +207,7 @@
                 fadeAllChain(1, function() {
                     $('.smart-chain').hide();
                     $('#enter').hide();
-                    $('#bb').append('<div class="col-md-4 col-md-offset-4"><div class="guxblock-move"><p style="text-align: center" class="font-gray">' + $('#chainhead1')[0].innerText + '：' + buf[0] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead2')[0].innerText + '：' + buf[1] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead3')[0].innerText + '：' + buf[2] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead4')[0].innerText + '：' + buf[3] + '</p><p style="text-align: center" class="font-gray">动态成交价：900￥</p><button class="button button-primary button-rounded" style="width: 49%;margin-top: 20px;">查看订单</button> <button onclick="window.location.href='+"'index.html'"+'" class="button button-highlight button-rounded" style="width: 49%;margin-top: 10px;">继续购物</button></div></div>')
+                    $('#bb').append('<div class="col-md-4 col-md-offset-4"><div class="guxblock-move"><p style="text-align: center" class="font-gray">' + $('#chainhead1')[0].innerText + '：' + buf[0] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead2')[0].innerText + '：' + buf[1] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead3')[0].innerText + '：' + buf[2] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead4')[0].innerText + '：' + buf[3] + '</p><p style="text-align: center" class="font-gray">动态成交价：900￥</p><button class="button button-primary button-rounded" style="width: 49%;margin-top: 20px;">查看订单</button> <button onclick="window.location.href=' + "'index.html'" + '" class="button button-highlight button-rounded" style="width: 49%;margin-top: 10px;">继续购物</button></div></div>')
                 })
             }
         });
@@ -389,7 +389,23 @@
     </script>
     <script>
     $(document).ready(function() {
-        $('.select2-search-choice').
+        $('.select2-search-choice').on('contextmenu', function(event) {
+            $('.contextmenu1').remove();
+            this.oncontextmenu = null;
+            event.preventDefault();
+            $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/cloth1">查看厂房</a><br><a href="/3Dmodels/cloth2">查看流水线</a><br></ul>');
+        });
+        document.onclick = function() {
+            $('.contextmenu1').remove();
+        };
+        $(".multiselect").change(function(event) {
+            $('.select2-search-choice').on('contextmenu', function(event) {
+                $('.contextmenu1').remove();
+                this.oncontextmenu = null;
+                event.preventDefault();
+                $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/cloth1">查看厂房</a><br><a href="/3Dmodels/cloth2">查看流水线</a><br></ul>');
+            });
+        });
     });
     </script>
 </body>

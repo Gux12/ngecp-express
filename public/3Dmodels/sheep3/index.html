@@ -15,33 +15,40 @@
 	<script src="../js3/allInOne.min.js" type="text/javascript"></script>
 	<link href="../js3/animate-animo.css" rel="stylesheet" type="text/css">
 	<script src="../js3/pageSwitch.js"  type="text/javascript"></script>
-	
-	<!--
-	<script src="empcommon/jquery-1.11.3.js" type="text/javascript"></script>
-	<script src="empcommon/empRuntime.js" type="text/javascript"></script>
-	<script src="empcommon/animo.js" type="text/javascript"></script>
-	<script src="empcommon/three.js" type="text/javascript"></script>
-	<script src="empcommon/stats.min.js" type="text/javascript"></script>
-	<script src="empcommon/Detector.js" type="text/javascript"></script>
-	<script src="empcommon/TrackballControls.js" type="text/javascript"></script>
-	<script src="empcommon/TransformControls.js" type="text/javascript"></script>
-	<script src="empcommon/OrbitControls.js" type="text/javascript"></script>
-	<script src="empcommon/FirstPersonControls.js" type="text/javascript"></script>
-	<script src="empcommon/JsonEmpLoader.js" type="text/javascript"></script>
-	<script src="empcommon/Tween.js" type="text/javascript"></script>
-	<script src="empcommon/empBuilder.js" type="text/javascript"></script>
-	<link href="empcommon/animate-animo.css" rel="stylesheet" type="text/css">
-	<script src="empcommon/jgestures.js"  type="text/javascript"></script>
-	<script src="empcommon/pageSwitch.js"  type="text/javascript"></script>
-	<script src="empcommon/empatx.js"  type="text/javascript"></script>
-	<script src="empcommon/jQueryTimer1.2.js"  type="text/javascript"></script>
-	<script src="empcommon/CSS3DRenderer.js"  type="text/javascript"></script>
-	<script src="empcommon/emppanos2.js"  type="text/javascript"></script>
-	-->
 </head>
 
-<body style="position:absolute;  background-color:#3a3a3a; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;-webkit-touch-callout:none;-webkit-user-select:none;">
+<body style="background-color:#000000;-webkit-touch-callout:none;-webkit-user-select:none;">
+    <div class="container">
+        <div class="row">
+            <button class="button button-circle button-raised button-primary" id="btn-webcam" style="position: relative;z-index: 1000;float:right;"><i class="fa fa-binoculars" aria-hidden="true" style="color:white"></i></button>
+        </div>
+        <div>
+            <div class="guxblock-move hide" style="width:640px;height:400px">
+                <video id="my_video_1" class="video-js vjs-big-play-centered" style="width: 100%;height: 100%">
+                    <source src="sheep.mp4" type="video/mp4">
+                </video>
+                <!-- <iframe src="http://weblbs.yystatic.com/s/71862053/2514349088/jsscene.swf" frameborder="0" id="my_video_1" class='hide' width=640 height=400></iframe> -->
+            </div>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        var myPlayer = videojs("my_video_1", {
+            "controls": true,
+            "autoplay": false,
+            "preload": "auto",
+            "loop": true,
+            "poster": "carline.jpg",
+            "controlBar": {
+                "muteToggle": false
+            }
+        }, function() {
+            // Player (this) is initialized and ready
+        });
+    });
+    </script>
 </body>
+<script src="/js/main.js"></script>
 </html>
 
 <script type="text/javascript">
@@ -69,9 +76,10 @@
  if( _3585716817803179332060543381977708624) {
  
 	var EmpCamera = _3585716817803179332060543381977708624.camera; 		   
-	EmpCamera.fov = 45;  EmpCamera.near  = 1;  EmpCamera.far = 10000; 	
+	EmpCamera.fov = 10;  EmpCamera.near  = 1;  EmpCamera.far = 10000; 	
 	_3585716817803179332060543381977708624.autoCamClip = true;
-	EmpCamera.position.set(  44,14,92  );  EmpCamera.lookAt( 0,0,0 );  EmpCamera.up.set( 0,1,0 );   		   
+	EmpCamera.position.set(  34.41595962268791,1.90991715042699
+,-180);  EmpCamera.lookAt( 0,1,0 );  EmpCamera.up.set( 0,1,0 );   		   
 	//_3585716817803179332060543381977708624.controls.target.set(  0,0,0 ) ; 
 	//_3585716817803179332060543381977708624.controls.maxDistance = 20000 ; 	
 	_3585716817803179332060543381977708624.controls.maxPolarAngle = 1.5;	 	 
