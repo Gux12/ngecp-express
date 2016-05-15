@@ -417,6 +417,7 @@ $(document).ready(function() {
     $(':radio').radiocheck();
     $('.radio').addClass('font-gray');
     $('select').select2();
+    $(".header").load("../../header.html");
     var socket = io();
     $('.usernameInput').val($('#username')[0].innerText);
 
