@@ -1,0 +1,428 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animate-animo.min.css">
+    <link rel="stylesheet" href="css/buttons.min.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="css/material_icon.css">
+    <link rel="stylesheet" href="css/uikit.min.css">
+    <link rel="stylesheet" href="css/slidenav.min.css">
+    <style>
+        .shadow-box {
+            padding: 20px;
+            border-radius: 6px;
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            text-align: center;
+        }
+        tr {
+            text-align: center;
+        }
+        td {
+            color: black;
+        }
+        .click-background {
+            background: rgba(0,0,0,0.15);
+        }
+
+        .unclick-background {
+            background: rgba(0,0,0,0);
+        }
+        .span-text-grey {
+            color: gray;
+        }
+
+        .span-text-black {
+            color: black;
+        }
+    </style>
+</head>
+
+<body style="height: auto;">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<nav class="navbar navbar-mynavbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="#">Buy+</a>-->
+            <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的需求<span class="caret"></span></a>
+                    <ul class="dropdown-menu e" style="text-align: center;">
+                        <!--<li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 购物车</a></li>-->
+                        <li><a href="demand_forecast.html"><i class="fa fa-bullseye" aria-hidden="true"></i> 预测需求</a></li>
+                        <li><a href="demand_period.html"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> 周期需求</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">我的供给</a></li>
+                <li><a href="my_space.html">我的空间</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">南艺璇<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="my.html">个人中心</a></li>
+                        <li><a href="#">我的消息</a></li>
+                        <li><a href="#">设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-no-border" placeholder="我好想搜点什么">
+                        <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div style="position: relative;font-size: 40px;text-align: center;margin-top: 35px;">我的需求</div>
+<div class="container-fluid" style="text-align: left;margin-top: 100px;">
+    <!--<div class="col-md-2 col-md-offset-1 shadow-box" style="height: 280px;">-->
+        <!--<div class="col-md-12 col-md-offset-0">-->
+            <!--<button id="button-1" class="mdl-button mdl-js-button apply-button" style="width: 100%;height: 50px;margin-top: 20px;text-align: left;">-->
+                <!--<i class="material-icons" style="color: #4285f4">label</i>-->
+                <!--<span style="font-size: 20px;color: #4285f4;margin-left:40px;">定制需求记录</span>-->
+            <!--</button>-->
+            <!--<button id="button-2" class="mdl-button mdl-js-button apply-button" style="width: 100%;height: 50px;margin-top: 20px;text-align: left;">-->
+                <!--<i class="material-icons" style="color: #4285f4">label</i>-->
+                <!--<span style="font-size: 20px;color: #4285f4;margin-left:40px;">非定制需求记录</span>-->
+            <!--</button>-->
+            <!--&lt;!&ndash;<button class="mdl-button mdl-js-button apply-button" style="width: 100%;height: 50px;margin-top: 20px;">&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="material-icons" style="margin-left: -30px;color: #4285f4">label</i>&ndash;&gt;-->
+                <!--&lt;!&ndash;<span style="font-size: 20px;color: #4285f4;margin-left:40px;">申请借用</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="col-md-6 col-md-offset-3 shadow-box" style="height: auto;">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6 col-md-offset-1" style="text-align: left;">
+                <button id="button-custom" class="ui inverted blue button" style="width: 150px;">定制需求记录</button>
+                <button id="button-non-custom" class="ui inverted blue button" style="width: 150px;margin-left: 30px;">非定制需求记录</button>
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+                <div class="input-group" style="text-align: center;width: 100%;">
+                    <input id='whatINeed' type="text" class="form-control form-no-border" placeholder="搜索记录">
+                    <div class="input-group-addon"><i class="fa fa-microphone" aria-hidden="true" style="cursor: pointer;"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-10 col-md-offset-1">
+                <div data-uk-slideset="{default: 1}" class="uk-slidenav-position">
+                    <ul class="uk-slideset" style="padding: 0px;">
+                        <li id="li-custom" style="list-style-type:none;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align: left;">
+                                    <span class="span-text-grey">2016-3-24</span>
+                                    <span class="span-text-grey" style="margin-left: 53px;">订单编号：10315</span>
+                                    <span class="span-text-grey" style="margin-left: 252px;">单价：230$</span>
+                                    <span class="span-text-grey" style="margin-left: 30px;">总价：230$</span>
+                                </div>
+                                <div class="panel-body row" style="text-align: left;height: 90px;">
+                                    <div class="col-md-2">
+                                        <img src="img/goods/belt.jpg" style="border-style: groove;border-width: 2px;width: 60px;">
+                                    </div>
+                                    <div class="col-md-4" style="margin-left: 0px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">Polo By Ralph Lauren</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">拉夫劳伦 女式腰带</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="margin-left: -30px;margin-top: 18px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">x1</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left: thick solid darkgray;border-width: 1px; height: 60px;margin-top: 0px;margin-left: 30px;"></div>
+                                    <div class="col-md-4" style="margin-left: -10px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">选择个人设计师：John</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">尺码：M</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align: left;">
+                                    <span class="span-text-grey">2016-3-11</span>
+                                    <span class="span-text-grey" style="margin-left: 53px;">订单编号：10235</span>
+                                    <span class="span-text-grey" style="margin-left: 251px;">单价：560$</span>
+                                    <span class="span-text-grey" style="margin-left: 30px;">总价：560$</span>
+                                </div>
+                                <div class="panel-body row" style="text-align: left;height: 90px;">
+                                    <div class="col-md-2">
+                                        <img src="img/goods/blouses.jpg" style="border-style: groove;border-width: 2px;width: 60px;">
+                                    </div>
+                                    <div class="col-md-4" style="margin-left: 0px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">Ports / 宝姿2016</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">女装中袖纯色衬衫</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="margin-left: -30px;margin-top: 18px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">x1</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left: thick solid darkgray;border-width: 1px; height: 60px;margin-top: 0px;margin-left: 30px;"></div>
+                                    <div class="col-md-4" style="margin-left: -10px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">选择个人设计师：Emmerson</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">尺码：M</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align: left;">
+                                    <span class="span-text-grey">2016-2-16</span>
+                                    <span class="span-text-grey" style="margin-left: 53px;">订单编号：10215</span>
+                                    <span class="span-text-grey" style="margin-left: 251px;">单价：800$</span>
+                                    <span class="span-text-grey" style="margin-left: 30px;">总价：800$</span>
+                                </div>
+                                <div class="panel-body row" style="text-align: left;height: 90px;">
+                                    <div class="col-md-2">
+                                        <img src="img/goods/scarf.jpg" style="border-style: groove;border-width: 2px;width: 60px;">
+                                    </div>
+                                    <div class="col-md-4" style="margin-left: 0px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">Louis Vuitton 路易·威登</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">女士水貂毛围巾</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="margin-left: -30px;margin-top: 18px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">x1</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left: thick solid darkgray;border-width: 1px; height: 60px;margin-top: 0px;margin-left: 30px;"></div>
+                                    <div class="col-md-4" style="margin-left: -10px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">选择个人设计师：Jennifer</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">尺码：M</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="li-non-custom" style="list-style-type:none;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align: left;">
+                                    <span class="span-text-grey">2016-3-25</span>
+                                    <span class="span-text-grey" style="margin-left: 53px;">订单编号：20185</span>
+                                    <span class="span-text-grey" style="margin-left: 251px;">单价：230$</span>
+                                    <span class="span-text-grey" style="margin-left: 30px;">总价：230$</span>
+                                </div>
+                                <div class="panel-body row" style="text-align: left;height: 90px;">
+                                    <div class="col-md-2">
+                                        <img src="img/goods/shoes.jpg" style="border-style: groove;border-width: 2px;width: 60px;">
+                                    </div>
+                                    <div class="col-md-4" style="margin-left: 0px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">JIMMY CHOO</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">女士时尚高跟鞋</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="margin-left: -30px;margin-top: 18px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">x1</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left: thick solid darkgray;border-width: 1px; height: 60px;margin-top: 0px;margin-left: 30px;"></div>
+                                    <div class="col-md-4" style="margin-left: -10px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">款式编号：X486</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">尺码：M</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align: left;">
+                                    <span class="span-text-grey">2016-3-11</span>
+                                    <span class="span-text-grey" style="margin-left: 53px;">订单编号：20155</span>
+                                    <span class="span-text-grey" style="margin-left: 251px;">单价：560$</span>
+                                    <span class="span-text-grey" style="margin-left: 30px;">总价：560$</span>
+                                </div>
+                                <div class="panel-body row" style="text-align: left;height: 90px;">
+                                    <div class="col-md-2">
+                                        <img src="img/goods/blouses.jpg" style="border-style: groove;border-width: 2px;width: 60px;">
+                                    </div>
+                                    <div class="col-md-4" style="margin-left: 0px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">香云莎</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">真丝香云纱女装礼服</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="margin-left: -30px;margin-top: 18px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">x1</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left: thick solid darkgray;border-width: 1px; height: 60px;margin-top: 0px;margin-left: 30px;"></div>
+                                    <div class="col-md-4" style="margin-left: -10px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">款式编号：NK135</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">尺码：M</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="text-align: left;">
+                                    <span class="span-text-grey">2016-2-16</span>
+                                    <span class="span-text-grey" style="margin-left: 53px;">订单编号：20080</span>
+                                    <span class="span-text-grey" style="margin-left: 251px;">单价：800$</span>
+                                    <span class="span-text-grey" style="margin-left: 30px;">总价：800$</span>
+                                </div>
+                                <div class="panel-body row" style="text-align: left;height: 90px;">
+                                    <div class="col-md-2">
+                                        <img src="img/goods/earrings.jpg" style="border-style: groove;border-width: 2px;width: 60px;">
+                                    </div>
+                                    <div class="col-md-4" style="margin-left: 0px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">Cartier JUSTE UN CLOU</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">钻石耳环</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="margin-left: -30px;margin-top: 18px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">x1</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1" style="border-left: thick solid darkgray;border-width: 1px; height: 60px;margin-top: 0px;margin-left: 30px;"></div>
+                                    <div class="col-md-4" style="margin-left: -10px;margin-top: 5px;">
+                                        <p class="span-text-black" style="margin-bottom: 5px;">
+                                            <span class="span-text-grey">款式编号：FT812</span>
+                                        </p>
+                                        <p class="span-text-black" style="margin-top: 5px;">
+                                            <span class="span-text-grey">尺码：M</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous" style="margin-top: -30px;margin-left: -80px;"></a>
+                    <a href="" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next" style="margin-top: -30px;margin-right: -80px;"></a>
+                    <!--</div>-->
+                </div>
+            </div>
+            <!--<div class="row" style="margin-top: 50px;">-->
+                <!--<button class="ui blue basic button" style="width: 100px;">查看记录</button>-->
+                <!--<button class="ui orange basic button" style="width: 100px;margin-left: 50px;">删除记录</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/vendor/semantic.min.js"></script>
+<script src="js/vendor/animo.min.js"></script>
+<script src="js/vendor/flat-ui.js"></script>
+<script src="js/vendor/lightbox.js"></script>
+<script src="js/vendor/material.min.js"></script>
+<script src="js/vendor/uikit.min.js"></script>
+<script src="js/vendor/slideset.min.js"></script>
+<script src="js/main2.js"></script>
+<script>
+    $(window).load(function() {
+        $(".mdl-button").click(function() {
+            $(".mdl-button").addClass("unclick-background");
+            $(this).removeClass("unclick-background");
+            $(this).addClass("click-background");
+        });
+
+        $("#button-custom").click();
+    });
+    $(document).ready(function () {
+        $("#button-custom").focus();
+        $("#button-custom").click(function () {
+            if (!$("#li-custom").hasClass("uk-active")) {
+                $(".uk-slidenav-next").click();
+            }
+        });
+        $("#button-non-custom").click(function () {
+            if (!$("#li-non-custom").hasClass("uk-active")) {
+                $(".uk-slidenav-next").click();
+            }
+        });
+
+        $(".uk-slidenav").mouseup(function () {
+            if ($("#li-custom").hasClass("uk-active")) {
+                $("#button-non-custom").focus();
+            } else {
+                $("#button-custom").focus();
+            }
+        });
+    })
+</script>
+</body>
+
+</html>
