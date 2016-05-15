@@ -39,8 +39,8 @@ var ResizePolicy = 4;
             </button>
             <button class="button button-primary button-raised button-rounded button-raised" id='button-play-toggle' style="z-index: 1000"><i class="fa fa-camera" aria-hidden="true" style="color:white">自动相机</i></button>
             <button class="button button-primary button-raised button-rounded" id="btn-replay" style="z-index: 1000">回放 <span class="fui-checkbox-unchecked"></span></button>
-            <button class="button button-primary button-raised button-box button-raised" id="" onclick="resetAnimation(0.1,true)" style="z-index: 1000">×10</button>
-            <button class="button button-primary button-raised button-box button-raised" id="" onclick="resetAnimation(1,true)" style="z-index: 1000">×1</button>
+            <button class="button button-primary button-raised button-box button-raised" id="" onclick="playAnimation(0.1, false);" style="z-index: 1000">×10</button>
+            <button class="button button-primary button-raised button-box button-raised" id="" onclick="playAnimation(1, false);" style="z-index: 1000">×1</button>
             <button class="button button-circle button-raised button-primary" id="btn-webcam" style="z-index: 1000;float:right;"><i class="fa fa-binoculars" aria-hidden="true" style="color:white"></i></button>
             <div class="collapse" id="collapseExample" style="z-index: 1000">
                 <div style="border: 1px solid #ccc;border-radius: 10px;padding: 20px 15px 0 15px;z-index: 1000;background-color: rgba(255,255,255,0.7);">
@@ -132,7 +132,7 @@ var _3585716817803179332060543381977708624 = create3dScene('35857168-1780317933-
     'controls': 'orbit',
     'jsonfile': 'carPL/index.js',
     'fileLoadEndFunc': function() {
-        playAnimation(1, true);
+        playAnimation(1, false);
     }
 });
 if (_3585716817803179332060543381977708624) {
