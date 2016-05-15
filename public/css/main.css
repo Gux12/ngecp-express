@@ -141,10 +141,10 @@ fieldset[disabled] .navbar-mynavbar .btn-link:focus {
     color: #ccc;
 }
 
-.navbar-mynavbar {
-    opacity: 0;
-    transition: opacity 1s;
-}
+/*.navbar-mynavbar {*/
+    /*opacity: 0;*/
+    /*transition: opacity 1s;*/
+/*}*/
 
 .navbar-mynavbar:hover {
     opacity: 1;
