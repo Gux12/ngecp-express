@@ -35,31 +35,114 @@ var ResizePolicy = 4;
 </head>
 
 <body style="background-color:#000000;-webkit-touch-callout:none;-webkit-user-select:none;">
-    <div class="guxblock-move hide col-md-2" style="padding:20px;left:50px;top:200px;">
+    <!--<div class="guxblock-move hide col-md-2" style="padding:20px;left:50px;top:200px;">-->
+        <!--<h5 class="demo-panel-title font-gray">型号</h5>-->
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios1" id="ES210" value="210">ES210-->
+        <!--</label>-->
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios1" id="ES260" value="260" checked="">ES260-->
+        <!--</label>-->
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios1" id="EV200" value="200">EV200-->
+        <!--</label>-->
+        <!--<hr>-->
+        <!--<h5 class="demo-panel-title font-gray">颜色</h5>-->
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>-->
+        <!--</label>-->
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>-->
+        <!--</label>-->
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>-->
+        <!--</label>-->
+        <!--<hr>-->
+    <div class="guxblock-move hide col-md-3" style="padding:20px;left:50px;top:200px;">
         <h5 class="demo-panel-title font-gray">型号</h5>
-        <label class="radio">
-            <input type="radio" name="optionsRadios1" id="ES210" value="210">ES210
-        </label>
-        <label class="radio">
-            <input type="radio" name="optionsRadios1" id="ES260" value="260" checked="">ES260
-        </label>
-        <label class="radio">
-            <input type="radio" name="optionsRadios1" id="EV200" value="200">EV200
-        </label>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios1" id="ES210" value="210">ES210
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios1" id="ES260" value="260" checked="">ES260
+                </label>
+            </div>
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios1" id="EV200" value="200">EV200
+                </label>
+            </div>
+        </div>
         <hr>
         <h5 class="demo-panel-title font-gray">颜色</h5>
-        <label class="radio">
-            <input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>
-        </label>
-        <label class="radio">
-            <input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
-        </label>
-        <label class="radio">
-            <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
-        </label>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
+                </label>
+            </div>
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
+                </label>
+            </div>
+        </div>
         <hr>
-        <a href="/smart_chain_car.html" class="button button-primary button-small">确认订单</a>
-        <a href="/desire_car_display.html" class="button button-caution button-small">返回</a>
+        <h5 class="demo-panel-title font-gray">马力</h5>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios3"  value="120Kw·h 200Km/h">120Kw·h 200Km/h
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios3"  value="280Kw·h 300Km/h" checked="">280Kw·h 300Km/h
+                </label>
+            </div>
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios3"  value="310Kw·h 370Km/h">310Kw·h 370Km/h
+                </label>
+            </div>
+        </div>
+        <hr>
+        <h5 class="demo-panel-title font-gray">轮胎</h5>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios4"  value="tire1" style="margin-top: 40px;">
+                    <img src="carShow/tire1.jpg" style="width: 100px;">
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios4"  value="tire2" checked="">
+                    <img src="carShow/tire2.jpg" style="width: 100px;">
+                </label>
+            </div>
+            <div class="col-md-4">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios4"  value="tire3">
+                    <img src="carShow/tire3.jpg" style="width: 90px;">
+                </label>
+            </div>
+        </div>
+        <hr>
+        <div style="padding: 0px;">
+            <a style="width: 50%;margin: 0px;" href="/smart_chain_car.html" class="button button-primary button-small">确认订单</a>
+            <a style="width: 50%;margin: 0px;" href="/desire_car_display.html" class="button button-caution button-small">返回</a>
+        </div>
+
     </div>
 <!--     <div class="col-md-4 col-md-offset-4" style="top:400px;z-index:1000">
         <div class="progress">
