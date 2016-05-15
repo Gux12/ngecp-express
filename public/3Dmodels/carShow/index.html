@@ -35,32 +35,32 @@ var ResizePolicy = 4;
 </head>
 
 <body style="background-color:#000000;-webkit-touch-callout:none;-webkit-user-select:none;">
-        <div class="guxblock-move" style="width:400px;padding:20px;left:20px;top:200px">
-            <h3 class="demo-panel-title font-gray">型号</h3>
-            <label class="radio">
-                <input type="radio" name="optionsRadios1" id="big" value="big">ES210
-            </label>
-            <label class="radio">
-                <input type="radio" name="optionsRadios1" id="mid" value="mid" checked="">ES260
-            </label>
-            <label class="radio">
-                <input type="radio" name="optionsRadios1" id="small" value="small">EV200
-            </label>
-            <hr>
-            <h3 class="demo-panel-title font-gray">颜色</h3>
-            <label class="radio">
-                <input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>
-            </label>
-            <label class="radio">
-                <input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
-            </label>
-            <label class="radio">
-                <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
-            </label>
-            <hr>
-            <a href="/smart_chain_car.html" class="button button-primary button-small">确认订单</a>
-            <a href="/desire_car_display.html" class="button button-caution button-small">返回</a>
-        </div>
+    <div class="guxblock-move hide col-md-2" style="padding:20px;left:50px;top:200px;">
+        <h5 class="demo-panel-title font-gray">型号</h5>
+        <label class="radio">
+            <input type="radio" name="optionsRadios1" id="ES210" value="210">ES210
+        </label>
+        <label class="radio">
+            <input type="radio" name="optionsRadios1" id="ES260" value="260" checked="">ES260
+        </label>
+        <label class="radio">
+            <input type="radio" name="optionsRadios1" id="EV200" value="200">EV200
+        </label>
+        <hr>
+        <h5 class="demo-panel-title font-gray">颜色</h5>
+        <label class="radio">
+            <input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>
+        </label>
+        <label class="radio">
+            <input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
+        </label>
+        <label class="radio">
+            <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
+        </label>
+        <hr>
+        <a href="/smart_chain_car.html" class="button button-primary button-small">确认订单</a>
+        <a href="/desire_car_display.html" class="button button-caution button-small">返回</a>
+    </div>
 </body>
 
 </html>
@@ -79,7 +79,7 @@ window.addEventListener("load", (function() {
 <script type="text/javascript">
 (function() { /* page:  新主页_1 */
     var pageElement = empGetElementByID('1831030337-1501314425-203771178-1815113035', 'div', null);
-    pageElement.style.cssText = " background-color:rgba(105,105,105,0.8);position:absolute;margin:0px 0px 0px 0px ;width:100%;height:100%;  z-index: 1;overflow:hidden;display:none;";
+    pageElement.style.cssText = " background-color:rgba(0,0,0,0.8);position:absolute;margin:0px 0px 0px 0px ;width:100%;height:100%;  z-index: 1;overflow:hidden;display:none;";
     PageInitFunc['1831030337-1501314425-203771178-1815113035'] = (function() {
         _3585716817803179332060543381977708624.enable();
     });
@@ -160,6 +160,8 @@ var _3585716817803179332060543381977708624 = create3dScene('35857168-1780317933-
         _3585716817803179332060543381977708624.group['car_260'].push(_3585716817803179332060543381977708624.findObjectByName('Mesh81'));
         _3585716817803179332060543381977708624.group['car_260'].push(_3585716817803179332060543381977708624.findObjectByName('Mesh82'));
         _3585716817803179332060543381977708624.group['car_260'].push(_3585716817803179332060543381977708624.findObjectByName('Mesh83'));
+        $('.hide').removeClass('hide');
+        _3585716817803179332060543381977708624.showSkybox(true);
     }
 });
 if (_3585716817803179332060543381977708624) {
@@ -194,7 +196,7 @@ if (_3585716817803179332060543381977708624) {
 
 } /*addChildrenItems end*/
 
-_3585716817803179332060543381977708624.showSkybox(true);
+_3585716817803179332060543381977708624.showSkybox(false);
 _3585716817803179332060543381977708624.showGround(false);
 _3585716817803179332060543381977708624.showAxis(false);
 
@@ -311,5 +313,13 @@ scene3DFunction["Mesh92_up"] = Mesh92_up;
 $(document).ready(function() {
     $(':radio').radiocheck();
     $('.radio').addClass('font-gray');
+    $(':radio').on('change.radiocheck', function() {
+        // Do something
+        var car_type = $(":checked[name='optionsRadios1']").val();
+        var car_color = $(":checked[name='optionsRadios2']").val();
+        eval('show' + car_type + '()');
+        eval('show' + car_color + '()');
+    });
+
 });
 </script>
