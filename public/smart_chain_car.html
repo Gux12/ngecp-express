@@ -30,110 +30,110 @@
 </head>
 
 <body>
-<!--[if lt IE 8]>
+    <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="header"></div>
-<div class="container-fluid" style="text-align: left;margin-top: 53px;" id='bb'>
-    <!--         <div class="row">
+    <div class="header"></div>
+    <div class="container-fluid" style="text-align: left;margin-top: 53px;" id='bb'>
+        <!--         <div class="row">
         <canvas id="c" height="100" width="100" style="position: relative;"></canvas>
     </div> -->
-    <div class="row">
-        <div class="col-md-12">
-            <h4 style="text-align: center" class="animated fadeIn" id="auto">自动生成供应链中...ヽ(•̀ω•́ )ゝ</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align: center" class="animated fadeIn" id="auto">自动生成供应链中...ヽ(•̀ω•́ )ゝ</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 smart-chain" id="smart-chain1">
+                <div class="guxblock">
+                    <div class="row">
+                        <p style="text-align: center" id='chainhead1' class="font-gray">原材料供应商</p>
+                        <select multiple="multiple" class="form-control multiselect multiselect-info col-md-12">
+                            <option value="北京电动机厂" selected>北京电动机厂</option>
+                            <option value="东风电动机厂">东风电动机厂</option>
+                            <option value="无锡电动机厂">无锡电动机厂</option>
+                            <option value="玉柴电动机厂">玉柴电动机厂</option>
+                            <option value="南昌电动机厂">南昌电动机厂</option>
+                            <option value="朝阳电动机厂">朝阳电动机厂</option>
+                        </select>
+                    </div>
+                    <hr style="border-top: 2px solid #666666;">
+                    <div class="chart">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 smart-chain" id="smart-chain2">
+                <div class="guxblock">
+                    <div class="row">
+                        <p style="text-align: center" id='chainhead2' class="font-gray">生产商</p>
+                        <select multiple="multiple" class="form-control multiselect multiselect-info">
+                            <option value="北京汽车股份有限公司" selected>北京汽车股份有限公司</option>
+                            <option value="北京现代汽车有限公司">北京现代汽车有限公司</option>
+                            <option value="克莱斯勒汽车公司">克莱斯勒汽车公司</option>
+                            <option value="北京奔驰汽车有限公司">北京奔驰汽车有限公司</option>
+                            <option value="中国第一汽车集团公司">中国第一汽车集团公司</option>
+                            <option value="上海通用汽车有限公司">上海通用汽车有限公司</option>
+                        </select>
+                    </div>
+                    <hr style="border-top: 2px solid #666666;">
+                    <div class="chart">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 smart-chain" id="smart-chain3">
+                <div class="guxblock">
+                    <div class="row">
+                        <p style="text-align: center" id='chainhead3' class="font-gray">集散中心</p>
+                        <select multiple="multiple" class="form-control multiselect multiselect-info">
+                            <option value="酷车之家4S店" selected>酷车之家4S店</option>
+                            <option value="荣华4S店">荣华4S店</option>
+                            <option value="奔驰4S店">奔驰4S店</option>
+                            <option value="中盛汽车销售公司">中盛汽车销售公司</option>
+                            <option value="慧达园汽车销售">慧达园汽车销售</option>
+                            <option value="捷亚泰汽贸公司">捷亚泰汽贸公司</option>
+                        </select>
+                    </div>
+                    <hr style="border-top: 2px solid #666666;">
+                    <div class="chart">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 smart-chain" id="smart-chain4">
+                <div class="guxblock">
+                    <div class="row">
+                        <p style="text-align: center" id='chainhead4' class="font-gray">配送服务商</p>
+                        <select multiple="multiple" class="form-control multiselect multiselect-info">
+                            <option value="顺丰" selected>顺丰</option>
+                            <option value="申通">申通</option>
+                            <option value="中通">中通</option>
+                            <option value="圆通">圆通</option>
+                            <option value="德邦">德邦</option>
+                            <option value="韵达">韵达</option>
+                        </select>
+                    </div>
+                    <hr style="border-top: 2px solid #666666;">
+                    <div class="chart">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align: center"><a id="enter" class="button button-glow button-rounded button-jumbo button-action hide">确认订单</a></h1>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3 smart-chain" id="smart-chain1">
-            <div class="guxblock">
-                <div class="row">
-                    <p style="text-align: center" id='chainhead1' class="font-gray">原材料供应商</p>
-                    <select multiple="multiple" class="form-control multiselect multiselect-info col-md-12">
-                        <option value="北京电动机厂" selected>北京电动机厂</option>
-                        <option value="东风电动机厂">东风电动机厂</option>
-                        <option value="无锡电动机厂">无锡电动机厂</option>
-                        <option value="玉柴电动机厂">玉柴电动机厂</option>
-                        <option value="南昌电动机厂">南昌电动机厂</option>
-                        <option value="朝阳电动机厂">朝阳电动机厂</option>
-                    </select>
-                </div>
-                <hr style="border-top: 2px solid #666666;">
-                <div class="chart">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 smart-chain" id="smart-chain2">
-            <div class="guxblock">
-                <div class="row">
-                    <p style="text-align: center" id='chainhead2' class="font-gray">生产商</p>
-                    <select multiple="multiple" class="form-control multiselect multiselect-info">
-                        <option value="北京汽车股份有限公司" selected>北京汽车股份有限公司</option>
-                        <option value="北京现代汽车有限公司">北京现代汽车有限公司</option>
-                        <option value="克莱斯勒汽车公司">克莱斯勒汽车公司</option>
-                        <option value="北京奔驰汽车有限公司">北京奔驰汽车有限公司</option>
-                        <option value="中国第一汽车集团公司">中国第一汽车集团公司</option>
-                        <option value="上海通用汽车有限公司">上海通用汽车有限公司</option>
-                    </select>
-                </div>
-                <hr style="border-top: 2px solid #666666;">
-                <div class="chart">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 smart-chain" id="smart-chain3">
-            <div class="guxblock">
-                <div class="row">
-                    <p style="text-align: center" id='chainhead3' class="font-gray">集散中心</p>
-                    <select multiple="multiple" class="form-control multiselect multiselect-info">
-                        <option value="酷车之家4S店" selected>酷车之家4S店</option>
-                        <option value="荣华4S店">荣华4S店</option>
-                        <option value="奔驰4S店">奔驰4S店</option>
-                        <option value="中盛汽车销售公司">中盛汽车销售公司</option>
-                        <option value="慧达园汽车销售">慧达园汽车销售</option>
-                        <option value="捷亚泰汽贸公司">捷亚泰汽贸公司</option>
-                    </select>
-                </div>
-                <hr style="border-top: 2px solid #666666;">
-                <div class="chart">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 smart-chain" id="smart-chain4">
-            <div class="guxblock">
-                <div class="row">
-                    <p style="text-align: center" id='chainhead4' class="font-gray">配送服务商</p>
-                    <select multiple="multiple" class="form-control multiselect multiselect-info">
-                        <option value="顺丰" selected>顺丰</option>
-                        <option value="申通">申通</option>
-                        <option value="中通">中通</option>
-                        <option value="圆通">圆通</option>
-                        <option value="德邦">德邦</option>
-                        <option value="韵达">韵达</option>
-                    </select>
-                </div>
-                <hr style="border-top: 2px solid #666666;">
-                <div class="chart">
-                </div>
-            </div>
-        </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h1 style="text-align: center"><a id="enter" class="button button-glow button-rounded button-jumbo button-action hide">确认订单</a></h1>
-        </div>
-    </div>
-</div>
-</div>
-<script src="js/vendor/jquery-1.11.2.min.js"></script>
-<!-- <script src="js/jquery-2.1.1.js"></script> -->
-<script src="js/vendor/animo.min.js"></script>
-<script src="js/vendor/flat-ui.js"></script>
-<script src="js/vendor/select2.full.min.js"></script>
-<!-- <script src="js/vendor/lightbox.js"></script> -->
-<script src="js/main.js"></script>
-<script src="js/vendor/echarts.min.js"></script>
-<script>
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <!-- <script src="js/jquery-2.1.1.js"></script> -->
+    <script src="js/vendor/animo.min.js"></script>
+    <script src="js/vendor/flat-ui.js"></script>
+    <script src="js/vendor/select2.full.min.js"></script>
+    <!-- <script src="js/vendor/lightbox.js"></script> -->
+    <script src="js/main.js"></script>
+    <script src="js/vendor/echarts.min.js"></script>
+    <script>
     jQuery(document).ready(function($) {
         // 这部分是动态供应链的页面smart_chain.html相关的代码
 
@@ -156,14 +156,14 @@
             $('#smart-chain' + pos).show();
             if ($('#smart-chain' + pos).length) {
                 $('#smart-chain' + pos).animo({
-                            animation: 'fadeOut',
-                            duration: 0.5,
-                            timing: "easy-in",
-                            keep: true
-                        },
-                        function() {
-                            fadeAllChain(pos + 1, callback)
-                        }
+                        animation: 'fadeOut',
+                        duration: 0.5,
+                        timing: "easy-in",
+                        keep: true
+                    },
+                    function() {
+                        fadeAllChain(pos + 1, callback)
+                    }
                 );
             } else {
                 callback();
@@ -206,7 +206,7 @@
                 fadeAllChain(1, function() {
                     $('.smart-chain').hide();
                     $('#enter').hide();
-                    $('#bb').append('<div class="col-md-4 col-md-offset-4"><div class="guxblock-move"><p style="text-align: center" class="font-gray">' + $('#chainhead1')[0].innerText + '：' + buf[0] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead2')[0].innerText + '：' + buf[1] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead3')[0].innerText + '：' + buf[2] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead4')[0].innerText + '：' + buf[3] + '</p><p style="text-align: center" class="font-gray">动态成交价：900￥</p><button class="button button-primary button-rounded" style="width: 49%;margin-top: 20px;">查看订单</button> <button onclick="window.location.href='+"'index.html'"+'" class="button button-highlight button-rounded" style="width: 49%;margin-top: 10px;">继续购物</button></div></div>')
+                    $('#bb').append('<div class="col-md-4 col-md-offset-4"><div class="guxblock-move"><p style="text-align: center" class="font-gray">' + $('#chainhead1')[0].innerText + '：' + buf[0] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead2')[0].innerText + '：' + buf[1] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead3')[0].innerText + '：' + buf[2] + '</p><p style="text-align: center" class="font-gray">' + $('#chainhead4')[0].innerText + '：' + buf[3] + '</p><p style="text-align: center" class="font-gray">动态成交价：900￥</p><button class="button button-primary button-rounded" style="width: 49%;margin-top: 20px;">查看订单</button> <button onclick="window.location.href=' + "'index.html'" + '" class="button button-highlight button-rounded" style="width: 49%;margin-top: 10px;">继续购物</button></div></div>')
                 })
             }
         });
@@ -385,7 +385,28 @@
         }
         $(".header").load("header.html");
     });
-</script>
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('.select2-search-choice').on('contextmenu', function(event) {
+            $('.contextmenu1').remove();
+            this.oncontextmenu = null;
+            event.preventDefault();
+            $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/car1">查看厂房</a><br><a href="/3Dmodels/carPL">查看流水线</a><br></ul>');
+        });
+        document.onclick = function() {
+            $('.contextmenu1').remove();
+        };
+        $(".multiselect").change(function(event) {
+            $('.select2-search-choice').on('contextmenu', function(event) {
+                $('.contextmenu1').remove();
+                this.oncontextmenu = null;
+                event.preventDefault();
+                $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/car1">查看厂房</a><br><a href="/3Dmodels/carPL">查看流水线</a><br></ul>');
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
