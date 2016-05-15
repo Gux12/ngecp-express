@@ -1,0 +1,176 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animate-animo.min.css">
+    <link rel="stylesheet" href="css/buttons.min.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!--<link rel="stylesheet" href="css/lightbox.css">-->
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link rel="stylesheet" href="css/uikit.min.css">
+    <link rel="stylesheet" href="css/slidenav.min.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style>
+        /*.shadow-box {
+            padding: 20px;
+            border-radius: 6px;
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px 0;
+            overflow: hidden;
+            text-align: center;
+        }*/
+        .p-title {
+            font-size: 30px;
+            font-weight: bold;
+            color: teal;
+        }
+        .p-content {
+            font-size: 20px;
+            /*margin-top: 20px;*/
+        }
+        div {
+            color: black;
+        }
+        tr {
+            text-align: center;
+        }
+        td {
+            color: black;
+        }
+    </style>
+</head>
+
+<body style="overflow: auto;">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<nav class="navbar navbar-mynavbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="index.html">NGECP</a>-->
+            <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true" style="color: white;"></i></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的需求<span class="caret"></span></a>
+                    <ul class="dropdown-menu e" style="text-align: center;">
+                        <!--<li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> 购物车</a></li>-->
+                        <li><a href="demand_forecast.html"><i class="fa fa-bullseye" aria-hidden="true"></i> 预测需求</a></li>
+                        <li><a href="demand_period.html"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> 周期需求</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">我的供给</a></li>
+                <li><a href="my_space.html">我的空间</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">南艺璇<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="my.html">个人中心</a></li>
+                        <li><a href="#">我的消息</a></li>
+                        <li><a href="#">设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-no-border" placeholder="我好想搜点什么">
+                        <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<!-- <div style="text-align: center;color: white;font-size: 40px;">
+    朋友圈
+</div> -->
+<div class="container-fluid" style="text-align: left;margin-top: 30px;width: 100%;">
+    <div class="row">
+        <!--<div class="shadow-box col-md-4 col-md-offset-2" style="height: 400px;background-image: url(img/bg/1.jpg);text-align: center;">-->
+            <!--<p class="p-title" style="margin-top: 60px;">我的需求</p>-->
+            <!--<p class="p-content" style="margin-top: 30px;">历史记录1...................</p>-->
+            <!--<p class="p-content">历史记录2...................</p>-->
+        <!--</div>-->
+        <div class="shadow-box col-md-4 col-md-offset-2" style="text-align: center;height: 400px;padding: 0px;background-color: white;overflow: hidden;border-radius: 10px;">
+            <div class="img-disp" id="img-disp-1">
+                <img src="img/bg/1.jpg" style="height: 330px;width: 100%" class="lightbox-item">
+            </div>
+            <a href="my_demand.html"></a>
+            <p class="p-title" style="margin-top: 24px;">我的需求</p>
+        </div>
+        <div class="shadow-box col-md-4 col-md-offset-0" style="text-align: center;height: 400px;padding: 0px;background-color: white;overflow: hidden;border-radius: 10px;margin-left: 10px;">
+            <div class="img-disp" id="img-disp-2">
+                <img src="img/bg/2.jpg" style="height: 330px;width: 100%" class="lightbox-item">
+            </div>
+            <a href="my_supply.html"></a>
+            <p class="p-title" style="margin-top: 24px;">我的供给</p>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="shadow-box col-md-4 col-md-offset-2" style="text-align: center;height: 400px;padding: 0px;background-color: white;overflow: hidden;border-radius: 10px;">
+            <div class="img-disp" id="img-disp-3">
+                <img src="img/bg/3.jpg" style="height: 330px;width: 100%" class="lightbox-item">
+            </div>
+            <a href="my_space.html"></a>
+            <p class="p-title" style="margin-top: 24px;">我的空间</p>
+        </div>
+        <div class="shadow-box col-md-4 col-md-offset-0" style="text-align: center;height: 400px;padding: 0px;background-color: white;overflow: hidden;border-radius: 10px;margin-left: 10px;">
+            <div class="img-disp" id="img-disp-4">
+                <img src="img/bg/4.jpg" style="height: 330px;width: 100%" class="lightbox-item">
+            </div>
+            <a href="my.html"></a>
+            <p class="p-title" style="margin-top: 24px;">我</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/vendor/semantic.min.js"></script>
+<script src="js/vendor/animo.min.js"></script>
+<script src="js/vendor/flat-ui.js"></script>
+<!--<script src="js/vendor/lightbox.js"></script>-->
+<script src="js/vendor/uikit.min.js"></script>
+<script src="js/vendor/slideset.min.js"></script>
+<script src="js/vendor/lightbox.js"></script>
+<script src="js/main.js"></script>
+<script src="js/index.js"></script>
+</body>
+<div style="height: 100px;background-color: #3ca2e0;"></div>
+</html>
