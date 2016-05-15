@@ -135,6 +135,7 @@ _3585716817803179332060543381977708624.showAxis(false);
 
 scene3DFunction["Mesh51_up"] = function() {
     console.log('mesh51.up');
+    $('#1014388300-204095075-1382966175-532960535')[0].src = '/my_demand.html';
     _3585716817803179332060543381977708624.switchToCameraAni(
         new THREE.Vector3(953.87, 772.65, -8040.47), new THREE.Vector3(975.9329023792653, 772.65, -8018.266603997944), 2000);
     play_218455548106575501646684145248585887(2, 1, true);
@@ -142,6 +143,7 @@ scene3DFunction["Mesh51_up"] = function() {
 };
 scene3DFunction["Mesh52_up"] = function() {
     console.log('mesh52.up');
+    $('#1014388300-204095075-1382966175-532960535')[0].src = '/my_supply_display.html';
     _3585716817803179332060543381977708624.switchToCameraAni(
         //new THREE.Vector3(1046.22,772.65,-8129.62 ), new THREE.Vector3(1084.61,774.17,-8088,28),2000);
         new THREE.Vector3(1046.22, 772.65, -8129.62), new THREE.Vector3(1072.4981153779017, 772.65, -8102.765099006754), 2000);
@@ -151,6 +153,7 @@ scene3DFunction["Mesh52_up"] = function() {
 };
 scene3DFunction["Mesh53_up"] = function() {
     console.log('mesh53.up');
+    $('#1014388300-204095075-1382966175-532960535')[0].src = '/my.html';
     _3585716817803179332060543381977708624.switchToCameraAni(
         //new THREE.Vector3(1046.22,692.43,-8129.62 ), new THREE.Vector3(1085.68,696.68,-8087.14),2000);
         new THREE.Vector3(1046.22, 692.43, -8129.62), new THREE.Vector3(1074.5104617813677, 692.43, -8100.506344479612), 2000);
@@ -160,6 +163,8 @@ scene3DFunction["Mesh53_up"] = function() {
 };
 scene3DFunction["Mesh54_up"] = function() {
     console.log('mesh54.up');
+    $('#1014388300-204095075-1382966175-532960535')[0].src = '/my_space.html';
+
     _3585716817803179332060543381977708624.switchToCameraAni(
         //new THREE.Vector3(953.87,692.43,-8040.47 ), new THREE.Vector3(994.7, 693.66, -7999.38), 2000);
         new THREE.Vector3(953.87, 692.43, -8040.47), new THREE.Vector3(975.9329023792653, 692.43, -8018.266603997944), 2000);
@@ -174,7 +179,7 @@ scene3DFunction["Mesh54_up"] = function() {
     var itemElement = empGetElementByID('1014388300-204095075-1382966175-532960535', 'iframe', pageElement213);
     pageElement213.appendChild(itemElement);
     itemElement.style.cssText = "pointer-events:auto; background-color:rgba(128,128,128,1);position:absolute;left:0px;top:0px;width:100%;height:100%;opacity:0;transform-origin:50% 50%;-webkit-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-o-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform:translate(0px,0px) rotate(0deg) skew(0deg,0deg) scale(1,1);  z-index:8;";
-    itemElement.src = '/my_demand.html';
+    // itemElement.src = '/my_demand.html';
 })();
 
 (function() { // text:  文字_2  
@@ -190,6 +195,34 @@ scene3DFunction["Mesh54_up"] = function() {
         _3585716817803179332060543381977708624.switchToCameraAni(new THREE.Vector3(1000, 732.1, -8085), new THREE.Vector3(1078.4524366755934, 730.7372111938981, -7994.6385079918045), 2000);
     });
 })();
+
+var init_hist = history.length;
+(function() { // text:  文字_2  
+    var pageElement213 = empGetElementByID('1831030337-1501314425-203771178-1815113035', 'div', null);
+    var textElement = empGetElementByID('prev', 'a', pageElement213);
+    pageElement213.appendChild(textElement);
+    textElement.innerHTML = '<img src="/img/prev.png" alt="">';
+    textElement.style.cssText = "z-index:1000;position:absolute;cursor: pointer;top:500px;";
+    $(textElement).addClass('hide');
+    $(textElement).addClass('navbar-brand');
+    $('#prev').click(function(event) {
+        /* Act on the event */
+        history.go(-1);
+    });
+})();
+(function() { // text:  文字_2  
+    var pageElement213 = empGetElementByID('1831030337-1501314425-203771178-1815113035', 'div', null);
+    var textElement = empGetElementByID('next', 'a', pageElement213);
+    pageElement213.appendChild(textElement);
+    textElement.innerHTML = '<img src="/img/next.png" alt="">';
+    textElement.style.cssText = "z-index:1000;position:absolute;cursor: pointer;top:500px;right:0px";
+    $(textElement).addClass('hide');
+    $(textElement).addClass('navbar-brand');
+    $('#next').click(function(event) {
+        /* Act on the event */
+        history.go(1);
+    });
+})();
 </script>
 <style type="text/css">
 @keyframes _EMP_218455548106575501646684145248585887_10143883002040950751382966175532960535 {
@@ -199,7 +232,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 0;
     }
-    62.5% {
+    80% {
         opacity: 0;
     }
 }
@@ -211,7 +244,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 0;
     }
-    37.5% {
+    2% {
         opacity: 0;
     }
 }
@@ -223,7 +256,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 0;
     }
-    62.5% {
+    80% {
         opacity: 0;
     }
 }
@@ -235,7 +268,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 0;
     }
-    37.5% {
+    2% {
         opacity: 0;
     }
 }
@@ -247,7 +280,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 0;
     }
-    62.5% {
+    80% {
         opacity: 0;
     }
 }
@@ -259,7 +292,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 0;
     }
-    37.5% {
+    2% {
         opacity: 0;
     }
 }
@@ -271,7 +304,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 0;
     }
-    62.5% {
+    80% {
         opacity: 0;
     }
 }
@@ -283,7 +316,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 0;
     }
-    37.5% {
+    2% {
         opacity: 0;
     }
 }
@@ -295,7 +328,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 0;
     }
-    62.5% {
+    80% {
         opacity: 0;
     }
 }
@@ -307,7 +340,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 0;
     }
-    37.5% {
+    2% {
         opacity: 0;
     }
 }
@@ -332,7 +365,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 1;
     }
-    62.5% {
+    80% {
         opacity: 1;
     }
     100% {
@@ -344,7 +377,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 1;
     }
-    37.5% {
+    2% {
         opacity: 1;
     }
     0% {
@@ -356,7 +389,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 1;
     }
-    62.5% {
+    80% {
         opacity: 1;
     }
     100% {
@@ -368,7 +401,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 1;
     }
-    37.5% {
+    2% {
         opacity: 1;
     }
     0% {
@@ -380,7 +413,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 1;
     }
-    62.5% {
+    80% {
         opacity: 1;
     }
     100% {
@@ -392,7 +425,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 1;
     }
-    37.5% {
+    2% {
         opacity: 1;
     }
     0% {
@@ -404,7 +437,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 1;
     }
-    62.5% {
+    80% {
         opacity: 1;
     }
     100% {
@@ -416,7 +449,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 1;
     }
-    37.5% {
+    2% {
         opacity: 1;
     }
     0% {
@@ -428,7 +461,7 @@ scene3DFunction["Mesh54_up"] = function() {
     0% {
         opacity: 1;
     }
-    62.5% {
+    80% {
         opacity: 1;
     }
     100% {
@@ -440,7 +473,7 @@ scene3DFunction["Mesh54_up"] = function() {
     100% {
         opacity: 1;
     }
-    37.5% {
+    2% {
         opacity: 1;
     }
     0% {
@@ -466,7 +499,7 @@ scene3DFunction["Mesh54_up"] = function() {
 </style>
 <script type="text/javascript">
 function play_218455548106575501646684145248585887(durationstr, times, keepflag) {
-    $('#1243243878-1980202377-1476550153-307121760').animo({
+    $('#35857168-1780317933-206054338-1977708624').animo({
         animation: '_EMP_372132801553199978204629711899230913_218455548106575501646684145248585887',
         duration: durationstr,
         iterate: times,
@@ -478,25 +511,27 @@ function play_218455548106575501646684145248585887(durationstr, times, keepflag)
         iterate: times,
         keep: keepflag
     }, function() {
-        $('#35857168-1780317933-206054338-1977708624').toggleClass('hide');
-        $('#1336755497-2097942093-1778399733-748177945_text').toggleClass('hide');
+        $('#35857168-1780317933-206054338-1977708624').addClass('hide');
+        $('#1336755497-2097942093-1778399733-748177945_text').removeClass('hide');
+        $('#prev').removeClass('hide');
+        $('#next').removeClass('hide');
         // _3585716817803179332060543381977708624.disable();
     });
-
-
 }
 
 function play_INV_218455548106575501646684145248585887(durationstr, times, keepflag) {
     // _3585716817803179332060543381977708624.enable();
-    $('#1336755497-2097942093-1778399733-748177945_text').toggleClass('hide');
-    $('#35857168-1780317933-206054338-1977708624').toggleClass('hide');
+    $('#1336755497-2097942093-1778399733-748177945_text').addClass('hide');
+    $('#35857168-1780317933-206054338-1977708624').removeClass('hide');
+    $('#prev').addClass('hide');
+    $('#next').addClass('hide');
     $('#1014388300-204095075-1382966175-532960535').animo({
         animation: 'INV_EMP_10143883002040950751382966175532960535_218455548106575501646684145248585887',
         duration: durationstr,
         iterate: times,
         keep: keepflag
     });
-    $('#1243243878-1980202377-1476550153-307121760').animo({
+    $('#35857168-1780317933-206054338-1977708624').animo({
         animation: 'INV_EMP_372132801553199978204629711899230913_218455548106575501646684145248585887',
         duration: durationstr,
         iterate: times,
@@ -506,6 +541,6 @@ function play_INV_218455548106575501646684145248585887(durationstr, times, keepf
 
 function reset_218455548106575501646684145248585887() {
     $('#1014388300-204095075-1382966175-532960535').animo('cleanse');
-    $('#1243243878-1980202377-1476550153-307121760').animo('cleanse');
+    $('#35857168-1780317933-206054338-1977708624').animo('cleanse');
 }
 </script>

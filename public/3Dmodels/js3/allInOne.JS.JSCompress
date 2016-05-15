@@ -1,15 +1,15 @@
 ﻿<jscompress public="http://www.jscompress.cn/" command="import-combineset">
-<combinefile path="allInOne.JS">
-<sourcefile path="..\empcommon\empRuntime.js" />
-<sourcefile path="..\empcommon\animo.js" />
-<sourcefile path="..\empcommon\Detector.js" />
-<sourcefile path="..\empcommon\OrbitControls.js" />
-<sourcefile path="..\empcommon\TrackballControls.js" />
-<sourcefile path="..\empcommon\TransformControls.js" />
-<sourcefile path="..\empcommon\JsonEmpLoader.js" />
-<sourcefile path="..\empcommon\Tween.js" />
-<sourcefile path="..\empcommon\empBuilder.js" />
-<sourcefile path="..\empcommon\jgestures.js" />
-<sourcefile path="..\empcommon\stats.js" />
+<combinefile path="allInOne.js">
+    <sourcefile path="..\empcommon\empRuntime.js" />
+    <sourcefile path="..\empcommon\animo.js" />
+    <sourcefile path="..\empcommon\Detector.js" />
+    <sourcefile path="..\empcommon\OrbitControls.js" />
+    <sourcefile path="..\empcommon\TrackballControls.js" />
+    <sourcefile path="..\empcommon\TransformControls.js" />
+    <sourcefile path="..\empcommon\JsonEmpLoader.js" />
+    <sourcefile path="..\empcommon\Tween.js" />
+    <sourcefile path="..\empcommon\empBuilder.js" />
+    <sourcefile path="..\empcommon\jgestures.js" />
+    <sourcefile path="..\empcommon\stats.js" />
 </combinefile>
 </jscompress>
