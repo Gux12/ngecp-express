@@ -126,6 +126,27 @@
         </div>
     </div>
     </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <div class="modal-title font-gray" id="myModalLabel" style="text-align:center;"></div>
+                </div>
+                <div class="modal-body" id='mymodalbody'>
+                <div id="allmap0" style="width:100%;height:500px"></div>
+                    <div id="allmap1" style="width:100%;height:500px"></div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-inverse btn-block" href="/3Dmodels/cloth1">查看详情</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
     <!-- <script src="js/jquery-2.1.1.js"></script> -->
     <script src="js/vendor/animo.min.js"></script>
@@ -390,23 +411,48 @@
     <script>
     $(document).ready(function() {
         $('.select2-search-choice').on('contextmenu', function(event) {
+            value = $(this).children('div')[0].innerText;
             $('.contextmenu1').remove();
             this.oncontextmenu = null;
             event.preventDefault();
-            $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/cloth1">查看厂房</a><br><a href="/3Dmodels/cloth2">查看流水线</a><br></ul>');
+            $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a onclick="BaiduDiTu(' + "'" + value + "'" + ')" data-toggle="modal" data-target="#myModal" style="cursor:pointer">查看地址</a><br><a href="/3Dmodels/cloth1">查看厂房</a><br><a href="/3Dmodels/cloth2">查看流水线</a><br></ul>');
         });
         document.onclick = function() {
             $('.contextmenu1').remove();
         };
         $(".multiselect").change(function(event) {
             $('.select2-search-choice').on('contextmenu', function(event) {
+                value = $(this).children('div')[0].innerText;
                 $('.contextmenu1').remove();
                 this.oncontextmenu = null;
                 event.preventDefault();
-                $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/cloth1">查看厂房</a><br><a href="/3Dmodels/cloth2">查看流水线</a><br></ul>');
+                $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a onclick="BaiduDiTu(' + "'" + value + "'" + ')" data-toggle="modal" data-target="#myModal" style="cursor:pointer">查看地址</a><br><a href="/3Dmodels/cloth1">查看厂房</a><br><a href="/3Dmodels/cloth2">查看流水线</a><br></ul>');
             });
         });
     });
+    </script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XRC0hIYvB73wvsTGOH4ETyCx"></script>
+    <script type="text/javascript">
+    // 百度地图API功能
+    var count = 1;
+
+    function BaiduDiTu(name) {
+        $('#allmap' + (count-1)).remove();
+        $('#myModalLabel')[0].innerText = name;
+        var eval('map'+count) = new BMap.Map('allmap' + count);
+        eval('map'+count).centerAndZoom(new BMap.Point(116.4, 39.9), 12);
+        eval('map'+count).setCurrentCity("北京");
+        eval('map'+count).addControl(new BMap.MapTypeControl());
+        eval('map'+count).enableScrollWheelZoom(true);
+        var eval('local'+count) = new BMap.LocalSearch(eval('map'+count), {
+            renderOptions: {
+                map: eval('map'+count)
+            }
+        });
+        eval('local'+count).search(name);
+        count = count + 1;
+        $('#mymodalbody').append('<div id="allmap' + count + '" style="width:100%;height:500px"></div>');
+    }
     </script>
 </body>
 
