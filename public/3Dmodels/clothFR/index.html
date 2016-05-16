@@ -36,8 +36,8 @@ var ResizePolicy = 4;
 
 <body style="background-color:#000000;-webkit-touch-callout:none;-webkit-user-select:none;">
     <div class="col-md-3">
-        <div class="guxblock hide col-md-11" style="padding:20px;left:50px;top:200px;">
-            <h5 class="demo-panel-title font-gray">尺寸</h5>
+        <div class="guxblock hide col-md-11" style="padding:20px;left:50px;top:100px;">
+            <div class="demo-panel-title font-gray">尺寸</div>
             <div class="row">
                 <div class="col-md-3">
                     <label class="radio" style="font-size: 20px;">
@@ -56,7 +56,7 @@ var ResizePolicy = 4;
                 </div>
             </div>
             <hr>
-            <h5 class="demo-panel-title font-gray">颜色</h5>
+            <div class="demo-panel-title font-gray">颜色</div>
             <div class="row">
                 <div class="col-md-3">
                     <label class="radio">
@@ -78,11 +78,11 @@ var ResizePolicy = 4;
                 </div>
             </div>
             <hr>
-            <h5 class="demo-panel-title font-gray">面料</h5>
+            <div class="demo-panel-title font-gray">面料</div>
             <div class="row">
                 <div class="col-md-2">
                     <label class="radio">
-                        <input type="radio" name="optionsRadios2" id="material1"checked>
+                        <input type="radio" name="optionsRadios2" id="material1" checked>
                         <img class="change-size-btn" src="../../img/matrial/1.jpg" style="width: 40px;margin-top: 5px;">
                     </label>
                 </div>
@@ -112,37 +112,37 @@ var ResizePolicy = 4;
                 </div>
             </div>
             <hr>
-            <h5 class="demo-panel-title font-gray">胸围</h5>
             <div class="row">
-                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                <div class="col-md-3 font-gray demo-panel-title">胸围</div>
+                <div class="col-md-9">
                     <div class="slider" id="slider1" style="margin-top: 10px;width: 100%;"></div>
                 </div>
             </div>
             <!--<hr>-->
-            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">腰围</h5>
             <div class="row">
-                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                <div class="col-md-3 font-gray demo-panel-title">腰围</div>
+                <div class="col-md-9">
                     <div class="slider" id="slider2" style="margin-top: 10px;width: 100%;"></div>
                 </div>
             </div>
             <!--<hr>-->
-            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">肩宽</h5>
             <div class="row">
-                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                <div class="col-md-3 font-gray demo-panel-title">肩宽</div>
+                <div class="col-md-9">
                     <div class="slider" id="slider3" style="margin-top: 10px;width: 100%;"></div>
                 </div>
             </div>
             <!--<hr>-->
-            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">领口</h5>
             <div class="row">
-                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                <div class="col-md-3 font-gray demo-panel-title">领口</div>
+                <div class="col-md-9">
                     <div class="slider" id="slider5" style="margin-top: 10px;width: 100%;"></div>
                 </div>
             </div>
             <!--<hr>-->
-            <h5 class="demo-panel-title font-gray" style="margin-top: 0px;">袖口</h5>
             <div class="row">
-                <div class="col-md-10" style="height: inherit;margin-left: 0px;width: 100%;">
+                <div class="col-md-3 font-gray demo-panel-title">袖口</div>
+                <div class="col-md-9">
                     <div class="slider" id="slider6" style="margin-top: 10px;width: 100%;"></div>
                 </div>
             </div>
@@ -180,10 +180,10 @@ var ResizePolicy = 4;
         </div>
     </div>
     <script>
-        $(document).ready(function () {
-//        $(".uk-slidenav-previous").css("margin-left", "-20px;");
-            $(".header").load("header.html");
-        });
+    $(document).ready(function() {
+        //        $(".uk-slidenav-previous").css("margin-left", "-20px;");
+        $(".header").load("header.html");
+    });
     </script>
 </body>
 
@@ -224,7 +224,7 @@ var _3585716817803179332060543381977708624 = create3dScene('35857168-1780317933-
     'controls': 'orbit',
     'jsonfile': 'clothFR/index.js',
     'fileLoadEndFunc': function() {
-    	$('.hide').removeClass('hide');
+        $('.hide').removeClass('hide');
     }
 });
 if (_3585716817803179332060543381977708624) {
@@ -239,7 +239,7 @@ if (_3585716817803179332060543381977708624) {
     _3585716817803179332060543381977708624.controls.target.set(-443, 140, -268);
     _3585716817803179332060543381977708624.controls.maxDistance = 10000;
     _3585716817803179332060543381977708624.controls.maxPolarAngle = 1.7;
-    //_3585716817803179332060543381977708624.controls.minPolarAngle = 1.0;	
+    //_3585716817803179332060543381977708624.controls.minPolarAngle = 1.0;  
 
     EmpCamera.updateProjectionMatrix();
 
