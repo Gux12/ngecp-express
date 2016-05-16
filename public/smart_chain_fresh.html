@@ -123,6 +123,26 @@
                 <h1 style="text-align: center"><a id="enter" class="button button-glow button-rounded button-jumbo button-action hide">确认订单</a></h1>
             </div>
         </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <div class="modal-title font-gray" id="myModalLabel" style="text-align:center;">
+                            <div id='map' style="width:100%;height:500px"></div>
+                        </div>
+                    </div>
+                    <div class="modal-body" id='mymodalbody'></div>
+                    <div class="modal-footer">
+                        <a class="btn btn-inverse btn-block" href="/3Dmodels/cloth1">查看详情</a>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
     </div>
     </div>
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
@@ -389,23 +409,47 @@
     <script>
     $(document).ready(function() {
         $('.select2-search-choice').on('contextmenu', function(event) {
+            value = $(this).children('div')[0].innerText;
             $('.contextmenu1').remove();
             this.oncontextmenu = null;
             event.preventDefault();
-            $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/sheep2">查看牧场</a></ul>');
+            $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a onclick="BaiduDiTu(map1,' + "'" + value + "'" + ')" data-toggle="modal" data-target="#myModal" style="cursor:pointer">查看地址</a><br><a href="/3Dmodels/sheep2">查看牧场</a></ul>');
         });
         document.onclick = function() {
             $('.contextmenu1').remove();
         };
         $(".multiselect").change(function(event) {
             $('.select2-search-choice').on('contextmenu', function(event) {
+                value = $(this).children('div')[0].innerText;
                 $('.contextmenu1').remove();
                 this.oncontextmenu = null;
                 event.preventDefault();
-                $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a>查看地址</a><br><a href="/3Dmodels/sheep2">查看牧场</a></ul>');
+                $('body').append('<ul class="contextmenu1" style="padding:5px;border:3px solid #eee;box-shadow: 10px 10px 3px #888888;font-size:14px;background:white;display:block;top:' + event.clientY + 'px;left:' + event.clientX + 'px;position:absolute;z-index:4000;"><a onclick="BaiduDiTu(map1,' + "'" + value + "'" + ')" data-toggle="modal" data-target="#myModal" style="cursor:pointer">查看地址</a><br><a href="/3Dmodels/sheep2">查看牧场</a></ul>');
             });
         });
     });
+    </script>
+    <script type="text/javascript">
+    // 百度地图API功能
+    var map1 = new BMap.Map('map');
+    map1.centerAndZoom(new BMap.Point(116.4, 39.9), 12);
+    map1.setCurrentCity("北京");
+    map1.addControl(new BMap.MapTypeControl());
+    map1.enableScrollWheelZoom(true);
+
+    function BaiduDiTu(map, name) {
+        // $('#myModalLabel')[0].innerText = name;
+        // $('#mymodalbody').append('<div id=' + name + ' style="width:100%;height:500px"></div>');
+
+        map1.centerAndZoom(new BMap.Point(116.4, 39.9), 12);
+        var local = new BMap.LocalSearch(map, {
+            renderOptions: {
+                map: map
+            }
+        });
+        local.clearResults();
+        local.search(name);
+    }
     </script>
 </body>
 
