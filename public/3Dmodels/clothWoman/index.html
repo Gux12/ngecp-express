@@ -186,6 +186,7 @@ scene3DFunction["Mesh61_up"] = function() {
     $(textElement).addClass('navbar-brand');
     jQuery('#1336755497-2097942093-1778399733-748177945_text').bind('tapone', function(event) {
         play_INV_218455548106575501646684145248585887(2, 1, true);
+        _3585716817803179332060543381977708624.enable();
         _3585716817803179332060543381977708624.switchToCameraAni(new THREE.Vector3(-72, 210, 247), new THREE.Vector3(-2.1667, 213.7, 321.59), 2000);
     });
 })();
@@ -502,7 +503,7 @@ function play_218455548106575501646684145248585887(durationstr, times, keepflag)
         $('#1336755497-2097942093-1778399733-748177945_text').toggleClass('hide');
         $('#prev').toggleClass('hide');
         $('#next').toggleClass('hide');
-        // _3585716817803179332060543381977708624.disable();
+        _3585716817803179332060543381977708624.disable();
     });
     $('#35857168-1780317933-206054338-1977708624').animo({
         animation: '_EMP_372132801553199978204629711899230913_218455548106575501646684145248585887',
@@ -513,7 +514,6 @@ function play_218455548106575501646684145248585887(durationstr, times, keepflag)
 }
 
 function play_INV_218455548106575501646684145248585887(durationstr, times, keepflag) {
-    // _3585716817803179332060543381977708624.enable();
     $('#1336755497-2097942093-1778399733-748177945_text').toggleClass('hide');
     $('#35857168-1780317933-206054338-1977708624').toggleClass('hide');
     $('#prev').toggleClass('hide');

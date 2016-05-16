@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start">start</button>
+    <button id="ok">ok</button>
+    <p id="text"></p>
+    <script>
+    function speak(textToSpeak) {
+        //创建一个 SpeechSynthesisUtterance的实例
+        var newUtterance = new SpeechSynthesisUtterance();
+
+        // 设置文本
+        newUtterance.text = textToSpeak;
+
+        // 添加到队列
+        window.speechSynthesis.speak(newUtterance);
+    }
+    speak('a b c d e f g');
+
+    var newRecognition = new webkitSpeechRecognition();
+    newRecognition.continuous = false;
+    newRecognition.interimResults = true;
+    newRecognition.onresult = function(event) {
+
+        // delve into words detected results & get the latest
+        // total results detected
+        var resultsLength = event.results.length - 1;
+        // get length of latest results
+        var ArrayLength = event.results[resultsLength].length - 1;
+        // get last word detected
+        var saidWord = event.results[resultsLength][ArrayLength].transcript;
+        document.getElementById('text').innerHTML = saidWord;
+    };
+    document.getElementById('start').onclick = function() {
+        newRecognition.start();
+    };
+    document.getElementById('ok').onclick = function() {
+        newRecognition.stop();
+    };
+    </script>
+</body>
+
+</html>

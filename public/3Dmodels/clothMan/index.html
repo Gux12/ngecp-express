@@ -192,6 +192,7 @@ scene3DFunction["Mesh54_up"] = function() {
     $(textElement).addClass('navbar-brand');
     jQuery('#1336755497-2097942093-1778399733-748177945_text').bind('tapone', function(event) {
         play_INV_218455548106575501646684145248585887(2, 1, true);
+        _3585716817803179332060543381977708624.enable();
         _3585716817803179332060543381977708624.switchToCameraAni(new THREE.Vector3(1000, 732.1, -8085), new THREE.Vector3(1078.4524366755934, 730.7372111938981, -7994.6385079918045), 2000);
     });
 })();
@@ -515,7 +516,7 @@ function play_218455548106575501646684145248585887(durationstr, times, keepflag)
         $('#1336755497-2097942093-1778399733-748177945_text').removeClass('hide');
         $('#prev').removeClass('hide');
         $('#next').removeClass('hide');
-        // _3585716817803179332060543381977708624.disable();
+        _3585716817803179332060543381977708624.disable();
     });
 }
 
