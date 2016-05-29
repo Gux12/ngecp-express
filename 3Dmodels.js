@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/:name', function (req, res, next) {
   var fileName = req.params.name;
-  res.sendFile('/3Dmodels/' + fileName + '/index.html', function (err) {
+  res.render('/3Dmodels/' + fileName + '/index.html', function (err) {
     if (err) {
       console.log(err);
       res.status(err.status).end();

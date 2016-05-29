@@ -70,6 +70,10 @@ $(document).ready(function() {
         e.keyCode = 13; //keyCode=13是回车
         $('#search').trigger(e);
     }
+    newRecognition.onerror = function(event) {
+        console.log('error?');
+        console.log(event);
+    }
     $('#speech').click(function(event) {
         /* Act on the event */
         newRecognition.start();

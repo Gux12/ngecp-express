@@ -5,44 +5,186 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+<script src="/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="/js/vendor/recorder.js"></script>
+<script src="/js/vendor/resampler.js"></script>
 
 <body>
-    <button id="start">start</button>
-    <button id="ok">ok</button>
-    <p id="text"></p>
+    <button id="start">开始</button>
     <script>
-    function speak(textToSpeak) {
-        //创建一个 SpeechSynthesisUtterance的实例
-        var newUtterance = new SpeechSynthesisUtterance();
+    var audio_context;
+    var recorder;
 
-        // 设置文本
-        newUtterance.text = textToSpeak;
-
-        // 添加到队列
-        window.speechSynthesis.speak(newUtterance);
+    function startUserMedia(stream) {
+        var input = audio_context.createMediaStreamSource(stream);
+        recorder = new Recorder(input, {
+            numChannels: 1
+        });
     }
-    speak('a b c d e f g');
 
-    var newRecognition = new webkitSpeechRecognition();
-    newRecognition.continuous = false;
-    newRecognition.interimResults = true;
-    newRecognition.onresult = function(event) {
+    function startRecording() {
+        recorder && recorder.record();
+    }
 
-        // delve into words detected results & get the latest
-        // total results detected
-        var resultsLength = event.results.length - 1;
-        // get length of latest results
-        var ArrayLength = event.results[resultsLength].length - 1;
-        // get last word detected
-        var saidWord = event.results[resultsLength][ArrayLength].transcript;
-        document.getElementById('text').innerHTML = saidWord;
+    function stopRecording() {
+        recorder && recorder.stop();
+        // create WAV download link using audio data blob 
+        createDownloadLink();
+        recorder.clear();
+    }
+
+    function createDownloadLink() {
+        recorder && recorder.getBuffer(function(buffers) {
+            var resampler = new Resampler(44100, 16000, 1, buffers[0]);
+            var resampled = resampler.resampler(buffers[0].length);
+            // var buffer = new ArrayBuffer(resampler.outputBuffer.length * 2);
+            // var view = new DataView(buffer);
+            // var offset = 0;
+            // var input = resampler.outputBuffer;
+            // for (var i = 0; i < input.length; i++, offset += 2) {
+            //     var s = Math.max(-1, Math.min(1, input[i]));
+            //     view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+            // }
+
+            function writeString(view, offset, string) {
+                for (var i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            function floatTo16BitPCM(output, offset, input) {
+                for (var i = 0; i < input.length; i++, offset += 2) {
+                    var s = Math.max(-1, Math.min(1, input[i]));
+                    output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+                }
+            }
+            var buffer = new ArrayBuffer(44 + resampler.outputBuffer.length * 2);
+            var view = new DataView(buffer);
+            numChannels = 1;
+            sampleRate = 16000;
+            /* RIFF identifier */
+            writeString(view, 0, 'RIFF');
+            /* RIFF chunk length */
+            view.setUint32(4, 36 + resampler.outputBuffer.length * 2, true);
+            /* RIFF type */
+            writeString(view, 8, 'WAVE');
+            /* format chunk identifier */
+            writeString(view, 12, 'fmt ');
+            /* format chunk length */
+            view.setUint32(16, 16, true);
+            /* sample format (raw) */
+            view.setUint16(20, 1, true);
+            /* channel count */
+            view.setUint16(22, numChannels, true);
+            // sample rate 
+            view.setUint32(24, sampleRate, true);
+            /* byte rate (sample rate * block align) */
+            view.setUint32(28, sampleRate * 4, true);
+            /* block align (channel count * bytes per sample) */
+            view.setUint16(32, numChannels * 2, true);
+            /* bits per sample */
+            view.setUint16(34, 16, true);
+            /* data chunk identifier */
+            writeString(view, 36, 'data');
+            /* data chunk length */
+            view.setUint32(40, resampler.outputBuffer.length * 2, true);
+
+
+            floatTo16BitPCM(view, 44, resampler.outputBuffer);
+            var audioBlob = new Blob([view], {
+                type: 'audio/wav'
+            });
+            // Recorder.forceDownload(audioBlob);
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = state_Change;
+            xhr.open('POST', '/speech', true);
+            xhr.send(audioBlob);
+            var isSend = false;
+
+            function state_Change() {
+                if (xhr.readyState == 4) { // 4 = "loaded"
+                    if (xhr.status == 200) { // 200 = OK
+                        // ...our code here...
+                        var url = URL.createObjectURL(audioBlob);
+                        var li = document.createElement('li');
+                        var au = document.createElement('audio');
+                        var hf = document.createElement('a');
+
+                        au.controls = true;
+                        au.src = url;
+                        hf.href = url;
+                        hf.download = new Date().toISOString() + '.wav';
+                        hf.innerHTML = hf.download;
+                        li.appendChild(au);
+                        li.appendChild(hf);
+                        document.body.appendChild(li);
+                        var ret = eval('(' + xhr.responseText + ')');
+                        if (ret.err_no == 0) {
+                            $('body').append('<p>' + ret.result[0] + '</p>');
+                        } else if (ret.err_no == 3301) {
+                            $('body').append('<p>识别不出来，请重新说</p>');
+                        } else {
+                            $('body').append('<p>参数或者严重错误</p>');
+                        }
+                    } else {
+                        // alert("Problem retrieving XML data");
+                    }
+                } else if (xhr.readyState == 1) {
+                    isSend = false;
+                    setTimeout(function() {
+                        if (!isSend) {
+                            // xhr.abort();
+                            xhr.open('POST', '/speech', true);
+                            xhr.send(audioBlob);
+                            console.log('1');
+                        }
+                    }, 1000);
+                } else if (xhr.readyState == 2) {
+                    isSend = true;
+                }
+            }
+        });
+    }
+
+    window.onload = function init() {
+        try {
+            // webkit shim
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+            window.URL = window.URL || window.webkitURL;
+
+            audio_context = new AudioContext;
+        } catch (e) {
+            alert('No web audio support in this browser!');
+        }
+
+        navigator.getUserMedia({
+            audio: true
+        }, startUserMedia, function(e) {
+            alert('No live audio input: ' + e);
+        });
     };
-    document.getElementById('start').onclick = function() {
-        newRecognition.start();
-    };
-    document.getElementById('ok').onclick = function() {
-        newRecognition.stop();
-    };
+
+    // $('#start').click(function(event) {
+    //     /* Act on the event */
+    //     startRecording();
+    //     setTimeout(stopRecording, 3000);
+    // });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.keyCode === 84) {
+            event.preventDefault();
+            startRecording();
+        }
+    }, false);
+
+    document.addEventListener("keyup", function(event) {
+
+        if (event.keyCode === 84) {
+            stopRecording();
+            event.preventDefault();
+        }
+    }, false);
     </script>
 </body>
 
