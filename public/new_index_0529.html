@@ -14,6 +14,8 @@
 <script src="/js/vendor/interact.js"></script>
 <script src="/js/vendor/jquery.row-grid.js"></script>
 <script src="js/vendor/echarts.js"></script>
+<script src="/js/vendor/recorder.js"></script>
+<script src="/js/vendor/resampler.js"></script>
 <style>
 body {
     height: 100vh;
@@ -55,10 +57,14 @@ body {
 
 #speech-mic-area {
     height: 20%;
+    padding-top: 20px;
+    text-align: center;
 }
 
 #refresh {
     height: 20%;
+    padding-top: 50px;
+    text-align: center;
 }
 
 .drag-drop {
@@ -104,12 +110,19 @@ body {
 
 <body>
     <div id="option-area" class="col-md-2">
+        <a href=""><img src="/img/u2.gif" alt=""></a>
+        <a href=""><img src="/img/u4.gif" alt=""></a>
+        <a href=""><img src="/img/u2.gif" alt=""></a>
     </div>
     <div id="universal-dropzone" class="dropzone col-md-7">
         <div class="row" style="height: 30%;">
-        <div class="col-md-12">
-        	<img id="object-img" src="/img/cloth/TS03K07JWHT_3col_F_1.jpg" alt="" style="height:100%">
-        </div>
+            <img id="object-img" src="/img/cloth/TS03K07JWHT_3col_F_1.jpg" alt="" style="height:100%;float:right;margin-right:10px">
+            <div style="float: left;padding:10px 20px">
+                <h2>北汽EV200</h2>
+                <h1 style="color:blue">进行中</h1>
+                <h1>￥230，000</h1>
+                <h1>给我一辆小汽车</h1>
+            </div>
         </div>
         <div class="col-md-4" style="height: 70%;">
         </div>
@@ -132,13 +145,15 @@ body {
         </script> -->
     </div>
     <div id="drop-block-area" class="col-md-3">
-<!--         <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
+        <!--         <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
         <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div> -->
     </div>
     <div id="speech-mic-area" class="col-md-7">
-        <button class="button button-inverse button-circle button-giant button-longshadow">
+        <!--         <button class="button button-inverse button-circle button-giant button-longshadow">
             <i class="fa fa-microphone"></i>
-        </button>
+        </button> -->
+        <a href=""><img src="/img/u8.gif" alt="" style="height:10vh"></a>
+        <p id="speech" style="font-size:40px">按‘T’说话</p>
         <button id="test" style="display:none">
         </button>
     </div>
@@ -173,8 +188,8 @@ interact('.draggable')
             restriction: "parent",
             endOnly: true,
             elementRect: {
-                top: 0,
-                left: 0,
+                top: 1,
+                left: 1,
                 bottom: 1,
                 right: 1
             }
@@ -186,7 +201,7 @@ interact('.draggable')
         onmove: dragMoveListener,
         // call this function on every dragend event
         onend: function(event) {
-        	$("#ref").click();
+            $("#ref").click();
         }
     });
 
@@ -811,6 +826,181 @@ $.get('/js/vendor/map/china.json', function(chinaJson) {
         myChart.setOption(option, true);
     });
 });
+</script>
+<script>
+var audio_context;
+var recorder;
+
+function startUserMedia(stream) {
+    var input = audio_context.createMediaStreamSource(stream);
+    recorder = new Recorder(input, {
+        numChannels: 1
+    });
+}
+
+function startRecording() {
+    recorder && recorder.record();
+}
+
+function stopRecording() {
+    recorder && recorder.stop();
+    // create WAV download link using audio data blob 
+    createDownloadLink();
+    recorder.clear();
+}
+
+function createDownloadLink() {
+    recorder && recorder.getBuffer(function(buffers) {
+        var resampler = new Resampler(44100, 16000, 1, buffers[0]);
+        var resampled = resampler.resampler(buffers[0].length);
+        // var buffer = new ArrayBuffer(resampler.outputBuffer.length * 2);
+        // var view = new DataView(buffer);
+        // var offset = 0;
+        // var input = resampler.outputBuffer;
+        // for (var i = 0; i < input.length; i++, offset += 2) {
+        //     var s = Math.max(-1, Math.min(1, input[i]));
+        //     view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+        // }
+
+        function writeString(view, offset, string) {
+            for (var i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        function floatTo16BitPCM(output, offset, input) {
+            for (var i = 0; i < input.length; i++, offset += 2) {
+                var s = Math.max(-1, Math.min(1, input[i]));
+                output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+            }
+        }
+        var buffer = new ArrayBuffer(44 + resampler.outputBuffer.length * 2);
+        var view = new DataView(buffer);
+        numChannels = 1;
+        sampleRate = 16000;
+        /* RIFF identifier */
+        writeString(view, 0, 'RIFF');
+        /* RIFF chunk length */
+        view.setUint32(4, 36 + resampler.outputBuffer.length * 2, true);
+        /* RIFF type */
+        writeString(view, 8, 'WAVE');
+        /* format chunk identifier */
+        writeString(view, 12, 'fmt ');
+        /* format chunk length */
+        view.setUint32(16, 16, true);
+        /* sample format (raw) */
+        view.setUint16(20, 1, true);
+        /* channel count */
+        view.setUint16(22, numChannels, true);
+        // sample rate 
+        view.setUint32(24, sampleRate, true);
+        /* byte rate (sample rate * block align) */
+        view.setUint32(28, sampleRate * 4, true);
+        /* block align (channel count * bytes per sample) */
+        view.setUint16(32, numChannels * 2, true);
+        /* bits per sample */
+        view.setUint16(34, 16, true);
+        /* data chunk identifier */
+        writeString(view, 36, 'data');
+        /* data chunk length */
+        view.setUint32(40, resampler.outputBuffer.length * 2, true);
+
+
+        floatTo16BitPCM(view, 44, resampler.outputBuffer);
+        var audioBlob = new Blob([view], {
+            type: 'audio/wav'
+        });
+        // Recorder.forceDownload(audioBlob);
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = state_Change;
+        xhr.open('POST', '/speech', true);
+        xhr.send(audioBlob);
+        var isSend = false;
+
+        function state_Change() {
+            if (xhr.readyState == 4) { // 4 = "loaded"
+                if (xhr.status == 200) { // 200 = OK
+                    // ...our code here...
+                    var url = URL.createObjectURL(audioBlob);
+                    var li = document.createElement('li');
+                    var au = document.createElement('audio');
+                    var hf = document.createElement('a');
+
+                    au.controls = true;
+                    au.src = url;
+                    hf.href = url;
+                    hf.download = new Date().toISOString() + '.wav';
+                    hf.innerHTML = hf.download;
+                    // li.appendChild(au);
+                    // li.appendChild(hf);
+                    // document.body.appendChild(li);
+                    var ret = eval('(' + xhr.responseText + ')');
+                    if (ret.err_no == 0) {
+                    	$("#speech")[0].innerText = ret.result[0];
+                    } else if (ret.err_no == 3301) {
+                    	$("#speech")[0].innerText = '识别不出来，请重新说';
+                    } else {
+                    	$("#speech")[0].innerText = '参数或者严重错误';
+                    }
+                } else {
+                    // alert("Problem retrieving XML data");
+                }
+            } else if (xhr.readyState == 1) {
+                isSend = false;
+                setTimeout(function() {
+                    if (!isSend) {
+                        // xhr.abort();
+                        xhr.open('POST', '/speech', true);
+                        xhr.send(audioBlob);
+                        console.log('1');
+                    }
+                }, 1000);
+            } else if (xhr.readyState == 2) {
+                isSend = true;
+            }
+        }
+    });
+}
+
+window.onload = function init() {
+    try {
+        // webkit shim
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+        window.URL = window.URL || window.webkitURL;
+
+        audio_context = new AudioContext;
+    } catch (e) {
+        alert('No web audio support in this browser!');
+    }
+
+    navigator.getUserMedia({
+        audio: true
+    }, startUserMedia, function(e) {
+        alert('No live audio input: ' + e);
+    });
+};
+
+// $('#start').click(function(event) {
+//     /* Act on the event */
+//     startRecording();
+//     setTimeout(stopRecording, 3000);
+// });
+
+document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 84) {
+        event.preventDefault();
+        startRecording();
+    }
+}, false);
+
+document.addEventListener("keyup", function(event) {
+
+    if (event.keyCode === 84) {
+        stopRecording();
+        event.preventDefault();
+    }
+}, false);
 </script>
 
 </html>
