@@ -188,9 +188,9 @@ var ResizePolicy = 0;
         </div>
         <div class="col-md-5">
             <div class="row">
-                <div class="guxblock-move" style="height: 600px;width: 100%;padding: 20px 0px 20px 0px;">
+                <div class="guxblock-move" style="height: 900px;width: 100%;padding: 20px 0px 20px 0px;">
                     <div class="col-md-9">
-                        <p style="text-align: center;vertical-align: middle;width: 100%"><img src="/img/cloth/cloth2.jpg" alt="" style="max-width: 100%;max-height: 100%;width: 60%"></p>
+                        <p style="text-align: center;vertical-align: middle;width: 100%;margin-top:100px;"><img src="/img/cloth/TS26B28JWHT_3col_F_1.png" alt="" style="max-width: 100%;max-height: 100%;width: 60%"></p>
                     </div>
                     <div class="col-md-3">
                         <h3 class="demo-panel-title font-gray">尺寸</h3>
@@ -206,10 +206,10 @@ var ResizePolicy = 0;
                         <hr>
                         <h3 class="demo-panel-title font-gray">颜色</h3>
                         <label class="radio">
-                            <input type="radio" name="optionsRadios2" id="color1" value="white"><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
+                            <input type="radio" name="optionsRadios2" id="color1" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
                         </label>
                         <label class="radio">
-                            <input type="radio" name="optionsRadios2" id="color2" value="blue" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: blue"></i>
+                            <input type="radio" name="optionsRadios2" id="color2" value="blue"><i class="fa fa-stop" aria-hidden="true" style="color: blue"></i>
                         </label>
                         <label class="radio">
                             <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
@@ -231,10 +231,13 @@ var ResizePolicy = 0;
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-3">
+            <iframe src="http://127.0.0.1:3001/" frameborder="0" style="overflow:hidden;width:100%;height:300px;"></iframe>
             <br>
             <br>
-            <div class="row" style="height: 300px;">
-                <div class="guxblock-move" style="width: 100%;height: 100%;padding: 0px;">
+            <div class="row" style="height: 600px;">
+                <div class="guxblock-move" style="width: 90%;height: 100%;padding: 0px;">
                     <ul class="pages">
                         <li class="chat page">
                             <div class="chatArea">
@@ -321,10 +324,10 @@ if (_124324387819802023771476550153307121760) {
         //
         //
         //
-        showModel('woman', 'big', 'white');
-        $('#1243243878-1980202377-1476550153-307121760').children('canvas').height(document.body.scrollHeight * 3 / 4);
-        $('#1243243878-1980202377-1476550153-307121760').children('canvas').width($('#1243243878-1980202377-1476550153-307121760').width());
-        // $('#1243243878-1980202377-1476550153-307121760').css('background-image','/img/');
+        // showModel('woman', 'big', 'white');
+        // $('#1243243878-1980202377-1476550153-307121760').children('canvas').height(document.body.scrollHeight * 3 / 4);
+        // $('#1243243878-1980202377-1476550153-307121760').children('canvas').width($('#1243243878-1980202377-1476550153-307121760').width());
+        // // $('#1243243878-1980202377-1476550153-307121760').css('background-image','/img/');
         $(window).resize(function() {
             $('#1243243878-1980202377-1476550153-307121760').children('canvas').height(document.body.scrollHeight * 3 / 4);
             $('#1243243878-1980202377-1476550153-307121760').children('canvas').width($('#1243243878-1980202377-1476550153-307121760').width());
@@ -418,7 +421,7 @@ $(document).ready(function() {
     $('.radio').addClass('font-gray');
     $('select').select2();
     $(".header").load("../../header.html", function() {
-        $('.usernameInput').val('南艺璇');
+        $('.usernameInput').val('顾乡');
         var socket = io();
 
 

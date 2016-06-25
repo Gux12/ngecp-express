@@ -148,10 +148,10 @@ var _3585716817803179332060543381977708624 = create3dScene('35857168-1780317933-
         var diftex = textureLoader.load('sheep/a1700.png');
         diftex.wrapS = THREE.RepeatWrapping;
         diftex.wrapT = THREE.RepeatWrapping;
-        var textureLoader = new THREE.TextureLoader();
+        // var textureLoader = new THREE.TextureLoader();
         loader.load("sheep/sheep.js", function(geometry) {
-            geometry.computeFaceNormals();
-            geometry.computeVertexNormals();
+            // geometry.computeFaceNormals();
+            // geometry.computeVertexNormals();
             mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({
                 transparent: true,
                 map: diftex,
@@ -164,7 +164,7 @@ var _3585716817803179332060543381977708624 = create3dScene('35857168-1780317933-
             if (!_3585716817803179332060543381977708624.mixer) {
                 _3585716817803179332060543381977708624.mixer = new THREE.AnimationMixer(_3585716817803179332060543381977708624.scene);
             }
-            var clip = THREE.AnimationClip.CreateFromMorphTargetSequence('gallop', geometry.morphTargets, 30);
+            var clip = THREE.AnimationClip.CreateFromMorphTargetSequence('abc', geometry.morphTargets, 30);
             _3585716817803179332060543381977708624.mixer.clipAction(clip, mesh).setDuration(3).play();
 
             var count = 0;

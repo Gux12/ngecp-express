@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>haltone</title>
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="js/vendor/qrcode.js"></script>
+    <style>
+    #qrcode {
+        width: 160px;
+        height: 160px;
+        margin-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <textarea id="text" style="width:80%" ></textarea>
+    <br />
+    <div id="qrcode"></div>
+    <iframe src="http://tool.css-js.com/base64.html" frameborder="0" style="width:100vw;height:500px;"></iframe>
+    <iframe src="http://jiema.wwei.cn/" frameborder="0" style="width:100vw;height:500px;"></iframe>
+</body>
+<script>
+var qrcode = new QRCode("qrcode");
+
+function makeCode() {
+    var elText = document.getElementById("text");
+
+    if (!elText.value) {
+        alert("Input a text");
+        elText.focus();
+        return;
+    }
+
+    qrcode.makeCode(elText.value);
+}
+$('#text').keyup(function(event) {
+	/* Act on the event */
+	makeCode();
+});
+</script>
+
+</html>
