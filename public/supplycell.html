@@ -39,11 +39,11 @@ body {
     width: 200px;
     height: 200px;
     -webkit-clip-path: circle(50% at 50% 50%);
-    transition: -webkit-transform 0.1s;
+    /*    transition: -webkit-transform 0.1s;
     transition:    -moz-transform 0.1s;
     transition:     -ms-transform 0.1s;
-    transition:      -o-transform 0.1s;
-    transition:         transform 0.1s;
+    transition:      -o-transform 0.1s;*/
+    transition: transform 0.1s;
 }
 
 #dropzone {
@@ -203,7 +203,7 @@ body {
         <button class="button button-caution button-circle button-jumbo button-small" id='dislike12' data-target='draggable12' data-type='supplycellproperty'><i class="fa fa-thumbs-up"></i></button>
         <button class="button button-circle button-jumbo button-small" id='close12' data-target='draggable12' data-type='supplycellproperty'><i class="fa fa-power-off"></i></button>
     </div>
-<!--     <div>
+    <!--     <div>
         <div class='draggable' id='draggable13' data-href='/' data-prop='false'>
             <div class="supply-cell supply-cell-yellow">
                 <img src="img/cloth/cloth_blue_coat.png" class="img-adjusted">
@@ -263,7 +263,10 @@ interact('.draggable').draggable({
     // call this function on every dragmove event
     onmove: dragMoveListener,
     // call this function on every dragend event
-    onend: function(event) {}
+    onend: function(event) {
+        $('button').css('transition', 'transform 0.1s');
+        $('.draggable').css('transition', 'transform 0.1s');
+    }
 });
 
 interact('.draggable').on('tap', function(event) {
@@ -353,6 +356,8 @@ function dragMoveListener(event) {
     $(target).nextAll().each(function(index, el) {
         ElementCenterAddXY($(this)[0], event.dx, event.dy);
     });
+    $('button').css('transition', 'transform 0s');
+    $('.draggable').css('transition', 'transform 0s');
 }
 //供给胞元素左上角移动到x,y
 function dragMoveToXY(target, x, y) {
