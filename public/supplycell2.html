@@ -16,7 +16,7 @@
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="/js/myTrick.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/js/vendor/hammer.min.js"></script>
+<script src="/hammerjs/hammer.min.js"></script>
 <script src="/interact/dist/interact.min.js"></script>
 <script src="/js/vendor/jquery.row-grid.js"></script>
 <script src="/js/vendor/echarts.js"></script>
@@ -469,7 +469,7 @@ interact('.show-info-area').dropzone({
         dragLeave = false;
     },
     ondragleave: function(event) {
-        $dragLeavePrev = DOMInShowInfoArea[DOMInShowInfoArea.indexOf(event.relatedTarget)-1];
+        $dragLeavePrev = DOMInShowInfoArea[DOMInShowInfoArea.indexOf(event.relatedTarget) - 1];
         DOMInShowInfoArea.remove(event.relatedTarget);
         event.relatedTarget.setAttribute('data-inzone', 'false');
         $('.show-info-area').removeClass('show-info-area-lighter');
@@ -499,13 +499,13 @@ interact('.show-info-area').dropzone({
             draggableInZoneResort();
             draggableResort();
         }
-        if (dragLeave) {
+        if (dragLeave && !$($(event.relatedTarget).data('target')).hasClass('hide')) {
             if ($($(event.relatedTarget).data('target')).children('iframe')[0].src == "") {
                 $($(event.relatedTarget).data('target')).children('iframe')[0].src = $(event.relatedTarget).data('href');
             }
             $($(event.relatedTarget).data('target')).addClass('hide');
             if ($dragLeavePrev) {
-               $($dragLeavePrev).removeClass('hide'); 
+                $($($dragLeavePrev).data('target')).removeClass('hide');
             }
         }
     }
@@ -624,18 +624,39 @@ $('#btn-collapse').click(function(event) {
         draggableInZoneResort();
     }
 });
-
-$('.draggable').click(function(event) {
-    /* Act on the event */
-    if ($(this).data('inzone') == true) {
-        var $target = $($(this).data('target'));
+interact('.draggable').on('tap', function(event) {
+    if ($(event.currentTarget).data('inzone') == true) {
+        var $target = $($(event.currentTarget).data('target'));
+        $('.show-info-area').addClass('show-info-area-active');
+        $('.display-area').removeClass('display-area-active');
+        $('.show-info-area').removeClass('show-info-area-lighter');
+        $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+        $($target).css('transition', 'transform 0.3s');
         if ($target.children('iframe')[0].src == "") {
-            $target.children('iframe')[0].src = $(this).data('href');
+            $target.children('iframe')[0].src = $(event.currentTarget).data('href');
         }
         $('.commerce-info-item').addClass('hide');
         $target.removeClass('hide');
     }
+
+    event.preventDefault();
 });
+// $('.draggable').click(function(event) {
+//     /* Act on the event */
+//     if ($(this).data('inzone') == true) {
+//         var $target = $($(this).data('target'));
+//         $('.show-info-area').addClass('show-info-area-active');
+//         $('.display-area').removeClass('display-area-active');
+//         $('.show-info-area').removeClass('show-info-area-lighter');
+//         $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+//         $($target).css('transition', 'transform 0.3s');
+//         if ($target.children('iframe')[0].src == "") {
+//             $target.children('iframe')[0].src = $(this).data('href');
+//         }
+//         $('.commerce-info-item').addClass('hide');
+//         $target.removeClass('hide');
+//     }
+// });
 </script>
 
 </html>
