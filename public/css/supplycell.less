@@ -4,16 +4,22 @@
 @pretty-red-light: lighten(@pretty-red, 10%);
 @pretty-blue: rgba(113, 166, 197, 0.8);
 @pretty-blue-light: lighten(@pretty-blue, 10%);
+@pretty-pink: rgba(255, 222, 201, 0.8);
+@pretty-pink-light: lighten(@pretty-pink, 10%);
 // @pretty-green: ;
 // @pretty-green-light: lighten(@pretty-green, 10%);
 @pretty-orange: rgba(224, 162, 60, 0.8);
 @pretty-orange-light: lighten(@pretty-orange, 10%);
-// @pretty-purple: ;
-// @pretty-purple-light: lighten(@pretty-purple, 10%);
-// @pretty-brown: ;
-// @pretty-brown-light: lighten(@pretty-brown, 10%);
-// @pretty-white: ;
-// @pretty-white-light: lighten(@pretty-white, 10%);
+@pretty-gray: rgba(162, 180, 186, 0.8);
+@pretty-gray-light: lighten(@pretty-gray, 10%);
+@pretty-gray0: rgba(191, 191, 191, 0.8);
+@pretty-gray0-light: lighten(@pretty-gray0, 10%);
+@pretty-purple:rgba(137,119,179,0.8);
+@pretty-purple-light: lighten(@pretty-purple, 10%);
+@pretty-brown:rgba(171,92,37,0.8);
+@pretty-brown-light: lighten(@pretty-brown, 10%);
+@pretty-white:rgba(255,255,255,0.8);
+@pretty-white-light: lighten(@pretty-white, 10%);
 // @pretty-pink: ;
 // @pretty-pink-light: lighten(@pretty-pink, 10%);
 @hundred-percent: 100%;
@@ -51,6 +57,13 @@
             background: @pretty-red-light;
         }
     }
+    &-pink {
+        background: @pretty-pink;
+        border: 1px solid @pretty-pink-light;
+        &:hover {
+            background: @pretty-pink-light;
+        }
+    }
     &-blue {
         background: @pretty-blue;
         border: 1px solid @pretty-blue-light;
@@ -63,6 +76,34 @@
         border: 1px solid @pretty-orange-light;
         &:hover {
             background: @pretty-orange-light;
+        }
+    }
+    &-gray {
+        background: @pretty-gray;
+        border: 1px solid @pretty-gray-light;
+        &:hover {
+            background: @pretty-gray-light;
+        }
+    }
+    &-gray0 {
+        background: @pretty-gray0;
+        border: 1px solid @pretty-gray0-light;
+        &:hover {
+            background: @pretty-gray0-light;
+        }
+    }
+    &-brown {
+        background: @pretty-brown;
+        border: 1px solid @pretty-brown-light;
+        &:hover {
+            background: @pretty-brown-light;
+        }
+    }
+    &-purple {
+        background: @pretty-purple;
+        border: 1px solid @pretty-purple-light;
+        &:hover {
+            background: @pretty-purple-light;
         }
     }
 }
