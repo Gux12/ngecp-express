@@ -454,6 +454,7 @@ Array.prototype.unicPush = function(val) {
     }
 };
 var dragLeave;
+var $dragLeavePrev;
 interact('.show-info-area').dropzone({
     // only accept elements matching this CSS selector
     accept: '.draggable',
@@ -468,6 +469,7 @@ interact('.show-info-area').dropzone({
         dragLeave = false;
     },
     ondragleave: function(event) {
+        $dragLeavePrev = DOMInShowInfoArea[DOMInShowInfoArea.indexOf(event.relatedTarget)-1];
         DOMInShowInfoArea.remove(event.relatedTarget);
         event.relatedTarget.setAttribute('data-inzone', 'false');
         $('.show-info-area').removeClass('show-info-area-lighter');
@@ -496,6 +498,15 @@ interact('.show-info-area').dropzone({
         } else {
             draggableInZoneResort();
             draggableResort();
+        }
+        if (dragLeave) {
+            if ($($(event.relatedTarget).data('target')).children('iframe')[0].src == "") {
+                $($(event.relatedTarget).data('target')).children('iframe')[0].src = $(event.relatedTarget).data('href');
+            }
+            $($(event.relatedTarget).data('target')).addClass('hide');
+            if ($dragLeavePrev) {
+               $($dragLeavePrev).removeClass('hide'); 
+            }
         }
     }
 });
