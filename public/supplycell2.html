@@ -12,15 +12,17 @@
 <link rel="stylesheet" href="/css/buttons.min.css">
 <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
 <link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
-<script src="/js/vendor/jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+<script src="/jquery/dist/jquery.min.js"></script>
 <script src="/js/myTrick.js"></script>
-<script src="/js/vendor/bootstrap.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/js/vendor/hammer.min.js"></script>
 <script src="/interact/dist/interact.min.js"></script>
 <script src="/js/vendor/jquery.row-grid.js"></script>
 <script src="/js/vendor/echarts.js"></script>
 <script src="/js/vendor/jquery.sidr.min.js"></script>
 <script src="/less/dist/less.min.js"></script>
+<script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 <style>
 body {
     background-color: #e0e0e0;
@@ -40,10 +42,16 @@ body {
     margin: 0px;
     padding: 0px;
     border: 0px;
-    width: 15vmin;
-    height: 15vmin;
+    width: 8vw;
+    height: 8vw;
     -webkit-clip-path: circle(50% at 50% 50%);
     transition: transform 0.3s;
+}
+
+.draggable-fake {
+    position: relative;
+    width: 8vw;
+    height: 8vw;
 }
 
 
@@ -57,11 +65,11 @@ body {
 
 .show-info-area {
     position: fixed;
-    width: 85vw;
+    width: 100vw;
     height: 100%;
-    left: -70%;
+    left: -89vw;
     background-color: #222;
-    transition: left 0.5s, background-color 0.5s;
+    transition: left 0.3s, background-color 0.3s;
 }
 
 .show-info-area-active {
@@ -73,30 +81,42 @@ body {
 }
 
 .display-area {
-    width: 85vw;
+    width: 89vw;
     position: relative;
-    left: 85%;
-    transition: left 0.5s;
+    left: 100%;
+    transition: left 0.3s;
 }
 
 .display-area-active {
-    left: 15%;
+    left: 11vw;
 }
 
 #cell-reviewer {
     position: relative;
     float: right;
     height: 100%;
-    width: 18vmin;
-    background: rgba(170, 170, 170, 0.2);
+    width: 10vw;
+    background: rgba(120, 120, 170, 0.2);
 }
 
 #btn-collapse {
     position: relative;
     float: right;
     height: 100%;
-    font-size: 20px;
-    padding: 0 10px;
+    font-size: 1vw;
+    padding: 0 0.5vw;
+}
+
+.commerce-info {
+    position: relative;
+    float: right;
+    width: 88vw;
+    height: 100vh;
+}
+
+.commerce-info-item {
+    width: 100%;
+    height: 100%;
 }
 </style>
 
@@ -105,11 +125,86 @@ body {
     </div> -->
     <div class='show-info-area'>
         <button id='btn-collapse' class='button button-inverse'><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-        <div id='cell-reviewer'></div>
+        <div id='cell-reviewer' class="mCustomScrollbar" data-mcs-theme="dark">
+        </div>
+        <div class='commerce-info'>
+            <div id='commerce-info1' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info2' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info3' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info4' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info5' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info6' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info7' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info8' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info9' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info10' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info11' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info12' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info13' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info14' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info15' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info16' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info17' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info18' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info19' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info20' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info21' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info22' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info23' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+            <div id='commerce-info24' class='hide commerce-info-item'>
+                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+            </div>
+        </div>
     </div>
     <div class='display-area display-area-active'>
         <div>
-            <div class='draggable' id='draggable1' data-inzone='false'>
+            <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info1' data-href='3Dmodels/clothFR'>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -117,7 +212,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable2' data-inzone='false'>
+            <div class='draggable' id='draggable2' data-inzone='false' data-target='#commerce-info2' data-href='3Dmodels/carShow'>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
@@ -125,7 +220,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable3' data-inzone='false'>
+            <div class='draggable' id='draggable3' data-inzone='false' data-target='#commerce-info3' data-href='3Dmodels/sheep2/'>
                 <div class="supply-cell supply-cell-yellow">
                     <img src="img/cloth/cloth_blue_coat.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -133,7 +228,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable4' data-inzone='false'>
+            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='http://www.baidu.com'>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth2.jpg" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -141,7 +236,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable5' data-inzone='false'>
+            <div class='draggable' id='draggable5' data-inzone='false' data-target='#commerce-info5' data-href='https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-1065938546.16.l8HtPY&id=531344918768'>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -149,7 +244,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable6' data-inzone='false'>
+            <div class='draggable' id='draggable6' data-inzone='false' data-target='#commerce-info6' data-href='https://item.taobao.com/item.htm?spm=2013.1.1998246701.3.g9tVyE&scm=1007.10152.33975.1p0&id=534169450701&pvid=be292249-dd35-4ec1-b984-06d8d5066268'>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -157,7 +252,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable7' data-inzone='false'>
+            <div class='draggable' id='draggable7' data-inzone='false' data-target='#commerce-info7' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -165,7 +260,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable8' data-inzone='false'>
+            <div class='draggable' id='draggable8' data-inzone='false' data-target='#commerce-info8' data-href=''>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -173,7 +268,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable9' data-inzone='false'>
+            <div class='draggable' id='draggable9' data-inzone='false' data-target='#commerce-info9' data-href=''>
                 <div class="supply-cell supply-cell-yellow">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -181,7 +276,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable10' data-inzone='false'>
+            <div class='draggable' id='draggable10' data-inzone='false' data-target='#commerce-info10' data-href=''>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -189,7 +284,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable11' data-inzone='false'>
+            <div class='draggable' id='draggable11' data-inzone='false' data-target='#commerce-info11' data-href=''>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -197,7 +292,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable12' data-inzone='false'>
+            <div class='draggable' id='draggable12' data-inzone='false' data-target='#commerce-info12' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
@@ -205,7 +300,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable1' data-inzone='false'>
+            <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info13' data-href=''>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -213,7 +308,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable2' data-inzone='false'>
+            <div class='draggable' id='draggable2' data-inzone='false' data-target='#commerce-info14' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
@@ -221,7 +316,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable3' data-inzone='false'>
+            <div class='draggable' id='draggable3' data-inzone='false' data-target='#commerce-info15' data-href=''>
                 <div class="supply-cell supply-cell-yellow">
                     <img src="img/cloth/cloth_blue_coat.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -229,7 +324,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable4' data-inzone='false'>
+            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info16' data-href=''>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth2.jpg" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -237,7 +332,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable5' data-inzone='false'>
+            <div class='draggable' id='draggable5' data-inzone='false' data-target='#commerce-info17' data-href=''>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -245,7 +340,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable6' data-inzone='false'>
+            <div class='draggable' id='draggable6' data-inzone='false' data-target='#commerce-info18' data-href=''>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -253,7 +348,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable7' data-inzone='false'>
+            <div class='draggable' id='draggable7' data-inzone='false' data-target='#commerce-info19' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -261,7 +356,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable8' data-inzone='false'>
+            <div class='draggable' id='draggable8' data-inzone='false' data-target='#commerce-info20' data-href=''>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -269,7 +364,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable9' data-inzone='false'>
+            <div class='draggable' id='draggable9' data-inzone='false' data-target='#commerce-info21' data-href=''>
                 <div class="supply-cell supply-cell-yellow">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -277,7 +372,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable10' data-inzone='false'>
+            <div class='draggable' id='draggable10' data-inzone='false' data-target='#commerce-info22' data-href=''>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -285,7 +380,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable11' data-inzone='false'>
+            <div class='draggable' id='draggable11' data-inzone='false' data-target='#commerce-info23' data-href=''>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -293,7 +388,7 @@ body {
             </div>
         </div>
         <div>
-            <div class='draggable' id='draggable12' data-inzone='false'>
+            <div class='draggable' id='draggable12' data-inzone='false' data-target='#commerce-info24' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
@@ -311,7 +406,7 @@ interact('.draggable').draggable({
     inertia: false,
     // keep the element within the area of it's parent
     restrict: {
-        restriction: "body",
+        // restriction: "body",
         endOnly: true,
         elementRect: {
             top: 0,
@@ -326,8 +421,7 @@ interact('.draggable').draggable({
     // call this function on every dragmove event
     onmove: dragMoveListener,
     // call this function on every dragend event
-    onend: function(event) {
-    }
+    onend: function(event) {}
 });
 
 // interact('.draggable').on('tap', function(event) {
@@ -359,25 +453,36 @@ Array.prototype.unicPush = function(val) {
         this.push(val);
     }
 };
+var dragLeave;
 interact('.show-info-area').dropzone({
     // only accept elements matching this CSS selector
     accept: '.draggable',
     // Require a 75% element overlap for a drop to be possible
-    // overlap: 0.1,
+    overlap: 0.75,
 
     // listen for drop related events:
     ondragenter: function(event) {
         DOMInShowInfoArea.unicPush(event.relatedTarget);
         event.relatedTarget.setAttribute('data-inzone', 'true');
         $('.show-info-area').addClass('show-info-area-lighter');
+        dragLeave = false;
     },
     ondragleave: function(event) {
         DOMInShowInfoArea.remove(event.relatedTarget);
         event.relatedTarget.setAttribute('data-inzone', 'false');
         $('.show-info-area').removeClass('show-info-area-lighter');
-        draggableInZoneResort();
+        dragLeave = true;
     },
-    ondrop: function(event) {},
+    ondrop: function(event) {
+        $('.show-info-area').addClass('show-info-area-active');
+        $('.display-area').removeClass('display-area-active');
+        $('.show-info-area').removeClass('show-info-area-lighter');
+        $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+        $(event.relatedTarget).css('transition', 'transform 0.3s');
+        $($(event.relatedTarget).data('target')).children('iframe')[0].src = $(event.relatedTarget).data('href');
+        $('.commerce-info-item').addClass('hide');
+        $($(event.relatedTarget).data('target')).removeClass('hide');
+    },
     ondropdeactivate: function(event) {
         if (DOMInShowInfoArea.length == 0) {
             $('.show-info-area').removeClass('show-info-area-active');
@@ -387,11 +492,6 @@ interact('.show-info-area').dropzone({
             $(event.relatedTarget).css('transition', 'transform 0.3s');
             draggableResort();
         } else {
-            $('.show-info-area').addClass('show-info-area-active');
-            $('.show-info-area').removeClass('show-info-area-lighter');
-            $('.display-area').removeClass('display-area-active');
-            $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
-            $(event.relatedTarget).css('transition', 'transform 0.3s');
             draggableInZoneResort();
             draggableResort();
         }
@@ -446,6 +546,7 @@ function ElementCenterAddXY(el, dx, dy) {
 window.dragMoveListener = dragMoveListener;
 
 $(document).ready(function() {
+    $("#cell-reviewer").mCustomScrollbar();
     // 判断图片加载状况，加载完成后回调
     isImgLoad(function() {
         // 加载完成
@@ -468,7 +569,7 @@ function draggableResort() {
             index = index - numinzone;
             var numcol = Math.floor($('.display-area').width() / $(this).width()) - 1;
             x = ($('.display-area').width() / numcol - $(this).width()) / 2 + (index % numcol) * $('.display-area').width() / numcol;
-            y = 50 + Math.floor(index / numcol) * ($(this).height() * 1.1);
+            y = 20 + Math.floor(index / numcol) * ($(this).height() * 1.1);
             if ((y + $(this).width()) <= window.screen.height) {
                 $(el).removeClass('hide');
                 moveElementCenterToXY(el, x, y);
@@ -481,12 +582,15 @@ function draggableResort() {
 // 标签区图标重新排列
 function draggableInZoneResort() {
     var numinzone = DOMInShowInfoArea.length;
+    $('#cell-reviewer')[0].innerHTML = '';
     for (var i = 0; i <= DOMInShowInfoArea.length - 1; i++) {
         DOMInShowInfoArea[i];
         x = $('#cell-reviewer').offset().left - $('.display-area').offset().left + ($('#cell-reviewer').width() - $(DOMInShowInfoArea[i]).width()) / 2;
-        y = 50 + i * ($(DOMInShowInfoArea[i]).height() * 1.1);
+        y = 20 + i * ($(DOMInShowInfoArea[i]).height() * 1.1);
         // if ((y + $(DOMInShowInfoArea[i]).width()) <= window.screen.height) {
-            moveElementCenterToXY(DOMInShowInfoArea[i], x, y);
+        moveElementCenterToXY(DOMInShowInfoArea[i], x, y);
+        $('#cell-reviewer').append('<div class="draggable-fake"></div>');
+        $("#cell-reviewer").mCustomScrollbar("update");
         // }
     }
 }
@@ -505,6 +609,18 @@ $('#btn-collapse').click(function(event) {
         $('.display-area').removeClass('display-area-active');
         $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
         draggableInZoneResort();
+    }
+});
+
+$('.draggable').click(function(event) {
+    /* Act on the event */
+    if ($(this).data('inzone') == true) {
+        var $target = $($(this).data('target'));
+        if ($target.children('iframe')[0].src == null) {
+            $target.children('iframe')[0].src = $(this).data('href');
+        }
+        $('.commerce-info-item').addClass('hide');
+        $target.removeClass('hide');
     }
 });
 </script>
