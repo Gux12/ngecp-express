@@ -212,8 +212,10 @@ body {
         </div>
     </div>
     <div class='display-area display-area-active'>
+        <div class="col-md-6"><kbd>服务类供给</kbd></div>
+        <div class="col-md-6"><kbd>商品类供给</kbd></div>
         <div id='service-supply' class="col-md-6">
-            <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info1' data-href='3Dmodels/clothFR'>
+            <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info1' data-href='/product_info.html'>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
@@ -542,8 +544,8 @@ $('.draggable').on('mousewheel', function(event) {
     initScroll = initScroll + event.deltaY;
     if (initScroll > 0) {
         initScroll = 0;
-    } else if (initScroll < (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) -20 + $('body').height())/mouseWheelSpeed) {
-        initScroll = (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) -20 + $('body').height())/mouseWheelSpeed;
+    } else if (initScroll < (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) - 20 + $('body').height()) / mouseWheelSpeed) {
+        initScroll = (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) - 20 + $('body').height()) / mouseWheelSpeed;
     } else {
         for (var i = DOMInShowInfoArea.length - 1; i >= 0; i--) {
             ElementCenterAddXY(DOMInShowInfoArea[i], 0, event.deltaY * mouseWheelSpeed);
@@ -620,8 +622,8 @@ $('.show-info-area').on('mousewheel', function(event) {
     initScroll = initScroll + event.deltaY;
     if (initScroll > 0) {
         initScroll = 0;
-    } else if (initScroll < (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) -20 + $('body').height())/mouseWheelSpeed) {
-        initScroll = (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) -20 + $('body').height())/mouseWheelSpeed;
+    } else if (initScroll < (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) - 20 + $('body').height()) / mouseWheelSpeed) {
+        initScroll = (-DOMInShowInfoArea.length * ($(DOMInShowInfoArea[0]).height() * 1.1) - 20 + $('body').height()) / mouseWheelSpeed;
     } else {
         for (var i = DOMInShowInfoArea.length - 1; i >= 0; i--) {
             ElementCenterAddXY(DOMInShowInfoArea[i], 0, event.deltaY * mouseWheelSpeed);
