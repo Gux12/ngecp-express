@@ -129,76 +129,76 @@ body {
         </div>
         <div class='commerce-info'>
             <div id='commerce-info1' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info2' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info3' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info4' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info5' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info6' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info7' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info8' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info9' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info10' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info11' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info12' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info13' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info14' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info15' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info16' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info17' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info18' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info19' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info20' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info21' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info22' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info23' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
             <div id='commerce-info24' class='hide commerce-info-item'>
-                <iframe src="" frameborder="0" style="width:100%;height:100%;"></iframe>
+                <iframe frameborder="0" style="width:100%;height:100%;"></iframe>
             </div>
         </div>
     </div>
@@ -479,7 +479,9 @@ interact('.show-info-area').dropzone({
         $('.show-info-area').removeClass('show-info-area-lighter');
         $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
         $(event.relatedTarget).css('transition', 'transform 0.3s');
-        $($(event.relatedTarget).data('target')).children('iframe')[0].src = $(event.relatedTarget).data('href');
+        if ($($(event.relatedTarget).data('target')).children('iframe')[0].src == "") {
+            $($(event.relatedTarget).data('target')).children('iframe')[0].src = $(event.relatedTarget).data('href');
+        }
         $('.commerce-info-item').addClass('hide');
         $($(event.relatedTarget).data('target')).removeClass('hide');
     },
@@ -616,7 +618,7 @@ $('.draggable').click(function(event) {
     /* Act on the event */
     if ($(this).data('inzone') == true) {
         var $target = $($(this).data('target'));
-        if ($target.children('iframe')[0].src == null) {
+        if ($target.children('iframe')[0].src == "") {
             $target.children('iframe')[0].src = $(this).data('href');
         }
         $('.commerce-info-item').addClass('hide');
