@@ -308,7 +308,7 @@ body {
 // target elements with the "draggable" class
 interact('.draggable').draggable({
     // enable inertial throwing
-    inertia: true,
+    inertia: false,
     // keep the element within the area of it's parent
     restrict: {
         restriction: "body",
@@ -327,7 +327,6 @@ interact('.draggable').draggable({
     onmove: dragMoveListener,
     // call this function on every dragend event
     onend: function(event) {
-        $('.draggable').css('transition', 'transform 0.3s');
     }
 });
 
@@ -385,62 +384,19 @@ interact('.show-info-area').dropzone({
             $('.show-info-area').removeClass('show-info-area-lighter');
             $('.display-area').addClass('display-area-active');
             $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-right" aria-hidden="true"></i>';
+            $(event.relatedTarget).css('transition', 'transform 0.3s');
             draggableResort();
         } else {
             $('.show-info-area').addClass('show-info-area-active');
             $('.show-info-area').removeClass('show-info-area-lighter');
             $('.display-area').removeClass('display-area-active');
             $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+            $(event.relatedTarget).css('transition', 'transform 0.3s');
             draggableInZoneResort();
             draggableResort();
         }
     }
 });
-
-
-// var DOMInZone = [];
-// interact('.dropzone').dropzone({
-//     // only accept elements matching this CSS selector
-//     accept: '.draggable',
-//     // Require a 75% element overlap for a drop to be possible
-//     // overlap: 0.1,
-
-//     // listen for drop related events:
-//     ondragenter: function(event) {
-
-//     },
-//     ondragleave: function(event) {
-//         event.relatedTarget.setAttribute('data-dropped', 'false');
-//         event.relatedTarget.setAttribute('data-droppednum', 0);
-//         DOMInZone.remove(event.relatedTarget);
-//         for (var i = 0; i < DOMInZone.length; i++) {
-//             DOMInZone[i].setAttribute('data-droppednum', i);
-//             var numcol = Math.floor($('body').width() / $(DOMInZone[i]).width()) - 1;
-//             x = ($('body').width() / numcol - $(DOMInZone[i]).width()) / 2 + DOMInZone[i].getAttribute('data-droppednum') * $('body').width() / numcol;
-//             dragMoveToXY(DOMInZone[i], x, $('body').height() - $('.dropzone').height());
-//             // $(event.relatedTarget).css('position', 'absolute');
-//         }
-//         // alert(0);
-//     },
-//     ondrop: function(event) {
-//         if (!event.relatedTarget.getAttribute('data-dropped') || event.relatedTarget.getAttribute('data-dropped') == 'false') {
-//             var numcol = Math.floor($('body').width() / $(event.relatedTarget).width()) - 1;
-//             x = ($('body').width() / numcol - $(event.relatedTarget).width()) / 2 + DOMInZone.length * $('body').width() / numcol;
-//             dragMoveToXY(event.relatedTarget, x, $('body').height() - $('.dropzone').height());
-//             DOMInZone.unicPush(event.relatedTarget);
-//             event.relatedTarget.setAttribute('data-dropped', 'true');
-//             event.relatedTarget.setAttribute('data-droppednum', DOMInZone.length - 1);
-//             $(event.relatedTarget).css('position', 'fixed');
-//         } else {
-//             var numcol = Math.floor($('body').width() / $(event.relatedTarget).width()) - 1;
-//             x = ($('body').width() / numcol - $(event.relatedTarget).width()) / 2 + event.relatedTarget.getAttribute('data-droppednum') * $('body').width() / numcol;
-//             dragMoveToXY(event.relatedTarget, x, $('body').height() - $('.dropzone').height());
-//             $(event.relatedTarget).css('position', 'fixed');
-//         }
-//         // alert(1);
-//     },
-//     ondropdeactivate: function(event) {}
-// });
 
 function dragMoveListener(event) {
     var target = event.target;
@@ -500,6 +456,7 @@ $(document).ready(function() {
 // 窗口大小变化时，改变布局
 $(window).resize(function(event) {
     draggableResort();
+    draggableInZoneResort();
 });
 // 展示区图标的重新排列
 function draggableResort() {
@@ -528,12 +485,9 @@ function draggableInZoneResort() {
         DOMInShowInfoArea[i];
         x = $('#cell-reviewer').offset().left - $('.display-area').offset().left + ($('#cell-reviewer').width() - $(DOMInShowInfoArea[i]).width()) / 2;
         y = 50 + i * ($(DOMInShowInfoArea[i]).height() * 1.1);
-        if ((y + $(DOMInShowInfoArea[i]).width()) <= window.screen.height) {
-            $(DOMInShowInfoArea[i]).removeClass('hide');
+        // if ((y + $(DOMInShowInfoArea[i]).width()) <= window.screen.height) {
             moveElementCenterToXY(DOMInShowInfoArea[i], x, y);
-        } else {
-            $(DOMInShowInfoArea[i]).addClass('hide');
-        }
+        // }
     }
 }
 
