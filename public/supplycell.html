@@ -29,7 +29,6 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    overflow-y: hidden;
 }
 
 .draggable {
@@ -45,7 +44,7 @@ body {
     transition:    -moz-transform 0.1s;
     transition:     -ms-transform 0.1s;
     transition:      -o-transform 0.1s;*/
-    transition: transform 0.3s;
+    transition: transform 0.1s;
 }
 
 #dropzone {
@@ -247,7 +246,7 @@ body {
 // target elements with the "draggable" class
 interact('.draggable').draggable({
     // enable inertial throwing
-    inertia: true,
+    inertia: false,
     // keep the element within the area of it's parent
     restrict: {
         restriction: "body",
@@ -266,8 +265,8 @@ interact('.draggable').draggable({
     onmove: dragMoveListener,
     // call this function on every dragend event
     onend: function(event) {
-        $('button').css('transition', 'transform 0.3s');
-        $('.draggable').css('transition', 'transform 0.3s');
+        $('button').css('transition', 'transform 0.1s');
+        $('.draggable').css('transition', 'transform 0.1s');
     }
 });
 
@@ -336,11 +335,7 @@ interact('#dropzone').dropzone({
         if (!event.relatedTarget.getAttribute('data-dropped') || event.relatedTarget.getAttribute('data-dropped') == 'false') {
             var numcol = Math.floor($('body').width() / $(event.relatedTarget).width()) - 1;
             x = ($('body').width() / numcol - $(event.relatedTarget).width()) / 2 + DOMInZone.length * $('body').width() / numcol;
-<<<<<<< Updated upstream
             dragMoveToXY(event.relatedTarget, x, $('body').height() - $('#dropzone').height());
-=======
-            dragMoveToXY(event.relatedTarget, x, $("#dropzone").offset().top + 30);
->>>>>>> Stashed changes
             DOMInZone.push(event.relatedTarget);
             event.relatedTarget.setAttribute('data-dropped', 'true');
             event.relatedTarget.setAttribute('data-droppednum', DOMInZone.length - 1);
@@ -348,12 +343,8 @@ interact('#dropzone').dropzone({
         } else {
             var numcol = Math.floor($('body').width() / $(event.relatedTarget).width()) - 1;
             x = ($('body').width() / numcol - $(event.relatedTarget).width()) / 2 + event.relatedTarget.getAttribute('data-droppednum') * $('body').width() / numcol;
-<<<<<<< Updated upstream
             dragMoveToXY(event.relatedTarget, x, $('body').height() - $('#dropzone').height());
             $(event.relatedTarget).css('position', 'fixed');
-=======
-            dragMoveToXY(event.relatedTarget, x, $("#dropzone").offset().top + 30);
->>>>>>> Stashed changes
         }
         // alert(1);
     },
@@ -369,8 +360,8 @@ function dragMoveListener(event) {
     $(target).nextAll().each(function(index, el) {
         ElementCenterAddXY($(this)[0], event.dx, event.dy);
     });
-    $(target).nextAll().css('transition', 'transform 0s');
-    $(target).css('transition', 'transform 0s');
+    $('button').css('transition', 'transform 0s');
+    $('.draggable').css('transition', 'transform 0s');
 }
 //供给胞元素左上角移动到x,y
 function dragMoveToXY(target, x, y) {

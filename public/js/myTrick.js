@@ -31,3 +31,8 @@ function isImgLoad(callback) {
     }
 }
 
+
+//给div添加滚动条
+function addScroll(targetElement){
+    
+}
