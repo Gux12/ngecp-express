@@ -76,7 +76,22 @@ $(document).ready(function() {
             } else {
                 result.desireType = "none";
             }
-            fadeHello(analysis(result));
+            $('.overlay').fadeIn('slow');
+            $('.waiting').width($('.waiting').parent().width()/5);
+            $('.waiting').height($('.waiting').parent().width()/5);
+            $('.waiting').css('margin-left', ($('.waiting').parent().width() - $('.waiting').width()) / 2);
+            $('.waiting').shCircleLoader();
+            var i = 0;
+            var t = setInterval(function() {
+                $('.waiting').shCircleLoader('progress', i + '%');
+                if (++i > 100) {
+                    clearTimeout(t);
+                    // window.location.href = 'http://www.baidu.com';
+                }
+                if (i == 1) {
+                    analysis(result);
+                }
+            }, 10);
         }
     });
 
@@ -122,28 +137,7 @@ $(document).ready(function() {
         return false;
     }
 
-    function fadeHello(callback) {
-        $('#hello1').animo({
-            animation: 'fadeOut',
-            duration: 1,
-            keep: true
-        });
-        $('#hello2').animo({
-            animation: 'fadeOut',
-            duration: 1,
-            keep: true
-        });
-        $('#hello-input').animo({
-            animation: 'fadeOut',
-            duration: 1,
-            keep: true
-        }, callback);
-    }
-
     function analysis(result) {
-        $('#hello1').remove();
-        $('#hello2').remove();
-        $('#hello-input').remove();
         if (result.diy != "none") {
             $('#indexPanel').append('<h3 class="hide" id="h31">检测到关键字<kbd>' + result.diyKey + '</kbd>商品类型<kbd>' + result.diyGoods + '</kbd></h3>');
             $('#indexPanel').append('<h3 class="hide" id="h32">商品<kbd>' + result.diy + '</kbd></h3>');
@@ -174,7 +168,7 @@ $(document).ready(function() {
                 }
                 if (result.diyGoods == "汽车") {
                     $('#indexPanel').append('<h3 class="hide" id="h34">收入水平<kbd>' + '中等偏上</kbd>' + ' 当前状况<kbd>' + '存款盈余</kbd></h3>');
-                    $('#indexPanel').append('<h3 class="hide" id="h35">品牌商偏好<kbd>' + '北京汽车/北京现代/丰田/本田/一汽大众/宝马/奔驰/保时捷</kbd></h3>');
+                    $('#indexPanel').append('<h3 class="hide" id="h35">品牌商偏好<kbd>' + '北京汽车/北京现代/奥迪</kbd></h3>');
                     $('#indexPanel').append('<h3 class="hide" id="h36">类型偏好<kbd>' + '商务车/轿车/越野车/跑车</kbd></h3>');
                 }
                 if (result.diyGoods == "羊肉") {
@@ -216,19 +210,25 @@ $(document).ready(function() {
             });
         }
     }
+    $.fn.extend({
+        animateCss: function(animationName,callback) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+                callback;
+            });
+        }
+    });
 
     function animateAllH3(pos, callback) {
-        if ($('#h3' + pos).length) {
+        setTimeout(function(){
+            if ($('#h3' + pos).length) {
             $('#h3' + pos).removeClass('hide');
-            $('#h3' + pos).animo({
-                animation: 'rubberBand',
-                duration: 1,
-                timing: "easy-in"
-            }, function() {
-                animateAllH3(pos + 1, callback);
-            });
+            $('#h3' + pos).animateCss('bounce',animateAllH3(pos + 1, callback));
+
         } else {
             callback();
         }
+    },200);
     }
 });

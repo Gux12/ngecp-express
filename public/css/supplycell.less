@@ -14,11 +14,11 @@
 @pretty-gray-light: lighten(@pretty-gray, 10%);
 @pretty-gray0: rgba(191, 191, 191, 0.8);
 @pretty-gray0-light: lighten(@pretty-gray0, 10%);
-@pretty-purple:rgba(137,119,179,0.8);
+@pretty-purple: rgba(137, 119, 179, 0.8);
 @pretty-purple-light: lighten(@pretty-purple, 10%);
-@pretty-brown:rgba(171,92,37,0.8);
+@pretty-brown: rgba(171, 92, 37, 0.8);
 @pretty-brown-light: lighten(@pretty-brown, 10%);
-@pretty-white:rgba(255,255,255,0.8);
+@pretty-white: rgba(255, 255, 255, 0.8);
 @pretty-white-light: lighten(@pretty-white, 10%);
 // @pretty-pink: ;
 // @pretty-pink-light: lighten(@pretty-pink, 10%);
@@ -115,9 +115,28 @@
     -webkit-clip-path: circle(55% at 50% 50%);
 }
 
-.popup{
-    width:400px;
-    height300px;
-    border-radius:10px;
-    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.4);
+.popup {
+    position: absolute;
+    display: block;
+    top: 20vh;
+    left: 32vw;
+    width: 36vw;
+    min-height: 36vh;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 20px 0;
+    color: #606d7a;
+    z-index: 10000;
+}
+
+.overlay {
+    position: absolute;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(120, 120, 120, 0.6);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 20px 0;
+    color: #606d7a;
+    z-index: 5000;
 }
