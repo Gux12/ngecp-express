@@ -34,6 +34,11 @@ body {
     -ms-user-select: none;
     user-select: none;
     overflow: hidden;
+    font-family: 'Microsoft YaHei', 微软雅黑, 'MicrosoftJhengHei', 华文细黑, STHeiti, MingLiu;
+}
+
+.yahei {
+    font-family: 'Microsoft YaHei', 微软雅黑, 'MicrosoftJhengHei', 华文细黑, STHeiti, MingLiu;
 }
 
 .draggable {
@@ -212,8 +217,16 @@ body {
         </div>
     </div>
     <div class='display-area display-area-active'>
-        <div class="col-md-6"><kbd>服务类供给</kbd></div>
-        <div class="col-md-6"><kbd>商品类供给</kbd></div>
+        <div class="row">
+            <div class="col-md-6">
+                <kbd style="font-size: 30px;padding:10px;margin: 20px 0px 0px 20px;" class="yahei">服务类供给</kbd>
+                <hr>
+            </div>
+            <div class="col-md-6">
+                <kbd style="font-size: 30px;padding:10px;margin: 20px 0px 0px 20px;" class="yahei">商品类供给</kbd>
+                <hr>
+            </div>
+        </div>
         <div id='service-supply' class="col-md-6">
             <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info1' data-href='/product_info.html'>
                 <div class="supply-cell supply-cell-blue">
@@ -577,12 +590,22 @@ function draggableResort(areaToLay) {
 // 标签区图标重新排列
 function draggableInZoneResort() {
     var numinzone = DOMInShowInfoArea.length;
-    $('#cell-reviewer')[0].innerHTML = '';
-    for (var i = 0; i <= DOMInShowInfoArea.length - 1; i++) {
-        x = $('#cell-reviewer').offset().left - $(DOMInShowInfoArea[i]).parent().offset().left - parseInt($(DOMInShowInfoArea[i]).parent().css('padding-left')) + ($('#cell-reviewer').width() - $(DOMInShowInfoArea[i]).width()) / 2;
-        y = 20 + i * ($(DOMInShowInfoArea[i]).height() * 1.1);
-        moveElementCenterToXY(DOMInShowInfoArea[i], x, y);
+    var isload = false;
+    var t;
+
+    function move() {
+        if (document.getElementById('cell-reviewer')) {
+            for (var i = 0; i <= DOMInShowInfoArea.length - 1; i++) {
+                x = $('#cell-reviewer').offset().left - $(DOMInShowInfoArea[i]).parent().offset().left - parseInt($(DOMInShowInfoArea[i]).parent().css('padding-left')) + ($('#cell-reviewer').width() - $(DOMInShowInfoArea[i]).width()) / 2;
+                y = 20 + i * ($(DOMInShowInfoArea[i]).height() * 1.1) - $(DOMInShowInfoArea[i]).parent().offset().top - parseInt($(DOMInShowInfoArea[i]).parent().css('padding-top'));
+                moveElementCenterToXY(DOMInShowInfoArea[i], x, y);
+            }
+            clearTimeout(t);
+        }else{
+            t = setTimeout(move, 100);
+        }
     }
+    move();
 }
 $(document).keydown(function(event) {
     /* Act on the event */
@@ -639,7 +662,7 @@ $('.show-info-area').on('mousewheel', function(event) {
 //     console.log(lastTimeScroll);
 // });
 interact('.draggable').on('tap', function(event) {
-    if ($(event.currentTarget).data('inzone') == true) {
+    if (event.currentTarget.getAttribute('data-inzone') == 'true') {
         var $target = $($(event.currentTarget).data('target'));
         $('.show-info-area').addClass('show-info-area-active');
         $('.display-area').removeClass('display-area-active');
