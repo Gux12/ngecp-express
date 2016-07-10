@@ -181,23 +181,23 @@ $(document).ready(function() {
         }
         if (result.diyGoods == "汽车")
             animateAllH3(1, function() {
-                $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">进入选购</a>');
+                $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">点我！</a>');
                 $('#enter').removeClass('hide');
-                $('#enter')[0].href = "desire_car_display.html";
+                $('#enter')[0].href = "demand_car_display.html";
                 $('#enter').focus();
             });
         if (result.diyGoods == "羊肉")
             animateAllH3(1, function() {
-                $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">进入选购</a>');
+                $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">点我！</a>');
                 $('#enter').removeClass('hide');
                 $('#enter')[0].href = "smart_chain_fresh.html";
                 $('#enter').focus();
             });
         if (result.diyGoods == "服装") {
             animateAllH3(1, function() {
-                $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">进入选购</a>');
+                $('#indexPanel').append('<br><a id="enter" class="button button-glow button-rounded button-jumbo button-highlight hide">点我！</a>');
                 $('#enter').removeClass('hide');
-                $('#enter')[0].href = "desire_cloth_style_display.html";
+                $('#enter')[0].href = "demand_cloth_display.html";
                 $('#enter').focus();
             });
         }
@@ -205,7 +205,7 @@ $(document).ready(function() {
             animateAllH3(1, function() {
                 $('#indexPanel').append('<br><a id="return" class="button button-glow button-rounded button-jumbo button-action hide">返回</a>');
                 $('#return').removeClass('hide');
-                $('#return')[0].href = "index.html";
+                $('#return')[0].href = "sc_my_desire_recommand.html";
                 $('#return').focus();
             });
         }
