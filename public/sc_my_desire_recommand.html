@@ -78,7 +78,7 @@ body {
     position: fixed;
     width: 100vw;
     height: 100%;
-    left: -88vw;
+    left: -89vw;
     background-color: #222;
     transition: left 0.3s, background-color 0.3s;
 }
@@ -202,6 +202,7 @@ body {
         $('#search').css('top', $('#search-icon').offset().top + 10);
         var isVisible;
         $('#search-icon').click(function() {
+            $('#search').css('top', $('#search-icon').offset().top + 10);
             if ($('#search').css('right') == '65px') {
                 $('#search').css('right', -70);
                 $('#search').css({
