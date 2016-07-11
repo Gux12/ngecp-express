@@ -188,16 +188,92 @@ body {
         </div>
     </div>
     <ul class='pinned'>
-        <li class='pinned-item active'><a href=""><i class="fa fa-home" aria-hidden="true" style=""></i></a></li>
+        <li class='pinned-item active'><a href="/my_supply2.html"><i class="fa fa-home" aria-hidden="true" style=""></i></a></li>
         <li class='pinned-item' id='search-icon' style="cursor: pointer"><i class="fa fa-search" aria-hidden="true"></i></li>
-        <li class='pinned-item'><a href="/sc_my_desire_on_the_way.html"><i class="fa fa-car" aria-hidden="true"></i></a></li>
-        <li class='pinned-item'><a href="/sc_my_desire_complete.html"><i class="fa fa-check" aria-hidden="true"></i></a></li>
-        <li class='pinned-item'><a href="/demand_period.html"><i class="fa fa-circle-o-notch" aria-hidden="true"></i></a></li>
-        <li class='pinned-item'><a href="/demand_forecast.html"><i class="fa fa-binoculars" aria-hidden="true"></i></a></li>
+        <li class='pinned-item' id='add-icon' style="cursor: pointer" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus" aria-hidden="true"></i></li>
+        <li class='pinned-item' style="cursor: pointer"><a href="/my_supply2_on_exam.html"><i class="fa fa-server" aria-hidden="true"></i></a></li>
+        <li class='pinned-item' style="cursor: pointer"><a href="/sc_my_desire_recommand.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
     </ul>
+    <div class="modal fade" id='myModal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">新的供给</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">供给名称</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="如：翻译" value="logo设计">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">供给类型</label>
+                            <select class="form-control" id='select'>
+                                <option>商品</option>
+                                <option checked>服务</option>
+                                <script>
+                                $(document).ready(function() {
+                                    $('#cate1').hide();
+                                    $('#select').change(function(event) {
+                                        if ($(this).val() == '商品') {
+                                            $('#cate2').hide();
+                                            $('#cate1').show();
+                                        }
+                                        if ($(this).val() == '服务') {
+                                            $('#cate2').show();
+                                            $('#cate1').hide();
+                                        }
+                                    });
+                                });
+                                </script>
+                            </select>
+                        </div>
+                        <div class="form-group" id='cate1'>
+                            <label for="exampleInputPassword1">具体类别</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">服装
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">汽车
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">生鲜
+                            </label>
+                        </div>
+                        <div class="form-group" id='cate2'>
+                            <label for="exampleInputPassword1">具体类别</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">制造
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">翻译
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" checked>美术
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">教学
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     <input id="search" type="text" class='form-control' placeholder="我好想搜点什么" style="position:fixed;right:-70px;height:40px;border-radius:5px;width: 130px;transition: right 0.3s;">
     <script>
     $(document).ready(function() {
+        // $('#add-icon').click(function(event) {
+        //     /* Act on the event */
+        // });
         $('#search').css('top', $('#search-icon').offset().top + 10);
         var isVisible;
         $('#search-icon').click(function() {
@@ -218,7 +294,7 @@ body {
             }
             $('#search')[0].addEventListener("transitionend", function() {
                 if (isVisible) {
-                    $('#search').css('z-index', '1000');
+                    $('#search').css('z-index', '2000');
                 }
             });
         });
@@ -389,31 +465,25 @@ body {
             <div style="padding:10px;margin: 20px 0px 0px 20px;font-size: 30px;color: #fff;background-color: #333;border-radius: 3px;-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);float: left;transition: transform 0.3s;" class="yahei">商品类供给</div>
         </div>
         <div id='cloth-demand' class="col-md-6 demand-display">
-            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='/product_info.html'>
-                <div class="supply-cell supply-cell-whie">
-                    <img src="img/service/logo设计.png" class="img-adjusted">
-                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">logo设计</div>
-                </div>
-            </div>
-            <div class='draggable' id='draggable7' data-inzone='false' data-target='#commerce-info7' data-href=''>
+            <div class='draggable' id='draggable2' data-inzone='false' data-target='#commerce-info2' data-href=''>
                 <div class="supply-cell supply-cell-brown">
                     <img src="img/service/文献翻译.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">文献翻译</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='/service_info.html'>
+            <div class='draggable' id='draggable3' data-inzone='false' data-target='#commerce-info3' data-href='/service_info.html'>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/service/人像摄影.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">人像摄影</div>
                 </div>
             </div>
-           <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='http://www.baidu.com'>
+            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/service/美容美发.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">美容美发</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='http://www.baidu.com'>
+            <div class='draggable' id='draggable5' data-inzone='false' data-target='#commerce-info5' data-href=''>
                 <div class="supply-cell supply-cell-gray">
                     <img src="img/service/电脑维修.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">电脑维修</div>
@@ -421,82 +491,76 @@ body {
             </div>
         </div>
         <div id="car-demand" class="col-md-6 demand-display">
-            <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info1' data-href='/product_info.html'>
+            <div class='draggable' id='draggable6' data-inzone='false' data-target='#commerce-info6' data-href=''>
                 <div class="supply-cell supply-cell-pink">
                     <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable2' data-inzone='false' data-target='#commerce-info2' data-href='3Dmodels/carShow'>
+            <div class='draggable' id='draggable7' data-inzone='false' data-target='#commerce-info7' data-href=''>
                 <div class="supply-cell supply-cell-brown">
                     <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable3' data-inzone='false' data-target='#commerce-info3' data-href='3Dmodels/sheep2/'>
+            <div class='draggable' id='draggable8' data-inzone='false' data-target='#commerce-info8' data-href=''>
                 <div class="supply-cell supply-cell-gray">
                     <img src="img/cloth/cloth_blue_coat.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">牛仔外套</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='/supply_info.html'>
+            <div class='draggable' id='draggable9' data-inzone='false' data-target='#commerce-info9' data-href='/'>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/cloth2.jpg" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">雪纺衬衣</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable5' data-inzone='false' data-target='#commerce-info5' data-href='https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-1065938546.16.l8HtPY&id=531344918768'>
+            <div class='draggable' id='draggable10' data-inzone='false' data-target='#commerce-info10' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">长款白衬衫</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable6' data-inzone='false' data-target='#commerce-info6' data-href='https://item.taobao.com/item.htm?spm=2013.1.1998246701.3.g9tVyE&scm=1007.10152.33975.1p0&id=534169450701&pvid=be292249-dd35-4ec1-b984-06d8d5066268'>
+            <div class='draggable' id='draggable11' data-inzone='false' data-target='#commerce-info11' data-href=''>
                 <div class="supply-cell supply-cell-white">
                     <img src="img/cloth/flower_shirt.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">花衬衣</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable7' data-inzone='false' data-target='#commerce-info7' data-href=''>
+            <div class='draggable' id='draggable12' data-inzone='false' data-target='#commerce-info12' data-href=''>
                 <div class="supply-cell supply-cell-orange">
                     <img src="img/cloth/trench.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">风衣</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable8' data-inzone='false' data-target='#commerce-info14' data-href=''>
+            <div class='draggable' id='draggable13' data-inzone='false' data-target='#commerce-info13' data-href=''>
                 <div class="supply-cell supply-cell-red">
                     <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable9' data-inzone='false' data-target='#commerce-info5' data-href='https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-1065938546.16.l8HtPY&id=531344918768'>
+            <div class='draggable' id='draggable14' data-inzone='false' data-target='#commerce-info14' data-href=''>
                 <div class="supply-cell supply-cell-white">
                     <img src="img/cloth/TS05H02KWBK_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">棕色长款长袖</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable10' data-inzone='false' data-target='#commerce-info5' data-href='https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-1065938546.16.l8HtPY&id=531344918768'>
+            <div class='draggable' id='draggable15' data-inzone='false' data-target='#commerce-info15' data-href=''>
                 <div class="supply-cell supply-cell-gray">
                     <img src="img/cloth/TS10L45LNAV_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">条纹长款衬衣</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable11' data-inzone='false' data-target='#commerce-info8' data-href=''>
+            <div class='draggable' id='draggable16' data-inzone='false' data-target='#commerce-info16' data-href=''>
                 <div class="supply-cell supply-cell-blue">
                     <img src="img/cloth/TS25U65KBLE_3col_F_1.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">长款收腰衬衫</div>
                 </div>
             </div>
-            <div class='draggable' id='draggable12' data-inzone='false' data-target='#commerce-info9' data-href=''>
+            <div class='draggable' id='draggable17' data-inzone='false' data-target='#commerce-info17' data-href=''>
                 <div class="supply-cell supply-cell-gray">
                     <img src="img/cloth/cloth_blue_coat.png" class="img-adjusted">
                     <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">牛仔外套</div>
-                </div>
-            </div>
-            <div class='draggable' id='draggable13' data-inzone='false' data-target='#commerce-info5' data-href='https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-1065938546.16.l8HtPY&id=531344918768'>
-                <div class="supply-cell supply-cell-white">
-                    <img src="img/cloth/TS13I41JOXB_3col_F_1.png" class="img-adjusted">
-                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">格子衬衣</div>
                 </div>
             </div>
         </div>
