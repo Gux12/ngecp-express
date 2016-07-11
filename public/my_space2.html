@@ -1,0 +1,132 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/buttons.min.css">
+    <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
+    <link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
+    <link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/js/myTrick.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/hammerjs/hammer.min.js"></script>
+    <script src="/interact/dist/interact.min.js"></script>
+    <script src="/js/vendor/jquery.row-grid.js"></script>
+    <script src="/js/vendor/echarts2.min.js"></script>
+    <script src="/js/vendor/dataTool.min.js"></script>
+    <script src="/js/vendor/jquery.sidr.min.js"></script>
+    <script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/vendor/map/china.js"></script>
+    <style>
+    div {
+        font-family: Microsoft YaHei;
+    }
+    .button5 {
+        background-color: rgba(0,0,0,0);
+        color: #e9c165;
+        border: 2px solid #555555;
+        width: 120px;
+        margin-top: 20px;
+    }
+
+    .button5:hover {
+        background-color: #555555;
+        color: #e9c165;
+    }
+    </style>
+</head>
+<style>
+body {
+    background-color: #161627;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 120px;margin-left:120px;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div id="test-main" style="width: 80%;height: 90%;margin: 50px;margin-left: 80px;margin-top: 0px;"></div>
+                    <script type="text/javascript">
+                    $(document).ready(function() {
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('test-main'));
+
+                        myChart.showLoading();
+                        $.get('/les-miserables.gexf', function (xml) {
+                            myChart.hideLoading();
+
+                            var graph = echarts.dataTool.gexf.parse(xml);
+                            var categories = [];
+                            for (var i = 0; i < 9; i++) {
+                                categories[i] = {
+                                    name: '圈子' + i
+                                };
+                            }
+                            graph.nodes.forEach(function (node) {
+                                node.itemStyle = null;
+                                node.value = node.symbolSize;
+                                node.symbolSize /= 1.5;
+                                node.label = {
+                                    normal: {
+                                        show: node.symbolSize > 30
+                                    }
+                                };
+                                node.category = node.attributes.modularity_class;
+                            });
+                            option = {
+                                title: {
+                                    text: 'Les Miserables',
+                                    subtext: 'Default layout',
+                                    top: 'bottom',
+                                    left: 'right'
+                                },
+                                tooltip: {},
+                                legend: [{
+                                    // selectedMode: 'single',
+                                    data: categories.map(function (a) {
+                                        return a.name;
+                                    })
+                                }],
+                                animationDuration: 1500,
+                                animationEasingUpdate: 'quinticInOut',
+                                series : [
+                                    {
+                                        name: 'Les Miserables',
+                                        type: 'graph',
+                                        layout: 'none',
+                                        data: graph.nodes,
+                                        links: graph.links,
+                                        categories: categories,
+                                        roam: true,
+                                        label: {
+                                            normal: {
+                                                position: 'right',
+                                                formatter: '{b}'
+                                            }
+                                        },
+                                        lineStyle: {
+                                            normal: {
+                                                color: 'source',
+                                                curveness: 0.3
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+
+                            myChart.setOption(option);
+                        }, 'xml');
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

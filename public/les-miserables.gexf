@@ -97,7 +97,7 @@
         <viz:position x="-89.34107" y="234.56128" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
-      <node id="11" label="Yourself">
+      <node id="11" label="我">
         <attvalues>
           <attvalue for="modularity_class" value="1"></attvalue>
         </attvalues>
@@ -193,7 +193,7 @@
         <viz:position x="-459.1107" y="-362.5133" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
-      <node id="23" label="Fantine">
+      <node id="23" label="关注">
         <attvalues>
           <attvalue for="modularity_class" value="2"></attvalue>
         </attvalues>
@@ -213,7 +213,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="7"></attvalue>
         </attvalues>
-        <viz:size value="45.142853"></viz:size>
+        <viz:size value="35.142853"></viz:size>
         <viz:position x="82.80825" y="-203.1144" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
@@ -225,11 +225,11 @@
         <viz:position x="78.64646" y="-31.512747" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
-      <node id="27" label="Javert">
+      <node id="27" label="我的客户">
         <attvalues>
           <attvalue for="modularity_class" value="7"></attvalue>
         </attvalues>
-        <viz:size value="47.88571"></viz:size>
+        <viz:size value="50.88571"></viz:size>
         <viz:position x="-81.46074" y="-204.20204" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
@@ -393,7 +393,7 @@
         <viz:position x="488.13535" y="356.8573" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
-      <node id="48" label="Gavroche">
+      <node id="48" label="我的供应商">
         <attvalues>
           <attvalue for="modularity_class" value="8"></attvalue>
         </attvalues>
@@ -449,7 +449,7 @@
         <viz:position x="137.69348" y="196.1069" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>
-      <node id="55" label="Marius">
+      <node id="55" label="朋友圈">
         <attvalues>
           <attvalue for="modularity_class" value="6"></attvalue>
         </attvalues>
