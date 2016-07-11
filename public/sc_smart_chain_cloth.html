@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <title>new index</title>
+</head>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/font-awesome.css">
+<link rel="stylesheet" href="/css/buttons.min.css">
+<link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
+<link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
+<link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+<link rel="stylesheet" type="text/css" href="/animate.css/animate.min.css">
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/animo/animo.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/hammerjs/hammer.min.js"></script>
+<script src="/interact/dist/interact.min.js"></script>
+<script src="/js/vendor/jquery.shCircleLoader.js"></script>
+<script src="/js/vendor/echarts.js"></script>
+<script src="/less/dist/less.min.js"></script>
+<script src="/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/jquery.pin/jquery.pin.min.js"></script>
+<script src="/js/myTrick.js"></script>
+<style>
+body {
+    background-color: #e0e0e0;
+    /*background-color: #333;*/
+    width: 100vw;
+    height: 100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    font-family: 'Microsoft YaHei', 微软雅黑, 'MicrosoftJhengHei', 华文细黑, STHeiti, MingLiu;
+}
+
+.yahei {
+    font-family: 'Microsoft YaHei', 微软雅黑, 'MicrosoftJhengHei', 华文细黑, STHeiti, MingLiu;
+}
+
+.draggable {
+    position: absolute;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 8vw;
+    height: 8vw;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transition: transform 0.3s;
+    z-index: 1000;
+}
+
+.draggable-fake {
+    position: relative;
+    width: 8vw;
+    height: 8vw;
+}
+
+
+/*.dropzone {
+    position: absolute;
+    width: 100%;
+    height: 20vmin;
+    bottom: 0px;
+    background-color: #505050;
+}*/
+
+.show-info-area {
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    left: -89vw;
+    background-color: #222;
+    transition: left 0.3s, background-color 0.3s;
+}
+
+.show-info-area-active {
+    left: 0%;
+}
+
+.show-info-area-lighter {
+    background-color: #505050;
+}
+
+.display-area {
+    width: 100vw;
+    height: 100vh;
+    overflow: visible;
+    position: absolute;
+    /*float: right;*/
+    transition: left 0.3s;
+}
+
+.demand-display {
+    width: 100vw;
+    height: 100vh;
+}
+
+#canv {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+</style>
+
+<body>
+    <div class='display-area'>
+        <div id='cloth-demand' class="col-md-12 demand-display">
+            <div class='draggable' id='draggable1' data-inzone='false' data-target='#commerce-info1' data-href='/product_info.html'>
+                <div class="supply-cell supply-cell-pink">
+                    <img src="img/cloth/cloth_yellow_skirt.png" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">蝴蝶结裙子</div>
+                </div>
+            </div>
+            <div class='draggable' id='draggable2' data-inzone='false' data-target='#commerce-info2' data-href='3Dmodels/carShow'>
+                <div class="supply-cell supply-cell-brown">
+                    <img src="img/cloth/cloth_green_jacket.png" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">裁剪军用夹克</div>
+                </div>
+            </div>
+            <div class='draggable' id='draggable3' data-inzone='false' data-target='#commerce-info3' data-href='3Dmodels/sheep2/'>
+                <div class="supply-cell supply-cell-gray">
+                    <img src="img/cloth/cloth_blue_coat.png" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">牛仔外套</div>
+                </div>
+            </div>
+            <div class='draggable' id='draggable4' data-inzone='false' data-target='#commerce-info4' data-href='/product_info.html'>
+                <div class="supply-cell supply-cell-blue">
+                    <img src="img/cloth/cloth2.jpg" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">雪纺衬衣</div>
+                </div>
+            </div>
+            <div class='draggable' id='draggable5' data-inzone='false' data-target='#commerce-info5' data-href='https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-1065938546.16.l8HtPY&id=531344918768'>
+                <div class="supply-cell supply-cell-red">
+                    <img src="img/cloth/TS03K07JWHT_3col_F_1.png" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">长款白衬衫</div>
+                </div>
+            </div>
+            <div class='draggable' id='draggable6' data-inzone='false' data-target='#commerce-info6' data-href='https://item.taobao.com/item.htm?spm=2013.1.1998246701.3.g9tVyE&scm=1007.10152.33975.1p0&id=534169450701&pvid=be292249-dd35-4ec1-b984-06d8d5066268'>
+                <div class="supply-cell supply-cell-white">
+                    <img src="img/cloth/flower_shirt.png" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">花衬衣</div>
+                </div>
+            </div>
+            <div class='draggable' id='draggable7' data-inzone='false' data-target='#commerce-info7' data-href=''>
+                <div class="supply-cell supply-cell-orange">
+                    <img src="img/cloth/trench.png" class="img-adjusted">
+                    <div style="position:absolute;bottom:15px;text-align:center;width:100%;font-size:10px;font-weight:bold;">风衣</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id='canv'></canvas>
+</body>
+<script>
+/* The dragging code for '.draggable' from the demo above
+ * applies to this demo as well so it doesn't have to be repeated. */
+// target elements with the "draggable" class
+interact('.draggable').draggable({
+    // enable inertial throwing
+    inertia: false,
+    // keep the element within the area of it's parent
+    restrict: {
+        // restriction: "body",
+        endOnly: true,
+        elementRect: {
+            top: 0,
+            left: 0,
+            bottom: 1,
+            right: 1
+        }
+    },
+    // enable autoScroll
+    // autoScroll: true,
+
+    // call this function on every dragmove event
+    onmove: dragMoveListener,
+    // call this function on every dragend event
+    onend: function(event) {}
+});
+
+// interact('.draggable').on('tap', function(event) {
+//     event.preventDefault();
+//     window.location.href = $('.draggable').data('href');
+// });
+
+interact('.draggable').on('hold', function(event) {
+    event.preventDefault();
+    $(event.currentTarget).trigger('mouseover');
+});
+
+var DOMInShowInfoArea = [];
+Array.prototype.indexOf = function(val) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == val) return i;
+    }
+    return -1;
+};
+Array.prototype.remove = function(val) {
+    var index = this.indexOf(val);
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+};
+Array.prototype.unicPush = function(val) {
+    var index = this.indexOf(val);
+    if (index > -1) {} else {
+        this.push(val);
+    }
+};
+var dragLeave;
+var $dragLeavePrev;
+var initScroll = 0;
+var initScrollDisplayArea = 0;
+var maxScroll = 0;
+var maxScrollDisplayArea = 0;
+var mouseWheelSpeed = 40;
+interact('.show-info-area').dropzone({
+    // only accept elements matching this CSS selector
+    accept: '.draggable',
+    // Require a 75% element overlap for a drop to be possible
+    overlap: 0.75,
+
+    // listen for drop related events:
+    ondragenter: function(event) {
+        DOMInShowInfoArea.unicPush(event.relatedTarget);
+        event.relatedTarget.setAttribute('data-inzone', 'true');
+        $('.show-info-area').addClass('show-info-area-lighter');
+        dragLeave = false;
+    },
+    ondragleave: function(event) {
+        $dragLeavePrev = DOMInShowInfoArea[DOMInShowInfoArea.indexOf(event.relatedTarget) - 1];
+        DOMInShowInfoArea.remove(event.relatedTarget);
+        event.relatedTarget.setAttribute('data-inzone', 'false');
+        $('.show-info-area').removeClass('show-info-area-lighter');
+        dragLeave = true;
+    },
+    ondrop: function(event) {
+        $('.show-info-area').addClass('show-info-area-active');
+        $('.display-area').removeClass('display-area-active');
+        $('.show-info-area').removeClass('show-info-area-lighter');
+        $('.pinned').hide('slow');
+        $('#search').hide('slow');
+        $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+        $(event.relatedTarget).css('transition', 'transform 0.3s');
+        if ($($(event.relatedTarget).data('target')).children('iframe')[0].src == "") {
+            $($(event.relatedTarget).data('target')).children('iframe')[0].src = $(event.relatedTarget).data('href');
+        }
+        $('.commerce-info-item').addClass('hide');
+        $($(event.relatedTarget).data('target')).removeClass('hide');
+    },
+    ondropdeactivate: function(event) {
+        if (DOMInShowInfoArea.length == 0) {
+            $('.show-info-area').removeClass('show-info-area-active');
+            $('.show-info-area').removeClass('show-info-area-lighter');
+            $('.display-area').addClass('display-area-active');
+            $('.pinned').show('slow');
+            $('#search').show('slow');
+            $('#btn-collapse')[0].innerHTML = '<i class="fa fa-angle-double-right" aria-hidden="true"></i>';
+            $(event.relatedTarget).css('transition', 'transform 0.3s');
+            var displayArea = $('.display-area').find('.demand-display');
+            for (var i = displayArea.length - 1; i >= 0; i--) {
+                draggableResort($(displayArea[i]));
+            }
+        } else {
+            $(event.relatedTarget).css('transition', 'transform 0.3s');
+            draggableInZoneResort();
+            var displayArea = $('.display-area').find('.demand-display');
+            for (var i = displayArea.length - 1; i >= 0; i--) {
+                draggableResort($(displayArea[i]));
+            }
+        }
+    }
+});
+
+function dragMoveListener(event) {
+    var target = event.target;
+    // keep the dragged position in the data-x/data-y attributes
+    x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+    y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    moveElementCenterToXY(target, x, y);
+    $(target).css('transition', 'transform 0s');
+}
+
+//用于画图
+var DOMInChain = $('#cloth-demand').children('.draggable');
+var centerPoint = DOMInChain
+var can = $('#canv')[0];
+can.width = $('#canv').width();
+can.height = $('#canv').height();
+var ctx = can.getContext('2d');
+CanvasRenderingContext2D.prototype.clear =
+    CanvasRenderingContext2D.prototype.clear || function(preserveTransform) {
+        if (preserveTransform) {
+            this.save();
+            this.setTransform(1, 0, 0, 1, 0, 0);
+        }
+
+        this.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        if (preserveTransform) {
+            this.restore();
+        }
+    };
+
+// function strokeLine(tree, point, ctx) {
+//     for (var i = tree.length - 1; i >= 0; i--) {
+//         tree[i]
+//     }
+// }
+function PointConstruct(DOMInChain){
+    var Point = [];
+    for (var i = DOMInChain.length - 1; i >= 0; i--) {
+        var point = {x:0,y:0};
+        point.x = (parseFloat(DOMInChain[i].getAttribute('data-x')) || 0) + $(DOMInChain[i]).width() / 2 + $(DOMInChain[i]).offset().left;
+        point.y = (parseFloat(DOMInChain[i].getAttribute('data-y')) || 0) + $(DOMInChain[i]).height() / 2 + $(DOMInChain[i]).offset().top;
+        Point.push(point);
+    }
+    return Point;
+}
+function strokeLineSimple(point, ctx) {
+    ctx.clear();
+    // ctx.translate(0.5,0.5);
+    ctx.beginPath();
+    // ctx.setLineDash([2,10]);
+    for (var i = point.length - 1; i >= 0; i--) {
+        if (i == point.length - 1) ctx.moveTo(point[i].x, point[i].y);
+        else ctx.lineTo(point[i].x, point[i].y);
+    }
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+}
+//供给胞元素左上角移动到x,y
+function dragMoveToXY(target, x, y) {
+    dx = x - (parseFloat(target.getAttribute('data-x')) || 0);
+    dy = y - (parseFloat(target.getAttribute('data-y')) || 0);
+    moveElementCenterToXY(target, x, y);
+}
+
+//任意元素左上角移动到相对于父控件的x,y
+function moveElementCenterToXY(el, x, y) {
+    // translate the element
+    el.style.webkitTransform =
+        el.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the posiion attributes
+    el.setAttribute('data-x', x);
+    el.setAttribute('data-y', y);
+    strokeLineSimple(PointConstruct(DOMInChain),ctx);
+}
+
+//任意元素移动dx,dy
+function ElementCenterAddXY(el, dx, dy) {
+    x = (parseFloat(el.getAttribute('data-x')) || 0) + dx;
+    y = (parseFloat(el.getAttribute('data-y')) || 0) + dy;
+    // translate the element
+    el.style.webkitTransform =
+        el.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the posiion attributes
+    el.setAttribute('data-x', x);
+    el.setAttribute('data-y', y);
+}
+
+// this is used later in the resizing and gesture demos
+window.dragMoveListener = dragMoveListener;
+
+$(document).ready(function() {
+    // 判断图片加载状况，加载完成后回调
+    isImgLoad(function() {
+        // 加载完成
+        $('.demand-display').css('display', 'block');
+        var displayArea = $('.display-area').find('.demand-display');
+        for (var i = displayArea.length - 1; i >= 0; i--) {
+            draggableResort($(displayArea[i]));
+        }
+    });
+});
+// 窗口大小变化时，改变布局
+$(window).resize(function(event) {
+    var displayArea = $('.display-area').find('.demand-display');
+    for (var i = displayArea.length - 1; i >= 0; i--) {
+        draggableResort($(displayArea[i]));
+    }
+});
+// 展示区图标的重新排列
+function draggableResort(areaToLay) {
+    var numinzone = 0;
+    areaToLay.find('.draggable').each(function(index, el) {
+        if (el.getAttribute('data-inzone') == 'true') {
+            numinzone = numinzone + 1;
+        } else {
+            index = index - numinzone;
+            var numcol = Math.floor(areaToLay.width() / $(this).width()) - 1;
+            x = (areaToLay.width() / numcol - $(this).width()) / 2 + (index % numcol) * areaToLay.width() / numcol;
+            y = 20 + Math.floor(index / numcol) * ($(this).height() * 1.1);
+            moveElementCenterToXY(el, x, y);
+        }
+    });
+}
+$(document).keydown(function(event) {
+    /* Act on the event */
+    if (event.keyCode == 37) {}
+    if (event.keyCode == 39) {}
+});
+
+interact('.draggable').on('tap', function(event) {
+
+    event.preventDefault();
+});
+</script>
+<script type="text/javascript">
+
+</script>
+
+</html>
