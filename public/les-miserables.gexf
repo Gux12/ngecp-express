@@ -197,7 +197,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"></attvalue>
         </attvalues>
-        <viz:size value="42.4"></viz:size>
+        <viz:size value="50"></viz:size>
         <viz:position x="-313.42786" y="-289.44803" z="0.0"></viz:position>
         <viz:color r="236" g="81" b="72"></viz:color>
       </node>

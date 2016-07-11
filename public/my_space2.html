@@ -47,10 +47,10 @@ body {
 
 <body>
     <div class="container-fluid">
-        <div class="row" style="margin-top: 120px;margin-left:120px;">
+        <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div id="test-main" style="width: 80%;height: 90%;margin: 50px;margin-left: 80px;margin-top: 0px;"></div>
+                    <div id="test-main" style="width: 100%;height: 100%;"></div>
                     <script type="text/javascript">
                     $(document).ready(function() {
                         // 基于准备好的dom，初始化echarts实例
@@ -80,23 +80,21 @@ body {
                             });
                             option = {
                                 title: {
-                                    text: 'Les Miserables',
-                                    subtext: 'Default layout',
                                     top: 'bottom',
                                     left: 'right'
                                 },
                                 tooltip: {},
-                                legend: [{
-                                    // selectedMode: 'single',
-                                    data: categories.map(function (a) {
-                                        return a.name;
-                                    })
-                                }],
+                                // legend: [{
+                                //     // selectedMode: 'single',
+                                //     data: categories.map(function (a) {
+                                //         return a.name;
+                                //     })
+                                // }],
                                 animationDuration: 1500,
                                 animationEasingUpdate: 'quinticInOut',
                                 series : [
                                     {
-                                        name: 'Les Miserables',
+                                        name: '',
                                         type: 'graph',
                                         layout: 'none',
                                         data: graph.nodes,
