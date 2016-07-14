@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.css">
     <link rel="stylesheet" href="/css/buttons.min.css">
-    <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
+    <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less"/>
     <link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
-    <link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"/>
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/js/myTrick.js"></script>
     <script src="/js/vendor/bootstrap.min.js"></script>
@@ -19,52 +19,90 @@
     <script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/vendor/map/china.js"></script>
     <style>
-    div {
-        font-family: Microsoft YaHei;
-    }
-    
-    .button5 {
-        background-color: rgba(0, 0, 0, 0);
-        color: #e9c165;
-        border: 2px solid #555555;
-        width: 120px;
-        margin-top: 20px;
-    }
-    
-    .button5:hover {
-        background-color: #555555;
-        color: #e9c165;
-    }
+        div {
+            font-family: Microsoft YaHei;
+        }
+
+        .p-info {
+            color: #e9c165;
+            font-size: 20px;
+        }
+
+        .button5 {
+            background-color: rgba(0, 0, 0, 0);
+            color: #e9c165;
+            border: 2px solid #555555;
+            width: 120px;
+            margin-top: 20px;
+        }
+
+        .button5:hover {
+            background-color: #555555;
+            /*outline: 0;*/
+            color: #e9c165;
+        }
+
+        .button5:focus {
+            /*background-color: rgba(0, 0, 0, 0);*/
+            /*background-color: #555555;*/
+            color: #e9c165;
+            border: 2px solid #555555;
+            outline: 0;
+            width: 120px;
+            margin-top: 20px;
+        }
+        .button5:active {
+            outline: 0;
+        }
+
     </style>
 </head>
 <style>
-body {
-    background-color: #161627;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
+    body {
+        background-color: #161627;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
 </style>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <iframe src="/3Dmodels/person" frameborder="0" height="800" style='padding-left: 20px;'></iframe>
-                <div style="text-align: center;color:white;font-size: 20px;margin-top: 0px;width:300px;">
-                    <p style="margin:5px;color:#e9c165;margin-left:0px;">南艺璇</p>
-                    <p style="margin:5px;color:#e9c165;">女</p>
-                    <p style="margin:5px;color:#e9c165;">22岁</p>
-                    <p style="margin:5px;color:#e9c165;">学生</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <iframe src="/3Dmodels/person" frameborder="0" height="1000" style='padding-left: 20px;'></iframe>
+            <!--<div style="text-align: center;color:white;font-size: 20px;margin-top: 0px;width:300px;">-->
+            <!--<p style="margin:5px;color:#e9c165;margin-left:0px;">南艺璇</p>-->
+            <!--<p style="margin:5px;color:#e9c165;">女</p>-->
+            <!--<p style="margin:5px;color:#e9c165;">22岁</p>-->
+            <!--<p style="margin:5px;color:#e9c165;">学生</p>-->
+            <!--</div>-->
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-4"
+                     style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 6%;padding-top: 20px;padding-bottom: 20px;">
+                    <div class="col-md-6" style="text-align: center;">
+                        <p class="p-info">姓名 ：南艺璇</p>
+                        <p class="p-info">性别 ：女</p>
+                        <p class="p-info">年龄 ：22岁</p>
+                        <p class="p-info">学历 ：本科</p>
+                        <p class="p-info">职业 ：学生</p>
+                        <p class="p-info">爱好 ：艺术</p>
+                    </div>
+                    <div class="col-md-6" style="text-align: center;">
+                        <p class="p-info">身高 ：165cm</p>
+                        <p class="p-info">体重 ：45kg</p>
+                        <p class="p-info">胸围 ：--</p>
+                        <p class="p-info">腰围 ：--</p>
+                        <p class="p-info">臀围 ：--</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div id="number1" style="width:100%;height:50vh;"></div>
-                        <script type="text/javascript">
-                        $(document).ready(function() {
-                            var number = echarts.init(document.getElementById("number1"));
+                <div class="col-md-4">
+                    <div id="body" style="width:100%;height:50vh;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var body = echarts.init(document.getElementById("body"));
                             // Schema:
                             var dataBJ = [
                                 [267, 216, 280, 120, 108]
@@ -80,7 +118,7 @@ body {
                             option = {
                                 backgroundColor: '#161627',
                                 title: {
-                                    text: '身材信息',
+                                    text: '身体状况',
                                     left: 'center',
                                     textStyle: {
                                         color: '#eee'
@@ -103,19 +141,13 @@ body {
                                 },
                                 radar: {
                                     indicator: [{
-                                        name: '身高',
+                                        name: '健康程度',
                                         max: 300
                                     }, {
-                                        name: '体重',
+                                        name: '体脂水平',
                                         max: 300
                                     }, {
-                                        name: '胸围',
-                                        max: 300
-                                    }, {
-                                        name: '腰围',
-                                        max: 300
-                                    }, {
-                                        name: '臀围',
+                                        name: '摄入卡路里',
                                         max: 300
                                     }],
                                     shape: 'circle',
@@ -144,7 +176,7 @@ body {
                                     }
                                 },
                                 series: [{
-                                    name: '身材信息',
+                                    name: '用户偏好',
                                     type: 'radar',
                                     lineStyle: lineStyle,
                                     data: dataBJ,
@@ -156,19 +188,19 @@ body {
                                     },
                                     areaStyle: {
                                         normal: {
-                                            opacity: 0.1
+                                            opacity: 0.2
                                         }
                                     }
                                 }]
                             };
-                            number.setOption(option);
+                            body.setOption(option);
                         });
-                        </script>
-                    </div>
-                    <div class="col-md-4">
-                        <div id="number" style="width:100%;height:50vh;"></div>
-                        <script type="text/javascript">
-                        $(document).ready(function() {
+                    </script>
+                </div>
+                <div class="col-md-4">
+                    <div id="number" style="width:100%;height:50vh;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
                             var number = echarts.init(document.getElementById("number"));
                             // Schema:
                             var dataBJ = [
@@ -261,23 +293,28 @@ body {
                                     },
                                     areaStyle: {
                                         normal: {
-                                            opacity: 0.1
+                                            opacity: 0.2
                                         }
                                     }
                                 }]
                             };
                             number.setOption(option);
+
+                            $("#number").click(function () {
+                                $("#number").toggle('slow');
+                                $("#eva").toggle('slow');
+                            });
                         });
-                        </script>
-                    </div>
-                    <div class="col-md-4">
-                        <div id="eva" style="width:100%;height:50vh;"></div>
-                        <script type="text/javascript">
-                        $(document).ready(function() {
+                    </script>
+                </div>
+                <div class="col-md-4">
+                    <div id="eva" style="width:100%;height:50vh;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
                             var eva = echarts.init(document.getElementById("eva"));
                             // Schema:
                             var dataBJ = [
-                                [267, 216, 280, 120, 108]
+                                [210, 176, 280, 120, 108]
                             ];
 
                             var lineStyle = {
@@ -366,227 +403,516 @@ body {
                                 }]
                             };
                             eva.setOption(option);
+                            $("#eva").click(function () {
+                                $("#eva").toggle('slow');
+                                $("#number").toggle('slow');
+                            });
+                            $("#eva").toggle();
                         });
-                        </script>
-                    </div>
+                    </script>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div id="transport" style="width:100%;height: 16vh;"></div>
-                            <script type="text/javascript">
-                            $(document).ready(function() {
-                                var save = echarts.init(document.getElementById("transport"));
-                                var hours = ['自提', '直送', '众包物流', ];
-                                var days = ['运输方式'];
-                                var data = [
-                                    [0, 0, 0],
-                                    [0, 3, 0],
-                                    [0, 2, 8],
-                                ];
-
-                                option = {
-                                    tooltip: {
-                                        position: 'top'
-                                    },
-                                    title: [],
-                                    singleAxis: [],
-                                    series: []
-                                };
-
-                                echarts.util.each(days, function(day, idx) {
-                                    option.title.push({
-                                        textBaseline: 'middle',
-                                        top: (idx + 0.5) * 100 / 1 + '%',
-                                        text: day,
-                                        textStyle: {
-                                            color: '#c23531'
-                                        }
-                                    });
-                                    option.singleAxis.push({
-                                        left: 150,
-                                        type: 'category',
-                                        boundaryGap: false,
-                                        data: hours,
-                                        top: (idx * 100 / 1 + 36) + '%',
-                                        height: (100 / 2.5 - 10) + '%',
-                                        axisLabel: {
-                                            textStyle: {
-                                                color: "#fff"
-                                            }
-                                        },
-                                        axisLine: {
-                                            lineStyle: {
-                                                color: "#fff"
-                                            }
-                                        }
-                                    });
-                                    option.series.push({
-                                        singleAxisIndex: idx,
-                                        coordinateSystem: 'singleAxis',
-                                        type: 'scatter',
-                                        data: [],
-                                        symbolSize: function(dataItem) {
-                                            return dataItem[1] * 4;
-                                        }
-                                    });
-                                });
-
-                                echarts.util.each(data, function(dataItem) {
-                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-                                });;
-                                save.setOption(option, true);
-                            });
-                            </script>
-                        </div>
-                        <div class="row">
-                            <div id="size" style="width:100%;height: 16vh;"></div>
-                            <script type="text/javascript">
-                            $(document).ready(function() {
-                                var size = echarts.init(document.getElementById("size"));
-                                var hours = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-                                var days = ['配送时间'];
-                                var data = [
-                                    [0, 0, 0],
-                                    [0, 6, 0],
-                                    [0, 2, 8],
-                                    [0, 3, 8],
-                                    [0, 4, 8],
-                                    [0, 5, 8],
-                                    [0, 0, 8],
-                                    [0, 1, 8]
-                                ];
-
-                                option = {
-                                    tooltip: {
-                                        position: 'top'
-                                    },
-                                    title: [],
-                                    singleAxis: [],
-                                    series: []
-                                };
-
-                                echarts.util.each(days, function(day, idx) {
-                                    option.title.push({
-                                        textBaseline: 'middle',
-                                        top: (idx + 0.5) * 100 / 1 + '%',
-                                        text: day,
-                                        textStyle: {
-                                            color: '#c23531'
-                                        }
-                                    });
-                                    option.singleAxis.push({
-                                        left: 150,
-                                        type: 'category',
-                                        boundaryGap: false,
-                                        data: hours,
-                                        top: (idx * 100 / 1 + 36) + '%',
-                                        height: (100 / 2.5 - 10) + '%',
-                                        axisLabel: {
-                                            textStyle: {
-                                                color: "#fff"
-                                            }
-                                        },
-                                        axisLine: {
-                                            lineStyle: {
-                                                color: "#fff"
-                                            }
-                                        }
-                                    });
-                                    option.series.push({
-                                        singleAxisIndex: idx,
-                                        coordinateSystem: 'singleAxis',
-                                        type: 'scatter',
-                                        data: [],
-                                        symbolSize: function(dataItem) {
-                                            return dataItem[1] * 4;
-                                        }
-                                    });
-                                });
-
-                                echarts.util.each(data, function(dataItem) {
-                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-                                });;
-                                size.setOption(option, true);
-                            });
-                            </script>
-                        </div>
-                        <div class="row">
-                            <div id="save" style="width:100%;height: 16vh;"></div>
-                            <script type="text/javascript">
-                            $(document).ready(function() {
-                                var save = echarts.init(document.getElementById("save"));
-                                var hours = ['网银支付', '微信支付', '支付宝支付', '现金支付'];
-                                var days = ['支付方式'];
-                                var data = [
-                                    [0, 0, 0],
-                                    [0, 3, 0],
-                                    [0, 2, 8],
-                                    [0, 1, 8],
-                                ];
-
-                                option = {
-                                    tooltip: {
-                                        position: 'top'
-                                    },
-                                    title: [],
-                                    singleAxis: [],
-                                    series: []
-                                };
-
-                                echarts.util.each(days, function(day, idx) {
-                                    option.title.push({
-                                        textBaseline: 'middle',
-                                        top: (idx + 0.5) * 100 / 1 + '%',
-                                        text: day,
-                                        textStyle: {
-                                            color: '#c23531'
-                                        }
-                                    });
-                                    option.singleAxis.push({
-                                        left: 150,
-                                        type: 'category',
-                                        boundaryGap: false,
-                                        data: hours,
-                                        top: (idx * 100 / 1 + 36) + '%',
-                                        height: (100 / 2.5 - 10) + '%',
-                                        axisLabel: {
-                                            textStyle: {
-                                                color: "#fff"
-                                            }
-                                        },
-                                        axisLine: {
-                                            lineStyle: {
-                                                color: "#fff"
-                                            }
-                                        }
-                                    });
-                                    option.series.push({
-                                        singleAxisIndex: idx,
-                                        coordinateSystem: 'singleAxis',
-                                        type: 'scatter',
-                                        data: [],
-                                        symbolSize: function(dataItem) {
-                                            return dataItem[1] * 4;
-                                        }
-                                    });
-                                });
-
-                                echarts.util.each(data, function(dataItem) {
-                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-                                });;
-                                save.setOption(option, true);
-                            });
-                            </script>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div id="price-time" style="height: 50vh;width: 100%"></div>
-                        <script type="text/javascript">
+            </div>
+            <div class="row">
+                <div id="transport0_div" class="col-md-4" style="margin-top: -50px;">
+                    <div id="transport0" style="height: 50%;width: 100%;"></div>
+                    <script type="text/javascript">
                         $(document).ready(function() {
+                            var transport0 = echarts.init(document.getElementById("transport0"));
+
+                            option = {
+                                backgroundColor: '#161627',
+
+                                title: {
+                                    text: '运输方式比例',
+                                    left: 'center',
+                                    top: 30,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                legend: {
+                                    top: 200,
+                                },
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+
+                                visualMap: {
+                                    show: false,
+                                    min: 80,
+                                    max: 600,
+                                    inRange: {
+                                        colorLightness: [0, 1]
+                                    }
+                                },
+                                series: [{
+                                    name: '运输方式',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '50%'],
+                                    data: [{
+                                        value: 335,
+                                        name: '自提'
+                                    }, {
+                                        value: 310,
+                                        name: '直送'
+                                    }, {
+                                        value: 274,
+                                        name: '众包物流'
+                                    },
+                                        // {value:235, name:'视频广告'},
+                                        // {value:400, name:'搜索引擎'}
+                                    ].sort(function(a, b) {
+                                        return a.value - b.value
+                                    }),
+                                    roseType: 'angle',
+                                    label: {
+                                        normal: {
+                                            textStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            lineStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            },
+                                            smooth: 0.2,
+                                            length: 10,
+                                            length2: 20
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#c23531',
+                                            shadowBlur: 200,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            transport0.setOption(option);
+                        });
+                    </script>
+                </div>
+                <div id="transport1_div" class="col-md-4" style="margin-top: -50px;">
+                    <div id="transport1" style="height: 50%;width: 100%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            var transport1 = echarts.init(document.getElementById("transport1"));
+
+                            option = {
+                                backgroundColor: '#161627',
+
+                                title: {
+                                    text: '配送时间比例',
+                                    left: 'center',
+                                    top: 30,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                legend: {
+                                    top: 200,
+                                },
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+
+                                visualMap: {
+                                    show: false,
+                                    min: 80,
+                                    max: 600,
+                                    inRange: {
+                                        colorLightness: [0, 1]
+                                    }
+                                },
+                                series: [{
+                                    name: '配送时间',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '50%'],
+                                    data: [{
+                                        value: 335,
+                                        name: '周一'
+                                    }, {
+                                        value: 310,
+                                        name: '周二'
+                                    }, {
+                                        value: 350,
+                                        name: '周三'
+                                    }, {
+                                        value: 300,
+                                        name: '周四'
+                                    }, {
+                                        value: 400,
+                                        name: '周五'
+                                    }, {
+                                        value: 500,
+                                        name: '周六'
+                                    }, {
+                                        value: 440,
+                                        name: '周日'
+                                    }
+                                        // {value:235, name:'视频广告'},
+                                        // {value:400, name:'搜索引擎'}
+                                    ].sort(function (a, b) {
+                                        return 0;
+                                    }),
+//                                            .sort(function(a, b) {
+//                                        return a.value - b.value
+//                                    }
+                                    roseType: 'angle',
+                                    label: {
+                                        normal: {
+                                            textStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            lineStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            },
+                                            smooth: 0.2,
+                                            length: 10,
+                                            length2: 20
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#c23531',
+                                            shadowBlur: 200,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            transport1.setOption(option);
+                        });
+                    </script>
+                </div>
+                <div id="transport2_div" class="col-md-4" style="margin-top: -50px;">
+                    <div id="transport2" style="height: 50%;width: 100%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            var transport2 = echarts.init(document.getElementById("transport2"));
+
+                            option = {
+                                backgroundColor: '#161627',
+
+                                title: {
+                                    text: '支付方式比例',
+                                    left: 'center',
+                                    top: 30,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                legend: {
+                                    top: 200,
+                                },
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+
+                                visualMap: {
+                                    show: false,
+                                    min: 80,
+                                    max: 600,
+                                    inRange: {
+                                        colorLightness: [0, 1]
+                                    }
+                                },
+                                series: [{
+                                    name: '支付方式',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '50%'],
+                                    data: [{
+                                        value: 335,
+                                        name: '网银支付'
+                                    }, {
+                                        value: 310,
+                                        name: '微信支付'
+                                    }, {
+                                        value: 274,
+                                        name: '支付宝支付'
+                                    }, {
+                                        value: 174,
+                                        name: '现金支付'
+                                    },
+                                        // {value:235, name:'视频广告'},
+                                        // {value:400, name:'搜索引擎'}
+                                    ].sort(function(a, b) {
+//                                        return a.value - b.value
+                                        return 0;
+                                    }),
+                                    roseType: 'angle',
+                                    label: {
+                                        normal: {
+                                            textStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            lineStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            },
+                                            smooth: 0.2,
+                                            length: 10,
+                                            length2: 20
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#c23531',
+                                            shadowBlur: 200,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            transport2.setOption(option);
+                        });
+                    </script>
+                </div>
+                <div style="margin-top: 40vh;margin-left: 1vh;position: absolute;text-align: center;">
+                    <button id="btn0" type="button" class="btn button5" style="margin-left: 60px;">运输方式</button>
+                    <button id="btn1" type="button" class="btn button5">配送时间</button>
+                    <button id="btn2" type="button" class="btn button5">支付方式</button>
+                </div>
+                <script>
+                    $(document).ready(function () {
+//                        $("#transport0_div").hide();
+                        $("#transport1_div").toggle();
+                        $("#transport2_div").toggle();
+                        $(".btn").click(function () {
+                            if ($("#transport" + $(this).attr('id')[3] + '_div').css("display") != "none") {
+                                return;
+                            }
+                            if ($("#transport0_div").css("display") != "none") {
+                                $("#transport0_div").toggle();
+                            }
+                            if ($("#transport1_div").css("display") != "none") {
+                                $("#transport1_div").toggle();
+                            }
+                            if ($("#transport2_div").css("display") != "none") {
+                                $("#transport2_div").toggle();
+                            }
+                            $("#transport" + $(this).attr('id')[3] + '_div').toggle('slow');
+                        });
+                    });
+                </script>
+                <div id="business_div" class="col-md-4" style="margin-top: -50px;">
+                    <div id="business" style="height: 50%;width: 100%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            var business = echarts.init(document.getElementById("business"));
+
+                            option = {
+                                backgroundColor: '#161627',
+
+                                title: {
+                                    text: '业务需求量',
+                                    left: 'center',
+                                    top: 30,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                legend: {
+                                    top: 200,
+                                },
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+
+                                visualMap: {
+                                    show: false,
+                                    min: 80,
+                                    max: 600,
+                                    inRange: {
+                                        colorLightness: [0, 1]
+                                    }
+                                },
+                                series: [{
+                                    name: '业务需求',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '50%'],
+                                    data: [{
+                                        value: 335,
+                                        name: '搜索'
+                                    }, {
+                                        value: 310,
+                                        name: '查看'
+                                    }, {
+                                        value: 274,
+                                        name: '关注'
+                                    }, {
+                                        value: 360,
+                                        name: '交易'
+                                    },
+                                        // {value:235, name:'视频广告'},
+                                        // {value:400, name:'搜索引擎'}
+                                    ].sort(function(a, b) {
+                                        return a.value - b.value
+                                    }),
+                                    roseType: 'angle',
+                                    label: {
+                                        normal: {
+                                            textStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            lineStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            },
+                                            smooth: 0.2,
+                                            length: 10,
+                                            length2: 20
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#c23531',
+                                            shadowBlur: 200,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            business.setOption(option);
+                        });
+                    </script>
+                </div>
+                <div id="search_div" class="col-md-4" style="margin-top: -50px;">
+                    <div id="search" style="height: 50%;width: 100%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            var search = echarts.init(document.getElementById("search"));
+
+                            option = {
+                                backgroundColor: '#161627',
+
+                                title: {
+                                    text: '搜索关键词',
+                                    left: 'center',
+                                    top: 30,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                legend: {
+                                    top: 200,
+                                },
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+
+                                visualMap: {
+                                    show: false,
+                                    min: 80,
+                                    max: 600,
+                                    inRange: {
+                                        colorLightness: [0, 1]
+                                    }
+                                },
+                                series: [{
+                                    name: '搜索关键词',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '50%'],
+                                    data: [{
+                                        value: 335,
+                                        name: '关键词1'
+                                    }, {
+                                        value: 310,
+                                        name: '关键词2'
+                                    }, {
+                                        value: 274,
+                                        name: '关键词3'
+                                    }, {
+                                        value: 360,
+                                        name: '关键词4'
+                                    }, {
+                                        value: 250,
+                                        name: '关键词5'
+                                    },
+                                    ].sort(function(a, b) {
+                                        return a.value - b.value
+                                    }),
+                                    roseType: 'angle',
+                                    label: {
+                                        normal: {
+                                            textStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            lineStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            },
+                                            smooth: 0.2,
+                                            length: 10,
+                                            length2: 20
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#c23531',
+                                            shadowBlur: 200,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            search.setOption(option);
+                        });
+                    </script>
+                </div>
+                <div id="price-time_div" class="col-md-4">
+                    <div id="price-time" style="height: 40%;width: 100%"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
                             var price_time = echarts.init(document.getElementById("price-time"));
 
-                            $.get('/aqi-beijing.json', function(data) {
+                            $.get('/aqi-beijing.json', function (data) {
                                 price_time.setOption(option = {
                                     title: {
                                         text: '需求-时间图',
@@ -598,7 +924,7 @@ body {
                                         trigger: 'axis'
                                     },
                                     xAxis: {
-                                        data: data.map(function(item) {
+                                        data: data.map(function (item) {
                                             return item[0];
                                         })
                                     },
@@ -648,7 +974,7 @@ body {
                                     series: {
                                         name: 'Beijing AQI',
                                         type: 'line',
-                                        data: data.map(function(item) {
+                                        data: data.map(function (item) {
                                             return item[1];
                                         }),
                                         markLine: {
@@ -673,14 +999,24 @@ body {
                                         color: "#fff",
                                     }
                                 });
-                            });;
+                            });
+                            ;
                         });
-                        </script>
-                    </div>
+                    </script>
                 </div>
+                <script>
+                    $(document).ready(function () {
+                        $("#business_div").click(function () {
+                            $("#search_div").toggle('slow');
+                            $("#price-time_div").toggle('slow');
+                        });
+                        $("#price-time_div").toggle();
+                    });
+                </script>
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>
