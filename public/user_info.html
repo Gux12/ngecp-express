@@ -70,42 +70,369 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <iframe src="/3Dmodels/person" frameborder="0" height="1000" style='padding-left: 20px;'></iframe>
-            <!--<div style="text-align: center;color:white;font-size: 20px;margin-top: 0px;width:300px;">-->
-            <!--<p style="margin:5px;color:#e9c165;margin-left:0px;">南艺璇</p>-->
-            <!--<p style="margin:5px;color:#e9c165;">女</p>-->
-            <!--<p style="margin:5px;color:#e9c165;">22岁</p>-->
-            <!--<p style="margin:5px;color:#e9c165;">学生</p>-->
-            <!--</div>-->
+            <!--<iframe src="/3Dmodels/person" frameborder="0" height="1000" style='padding-left: 20px;'></iframe>-->
         </div>
         <div class="col-md-10">
             <div class="row">
-                <div class="col-md-4"
-                     style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 6%;padding-top: 20px;padding-bottom: 20px;">
-                    <div class="col-md-6" style="text-align: center;">
-                        <p class="p-info">姓名 ：南艺璇</p>
-                        <p class="p-info">性别 ：女</p>
-                        <p class="p-info">年龄 ：22岁</p>
-                        <p class="p-info">学历 ：本科</p>
-                        <p class="p-info">职业 ：学生</p>
-                        <p class="p-info">爱好 ：艺术</p>
+                <div class="col-md-4">
+                    <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 5%;padding-top: 10px;padding-bottom: 10px;">
+                        <div class="col-md-6" style="text-align: center;">
+                            <p class="p-info">姓名 ：南艺璇</p>
+                            <p class="p-info">性别 ：女</p>
+                            <p class="p-info">年龄 ：22岁</p>
+                        </div>
+                        <div class="col-md-6" style="text-align: center;">
+                            <p class="p-info">学历 ：本科</p>
+                            <p class="p-info">职业 ：学生</p>
+                            <p class="p-info">爱好 ：艺术</p>
+                        </div>
                     </div>
-                    <div class="col-md-6" style="text-align: center;">
-                        <p class="p-info">身高 ：165cm</p>
-                        <p class="p-info">体重 ：45kg</p>
-                        <p class="p-info">胸围 ：--</p>
-                        <p class="p-info">腰围 ：--</p>
-                        <p class="p-info">臀围 ：--</p>
+                    <div class="row">
+                        <div id="height" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-15px;"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var save = echarts.init(document.getElementById("height"));
+                                var hours = ['1.3-1.4m', '1.4-1.5m', '1.5-1.6m', '1.6-1.7m', '1.7-1.8m', '1.8-1.9m'];
+                                var days = ['身高'];
+                                var data = [
+                                    [0, 0, 0],
+                                    [0, 5, 0],
+                                    [0, 3, 4],
+                                ];
+
+                                option = {
+                                    tooltip: {
+                                        position: 'top'
+                                    },
+                                    title: [],
+                                    singleAxis: [],
+                                    series: []
+                                };
+
+                                echarts.util.each(days, function(day, idx) {
+                                    option.title.push({
+                                        textBaseline: 'middle',
+                                        top: (idx + 0.5) * 100 / 1 + '%',
+                                        text: day,
+                                        textStyle: {
+                                            color: '#c23531'
+                                        }
+                                    });
+                                    option.singleAxis.push({
+                                        left: 80,
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: hours,
+                                        top: (idx * 100 / 1 + 36) + '%',
+                                       // height: (100 / 2.5 - 10) + '%',
+                                        height: 20 + '%',
+                                        axisLabel: {
+                                            textStyle: {
+                                                color: "#fff"
+                                            }
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#fff"
+                                            }
+                                        }
+                                    });
+                                    option.series.push({
+                                        singleAxisIndex: idx,
+                                        coordinateSystem: 'singleAxis',
+                                        type: 'scatter',
+                                        data: [],
+                                        symbolSize: function(dataItem) {
+                                            return dataItem[1] * 4;
+                                        }
+                                    });
+                                });
+
+                                echarts.util.each(data, function(dataItem) {
+                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+                                });;
+                                save.setOption(option, true);
+                            });
+                        </script>
+                    </div>
+                    <div class="row">
+                        <div id="weight" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-45px;"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var save = echarts.init(document.getElementById("weight"));
+                                var hours = ['45-50kg', '50-55kg', '55-60kg', '60-65kg', '65-70kg'];
+                                var days = ['体重'];
+                                var data = [
+                                    [0, 0, 0],
+                                    [0, 4, 0],
+                                    [0, 0, 4],
+                                ];
+
+                                option = {
+                                    tooltip: {
+                                        position: 'top'
+                                    },
+                                    title: [],
+                                    singleAxis: [],
+                                    series: []
+                                };
+
+                                echarts.util.each(days, function(day, idx) {
+                                    option.title.push({
+                                        textBaseline: 'middle',
+                                        top: (idx + 0.5) * 100 / 1 + '%',
+                                        text: day,
+                                        textStyle: {
+                                            color: '#c23531'
+                                        }
+                                    });
+                                    option.singleAxis.push({
+                                        left: 80,
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: hours,
+                                        top: (idx * 100 / 1 + 36) + '%',
+//                                        height: (100 / 2.5 - 10) + '%',
+                                        height: 20 + '%',
+                                        axisLabel: {
+                                            textStyle: {
+                                                color: "#fff"
+                                            }
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#fff"
+                                            }
+                                        }
+                                    });
+                                    option.series.push({
+                                        singleAxisIndex: idx,
+                                        coordinateSystem: 'singleAxis',
+                                        type: 'scatter',
+                                        data: [],
+                                        symbolSize: function(dataItem) {
+                                            return dataItem[1] * 4;
+                                        }
+                                    });
+                                });
+
+                                echarts.util.each(data, function(dataItem) {
+                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+                                });;
+                                save.setOption(option, true);
+                            });
+                        </script>
+                    </div>
+                    <div class="row">
+                        <div id="bust" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-45px;"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var save = echarts.init(document.getElementById("bust"));
+                                var hours = ['75-80cm', '80-85cm', '85-90cm', '90-95cm', ];
+                                var days = ['胸围'];
+                                var data = [
+                                    [0, 0, 0],
+                                    [0, 3, 0],
+                                    [0, 2, 4],
+                                ];
+
+                                option = {
+                                    tooltip: {
+                                        position: 'top'
+                                    },
+                                    title: [],
+                                    singleAxis: [],
+                                    series: []
+                                };
+
+                                echarts.util.each(days, function(day, idx) {
+                                    option.title.push({
+                                        textBaseline: 'middle',
+                                        top: (idx + 0.5) * 100 / 1 + '%',
+                                        text: day,
+                                        textStyle: {
+                                            color: '#c23531'
+                                        }
+                                    });
+                                    option.singleAxis.push({
+                                        left: 80,
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: hours,
+                                        top: (idx * 100 / 1 + 36) + '%',
+                                        height: 20 + '%',
+                                        axisLabel: {
+                                            textStyle: {
+                                                color: "#fff"
+                                            }
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#fff"
+                                            }
+                                        }
+                                    });
+                                    option.series.push({
+                                        singleAxisIndex: idx,
+                                        coordinateSystem: 'singleAxis',
+                                        type: 'scatter',
+                                        data: [],
+                                        symbolSize: function(dataItem) {
+                                            return dataItem[1] * 4;
+                                        }
+                                    });
+                                });
+
+                                echarts.util.each(data, function(dataItem) {
+                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+                                });;
+                                save.setOption(option, true);
+                            });
+                        </script>
+                    </div>
+                    <div class="row">
+                        <div id="waistline" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-45px;"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var save = echarts.init(document.getElementById("waistline"));
+                                var hours = ['60-65cm', '65-70cm', '70-75cm', '75-80cm', '80-85cm', '85-90cm', '90-95cm', ];
+                                var days = ['腰围'];
+                                var data = [
+                                    [0, 0, 0],
+                                    [0, 6, 0],
+                                    [0, 2, 4],
+                                ];
+
+                                option = {
+                                    tooltip: {
+                                        position: 'top'
+                                    },
+                                    title: [],
+                                    singleAxis: [],
+                                    series: []
+                                };
+
+                                echarts.util.each(days, function(day, idx) {
+                                    option.title.push({
+                                        textBaseline: 'middle',
+                                        top: (idx + 0.5) * 100 / 1 + '%',
+                                        text: day,
+                                        textStyle: {
+                                            color: '#c23531'
+                                        }
+                                    });
+                                    option.singleAxis.push({
+                                        left: 80,
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: hours,
+                                        top: (idx * 100 / 1 + 36) + '%',
+                                        height: 20 + '%',
+                                        axisLabel: {
+                                            textStyle: {
+                                                color: "#fff"
+                                            }
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#fff"
+                                            }
+                                        }
+                                    });
+                                    option.series.push({
+                                        singleAxisIndex: idx,
+                                        coordinateSystem: 'singleAxis',
+                                        type: 'scatter',
+                                        data: [],
+                                        symbolSize: function(dataItem) {
+                                            return dataItem[1] * 4;
+                                        }
+                                    });
+                                });
+
+                                echarts.util.each(data, function(dataItem) {
+                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+                                });;
+                                save.setOption(option, true);
+                            });
+                        </script>
+                    </div>
+                    <div class="row">
+                        <div id="hips" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-45px;"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var save = echarts.init(document.getElementById("hips"));
+                                var hours = ['70-75cm', '75-80cm', '80-85cm', '85-90cm', '90-95cm', ];
+                                var days = ['臀围'];
+                                var data = [
+                                    [0, 0, 0],
+                                    [0, 4, 0],
+                                    [0, 3, 4],
+                                ];
+
+                                option = {
+                                    tooltip: {
+                                        position: 'top'
+                                    },
+                                    title: [],
+                                    singleAxis: [],
+                                    series: []
+                                };
+
+                                echarts.util.each(days, function(day, idx) {
+                                    option.title.push({
+                                        textBaseline: 'middle',
+                                        top: (idx + 0.5) * 100 / 1 + '%',
+                                        text: day,
+                                        textStyle: {
+                                            color: '#c23531'
+                                        }
+                                    });
+                                    option.singleAxis.push({
+                                        left: 80,
+                                        type: 'category',
+                                        boundaryGap: false,
+                                        data: hours,
+                                        top: (idx * 100 / 1 + 36) + '%',
+                                        height: 20 + '%',
+                                        axisLabel: {
+                                            textStyle: {
+                                                color: "#fff"
+                                            }
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#fff"
+                                            }
+                                        }
+                                    });
+                                    option.series.push({
+                                        singleAxisIndex: idx,
+                                        coordinateSystem: 'singleAxis',
+                                        type: 'scatter',
+                                        data: [],
+                                        symbolSize: function(dataItem) {
+                                            return dataItem[1] * 4;
+                                        }
+                                    });
+                                });
+
+                                echarts.util.each(data, function(dataItem) {
+                                    option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
+                                });;
+                                save.setOption(option, true);
+                            });
+                        </script>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div id="body" style="width:100%;height:50vh;"></div>
+                <div class="col-md-4 col-md-offset-1">
+                    <div id="body" style="width:80%;height:50vh;"></div>
                     <script type="text/javascript">
                         $(document).ready(function () {
                             var body = echarts.init(document.getElementById("body"));
                             // Schema:
                             var dataBJ = [
-                                [267, 216, 280, 120, 108]
+                                [240, 260, 220, 270, 250]
                             ];
 
                             var lineStyle = {
@@ -118,11 +445,12 @@
                             option = {
                                 backgroundColor: '#161627',
                                 title: {
-                                    text: '身体状况',
+                                    text: '供应信息',
                                     left: 'center',
                                     textStyle: {
                                         color: '#eee'
-                                    }
+                                    },
+                                    top: 20,
                                 },
 
                                 tooltip: {
@@ -141,13 +469,19 @@
                                 },
                                 radar: {
                                     indicator: [{
-                                        name: '健康程度',
+                                        name: '速度',
                                         max: 300
                                     }, {
-                                        name: '体脂水平',
+                                        name: '质量',
                                         max: 300
                                     }, {
-                                        name: '摄入卡路里',
+                                        name: '价格',
+                                        max: 300
+                                    }, {
+                                        name: '作用',
+                                        max: 300
+                                    }, {
+                                        name: '销量',
                                         max: 300
                                     }],
                                     shape: 'circle',
@@ -183,12 +517,13 @@
                                     symbol: 'none',
                                     itemStyle: {
                                         normal: {
-                                            color: '#F9713C'
+                                            // color: '#F9713C'
+                                            color: '#e44e49'
                                         }
                                     },
                                     areaStyle: {
                                         normal: {
-                                            opacity: 0.2
+                                            opacity: 0.8
                                         }
                                     }
                                 }]
@@ -197,219 +532,51 @@
                         });
                     </script>
                 </div>
-                <div class="col-md-4">
-                    <div id="number" style="width:100%;height:50vh;"></div>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            var number = echarts.init(document.getElementById("number"));
-                            // Schema:
-                            var dataBJ = [
-                                [267, 216, 280, 120, 108]
-                            ];
-
-                            var lineStyle = {
-                                normal: {
-                                    width: 1,
-                                    opacity: 0.5
-                                }
-                            };
-
-                            option = {
-                                backgroundColor: '#161627',
-                                title: {
-                                    text: '购买水平',
-                                    left: 'center',
-                                    textStyle: {
-                                        color: '#eee'
-                                    }
-                                },
-
-                                tooltip: {
-                                    trigger: "item"
-                                },
-
-                                legend: {
-                                    bottom: 5,
-                                    data: [],
-                                    itemGap: 20,
-                                    textStyle: {
-                                        color: '#fff',
-                                        fontSize: 14
-                                    },
-                                    selectedMode: 'single'
-                                },
-                                radar: {
-                                    indicator: [{
-                                        name: '购物水平',
-                                        max: 300
-                                    }, {
-                                        name: '收支情况',
-                                        max: 300
-                                    }, {
-                                        name: '存款情况',
-                                        max: 300
-                                    }, {
-                                        name: '家庭状况',
-                                        max: 300
-                                    }, {
-                                        name: '信用',
-                                        max: 300
-                                    }],
-                                    shape: 'circle',
-                                    splitNumber: 5,
-                                    name: {
-                                        textStyle: {
-                                            color: 'rgb(238, 197, 102)'
-                                        }
-                                    },
-                                    splitLine: {
-                                        lineStyle: {
-                                            color: [
-                                                'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
-                                                'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
-                                                'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
-                                            ].reverse()
-                                        }
-                                    },
-                                    splitArea: {
-                                        show: false
-                                    },
-                                    axisLine: {
-                                        lineStyle: {
-                                            color: 'rgba(238, 197, 102, 0.5)'
-                                        }
-                                    }
-                                },
-                                series: [{
-                                    name: '购买水平',
-                                    type: 'radar',
-                                    lineStyle: lineStyle,
-                                    data: dataBJ,
-                                    symbol: 'none',
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#F9713C'
-                                        }
-                                    },
-                                    areaStyle: {
-                                        normal: {
-                                            opacity: 0.2
-                                        }
-                                    }
-                                }]
-                            };
-                            number.setOption(option);
-
-                            $("#number").click(function () {
-                                $("#number").toggle('slow');
-                                $("#eva").toggle('slow');
-                            });
-                        });
-                    </script>
-                </div>
-                <div class="col-md-4">
-                    <div id="eva" style="width:100%;height:50vh;"></div>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            var eva = echarts.init(document.getElementById("eva"));
-                            // Schema:
-                            var dataBJ = [
-                                [210, 176, 280, 120, 108]
-                            ];
-
-                            var lineStyle = {
-                                normal: {
-                                    width: 1,
-                                    opacity: 0.5
-                                }
-                            };
-
-                            option = {
-                                backgroundColor: '#161627',
-                                title: {
-                                    text: '用户偏好',
-                                    left: 'center',
-                                    textStyle: {
-                                        color: '#eee'
-                                    }
-                                },
-
-                                tooltip: {
-                                    trigger: "item"
-                                },
-
-                                legend: {
-                                    bottom: 5,
-                                    data: [],
-                                    itemGap: 20,
-                                    textStyle: {
-                                        color: '#fff',
-                                        fontSize: 14
-                                    },
-                                    selectedMode: 'single'
-                                },
-                                radar: {
-                                    indicator: [{
-                                        name: '评价偏好',
-                                        max: 300
-                                    }, {
-                                        name: '风险偏好',
-                                        max: 300
-                                    }, {
-                                        name: '敏感系数',
-                                        max: 300
-                                    }],
-                                    shape: 'circle',
-                                    splitNumber: 5,
-                                    name: {
-                                        textStyle: {
-                                            color: 'rgb(238, 197, 102)'
-                                        }
-                                    },
-                                    splitLine: {
-                                        lineStyle: {
-                                            color: [
-                                                'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
-                                                'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
-                                                'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
-                                            ].reverse()
-                                        }
-                                    },
-                                    splitArea: {
-                                        show: false
-                                    },
-                                    axisLine: {
-                                        lineStyle: {
-                                            color: 'rgba(238, 197, 102, 0.5)'
-                                        }
-                                    }
-                                },
-                                series: [{
-                                    name: '用户偏好',
-                                    type: 'radar',
-                                    lineStyle: lineStyle,
-                                    data: dataBJ,
-                                    symbol: 'none',
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#F9713C'
-                                        }
-                                    },
-                                    areaStyle: {
-                                        normal: {
-                                            opacity: 0.1
-                                        }
-                                    }
-                                }]
-                            };
-                            eva.setOption(option);
-                            $("#eva").click(function () {
-                                $("#eva").toggle('slow');
-                                $("#number").toggle('slow');
-                            });
-                            $("#eva").toggle();
-                        });
-                    </script>
+                <div class="col-md-3">
+                    <!-- <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 5%;padding-top: 10px;padding-bottom: 10px;"> -->
+                        <div class="col-md-10" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 20%;padding-top: 40px;padding-bottom: 40px;text-align:center;">
+                            <p class="p-info">速度：
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </p>
+                            <p class="p-info">质量：
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </p>
+                            <p class="p-info">价格：
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </p>
+                            <p class="p-info">作用：
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </p>
+                            <p class="p-info">销量：
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </p>
+                        </div>
+                        <!-- <div class="col-md-6" style="text-align: center;"> -->
+                            <!-- <p class="p-info">学历 ：本科</p> -->
+                            <!-- <p class="p-info">职业 ：学生</p> -->
+                            <!-- <p class="p-info">爱好 ：艺术</p> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
                 </div>
             </div>
             <div class="row">
@@ -423,7 +590,7 @@
                                 backgroundColor: '#161627',
 
                                 title: {
-                                    text: '运输方式比例',
+                                    text: '运输方式',
                                     left: 'center',
                                     top: 30,
                                     textStyle: {
@@ -697,16 +864,16 @@
                     </script>
                 </div>
                 <div style="margin-top: 40vh;margin-left: 1vh;position: absolute;text-align: center;">
-                    <button id="btn0" type="button" class="btn button5" style="margin-left: 60px;">运输方式</button>
-                    <button id="btn1" type="button" class="btn button5">配送时间</button>
-                    <button id="btn2" type="button" class="btn button5">支付方式</button>
+                    <button id="btn0" type="button" class="btn button5 btn-transport" style="margin-left: 60px;">运输方式</button>
+                    <button id="btn1" type="button" class="btn button5 btn-transport">配送时间</button>
+                    <button id="btn2" type="button" class="btn button5 btn-transport">支付方式</button>
                 </div>
                 <script>
                     $(document).ready(function () {
 //                        $("#transport0_div").hide();
                         $("#transport1_div").toggle();
                         $("#transport2_div").toggle();
-                        $(".btn").click(function () {
+                        $(".btn-transport").click(function () {
                             if ($("#transport" + $(this).attr('id')[3] + '_div').css("display") != "none") {
                                 return;
                             }
@@ -719,203 +886,204 @@
                             if ($("#transport2_div").css("display") != "none") {
                                 $("#transport2_div").toggle();
                             }
-                            $("#transport" + $(this).attr('id')[3] + '_div').toggle('slow');
+                            $("#transport" + $(this).attr('id')[3] + '_div').toggle();
                         });
                     });
                 </script>
-                <div id="business_div" class="col-md-4" style="margin-top: -50px;">
+                <div id="service_div0" class="col-md-4" style="margin-top: -50px;">
                     <div id="business" style="height: 50%;width: 100%;"></div>
                     <script type="text/javascript">
                         $(document).ready(function() {
                             var business = echarts.init(document.getElementById("business"));
 
-                            option = {
-                                backgroundColor: '#161627',
+//                            option = {
+//                                backgroundColor: '#161627',
+//
+//                                title: {
+//                                    text: '需求量',
+//                                    left: 'center',
+//                                    top: 30,
+//                                    textStyle: {
+//                                        color: '#fff'
+//                                    }
+//                                },
+//                                legend: {
+//                                    top: 200,
+//                                },
+//
+//                                tooltip: {
+//                                    trigger: 'item',
+//                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+//                                },
+//
+//                                visualMap: {
+//                                    show: false,
+//                                    min: 80,
+//                                    max: 600,
+//                                    inRange: {
+//                                        colorLightness: [0, 1]
+//                                    }
+//                                },
+//                                series: [{
+//                                    name: '需求量',
+//                                    type: 'pie',
+//                                    radius: '55%',
+//                                    center: ['50%', '50%'],
+//                                    data: [{
+//                                        value: 335,
+//                                        name: '搜索'
+//                                    }, {
+//                                        value: 310,
+//                                        name: '查看'
+//                                    }, {
+//                                        value: 274,
+//                                        name: '关注'
+//                                    }, {
+//                                        value: 360,
+//                                        name: '交易'
+//                                    },
+//                                        // {value:235, name:'视频广告'},
+//                                        // {value:400, name:'搜索引擎'}
+//                                    ].sort(function(a, b) {
+//                                        return a.value - b.value
+//                                    }),
+//                                    roseType: 'angle',
+//                                    label: {
+//                                        normal: {
+//                                            textStyle: {
+//                                                // color: 'rgba(255, 255, 255, 1)'
+//                                                color: "#e9c165"
+//                                            }
+//                                        }
+//                                    },
+//                                    labelLine: {
+//                                        normal: {
+//                                            lineStyle: {
+//                                                // color: 'rgba(255, 255, 255, 1)'
+//                                                color: "#e9c165"
+//                                            },
+//                                            smooth: 0.2,
+//                                            length: 10,
+//                                            length2: 20
+//                                        }
+//                                    },
+//                                    itemStyle: {
+//                                        normal: {
+//                                            color: '#c23531',
+//                                            shadowBlur: 200,
+//                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+//                                        }
+//                                    }
+//                                }]
+//                            };
+                            $.get('obama_budget_proposal_2012.json', function (obama_budget_2012) {
+                                business.hideLoading();
 
-                                title: {
-                                    text: '业务需求量',
-                                    left: 'center',
-                                    top: 30,
-                                    textStyle: {
-                                        color: '#fff'
-                                    }
-                                },
-                                legend: {
-                                    top: 200,
-                                },
-
-                                tooltip: {
-                                    trigger: 'item',
-                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
-                                },
-
-                                visualMap: {
-                                    show: false,
-                                    min: 80,
-                                    max: 600,
-                                    inRange: {
-                                        colorLightness: [0, 1]
-                                    }
-                                },
-                                series: [{
-                                    name: '业务需求',
-                                    type: 'pie',
-                                    radius: '55%',
-                                    center: ['50%', '50%'],
-                                    data: [{
-                                        value: 335,
-                                        name: '搜索'
-                                    }, {
-                                        value: 310,
-                                        name: '查看'
-                                    }, {
-                                        value: 274,
-                                        name: '关注'
-                                    }, {
-                                        value: 360,
-                                        name: '交易'
+                                option = {
+                                    tooltip : {
+                                        trigger: 'item'
                                     },
-                                        // {value:235, name:'视频广告'},
-                                        // {value:400, name:'搜索引擎'}
-                                    ].sort(function(a, b) {
-                                        return a.value - b.value
-                                    }),
-                                    roseType: 'angle',
-                                    label: {
-                                        normal: {
-                                            textStyle: {
-                                                // color: 'rgba(255, 255, 255, 1)'
-                                                color: "#e9c165"
+                                    toolbox: {
+                                        show : true,
+                                        feature : {
+                                            mark : {show: true},
+                                            dataView : {show: true, readOnly: false},
+                                            magicType: {show: true, type: ['line', 'bar']},
+                                            restore : {show: true},
+                                            saveAsImage : {show: true}
+                                        }
+                                    },
+                                    calculable : true,
+                                    legend: {
+                                        data:['Growth', '今日量', '平均量'],
+//                                        data:['Growth', 'Budget 2012'],
+                                        itemGap: 5,
+                                        textStyle: {
+                                            color: "#fff",
+                                        }
+                                    },
+                                    grid: {
+                                        top: '12%',
+                                        left: '1%',
+                                        right: '10%',
+                                        containLabel: true
+                                    },
+                                    xAxis: [
+                                        {
+                                            type : 'category',
+                                            data : obama_budget_2012.names
+                                        }
+                                    ],
+                                    yAxis: [
+                                        {
+                                            type : 'value',
+                                            name : '量',
+                                            axisLabel: {
+                                                formatter: function (a) {
+                                                    a = +a;
+                                                    return isFinite(a)
+                                                            ? echarts.format.addCommas(+a / 1000)
+                                                            : '';
+                                                }
                                             }
                                         }
-                                    },
-                                    labelLine: {
-                                        normal: {
-                                            lineStyle: {
-                                                // color: 'rgba(255, 255, 255, 1)'
-                                                color: "#e9c165"
-                                            },
-                                            smooth: 0.2,
-                                            length: 10,
-                                            length2: 20
+                                    ],
+                                    dataZoom: [
+                                        {
+                                            show: false,
+                                            start: 0,
+                                            end: 100
+                                        },
+                                        {
+                                            type: 'inside',
+                                            start: 94,
+                                            end: 100
+                                        },
+                                        {
+                                            show: false,
+                                            yAxisIndex: 0,
+                                            filterMode: 'empty',
+                                            width: 30,
+                                            height: '80%',
+                                            showDataShadow: false,
+                                            left: '93%'
                                         }
-                                    },
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#c23531',
-                                            shadowBlur: 200,
-                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    ],
+                                    series : [
+                                        {
+                                            name: '今日量',
+                                            type: 'bar',
+                                            data: obama_budget_2012.budget2011List
+                                        },
+                                        {
+                                            name: '平均量',
+                                            type: 'bar',
+                                            data: obama_budget_2012.budget2012List
                                         }
+                                    ],
+                                    textStyle: {
+                                        color: "#fff",
                                     }
-                                }]
-                            };
 
-                            business.setOption(option);
+                                };
+
+                                business.setOption(option);
+
+                            });
+
+//                            business.setOption(option);
                         });
                     </script>
                 </div>
-                <div id="search_div" class="col-md-4" style="margin-top: -50px;">
-                    <div id="search" style="height: 50%;width: 100%;"></div>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var search = echarts.init(document.getElementById("search"));
-
-                            option = {
-                                backgroundColor: '#161627',
-
-                                title: {
-                                    text: '搜索关键词',
-                                    left: 'center',
-                                    top: 30,
-                                    textStyle: {
-                                        color: '#fff'
-                                    }
-                                },
-                                legend: {
-                                    top: 200,
-                                },
-
-                                tooltip: {
-                                    trigger: 'item',
-                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
-                                },
-
-                                visualMap: {
-                                    show: false,
-                                    min: 80,
-                                    max: 600,
-                                    inRange: {
-                                        colorLightness: [0, 1]
-                                    }
-                                },
-                                series: [{
-                                    name: '搜索关键词',
-                                    type: 'pie',
-                                    radius: '55%',
-                                    center: ['50%', '50%'],
-                                    data: [{
-                                        value: 335,
-                                        name: '关键词1'
-                                    }, {
-                                        value: 310,
-                                        name: '关键词2'
-                                    }, {
-                                        value: 274,
-                                        name: '关键词3'
-                                    }, {
-                                        value: 360,
-                                        name: '关键词4'
-                                    }, {
-                                        value: 250,
-                                        name: '关键词5'
-                                    },
-                                    ].sort(function(a, b) {
-                                        return a.value - b.value
-                                    }),
-                                    roseType: 'angle',
-                                    label: {
-                                        normal: {
-                                            textStyle: {
-                                                // color: 'rgba(255, 255, 255, 1)'
-                                                color: "#e9c165"
-                                            }
-                                        }
-                                    },
-                                    labelLine: {
-                                        normal: {
-                                            lineStyle: {
-                                                // color: 'rgba(255, 255, 255, 1)'
-                                                color: "#e9c165"
-                                            },
-                                            smooth: 0.2,
-                                            length: 10,
-                                            length2: 20
-                                        }
-                                    },
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#c23531',
-                                            shadowBlur: 200,
-                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                        }
-                                    }
-                                }]
-                            };
-
-                            search.setOption(option);
-                        });
-                    </script>
-                </div>
-                <div id="price-time_div" class="col-md-4">
+                <div id="service_div1" class="col-md-4">
                     <div id="price-time" style="height: 40%;width: 100%"></div>
                     <script type="text/javascript">
                         $(document).ready(function () {
                             var price_time = echarts.init(document.getElementById("price-time"));
-
                             $.get('/aqi-beijing.json', function (data) {
                                 price_time.setOption(option = {
                                     title: {
-                                        text: '需求-时间图',
+                                        text: '需求水平',
                                         textStyle: {
                                             color: "#fff"
                                         }
@@ -1004,13 +1172,462 @@
                         });
                     </script>
                 </div>
+                <div id="service_div2" class="col-md-4" style="margin-top: -50px;">
+                    <div id="search" style="height: 50%;width: 100%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            var search = echarts.init(document.getElementById("search"));
+
+                            option = {
+                                backgroundColor: '#161627',
+
+                                title: {
+                                    text: '需求构成',
+                                    left: 'center',
+                                    top: 30,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                },
+                                legend: {
+                                    top: 200,
+                                },
+
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+
+                                visualMap: {
+                                    show: false,
+                                    min: 80,
+                                    max: 600,
+                                    inRange: {
+                                        colorLightness: [0, 1]
+                                    }
+                                },
+                                series: [{
+                                    name: '需求构成',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    center: ['50%', '50%'],
+                                    data: [{
+                                        value: 335,
+                                        name: '汽车'
+                                    }, {
+                                        value: 310,
+                                        name: '服饰'
+                                    }, {
+                                        value: 274,
+                                        name: '肉类'
+                                    }, {
+                                        value: 360,
+                                        name: '水果'
+                                    }, {
+                                        value: 250,
+                                        name: '其它'
+                                    },
+                                    ].sort(function(a, b) {
+                                        return a.value - b.value
+                                    }),
+                                    roseType: 'angle',
+                                    label: {
+                                        normal: {
+                                            textStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            lineStyle: {
+                                                // color: 'rgba(255, 255, 255, 1)'
+                                                color: "#e9c165"
+                                            },
+                                            smooth: 0.2,
+                                            length: 10,
+                                            length2: 20
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#c23531',
+                                            shadowBlur: 200,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }]
+                            };
+
+                            search.setOption(option);
+                        });
+                    </script>
+                </div>
+                <div style="margin-top: 40vh;margin-left: 58vh;position: absolute;text-align: center;">
+                    <button id="btn-service0" type="button" class="btn button5 btn-service" style="margin-left: 60px;">需求量</button>
+                    <button id="btn-service1" type="button" class="btn button5 btn-service">需求水平</button>
+                    <button id="btn-service2" type="button" class="btn button5 btn-service">需求构成</button>
+                </div>
                 <script>
                     $(document).ready(function () {
-                        $("#business_div").click(function () {
-                            $("#search_div").toggle('slow');
-                            $("#price-time_div").toggle('slow');
+                        $("#service_div1").toggle();
+                        $("#service_div2").toggle();
+                        $(".btn-service").click(function () {
+                            if ($("#service_div" + $(this).attr('id')[11]).css("display") != "none") {
+                                return;
+                            }
+                            if ($("#service_div0").css("display") != "none") {
+                                $("#service_div0").toggle();
+                            }
+                            if ($("#service_div1").css("display") != "none") {
+                                $("#service_div1").toggle();
+                            }
+                            if ($("#service_div2").css("display") != "none") {
+                                $("#service_div2").toggle();
+                            }
+                            $("#service_div" + $(this).attr('id')[11]).toggle();
                         });
-                        $("#price-time_div").toggle();
+                    });
+                </script>
+                <div id="purchase0" class="col-md-4" style="margin-top: -50px;">
+                    <div id="number" style="width:70%;height:50%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var number = echarts.init(document.getElementById("number"));
+                            // Schema:
+                            var dataBJ = [
+                                [267, 216, 280, 200, 160]
+                            ];
+
+                            var lineStyle = {
+                                normal: {
+                                    width: 1,
+                                    opacity: 0.5
+                                }
+                            };
+
+                            option = {
+                                backgroundColor: '#161627',
+                                title: {
+                                    text: '购买能力',
+                                    left: 'center',
+                                    textStyle: {
+                                        color: '#eee'
+                                    },
+                                    top:30
+                                },
+
+                                tooltip: {
+                                    trigger: "item"
+                                },
+
+                                legend: {
+                                    bottom: 5,
+                                    data: [],
+                                    itemGap: 20,
+                                    textStyle: {
+                                        color: '#fff',
+                                        fontSize: 14
+                                    },
+                                    selectedMode: 'single'
+                                },
+                                radar: {
+                                    indicator: [{
+                                        name: '收入水平',
+                                        max: 300
+                                    }, {
+                                        name: '盈余状况',
+                                        max: 300
+                                    }, {
+                                        name: '购买意图',
+                                        max: 300
+                                    }, {
+                                        name: '信用水平',
+                                        max: 300
+                                    }, {
+                                        name: '负债情况',
+                                        max: 300
+                                    }],
+                                    shape: 'circle',
+                                    splitNumber: 5,
+                                    name: {
+                                        textStyle: {
+                                            color: 'rgb(238, 197, 102)'
+                                        }
+                                    },
+                                    splitLine: {
+                                        lineStyle: {
+                                            color: [
+                                                'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                                                'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                                                'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                                            ].reverse()
+                                        }
+                                    },
+                                    splitArea: {
+                                        show: false
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: 'rgba(238, 197, 102, 0.5)'
+                                        }
+                                    }
+                                },
+                                series: [{
+                                    name: '购买水平',
+                                    type: 'radar',
+                                    lineStyle: lineStyle,
+                                    data: dataBJ,
+                                    symbol: 'none',
+                                    itemStyle: {
+                                        normal: {
+//                                            color: '#F9713C'
+                                            color: '#e44e49'
+                                        }
+                                    },
+                                    areaStyle: {
+                                        normal: {
+                                            opacity: 0.8
+                                        }
+                                    }
+                                }]
+                            };
+                            number.setOption(option);
+
+                            $("#number").click(function () {
+                                $("#number").toggle('slow');
+                                $("#eva").toggle('slow');
+                            });
+                        });
+                    </script>
+                </div>
+                <div id="purchase1" class="col-md-4" style="margin-top: -50px;">
+                    <div id="eva" style="width:70%;height:50%;"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var eva = echarts.init(document.getElementById("eva"));
+                            // Schema:
+                            var dataBJ = [
+                                [210, 176, 280, 120, 108]
+                            ];
+
+                            var lineStyle = {
+                                normal: {
+                                    width: 1,
+                                    opacity: 0.5
+                                }
+                            };
+
+                            option = {
+                                backgroundColor: '#161627',
+                                title: {
+                                    text: '用户偏好',
+                                    left: 'center',
+                                    textStyle: {
+                                        color: '#eee'
+                                    }
+                                },
+
+                                tooltip: {
+                                    trigger: "item"
+                                },
+
+                                legend: {
+                                    bottom: 5,
+                                    data: [],
+                                    itemGap: 20,
+                                    textStyle: {
+                                        color: '#fff',
+                                        fontSize: 14
+                                    },
+                                    selectedMode: 'single'
+                                },
+                                radar: {
+                                    indicator: [{
+                                        name: '评价偏好',
+                                        max: 300
+                                    }, {
+                                        name: '风险偏好',
+                                        max: 300
+                                    }, {
+                                        name: '敏感系数',
+                                        max: 300
+                                    }],
+                                    shape: 'circle',
+                                    splitNumber: 5,
+                                    name: {
+                                        textStyle: {
+                                            color: 'rgb(238, 197, 102)'
+                                        }
+                                    },
+                                    splitLine: {
+                                        lineStyle: {
+                                            color: [
+                                                'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                                                'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                                                'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                                            ].reverse()
+                                        }
+                                    },
+                                    splitArea: {
+                                        show: false
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: 'rgba(238, 197, 102, 0.5)'
+                                        }
+                                    }
+                                },
+                                series: [{
+                                    name: '用户偏好',
+                                    type: 'radar',
+                                    lineStyle: lineStyle,
+                                    data: dataBJ,
+                                    symbol: 'none',
+                                    itemStyle: {
+                                        normal: {
+//                                            color: '#F9713C'
+                                            color: '#e44e49'
+                                        }
+                                    },
+                                    areaStyle: {
+                                        normal: {
+                                            opacity: 0.8
+                                        }
+                                    }
+                                }]
+                            };
+                            eva.setOption(option);
+//                            $("#eva").click(function () {
+//                                $("#eva").toggle('slow');
+//                                $("#number").toggle('slow');
+//                            });
+//                            $("#eva").toggle();
+                        });
+                    </script>
+                </div>
+                <div id="purchase2" class="col-md-4">
+                    <div id="purchase-time" style="height: 40%;width: 100%"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var purchase_time = echarts.init(document.getElementById("purchase-time"));
+                            $.get('/aqi-beijing.json', function (data) {
+                                purchase_time.setOption(option = {
+                                    title: {
+                                        text: '消费水平',
+                                        textStyle: {
+                                            color: "#fff"
+                                        }
+                                    },
+                                    tooltip: {
+                                        trigger: 'axis'
+                                    },
+                                    xAxis: {
+                                        data: data.map(function (item) {
+                                            return item[0];
+                                        })
+                                    },
+                                    yAxis: {
+                                        splitLine: {
+                                            show: false
+                                        }
+                                    },
+                                    toolbox: {
+                                        left: 'center',
+                                        feature: {
+                                            dataZoom: {
+                                                yAxisIndex: 'none'
+                                            },
+                                            restore: {},
+                                            saveAsImage: {}
+                                        }
+                                    },
+                                    dataZoom: [{
+                                        startValue: '2014-06-01'
+                                    }, {
+                                        type: 'inside'
+                                    }],
+                                    visualMap: {
+                                        top: 10,
+                                        right: 10,
+                                        pieces: [{
+                                            gt: 0,
+                                            lte: 100,
+                                            color: '#096'
+                                        }, {
+                                            gt: 100,
+                                            lte: 200,
+                                            color: '#ffde33'
+                                        }, {
+                                            gt: 200,
+                                            lte: 300,
+                                            color: '#ff9933'
+                                        }],
+                                        outOfRange: {
+                                            color: '#999'
+                                        },
+                                        textStyle: {
+                                            color: "#fff"
+                                        }
+                                    },
+                                    series: {
+                                        name: 'Beijing AQI',
+                                        type: 'line',
+                                        data: data.map(function (item) {
+                                            return item[1];
+                                        }),
+                                        markLine: {
+                                            silent: true,
+                                            data: [{
+                                                yAxis: 100
+                                            }, {
+                                                yAxis: 200
+                                            }, {
+                                                yAxis: 300
+                                            }],
+                                        },
+                                        label: {
+                                            normal: {
+                                                textStyle: {
+                                                    color: "#fff"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    textStyle: {
+                                        color: "#fff",
+                                    }
+                                });
+                            });
+                            ;
+                        });
+                    </script>
+                </div>
+                <div style="margin-top: 40vh;margin-left: 113vh;position: absolute;text-align: center;">
+                    <button id="btn-purchase0" type="button" class="btn button5 btn-purchase" style="margin-left: 0px;">购买能力</button>
+                    <button id="btn-purchase1" type="button" class="btn button5 btn-purchase">用户偏好</button>
+                    <button id="btn-purchase2" type="button" class="btn button5 btn-purchase">消费水平</button>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        $("#purchase1").toggle();
+                        $("#purchase2").toggle();
+                        $(".btn-purchase").click(function () {
+                            if ($("#purchase" + $(this).attr('id')[12]).css("display") != "none") {
+                                return;
+                            }
+                            if ($("#purchase0").css("display") != "none") {
+                                $("#purchase0").toggle();
+                            }
+                            if ($("#purchase1").css("display") != "none") {
+                                $("#purchase1").toggle();
+                            }
+                            if ($("#purchase2").css("display") != "none") {
+                                $("#purchase2").toggle();
+                            }
+                            $("#purchase" + $(this).attr('id')[12]).toggle();
+                        });
                     });
                 </script>
             </div>
@@ -1018,5 +1635,4 @@
     </div>
 </div>
 </body>
-
 </html>
