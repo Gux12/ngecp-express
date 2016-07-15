@@ -84,6 +84,7 @@ body {
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     </p>
                 </div>
             </dir>
@@ -136,6 +137,12 @@ body {
                             },
                             top: 20,
                         },
+
+                        tooltip: {
+                                trigger: "item",
+                                formatter: '款式新颖：0.9<br/>材质水平：0.7<br/>舒适程度：0.7<br/>耐用程度：0.8<br/>口碑：0.8',
+                            },
+
                         legend: {
                             bottom: 5,
                             data: [],
@@ -148,16 +155,16 @@ body {
                         },
                         radar: {
                             indicator: [{
-                                    name: '品质',
+                                    name: '款式新颖',
                                     max: 300
                                 }, {
-                                    name: '质量',
+                                    name: '材质水平',
                                     max: 300
                                 }, {
-                                    name: '特色',
+                                    name: '舒适程度',
                                     max: 300
                                 }, {
-                                    name: '评价',
+                                    name: '耐用程度',
                                     max: 300
                                 }, {
                                     name: '口碑',
@@ -293,7 +300,8 @@ body {
                             },
 
                             tooltip: {
-                                trigger: "item"
+                                trigger: "item",
+                                formatter: '速度：0.8<br/>质量：0.9<br/>价格：0.7<br/>信用：0.9<br/>销量：0.8',
                             },
 
                             legend: {

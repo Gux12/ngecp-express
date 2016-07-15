@@ -75,6 +75,7 @@ body {
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     </p>
                 </div>
             </dir>
@@ -125,6 +126,12 @@ body {
                             },
                             top: 20,
                         },
+
+                        tooltip: {
+                                trigger: "item",
+                                formatter: '拍摄质量：0.9<br/>服务态度：0.7<br/>特色：0.7<br/>口碑：0.8',
+                            },
+
                         legend: {
                             bottom: 5,
                             data: [],
@@ -137,24 +144,24 @@ body {
                         },
                         radar: {
                             indicator: [{
-                                    name: '品质',
+                                    name: '拍摄质量',
                                     max: 300
                                 }, {
-                                    name: '质量',
+                                    name: '服务态度',
                                     max: 300
                                 }, {
                                     name: '特色',
                                     max: 300
-                                }, {
-                                    name: '评价',
-                                    max: 300
+                                // }, {
+                                //     name: '评价',
+                                //     max: 300
                                 }, {
                                     name: '口碑',
                                     max: 300
                                 }
                             ],
                             shape: 'circle',
-                            splitNumber: 5,
+                            splitNumber: 4,
                             name: {
                                 textStyle: {
                                     color: 'rgb(238, 197, 102)'
@@ -1115,7 +1122,8 @@ body {
                             },
 
                             tooltip: {
-                                trigger: "item"
+                                trigger: "item",
+                                formatter: '速度：0.8<br/>质量：0.9<br/>价格：0.7<br/>信用：0.9<br/>销量：0.8',
                             },
 
                             legend: {
