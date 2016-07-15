@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="/css/buttons.min.css">
     <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
     <link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/amazeui.flat.min.css">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/js/myTrick.js"></script>
@@ -17,6 +21,11 @@
     <script src="/js/vendor/jquery.sidr.min.js"></script>
     <script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/vendor/map/china.js"></script>
+    <script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+    <script src="/assets/js/amazeui.min.js"></script>
+    <script src="/assets/js/amazeui.widgets.helper.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/handlebars.min.js"></script>
     <style>
     div {
         font-family: Microsoft YaHei;
@@ -79,7 +88,7 @@ body {
                 </div>
             </dir>
             <div class="col-md-3">
-                <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 20%;padding-top: 10px;padding-bottom: 10px;width:95%;">
+                <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 10%;padding-top: 10px;padding-bottom: 10px;width:95%;">
                     <div class="col-md-6" style="text-align: center;">
                         <p class="p-info">名称 ：雪纺衬衣</p>
                         <p class="p-info">种类 ：衬衫</p>
@@ -205,16 +214,50 @@ body {
                 </script>
             </div>
             <div class="col-md-3">
-                <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 20%;padding-top: 10px;padding-bottom: 10px;width:95%;">
-                    <div class="col-md-12" style="text-align: center;">
-                        <p class="p-info">评价1：室内防冷，室外防晒！很喜欢！</p>
+                <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 10%;padding-top: 10px;padding-bottom: 10px;width:95%;background-color:rgba(0,0,0,0);">
+                    <div class="col-md-12">
+                        <!-- <p class="p-info">评价1：室内防冷，室外防晒！很喜欢！</p>
                         <p class="p-info">评价2：买回来有些味道，水洗一下会变形。</p>
                         <p class="p-info">评价3：超级显瘦啊，关键是质感好！</p>
                         <p class="p-info">评价4：衣服款式大方，透气性好。</p>
                         <p class="p-info">评价5：感觉很捧，面料舒适、清凉。</p>
                         <p class="p-info">评价6：穿了几天真的很好看 修身 透气</p>
                         <p class="p-info">评价7：夏天穿不会很热还能防晒。</p>
-                        <p class="p-info">评价8：相信我。值得拥有的一件衣服。</p>
+                        <p class="p-info">评价8：相信我。值得拥有的一件衣服。</p> -->
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <!--列表标题-->
+                            <div class="am-list-news-hd am-cf">
+                                <!--带更多链接-->
+                                <a href="##" class="" style="color: #fff;">
+                                    <h2>用户评论</h2><span class="am-list-news-more am-fr">更多 &raquo;</span>
+                                </a>
+                            </div>
+
+                            <div class="am-list-news-bd">
+                            <ul class="am-list">
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">室内防冷，室外防晒！很喜欢！</a>
+                                    <span class="am-list-date">2016-07-06</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">买回来有些味道，水洗一下会变形。</a>
+                                    <span class="am-list-date">2016-07-02</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">超级显瘦啊，关键是质感好！</a>
+                                    <span class="am-list-date">2016-06-19</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">衣服款式大方，透气性好。</a>
+                                    <span class="am-list-date">2016-06-12</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">感觉很捧，面料舒适、清凉。</a>
+                                    <span class="am-list-date">2016-06-10</span>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

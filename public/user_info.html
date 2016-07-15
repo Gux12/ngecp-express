@@ -260,7 +260,7 @@
                                         }
                                     });
                                     option.singleAxis.push({
-                                        left: 80,
+                                        left: 100,
                                         type: 'category',
                                         boundaryGap: false,
                                         data: hours,
@@ -539,8 +539,8 @@
                     </script>
                 </div>
                 <div class="col-md-3">
-                    <!-- <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 5%;padding-top: 10px;padding-bottom: 10px;"> -->
-                        <div class="col-md-10" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 20%;padding-top: 40px;padding-bottom: 40px;text-align:center;">
+                    <div class="col-md-10" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 20%;padding-top: 40px;padding-bottom: 40px;">
+                        <div class="col-md-10 col-md-offset-1">
                             <p class="p-info">速度：
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -574,15 +574,9 @@
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <!-- <span class="glyphicon glyphicon-star" aria-hidden="true"></span> -->
                             </p>
                         </div>
-                        <!-- <div class="col-md-6" style="text-align: center;"> -->
-                            <!-- <p class="p-info">学历 ：本科</p> -->
-                            <!-- <p class="p-info">职业 ：学生</p> -->
-                            <!-- <p class="p-info">爱好 ：艺术</p> -->
-                        <!-- </div> -->
-                    <!-- </div> -->
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -1028,7 +1022,7 @@
                                                 formatter: function (a) {
                                                     a = +a;
                                                     return isFinite(a)
-                                                            ? echarts.format.addCommas(+a / 1000)
+                                                            ? echarts.format.addCommas(+a)
                                                             : '';
                                                 }
                                             }
