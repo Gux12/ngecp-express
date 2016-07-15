@@ -22,14 +22,15 @@
     div {
         font-family: Microsoft YaHei;
     }
+    
     .button5 {
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0, 0, 0, 0);
         color: #e9c165;
         border: 2px solid #555555;
         width: 120px;
         margin-top: 20px;
     }
-
+    
     .button5:hover {
         background-color: #555555;
         color: #e9c165;
@@ -55,9 +56,22 @@ body {
                     $(document).ready(function() {
                         // 基于准备好的dom，初始化echarts实例
                         var myChart = echarts.init(document.getElementById('test-main'));
+                        var view = [{
+                            name: '我',
+                            href: '3Dmodels/clothWoman/'
+                        }, {
+                            name: '顾乡',
+                            href: '3Dmodels/clothMan/'
+                        }];
 
+                        function findHrefbyName(view, name) {
+                            for (var i = view.length - 1; i >= 0; i--) {
+                                if (view[i].name == name) return view[i].href;
+                            }
+                            return false;
+                        }
                         myChart.showLoading();
-                        $.get('/les-miserables.gexf', function (xml) {
+                        $.get('/les-miserables.gexf', function(xml) {
                             myChart.hideLoading();
 
                             var graph = echarts.dataTool.gexf.parse(xml);
@@ -67,7 +81,7 @@ body {
                                     name: '圈子' + i
                                 };
                             }
-                            graph.nodes.forEach(function (node) {
+                            graph.nodes.forEach(function(node) {
                                 node.itemStyle = null;
                                 node.value = node.symbolSize;
                                 node.symbolSize /= 1.5;
@@ -79,21 +93,21 @@ body {
                                 node.category = node.attributes.modularity_class;
                             });
                             option = {
-                                title: {
-                                    top: 'bottom',
-                                    left: 'right'
-                                },
-                                tooltip: {},
-                                // legend: [{
-                                //     // selectedMode: 'single',
-                                //     data: categories.map(function (a) {
-                                //         return a.name;
-                                //     })
-                                // }],
-                                animationDuration: 1500,
-                                animationEasingUpdate: 'quinticInOut',
-                                series : [
-                                    {
+                                baseOption: {
+                                    title: {
+                                        top: 'bottom',
+                                        left: 'right'
+                                    },
+                                    tooltip: {},
+                                    // legend: [{
+                                    //     // selectedMode: 'single',
+                                    //     data: categories.map(function (a) {
+                                    //         return a.name;
+                                    //     })
+                                    // }],
+                                    animationDuration: 5000,
+                                    animationEasingUpdate: 'quinticInOut',
+                                    series: [{
                                         name: '',
                                         type: 'graph',
                                         layout: 'none',
@@ -107,23 +121,60 @@ body {
                                                 formatter: '{b}'
                                             }
                                         },
+                                        roam: true,
+                                        focusNodeAdjacency: true,
                                         lineStyle: {
                                             normal: {
                                                 color: 'source',
-                                                curveness: 0.3
+                                                curveness: 0.2
                                             }
                                         }
+                                    }]
+                                },
+                                media: {
+                                    option: {
+                                        legend: {
+                                            right: 'center',
+                                            bottom: 0,
+                                            orient: 'horizontal'
+                                        },
+                                        series: [{
+                                            radius: [20, '50%'],
+                                            center: ['50%', '50%']
+                                        }]
                                     }
-                                ]
+                                }
                             };
 
                             myChart.setOption(option);
                         }, 'xml');
+                        myChart.on('click', function(params) {
+                            if (params.componentType === 'markPoint') {
+                                // 点击到了 markPoint 上
+                                if (params.seriesIndex === 5) {
+                                    // 点击到了 index 为 5 的 series 的 markPoint 上。
+                                }
+                            } else if (params.componentType === 'series') {
+                                if (params.seriesType === 'graph') {
+                                    if (params.dataType === 'edge') {
+                                        // 点击到了 graph 的 edge（边）上。
+
+                                    } else {
+                                        // 点击到了 graph 的 node（节点）上。
+                                        href = findHrefbyName(view, params.name);
+                                        if (href) {
+                                            window.location.href = href;
+                                        }
+                                    }
+                                }
+                            }
+
+                        });
                     });
                     </script>
                 </div>
             </div>
-        </div>
+        </div>18910017930
     </div>
 </body>
 

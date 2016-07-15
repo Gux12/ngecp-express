@@ -379,7 +379,7 @@
       </node>
       <node id="46" label="Jondrette">
         <attvalues>
-          <attvalue for="modularity_class" value="8"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
         </attvalues>
         <viz:size value="4.0"></viz:size>
         <viz:position x="550.3201" y="522.4031" z="0.0"></viz:position>
@@ -387,7 +387,7 @@
       </node>
       <node id="47" label="MmeBurgon">
         <attvalues>
-          <attvalue for="modularity_class" value="8"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
         </attvalues>
         <viz:size value="6.742859"></viz:size>
         <viz:position x="488.13535" y="356.8573" z="0.0"></viz:position>
@@ -508,7 +508,6 @@
       <node id="62" label="黄亚东">
         <attvalues>
           <attvalue for="modularity_class" value="8"></attvalue>
-          <attvalue for="href" value="3Dmodels/index.v2"></attvalue>
         </attvalues>
         <viz:size value="50"></viz:size>
         <viz:position x="436.17184" y="-12.7286825" z="0.0"></viz:position>
