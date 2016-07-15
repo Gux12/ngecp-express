@@ -70,7 +70,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <!--<iframe src="/3Dmodels/person" frameborder="0" height="1000" style='padding-left: 20px;'></iframe>-->
+            <iframe src="/3Dmodels/person" frameborder="0" height="1000" style='padding-left: 20px;'></iframe>
         </div>
         <div class="col-md-10">
             <div class="row">
@@ -87,13 +87,13 @@
                         <div class="col-md-6" style="text-align: center;">
                             <p class="p-info">身高 ：165cm</p>
                             <p class="p-info">体重 ：45kg</p>
-                            <p class="p-info">胸围 ：85cm</p>
-                            <p class="p-info">腰围 ：70cm</p>
-                            <p class="p-info">臀围 ：85cm</p>
+                            <p class="p-info">胸围 ：22cm</p>
+                            <p class="p-info">腰围 ：22cm</p>
+                            <p class="p-info">臀围 ：22cm</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div id="height" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-25px;"></div>
+                        <div id="height" style="height: 10%;margin-left: 0px;margin-right: 0px;margin-top:-25px;"></div>
                         <script type="text/javascript">
                             $(document).ready(function() {
                                 var save = echarts.init(document.getElementById("height"));
@@ -161,11 +161,11 @@
                         </script>
                     </div>
                     <div class="row">
-                        <div id="weight" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-45px;"></div>
+                        <div id="weight" style="height: 10%;margin-left: 0px;margin-right: 0px;margin-top:-45px;"></div>
                         <script type="text/javascript">
                             $(document).ready(function() {
                                 var save = echarts.init(document.getElementById("weight"));
-                                var hours = ['1500-2000卡', '2000-2500卡', '2500-3000卡'];
+                                var hours = ['1.5k-2kcal（偏低）', '2k-2.5kcal(标准）', '>2.5kcal（偏高）'];
                                 var days = ['能量摄入'];
                                 var data = [
                                     [0, 0, 0],
@@ -229,7 +229,7 @@
                         </script>
                     </div>
                     <div class="row">
-                        <div id="bust" style="height: 10%;margin-left: 20px;margin-right: 0px;margin-top:-45px;"></div>
+                        <div id="bust" style="height: 10%;margin-left: 0px;margin-right: 0px;margin-top:-45px;"></div>
                         <script type="text/javascript">
                             $(document).ready(function() {
                                 var save = echarts.init(document.getElementById("bust"));
@@ -459,7 +459,8 @@
                                 },
 
                                 tooltip: {
-                                    trigger: "item"
+                                    trigger: "item",
+                                    formatter: '速度：0.8<br/>质量：0.9<br/>价格：0.7<br/>信用：0.9<br/>销量：0.8'
                                 },
 
                                 legend: {
@@ -545,7 +546,7 @@
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <!-- <span class="glyphicon glyphicon-star" aria-hidden="true"></span> -->
                             </p>
                             <p class="p-info">质量：
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -558,8 +559,8 @@
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <!-- <span class="glyphicon glyphicon-star" aria-hidden="true"></span> -->
+                                <!-- <span class="glyphicon glyphicon-star" aria-hidden="true"></span> -->
                             </p>
                             <p class="p-info">作用：
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -573,7 +574,7 @@
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                <!-- <span class="glyphicon glyphicon-star" aria-hidden="true"></span> -->
                             </p>
                         </div>
                         <!-- <div class="col-md-6" style="text-align: center;"> -->
@@ -901,86 +902,86 @@
                         $(document).ready(function() {
                             var business = echarts.init(document.getElementById("business"));
 
-//                            option = {
-//                                backgroundColor: '#161627',
-//
-//                                title: {
-//                                    text: '需求量',
-//                                    left: 'center',
-//                                    top: 30,
-//                                    textStyle: {
-//                                        color: '#fff'
-//                                    }
-//                                },
-//                                legend: {
-//                                    top: 200,
-//                                },
-//
-//                                tooltip: {
-//                                    trigger: 'item',
-//                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
-//                                },
-//
-//                                visualMap: {
-//                                    show: false,
-//                                    min: 80,
-//                                    max: 600,
-//                                    inRange: {
-//                                        colorLightness: [0, 1]
-//                                    }
-//                                },
-//                                series: [{
-//                                    name: '需求量',
-//                                    type: 'pie',
-//                                    radius: '55%',
-//                                    center: ['50%', '50%'],
-//                                    data: [{
-//                                        value: 335,
-//                                        name: '搜索'
-//                                    }, {
-//                                        value: 310,
-//                                        name: '查看'
-//                                    }, {
-//                                        value: 274,
-//                                        name: '关注'
-//                                    }, {
-//                                        value: 360,
-//                                        name: '交易'
-//                                    },
-//                                        // {value:235, name:'视频广告'},
-//                                        // {value:400, name:'搜索引擎'}
-//                                    ].sort(function(a, b) {
-//                                        return a.value - b.value
-//                                    }),
-//                                    roseType: 'angle',
-//                                    label: {
-//                                        normal: {
-//                                            textStyle: {
-//                                                // color: 'rgba(255, 255, 255, 1)'
-//                                                color: "#e9c165"
-//                                            }
-//                                        }
-//                                    },
-//                                    labelLine: {
-//                                        normal: {
-//                                            lineStyle: {
-//                                                // color: 'rgba(255, 255, 255, 1)'
-//                                                color: "#e9c165"
-//                                            },
-//                                            smooth: 0.2,
-//                                            length: 10,
-//                                            length2: 20
-//                                        }
-//                                    },
-//                                    itemStyle: {
-//                                        normal: {
-//                                            color: '#c23531',
-//                                            shadowBlur: 200,
-//                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-//                                        }
-//                                    }
-//                                }]
-//                            };
+                           // option = {
+                           //     backgroundColor: '#161627',
+
+                           //     title: {
+                           //         text: '需求量',
+                           //         left: 'center',
+                           //         top: 30,
+                           //         textStyle: {
+                           //             color: '#fff'
+                           //         }
+                           //     },
+                           //     legend: {
+                           //         top: 200,
+                           //     },
+
+                           //     tooltip: {
+                           //         trigger: 'item',
+                           //         formatter: "{a} <br/>{b} : {c} ({d}%)"
+                           //     },
+
+                           //     visualMap: {
+                           //         show: false,
+                           //         min: 80,
+                           //         max: 600,
+                           //         inRange: {
+                           //             colorLightness: [0, 1]
+                           //         }
+                           //     },
+                           //     series: [{
+                           //         name: '需求量',
+                           //         type: 'pie',
+                           //         radius: '55%',
+                           //         center: ['50%', '50%'],
+                           //         data: [{
+                           //             value: 335,
+                           //             name: '搜索'
+                           //         }, {
+                           //             value: 310,
+                           //             name: '查看'
+                           //         }, {
+                           //             value: 274,
+                           //             name: '关注'
+                           //         }, {
+                           //             value: 360,
+                           //             name: '交易'
+                           //         },
+                           //             // {value:235, name:'视频广告'},
+                           //             // {value:400, name:'搜索引擎'}
+                           //         ].sort(function(a, b) {
+                           //             return a.value - b.value
+                           //         }),
+                           //         roseType: 'angle',
+                           //         label: {
+                           //             normal: {
+                           //                 textStyle: {
+                           //                     // color: 'rgba(255, 255, 255, 1)'
+                           //                     color: "#e9c165"
+                           //                 }
+                           //             }
+                           //         },
+                           //         labelLine: {
+                           //             normal: {
+                           //                 lineStyle: {
+                           //                     // color: 'rgba(255, 255, 255, 1)'
+                           //                     color: "#e9c165"
+                           //                 },
+                           //                 smooth: 0.2,
+                           //                 length: 10,
+                           //                 length2: 20
+                           //             }
+                           //         },
+                           //         itemStyle: {
+                           //             normal: {
+                           //                 color: '#c23531',
+                           //                 shadowBlur: 200,
+                           //                 shadowColor: 'rgba(0, 0, 0, 0.5)'
+                           //             }
+                           //         }
+                           //     }]
+                           // };
                             $.get('obama_budget_proposal_2012.json', function (obama_budget_2012) {
                                 business.hideLoading();
 
@@ -1000,7 +1001,7 @@
                                     },
                                     calculable : true,
                                     legend: {
-                                        data:['Growth', '今日量', '平均量'],
+                                        data:['Growth', '今日量', '月平均'],
 //                                        data:['Growth', 'Budget 2012'],
                                         itemGap: 5,
                                         textStyle: {
@@ -1061,7 +1062,7 @@
                                             data: obama_budget_2012.budget2011List
                                         },
                                         {
-                                            name: '平均量',
+                                            name: '月平均',
                                             type: 'bar',
                                             data: obama_budget_2012.budget2012List
                                         }
@@ -1325,10 +1326,10 @@
 
                                 tooltip: {
                                     trigger: "item",
-                                    formatter: 'test<br/>test',
-                                    textStyle: {
-                                        fontSize: '30'
-                                    }
+                                    formatter: '收入水平：0.9<br/>盈余状况：0.7<br/>购买意图：0.92<p style="font-size:10px;">(价格承受能力)<p>信用水平：0.65<br/>负债情况：0.3',
+                                    // textStyle: {
+                                    //     fontSize: '20'
+                                    // }
                                 },
 
                                 legend: {
@@ -1440,8 +1441,8 @@
 
                                 tooltip: {
                                     trigger: "item",
-                                    formatter: 'test'
-                                },
+                                    formatter: '评价偏好：0.7<p style="font-size:10px;">(容忍度)</p>风险偏好：0.6<p style="font-size:10px;">(尝新意愿)</p>敏感系数：0.94<p style="font-size:10px;">(TQCSN变化对消费的影响指数)'
+                                    },
 
                                 legend: {
                                     bottom: 5,
