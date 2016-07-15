@@ -35,28 +35,34 @@
 </html>
 
 <script type="text/javascript">
-	var EmpFirstShowPage = { 'pages':['411370779-474679255-437152838-78729509','END'],'first':0,'411370779-474679255-437152838-78729509':[[''], ['']]}; 
+	var EmpFirstShowPage = { 'pages':['131164637-180619293-274224512-275715227','END'],'first':0,'131164637-180619293-274224512-275715227':[[''], ['']]}; 
 	var PageInitFunc = {}, PageExitFunc = {};  
 
-   window.addEventListener("load",  (function(){ if( PageInitFunc['411370779-474679255-437152838-78729509'] ) PageInitFunc['411370779-474679255-437152838-78729509'](); } ), false);  
+   window.addEventListener("load",  (function(){ if( PageInitFunc['131164637-180619293-274224512-275715227'] ) PageInitFunc['131164637-180619293-274224512-275715227'](); } ), false);  
 </script>
 <script type= "text/javascript">
 	/* page:  新主页_1 */ 
-	var _41137077947467925543715283878729509 = empCreatePage('411370779-474679255-437152838-78729509',"position:absolute; margin:0rem;  background-color:rgba(58,58,58,1); width:100%; height:100%;display:none;", " background-color:rgba(105,105,105,0.8);position:absolute;width:10.24rem;height:7.68rem;  z-index: 2;");
- PageInitFunc['411370779-474679255-437152838-78729509'] = (function(){  _5682892545014204507286365141983081382.enable();  } ); 
- PageExitFunc['411370779-474679255-437152838-78729509'] = (function(){  _5682892545014204507286365141983081382.disable();  } ); 
+	var _131164637180619293274224512275715227 = empCreatePage('131164637-180619293-274224512-275715227',"position:absolute; margin:0rem;  background-color:rgba(58,58,58,1); width:100%; height:100%;display:none;", " background-color:rgba(105,105,105,0.8);position:absolute;width:10.24rem;height:7.68rem;  z-index: 2;overflow:hidden;");
+ PageInitFunc['131164637-180619293-274224512-275715227'] = (function(){  _748252363192336306715560462841133080024.enable();  } ); 
+ PageExitFunc['131164637-180619293-274224512-275715227'] = (function(){  _748252363192336306715560462841133080024.disable();  } ); 
 	/*  3DScene:  3D场景_1  */
-	empCreateDiv('568289254-501420450-728636514-1983081382',"pointer-events:auto;position:fixed;left:0%;top:0%;width:100%;height:100%;opacity:1; z-index:10;", '411370779-474679255-437152838-78729509_stage');  					 
-	var _5682892545014204507286365141983081382 = create3dScene('568289254-501420450-728636514-1983081382', { 'size':[1024,768], 'bgcolor':0xffffff,'bgalpha':0, 'controls':'orbit' } ); 					 
-	if( _5682892545014204507286365141983081382) { 
-		_5682892545014204507286365141983081382.showSkybox(true, ['resources/skybox1_RT.jpg','resources/skybox1_LF.jpg','resources/skybox1_UP.jpg','resources/skybox1_DN.jpg','resources/skybox1_BK.jpg','resources/skybox1_FR.jpg']); 
-		_5682892545014204507286365141983081382.loadEmpObjs('resources/568289254-501420450-728636514-1983081382/index.js', '','',{},function(){ _160472679119140106941859263807326447438(); });   
+	empCreateDiv('748252363-1923363067-1556046284-1133080024',"pointer-events:auto;position:fixed;left:0%;top:0%;width:100%;height:100%;opacity:1; z-index:10;", '131164637-180619293-274224512-275715227_stage');  					 
+	var _748252363192336306715560462841133080024 = create3dScene('748252363-1923363067-1556046284-1133080024', { 'size':[1024,768], 'bgcolor':0xffffff,'bgalpha':0, 'controls':'orbit' } ); 					 
+	if( _748252363192336306715560462841133080024) { 
+		_748252363192336306715560462841133080024.showSkybox(false, '' ); 
+		_748252363192336306715560462841133080024.loadEmpObjs('resources/748252363-1923363067-1556046284-1133080024/index.js', '','',{},function(){ _48981691778088326116877790381593338394(); });   
 	}
 	/* Timer:  触发事件_1  */
-	var _160472679119140106941859263807326447438 = function(){  					   
+	var _48981691778088326116877790381593338394 = function(){  					   
 		
-	_5682892545014204507286365141983081382.switchCameraByName('动画', 0 );
-	{ _5682892545014204507286365141983081382.playAniModel(1, 1, 1); } 					   
+	_748252363192336306715560462841133080024.switchCameraByName('动画', 0, { times:0, keep:true, scale:1,cbFunc:_100133031811035877894884581651715416030 } );
+	{ _748252363192336306715560462841133080024.resetAniModel(); }
+	{ _748252363192336306715560462841133080024.playAniModel(1, 0, 1); } 					   
+	};
+	/* Timer:  触发事件_2  */
+	var _100133031811035877894884581651715416030 = function(){  					   
+		
+	_748252363192336306715560462841133080024.switchCameraByName('观察相机', 1000, { times:0, keep:true, scale:1 } ); 					   
 	};
 </script>
 <script type="text/javascript"> 

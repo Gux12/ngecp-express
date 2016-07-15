@@ -1227,7 +1227,7 @@
 				"depthTest": true,
 				"depthWrite": false,
 				"doubleSided": "1",
-				"mapDiffuse": "a5801.gif",
+				"mapDiffuse": "a5801.png",
 				"mapDiffuseWrap": ["repeat", "repeat"],
 				"shading": "phong",
 				"transparent": true
