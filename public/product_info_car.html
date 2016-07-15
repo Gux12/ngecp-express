@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="/css/buttons.min.css">
     <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
     <link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/amazeui.flat.min.css">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/js/myTrick.js"></script>
@@ -15,15 +19,25 @@
     <script src="/js/vendor/jquery.row-grid.js"></script>
     <script src="/js/vendor/echarts2.min.js"></script>
     <script src="/js/vendor/jquery.sidr.min.js"></script>
-    <!--<script src="/less/dist/less.min.js"></script>-->
     <script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/vendor/map/china.js"></script>
+    <script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+    <script src="/assets/js/amazeui.min.js"></script>
+    <script src="/assets/js/amazeui.widgets.helper.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/handlebars.min.js"></script>
     <style>
     div {
         font-family: Microsoft YaHei;
     }
+
+    .p-info {
+            color: #e9c165;
+            font-size: 20px;
+        }
+
     .button5 {
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0, 0, 0, 0);
         color: #e9c165;
         border: 2px solid #555555;
         width: 120px;
@@ -32,14 +46,27 @@
 
     .button5:hover {
         background-color: #555555;
+        /*outline: 0;*/
         color: #e9c165;
     }
+
+    .button5:focus {
+        /*background-color: rgba(0, 0, 0, 0);*/
+        /*background-color: #555555;*/
+        color: #e9c165;
+        border: 2px solid #555555;
+        outline: 0;
+        width: 120px;
+        margin-top: 20px;
+    }
+    .button5:active {
+        outline: 0;
+    }
+
     </style>
 </head>
 <style>
 body {
-    /*background-color: rgb(44, 52, 60);*/
-    /*background-color: white;*/
     background-color: #161627;
     width: 100vw;
     height: 100vh;
@@ -49,36 +76,206 @@ body {
 
 <body>
     <div class="container-fluid">
-        <div class="row" style='height: 600px;margin-top: 40px;'>
-            <div class="col-md-2" style="margin-top: -20px;">
-                <!-- <dir class="col-md-10 col-md-offset-2"> -->
-                <dir class="col-md-12">
-                    <img src="img/car/北汽ES150.png" style="max-width:100%;">
-                    <div style="text-align: center;color:white;font-size: 20px;margin-top: 5px;">
-                        <p style="margin:5px;color:#e9c165;">产品名称 : ES150</p>
-                        <p style="margin:5px;color:#e9c165;">产品类别 : 汽车</p>
-                        <p style="margin:5px;color:#e9c165;">品牌商 : 北京汽车公司</p>
-                        <a href="/3Dmodels/carShow"><button type="button" class="btn button5">进入车库</button></a>
+        <div class="row" style='height: 50vh;'>
+            <dir class="col-md-3">
+                <img src="img/car/北汽EV200.png" class="img-adjusted" style="height: 50%;margin-left:50px;">
+                <div style="text-align: center;color:white;font-size: 20px;">
+                <a href="/3Dmodels/clothFR"><button type="button" class="btn button5">进入车库</button></a>
+                    <p style="color:#e9c165;text-align:center;">综合评价 :
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </p>
+                </div>
+            </dir>
+            <div class="col-md-3">
+                <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 10%;padding-top: 10px;padding-bottom: 10px;width:95%;">
+                    <div class="col-md-6" style="text-align: center;font-size:10px;">
+                        <p class="p-info">名称 ：北汽EV200</p>
+                        <p class="p-info">种类 ：汽车</p>
+                        <p class="p-info">级别 ：紧凑型车</p>
+                        <p class="p-info">电池容量 ：30.4kWh</p>
+                        <p class="p-info">续航里程 ：150-240公里</p>
                     </div>
-                </dir>
-                <!-- <dir class="col-md-3 col-md-offset-1">
-                    <img src="img/cloth/cloth2.jpg" class="img-adjusted">
-                    <div style="text-align: center;color:white;font-size:30px;margin-top:20px;">名称A</div>
-                </dir> -->
-                <!-- <dir class="col-md-5 col-md-offset-1">
-                    <img src="img/cloth/cloth2.jpg" class="img-adjusted" style="height: 50%;">
-                    <div style="text-align: center;color:white;font-size: 30px;margin-top: 20px;">品牌A</div>
-                </dir> -->
+                    <div class="col-md-6" style="text-align: center;">
+                        <p class="p-info">品牌商 ：北京汽车有限公司</p>
+                        <p class="p-info">变速箱 ：固定齿轮比</p>
+                        <p class="p-info">耗电量 ：15kWh/100Km</p>
+                        <p class="p-info">配置：车身稳定控制ESP</p>
+
+                    </div>
+                </div>
             </div>
-            <div class="col-md-10">
-                <div class="col-md-3"  style="padding: 0px;">
-                    <div id="number" style="width:100%;height:65%;"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var number = echarts.init(document.getElementById("number"));
+            <div class="col-md-3">
+                <div id="evaluation" style="width: 90%;height: 100%;"></div>
+                <script type="text/javascript">
+                $(document).ready(function() {
+                    var evaluation = echarts.init(document.getElementById("evaluation"));
+
+                    var dataBJ = [
+                        [267, 216, 200, 230, 200, 240]
+                    ];
+
+                    var lineStyle = {
+                        normal: {
+                            width: 1,
+                            opacity: 0.5
+                        }
+                    };
+
+                    option = {
+                        backgroundColor: '#161627',
+                        title: {
+                            text: '评价图',
+                            left: 'center',
+                            textStyle: {
+                                color: '#eee'
+                            },
+                            top: 20,
+                        },
+
+                        tooltip: {
+                                trigger: "item",
+                                formatter: '稳定性：0.9<br/>舒适程度：0.7<br/>隔音效果：0.7<br/>耐用程度：0.8<br/>环保性能：0.8',
+                            },
+
+                        legend: {
+                            bottom: 5,
+                            data: [],
+                            itemGap: 20,
+                            textStyle: {
+                                color: '#fff',
+                                fontSize: 14
+                            },
+                            selectedMode: 'single'
+                        },
+                        radar: {
+                            indicator: [{
+                                    name: '稳定性',
+                                    max: 300
+                                }, {
+                                    name: '舒适程度',
+                                    max: 300
+                                }, {
+                                    name: '隔音效果',
+                                    max: 300
+                                }, {
+                                    name: '耐用程度',
+                                    max: 300
+                                }, {
+                                    name: '环保性能',
+                                    max: 300
+                                }
+                            ],
+                            shape: 'circle',
+                            splitNumber: 5,
+                            name: {
+                                textStyle: {
+                                    color: 'rgb(238, 197, 102)'
+                                }
+                            },
+                            splitLine: {
+                                lineStyle: {
+                                    color: [
+                                        'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
+                                        'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
+                                        'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
+                                    ].reverse()
+                                }
+                            },
+                            splitArea: {
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: 'rgba(238, 197, 102, 0.5)'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: '北京',
+                            type: 'radar',
+                            lineStyle: lineStyle,
+                            data: dataBJ,
+                            symbol: 'none',
+                            itemStyle: {
+                                normal: {
+                                    // color: '#F9713C'
+                                    color: '#e44e49'
+                                }
+                            },
+                            areaStyle: {
+                                normal: {
+                                    opacity: 0.8
+                                }
+                            }
+                        }]
+                    };
+
+                    evaluation.setOption(option);
+                });
+                </script>
+            </div>
+            <div class="col-md-3">
+                <div class="row" style="border-style: solid;border-color: #e9c165;border-width: 1px;margin-top: 10%;padding-top: 10px;padding-bottom: 10px;width:95%;background-color:rgba(0,0,0,0);">
+                    <div class="col-md-12">
+                        <!-- <p class="p-info">评价1：室内防冷，室外防晒！很喜欢！</p>
+                        <p class="p-info">评价2：买回来有些味道，水洗一下会变形。</p>
+                        <p class="p-info">评价3：超级显瘦啊，关键是质感好！</p>
+                        <p class="p-info">评价4：衣服款式大方，透气性好。</p>
+                        <p class="p-info">评价5：感觉很捧，面料舒适、清凉。</p>
+                        <p class="p-info">评价6：穿了几天真的很好看 修身 透气</p>
+                        <p class="p-info">评价7：夏天穿不会很热还能防晒。</p>
+                        <p class="p-info">评价8：相信我。值得拥有的一件衣服。</p> -->
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <!--列表标题-->
+                            <div class="am-list-news-hd am-cf">
+                                <!--带更多链接-->
+                                <a href="##" class="" style="color: #fff;">
+                                    <h2>用户评论</h2><span class="am-list-news-more am-fr">更多 &raquo;</span>
+                                </a>
+                            </div>
+
+                            <div class="am-list-news-bd">
+                            <ul class="am-list">
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">家庭代步用，很合适，不用加油，还省钱！</a>
+                                    <span class="am-list-date">2016-07-06</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">免费保养，续航也够，整体不错</a>
+                                    <span class="am-list-date">2016-07-02</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">十分稳定，隔音效果也好，内饰也好！</a>
+                                    <span class="am-list-date">2016-06-19</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">新能源汽车，十分环保。</a>
+                                    <span class="am-list-date">2016-06-12</span>
+                                </li>
+                                <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                    <a href="##" class="am-list-item-hd" style="color: #e9c165;">开了好多年了还能用，省钱环保。</a>
+                                    <span class="am-list-date">2016-06-10</span>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div id="body" style="width:80%;height:50vh;padding:0px;margin:0px;margin-left:40px;"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var body = echarts.init(document.getElementById("body"));
                         // Schema:
                         var dataBJ = [
-                            [267, 216, 280, 4.8, 108]
+                            [240, 260, 220, 270, 250]
                         ];
 
                         var lineStyle = {
@@ -90,14 +287,20 @@ body {
 
                         option = {
                             backgroundColor: '#161627',
-                            // backgroundColor:rgb(44,52,60),
                             title: {
-                                text: '数量图',
+                                text: '供应信息',
                                 left: 'center',
                                 textStyle: {
                                     color: '#eee'
-                                }
+                                },
+                                top: 20,
                             },
+
+                            tooltip: {
+                                trigger: "item",
+                                formatter: '速度：0.8<br/>质量：0.9<br/>价格：0.7<br/>信用：0.9<br/>销量：0.8',
+                            },
+
                             legend: {
                                 bottom: 5,
                                 data: [],
@@ -110,16 +313,21 @@ body {
                             },
                             radar: {
                                 indicator: [{
-                                        name: '预测需求量量',
-                                        max: 300
-                                    }, {
-                                        name: '实际需求量',
-                                        max: 300
-                                    }, {
-                                        name: '平均库存',
-                                        max: 300
-                                    }
-                                ],
+                                    name: '速度',
+                                    max: 300
+                                }, {
+                                    name: '质量',
+                                    max: 300
+                                }, {
+                                    name: '价格',
+                                    max: 300
+                                }, {
+                                    name: '作用',
+                                    max: 300
+                                }, {
+                                    name: '销量',
+                                    max: 300
+                                }],
                                 shape: 'circle',
                                 splitNumber: 5,
                                 name: {
@@ -146,335 +354,283 @@ body {
                                 }
                             },
                             series: [{
-                                name: '北京',
+                                name: '用户偏好',
                                 type: 'radar',
                                 lineStyle: lineStyle,
                                 data: dataBJ,
                                 symbol: 'none',
                                 itemStyle: {
                                     normal: {
-                                        color: '#F9713C'
+                                        // color: '#F9713C'
+                                        color: '#e44e49'
                                     }
                                 },
                                 areaStyle: {
                                     normal: {
-                                        opacity: 0.1
+                                        opacity: 0.8
                                     }
                                 }
                             }]
                         };
-                        number.setOption(option);
+                        body.setOption(option);
                     });
-                    </script>
-                </div>
-                <div class="col-md-3"  style="padding: 0px;">
-                    <div id="price" style="width: 100%;height: 65%;"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var price = echarts.init(document.getElementById("price"));
-
-                        var dataBJ = [
-                            [267, 216, 200, 120, 108, 192]
-                        ];
-
-                        var lineStyle = {
-                            normal: {
-                                width: 1,
-                                opacity: 0.5
-                            }
-                        };
-
-                        option = {
-                            backgroundColor: '#161627',
-                            title: {
-                                text: '价格图',
-                                left: 'center',
-                                textStyle: {
-                                    color: '#eee'
-                                }
-                            },
-                            legend: {
-                                bottom: 5,
-                                data: [],
-                                itemGap: 20,
-                                textStyle: {
-                                    color: '#fff',
-                                    fontSize: 14
-                                },
-                                selectedMode: 'single'
-                            },
-                            radar: {
-                                indicator: [{
-                                        name: '预期价格范围',
-                                        max: 300
-                                    }, {
-                                        name: '当前价格',
-                                        max: 300
-                                    }, {
-                                        name: '价格指数',
-                                        max: 300
-                                    }, {
-                                        name: '商品',
-                                        max: 300
-                                    }, {
-                                        name: '实际金额',
-                                        max: 300
-                                    }
-                                ],
-                                shape: 'circle',
-                                splitNumber: 5,
-                                name: {
-                                    textStyle: {
-                                        color: 'rgb(238, 197, 102)'
-                                    }
-                                },
-                                splitLine: {
-                                    lineStyle: {
-                                        color: [
-                                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
-                                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
-                                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
-                                        ].reverse()
-                                    }
-                                },
-                                splitArea: {
-                                    show: false
-                                },
-                                axisLine: {
-                                    lineStyle: {
-                                        color: 'rgba(238, 197, 102, 0.5)'
-                                    }
-                                }
-                            },
-                            series: [{
-                                name: '北京',
-                                type: 'radar',
-                                lineStyle: lineStyle,
-                                data: dataBJ,
-                                symbol: 'none',
-                                itemStyle: {
-                                    normal: {
-                                        color: '#F9713C'
-                                    }
-                                },
-                                areaStyle: {
-                                    normal: {
-                                        opacity: 0.1
-                                    }
-                                }
-                            }]
-                        };
-
-                        price.setOption(option);
-                        $("#price").click(function() {
-                            $("#price-time_div").toggle('slow');
-                        });
-                        $("#price").click();
-                    });
-                    </script>
-                </div>
-                <div class="col-md-3" style="padding: 0px;">
-                    <div id="evaluation" style="width: 100%;height: 65%;"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var evaluation = echarts.init(document.getElementById("evaluation"));
-
-                        var dataBJ = [
-                            [267, 216, 200, 120, 108, 192]
-                        ];
-
-                        var lineStyle = {
-                            normal: {
-                                width: 1,
-                                opacity: 0.5
-                            }
-                        };
-
-                        option = {
-                            backgroundColor: '#161627',
-                            title: {
-                                text: '评价图',
-                                left: 'center',
-                                textStyle: {
-                                    color: '#eee'
-                                }
-                            },
-                            legend: {
-                                bottom: 5,
-                                data: [],
-                                itemGap: 20,
-                                textStyle: {
-                                    color: '#fff',
-                                    fontSize: 14
-                                },
-                                selectedMode: 'single'
-                            },
-                            radar: {
-                                indicator: [{
-                                        name: '产品品质',
-                                        max: 300
-                                    }, {
-                                        name: '产品质量',
-                                        max: 300
-                                    }, {
-                                        name: '用户评价',
-                                        max: 300
-                                    }, {
-                                        name: '社会口碑',
-                                        max: 300
-                                    }
-                                ],
-                                shape: 'circle',
-                                splitNumber: 5,
-                                name: {
-                                    textStyle: {
-                                        color: 'rgb(238, 197, 102)'
-                                    }
-                                },
-                                splitLine: {
-                                    lineStyle: {
-                                        color: [
-                                            'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
-                                            'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
-                                            'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
-                                        ].reverse()
-                                    }
-                                },
-                                splitArea: {
-                                    show: false
-                                },
-                                axisLine: {
-                                    lineStyle: {
-                                        color: 'rgba(238, 197, 102, 0.5)'
-                                    }
-                                }
-                            },
-                            series: [{
-                                name: '北京',
-                                type: 'radar',
-                                lineStyle: lineStyle,
-                                data: dataBJ,
-                                symbol: 'none',
-                                itemStyle: {
-                                    normal: {
-                                        color: '#F9713C'
-                                    }
-                                },
-                                areaStyle: {
-                                    normal: {
-                                        opacity: 0.1
-                                    }
-                                }
-                            }]
-                        };
-
-                        evaluation.setOption(option);
-                        $("#evaluation").click(function() {
-                            $("#evaluation_time_div").toggle('slow');
-                        });
-                        $("#evaluation").click();
-                    });
-                    </script>
-                </div>
-                <div class="col-md-3" style="text-align: center;">
-                        <div id="storage" style="height: 60%"></div>
-                        <script type="text/javascript">
-                        $(document).ready(function() {
-                            var storage = echarts.init(document.getElementById("storage"));
-
-                            option = {
-                                backgroundColor: '#161627',
-
-                                title: {
-                                    text: '存储成本',
-                                    left: 'center',
-                                    top: 20,
-                                    textStyle: {
-                                        color: '#fff'
-                                    }
-                                },
-
-                                tooltip: {
-                                    trigger: 'item',
-                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
-                                },
-
-                                visualMap: {
-                                    show: false,
-                                    min: 80,
-                                    max: 600,
-                                    inRange: {
-                                        colorLightness: [0, 1]
-                                    }
-                                },
-                                series: [{
-                                    name: '存储成本',
-                                    type: 'pie',
-                                    radius: '55%',
-                                    center: ['50%', '50%'],
-                                    data: [{
-                                            value: 335,
-                                            name: '仓储环境'
-                                        }, {
-                                            value: 310,
-                                            name: '工作人员'
-                                        }, {
-                                            value: 274,
-                                            name: '占地面积'
-                                        },
-                                        // {value:235, name:'视频广告'},
-                                        // {value:400, name:'搜索引擎'}
-                                    ].sort(function(a, b) {
-                                        return a.value - b.value
-                                    }),
-                                    roseType: 'angle',
-                                    label: {
-                                        normal: {
-                                            textStyle: {
-                                                // color: 'rgba(255, 255, 255, 1)'
-                                                color: "#e9c165"
-                                            }
-                                        }
-                                    },
-                                    labelLine: {
-                                        normal: {
-                                            lineStyle: {
-                                                // color: 'rgba(255, 255, 255, 1)'
-                                                color: "#e9c165"
-                                            },
-                                            smooth: 0.2,
-                                            length: 10,
-                                            length2: 20
-                                        }
-                                    },
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#c23531',
-                                            shadowBlur: 200,
-                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                        }
-                                    }
-                                }]
-                            };
-
-                            storage.setOption(option);
-                        });
-                        </script>
-                    </div>
-                </div>
+                </script>
             </div>
-        <div class="row" style="margin-top: -180px;">
-            <div class="col-md-6">
-                <div class="row" id="price-time_div" style="height: 40%;margin-top: 40px;margin-left: 30px;">
-                    <div id="price-time" style="height: 100%;width: 100%"></div>
-                    <script type="text/javascript">
+            <div id="transport0_div" class="col-md-3" style="margin-top: 0px;">
+                <div id="transport0" style="height: 50%;width: 100%;"></div>
+                <script type="text/javascript">
                     $(document).ready(function() {
-                        var price_time = echarts.init(document.getElementById("price-time"));
+                        var transport0 = echarts.init(document.getElementById("transport0"));
 
-                        $.get('/aqi-beijing.json', function(data) {
-                            price_time.setOption(option = {
+                        option = {
+                            backgroundColor: '#161627',
+
+                            title: {
+                                text: '成本构成',
+                                left: 'center',
+                                top: 30,
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                            legend: {
+                                top: 200,
+                            },
+
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+
+                            visualMap: {
+                                show: false,
+                                min: 80,
+                                max: 600,
+                                inRange: {
+                                    colorLightness: [0, 1]
+                                }
+                            },
+                            series: [{
+                                name: '成本构成',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '50%'],
+                                data: [{
+                                    value: 335,
+                                    name: '物流成本'
+                                }, {
+                                    value: 310,
+                                    name: '材料成本'
+                                }, {
+                                    value: 274,
+                                    name: '加工成本'
+                                }, {
+                                    value: 300,
+                                    name: '推广成本'
+                                }, {
+                                    value: 290,
+                                    name: '销售成本'
+                                },
+                                    // {value:235, name:'视频广告'},
+                                    // {value:400, name:'搜索引擎'}
+                                ].sort(function(a, b) {
+                                    return a.value - b.value
+                                }),
+                                roseType: 'angle',
+                                label: {
+                                    normal: {
+                                        textStyle: {
+                                            // color: 'rgba(255, 255, 255, 1)'
+                                            color: "#e9c165"
+                                        }
+                                    }
+                                },
+                                labelLine: {
+                                    normal: {
+                                        lineStyle: {
+                                            // color: 'rgba(255, 255, 255, 1)'
+                                            color: "#e9c165"
+                                        },
+                                        smooth: 0.2,
+                                        length: 10,
+                                        length2: 20
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        color: '#c23531',
+                                        shadowBlur: 200,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }]
+                        };
+
+                        transport0.setOption(option);
+                    });
+                </script>
+            </div>
+            <div id="service_div0" class="col-md-6">
+                <div id="price-time" style="height: 40%;width: 100%"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var price_time = echarts.init(document.getElementById("price-time"));
+                        option = {
+                            title: {
+                                text: '价格-时间图',
+                                // subtext: '纯属虚构',
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            legend: {
+                                data:['往期价格峰值','实际价格','往期价格谷值'],
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    magicType: {show: true, type: ['stack', 'tiled']},
+                                    saveAsImage: {show: true}
+                                }
+                            },
+                            xAxis: {
+                                type: 'category',
+                                boundaryGap: false,
+                                // data: ['周一','周二','周三','周四','周五','周六','周日']
+                                data: ['6.16','6.17','6.18','6.19','6.20','6.21','6.22','6.23','6.24','6.25','6.26','6.27','6.28','6.29','6.30','7.1','7.2','7.3','7.4','7.5','7.6','7.7','7.8','7.9','7.10','7.11','7.12','7.13','7.14','7.15']
+                            },
+                            yAxis: {
+                                type: 'value'
+                            },
+                            series: [{
+                                name: '往期价格峰值',
+                                type: 'line',
+                                smooth: true,
+                                data: [379, 364, 363, 373, 366, 365, 350, 352, 352, 353, 380, 374, 379, 375, 370, 379, 364, 380, 355, 371, 369, 376, 368, 371, 374, 355, 370, 359, 365, 355]
+                            },
+                            {
+                                name: '实际价格',
+                                type: 'line',
+                                smooth: true,
+                                data: [255, 248, 247, 242, 267, 243, 247, 260, 256, 252, 260, 243, 264, 267, 259, 260, 252, 240, 256, 252, 248, 254, 269, 242, 267, 265, 269, 261, 269, 243]
+                            },
+                            {
+                                name: '往期价格谷值',
+                                type: 'line',
+                                smooth: true,
+                                data: [147, 153, 140, 144, 142, 168, 148, 154, 143, 160, 158, 168, 153, 152, 140, 155, 166, 163, 158, 150, 157, 158, 164, 151, 143, 144, 163, 158, 168, 143]
+                            }],
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        };
+                        price_time.setOption(option);
+                        // $.get('/aqi-beijing.json', function (data) {
+                        //     price_time.setOption(option = {
+                        //         title: {
+                        //             text: '价格-时间图',
+                        //             textStyle: {
+                        //                 color: "#fff"
+                        //             }
+                        //         },
+                        //         tooltip: {
+                        //             trigger: 'axis'
+                        //         },
+                        //         xAxis: {
+                        //             data: data.map(function (item) {
+                        //                 return item[0];
+                        //             })
+                        //         },
+                        //         yAxis: {
+                        //             splitLine: {
+                        //                 show: false
+                        //             }
+                        //         },
+                        //         toolbox: {
+                        //             left: 'center',
+                        //             feature: {
+                        //                 dataZoom: {
+                        //                     yAxisIndex: 'none'
+                        //                 },
+                        //                 restore: {},
+                        //                 saveAsImage: {}
+                        //             }
+                        //         },
+                        //         dataZoom: [{
+                        //             startValue: '2014-06-01'
+                        //         }, {
+                        //             type: 'inside'
+                        //         }],
+                        //         visualMap: {
+                        //             top: 10,
+                        //             right: 10,
+                        //             pieces: [{
+                        //                 gt: 0,
+                        //                 lte: 100,
+                        //                 color: '#096'
+                        //             }, {
+                        //                 gt: 100,
+                        //                 lte: 200,
+                        //                 color: '#ffde33'
+                        //             }, {
+                        //                 gt: 200,
+                        //                 lte: 300,
+                        //                 color: '#ff9933'
+                        //             }],
+                        //             outOfRange: {
+                        //                 color: '#999'
+                        //             },
+                        //             textStyle: {
+                        //                 color: "#fff"
+                        //             }
+                        //         },
+                        //         series: {
+                        //             name: 'Beijing AQI',
+                        //             type: 'line',
+                        //             data: data.map(function (item) {
+                        //                 return item[1];
+                        //             }),
+                        //             markLine: {
+                        //                 silent: true,
+                        //                 data: [{
+                        //                     yAxis: 100
+                        //                 }, {
+                        //                     yAxis: 200
+                        //                 }, {
+                        //                     yAxis: 300
+                        //                 }],
+                        //             },
+                        //             label: {
+                        //                 normal: {
+                        //                     textStyle: {
+                        //                         color: "#fff"
+                        //                     }
+                        //                 }
+                        //             }
+                        //         },
+                        //         textStyle: {
+                        //             color: "#fff",
+                        //         }
+                        //     });
+                        // });
+                    });
+                </script>
+            </div>
+            <div id="service_div1" class="col-md-6">
+                <div id="price-time1" style="height: 40%;width: 100%"></div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var price_time1 = echarts.init(document.getElementById("price-time1"));
+                        $.get('/aqi-beijing.json', function (data) {
+                            price_time1.setOption(option = {
                                 title: {
-                                    text: '价格-时间图',
+                                    text: '销量-时间图',
                                     textStyle: {
                                         color: "#fff"
                                     }
@@ -483,7 +639,7 @@ body {
                                     trigger: 'axis'
                                 },
                                 xAxis: {
-                                    data: data.map(function(item) {
+                                    data: data.map(function (item) {
                                         return item[0];
                                     })
                                 },
@@ -529,38 +685,11 @@ body {
                                     textStyle: {
                                         color: "#fff"
                                     }
-                                    // pieces: [{
-                                    //     gt: 0,
-                                    //     lte: 50,
-                                    //     color: '#096'
-                                    // }, {
-                                    //     gt: 50,
-                                    //     lte: 100,
-                                    //     color: '#ffde33'
-                                    // }, {
-                                    //     gt: 100,
-                                    //     lte: 150,
-                                    //     color: '#ff9933'
-                                    // }, {
-                                    //     gt: 150,
-                                    //     lte: 200,
-                                    //     color: '#cc0033'
-                                    // }, {
-                                    //     gt: 200,
-                                    //     lte: 300,
-                                    //     color: '#660099'
-                                    // }, {
-                                    //     gt: 300,
-                                    //     color: '#7e0023'
-                                    // }],
-                                    // outOfRange: {
-                                    //     color: '#999'
-                                    // }
                                 },
                                 series: {
                                     name: 'Beijing AQI',
                                     type: 'line',
-                                    data: data.map(function(item) {
+                                    data: data.map(function (item) {
                                         return item[1];
                                     }),
                                     markLine: {
@@ -572,17 +701,6 @@ body {
                                         }, {
                                             yAxis: 300
                                         }],
-                                        // data: [{
-                                        //     yAxis: 50
-                                        // }, {
-                                        //     yAxis: 100
-                                        // }, {
-                                        //     yAxis: 150
-                                        // }, {
-                                        //     yAxis: 200
-                                        // }, {
-                                        //     yAxis: 300
-                                        // }]
                                     },
                                     label: {
                                         normal: {
@@ -596,486 +714,37 @@ body {
                                     color: "#fff",
                                 }
                             });
-                        });;
-                    });
-                    </script>
-                </div>
-                <!-- <div class="row">
-                    <div id="reputation" style="height: 60%"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var reputation = echarts.init(document.getElementById("reputation"));
-                        var hours = ['极差', '差', '适中', '好', '极好'];
-                        var days = ['产品品质', '产品质量', '用户评价', '社会口碑'];
-                        var data = [
-                            [0, 0, 0],
-                            [0, 4, 0],
-                            [0, 3, 8],
-                            [1, 2, 8],
-                            [2, 4, 8],
-                            [3, 3, 8]
-                        ];
-
-                        option = {
-                            tooltip: {
-                                position: 'top'
-                            },
-                            title: [],
-                            singleAxis: [],
-                            series: []
-                        };
-
-                        echarts.util.each(days, function(day, idx) {
-                            option.title.push({
-                                textBaseline: 'middle',
-                                top: (idx + 0.5) * 100 / 4 + '%',
-                                text: day
-                            });
-                            option.singleAxis.push({
-                                left: 150,
-                                type: 'category',
-                                boundaryGap: false,
-                                data: hours,
-                                top: (idx * 100 / 4 + 8) + '%',
-                                height: (100 / 4 - 18) + '%',
-                                // axisLabel: {
-                                //     interval: 2
-                                // }
-                            });
-                            option.series.push({
-                                singleAxisIndex: idx,
-                                coordinateSystem: 'singleAxis',
-                                type: 'scatter',
-                                data: [],
-                                symbolSize: function(dataItem) {
-                                    return dataItem[1] * 4;
-                                }
-                            });
                         });
-
-                        echarts.util.each(data, function(dataItem) {
-                            option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-                        });;
-                        reputation.setOption(option, true);
+                        ;
                     });
-                    </script>
-                </div> -->
-                <div class="row">
-                    <div id="life" style="height: 15%;margin-left: 160px;margin-right: 20px;margin-top: 85px;"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var life = echarts.init(document.getElementById("life"));
-                        var hours = ['引进期', '成长期', '成熟期', '衰落期'];
-                        var days = ['生命周期'];
-                        var data = [
-                            [0, 0, 0],
-                            [0, 3, 0],
-                            [0, 2, 8],
-                        ];
-
-                        option = {
-                            tooltip: {
-                                position: 'top'
-                            },
-                            title: [],
-                            singleAxis: [],
-                            series: []
-                        };
-
-                        echarts.util.each(days, function(day, idx) {
-                            option.title.push({
-                                textBaseline: 'middle',
-                                top: (idx + 0.5) * 100 / 1 + '%',
-                                text: day,
-                                textStyle: {
-                                    color: '#c23531'
-                                }
-                            });
-                            
-                            option.singleAxis.push({
-                                left: 150,
-                                type: 'category',
-                                boundaryGap: false,
-                                data: hours,
-                                top: (idx * 100 / 1 + 36) + '%',
-                                height: (100 / 2.5 - 10) + '%',
-                                axisLabel: {
-                                    textStyle: {
-                                        color: "#fff"
-                                    }
-                                },
-                                axisLine: {
-                                    lineStyle: {
-                                        color: "#fff"
-                                    }
-                                }
-                            });
-                            option.series.push({
-                                singleAxisIndex: idx,
-                                coordinateSystem: 'singleAxis',
-                                type: 'scatter',
-                                data: [],
-                                symbolSize: function(dataItem) {
-                                    return dataItem[1] * 4;
-                                }
-                            });
-                        });
-
-                        echarts.util.each(data, function(dataItem) {
-                            option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-                        });;
-                        life.setOption(option, true);
-                    });
-                    </script>
-                </div>
-                <div class="row">
-                    <div id="delivery" style="height: 15%;margin-left: 160px;margin-right: 20px;margin-top: -10px;"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var delivery = echarts.init(document.getElementById("delivery"));
-                        var hours = ['自提', '直送', '众包物流'];
-                        var days = ['配送方式'];
-                        var data = [
-                            [0, 0, 0],
-                            [0, 2, 0],
-                            [0, 1, 8],
-                        ];
-
-                        option = {
-                            tooltip: {
-                                position: 'top'
-                            },
-                            title: [],
-                            singleAxis: [],
-                            series: []
-                        };
-
-                        echarts.util.each(days, function(day, idx) {
-                            option.title.push({
-                                textBaseline: 'middle',
-                                top: (idx + 0.5) * 100 / 1 + '%',
-                                text: day,
-                                textStyle: {
-                                    color: '#c23531'
-                                }
-                            });
-                            option.singleAxis.push({
-                                left: 150,
-                                type: 'category',
-                                boundaryGap: false,
-                                data: hours,
-                                top: (idx * 100 / 1 + 36) + '%',
-                                height: (100 / 2.5 - 10) + '%',
-                                axisLabel: {
-                                    textStyle: {
-                                        color: "#fff"
-                                    }
-                                },
-                                axisLine: {
-                                    lineStyle: {
-                                        color: "#fff"
-                                    }
-                                }
-                            });
-                            option.series.push({
-                                singleAxisIndex: idx,
-                                coordinateSystem: 'singleAxis',
-                                type: 'scatter',
-                                data: [],
-                                symbolSize: function(dataItem) {
-                                    return dataItem[1] * 4;
-                                }
-                            });
-                        });
-
-                        echarts.util.each(data, function(dataItem) {
-                            option.series[dataItem[0]].data.push([dataItem[1], dataItem[2]]);
-                        });;
-                        delivery.setOption(option, true);
-                    });
-                    </script>
-                </div>
+                </script>
             </div>
-            <div class="col-md-6">
-                <div class="row" id="evaluation_time_div" style="height: 40%;margin-top:40px;">
-                    <div id="evaluation_time" style="height: 100%;width: 100%"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        var evaluation_time = echarts.init(document.getElementById("evaluation_time"));
-
-                        $.get('/aqi-beijing.json', function(data) {
-                            evaluation_time.setOption(option = {
-                                title: {
-                                    text: '评价-时间图',
-                                    textStyle: {
-                                        color: "#fff"
-                                    }
-                                },
-                                tooltip: {
-                                    trigger: 'axis'
-                                },
-                                xAxis: {
-                                    data: data.map(function(item) {
-                                        return item[0];
-                                    })
-                                },
-                                yAxis: {
-                                    splitLine: {
-                                        show: false
-                                    }
-                                },
-                                label: {
-                                    normal: {
-                                        textStyle: {
-                                            color: "#fff"
-                                        }
-                                    }
-                                },
-                                toolbox: {
-                                    left: 'center',
-                                    feature: {
-                                        dataZoom: {
-                                            yAxisIndex: 'none'
-                                        },
-                                        restore: {},
-                                        saveAsImage: {}
-                                    }
-                                },
-                                dataZoom: [{
-                                    startValue: '2014-06-01'
-                                }, {
-                                    type: 'inside'
-                                }],
-                                visualMap: {
-                                    top: 10,
-                                    right: 10,
-                                    pieces: [{
-                                        gt: 0,
-                                        lte: 150,
-                                        color: '#ffde33'
-                                    }, {
-                                        gt: 150,
-                                        lte: 300,
-                                        color: '#ff9933'
-                                    }],
-                                    textStyle: {
-                                        color: "#fff"
-                                    },
-                                    // {
-                                    //     gt: 100,
-                                    //     lte: 150,
-                                    //     color: '#ff9933'
-                                    // }, {
-                                    //     gt: 150,
-                                    //     lte: 200,
-                                    //     color: '#cc0033'
-                                    // }, {
-                                    //     gt: 200,
-                                    //     lte: 300,
-                                    //     color: '#660099'
-                                    // }, {
-                                    //     gt: 300,
-                                    //     color: '#7e0023'
-                                    // }],
-                                    outOfRange: {
-                                        color: '#660099'
-                                    }
-                                },
-                                series: {
-                                    name: 'Beijing AQI',
-                                    type: 'line',
-                                    data: data.map(function(item) {
-                                        return item[1];
-                                    }),
-                                    markLine: {
-                                        silent: true,
-                                        data: [{
-                                            yAxis: 150
-                                        }, {
-                                            yAxis: 300
-                                        }]
-                                        // {
-                                        //     yAxis: 150
-                                        // }, {
-                                        //     yAxis: 200
-                                        // }, {
-                                        //     yAxis: 300
-                                        // }]
-                                    },
-                                },
-                                textStyle: {
-                                    color: "#fff",
-                                }
-                            });
-                        });;
-                    });
-                    </script>
-                </div>
-                <div class="row">
-                    <div id="test-main" style="width: 80%;height: 40%;margin: 50px;margin-left: 80px;margin-top: 85px;"></div>
-                    <script type="text/javascript">
-                    $(document).ready(function() {
-                        // 基于准备好的dom，初始化echarts实例
-                        var myChart = echarts.init(document.getElementById('test-main'));
-
-                        myChart.setOption({
-                            series: [{
-                                type: 'map',
-                                map: 'china'
-                            }]
-                        });
-
-                        var geoCoordMap = {
-                            "厂商-上海": [121.48, 31.22],
-                            "厂商-北京": [116.46, 39.92],
-                            "厂商-鞍山": [122.85, 41.12],
-                            "厂商-溧阳": [119.48, 31.43],
-                            "厂商-库尔勒": [86.06, 41.68],
-                            "厂商-安阳": [114.35, 36.1],
-                            "厂商-开封": [114.35, 34.79],
-                            "厂商-济南": [117, 36.65],
-                            "厂商-德阳": [104.37, 31.13],
-                            "厂商-温州": [120.65, 28.01],
-                            "厂商-九江": [115.97, 29.71],
-                            "厂商-邯郸": [114.47, 36.6],
-                            "厂商-临安": [119.72, 30.23],
-                            "厂商-兰州": [103.73, 36.03],
-                            "厂商-沧州": [116.83, 38.33],
-                        };
-
-                        var convertData = function(data) {
-                            var res = [];
-                            for (var i = 0; i < data.length; i++) {
-                                var geoCoord = geoCoordMap[data[i].name];
-                                if (geoCoord) {
-                                    res.push({
-                                        name: data[i].name,
-                                        value: geoCoord.concat(data[i].value)
-                                    });
-                                }
-                            }
-                            return res;
-                        };
-
-                        // 指定图表的配置项和数据
-                        option = {
-                            // backgroundColor: '#404a59',
-                            title: {
-                                text: '生厂商厂址全国分布',
-                                // subtext: 'data from PM25.in',
-                                // sublink: 'http://www.pm25.in',
-                                x: 'center',
-                                textStyle: {
-                                    color: '#fff'
-                                }
-                            },
-                            tooltip: {
-                                trigger: 'item',
-                                formatter: function(params) {
-                                    return params.name + ' : ' + params.value[2];
-                                }
-                            },
-                            legend: {
-                                orient: 'vertical',
-                                y: 'bottom',
-                                x: 'right',
-                                data: ['pm2.5'],
-                                textStyle: {
-                                    color: '#fff'
-                                }
-                            },
-                            geo: {
-                                map: 'china',
-                                label: {
-                                    emphasis: {
-                                        show: false
-                                    }
-                                },
-                                itemStyle: {
-                                    normal: {
-                                        areaColor: '#323c48',
-                                        // borderColor: '#111'
-                                        borderColor: "#aaa"
-                                    },
-                                    emphasis: {
-                                        areaColor: '#2a333d'
-                                    }
-                                }
-                            },
-                            series: [{
-                                // name: 'pm2.5',
-                                type: 'scatter',
-                                coordinateSystem: 'geo',
-                                data: convertData([{
-                                    name: "厂商-北京",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-上海",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-鞍山",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-溧阳",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-库尔勒",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-安阳",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-开封",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-济南",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-德阳",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-温州",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-九江",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-邯郸",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-临安",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-兰州",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }, {
-                                    name: "厂商-沧州",
-                                    value: "厂商地址厂商地址厂商地址"
-                                }]),
-                                symbolSize: 12,
-                                label: {
-                                    normal: {
-                                        show: false
-                                    },
-                                    emphasis: {
-                                        show: false
-                                    }
-                                },
-                                itemStyle: {
-                                    emphasis: {
-                                        borderColor: '#fff',
-                                        borderWidth: 1
-                                    }
-                                }
-                            }]
-                        };
-
-                        // 使用刚指定的配置项和数据显示图表。
-                        myChart.setOption(option);
-                    });
-                    </script>
-                </div>
+            <div style="margin-top: 40vh;margin-left: 140vh;position: absolute;text-align: center;">
+                <button id="btn-service0" type="button" class="btn button5 btn-service">价格-时间图</button>
+                <button id="btn-service1" type="button" class="btn button5 btn-service">销量-时间图</button>
+                <!-- <button id="btn-service2" type="button" class="btn button5 btn-service">需求构成</button> -->
             </div>
+            <script>
+                $(document).ready(function () {
+                    $("#service_div1").toggle();
+                    // $("#service_div2").toggle();
+                    $(".btn-service").click(function () {
+                        if ($("#service_div" + $(this).attr('id')[11]).css("display") != "none") {
+                            return;
+                        }
+                        if ($("#service_div0").css("display") != "none") {
+                            $("#service_div0").toggle();
+                        }
+                        if ($("#service_div1").css("display") != "none") {
+                            $("#service_div1").toggle();
+                        }
+                        // if ($("#service_div2").css("display") != "none") {
+                        //     $("#service_div2").toggle();
+                        // }
+                        $("#service_div" + $(this).attr('id')[11]).toggle();
+                    });
+                });
+            </script>
         </div>
     </div>
 </body>
