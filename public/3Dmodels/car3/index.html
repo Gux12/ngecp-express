@@ -28,7 +28,7 @@ var ResizePolicy = 3;
     <script src="../js/pageSwitch.min.js" type="text/javascript"></script>
 </head>
 
-<body style="position:absolute;  background-color: rgba(255,255,255,0); background-size:100% 100%;background-repeat:no-repeat; background-attachment:fixed; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;-webkit-touch-callout:none;-webkit-user-select:none;">
+<body style="position:absolute;  background: #cccccc; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;margin-right: 0px;-webkit-touch-callout:none;-webkit-user-select:none;">
 </body>
 
 </html>
@@ -83,10 +83,14 @@ if (_124324387819802023771476550153307121760) {
         EmpCamera.updateProjectionMatrix();
     })();
 
-    _124324387819802023771476550153307121760.loadEmpObjs('tsinghua2_car1/index.js', 'car1', 'car1_');
-    _124324387819802023771476550153307121760.loadEmpObjs('tsinghua2_car2/index.js', 'car2', 'car2_');
-    _124324387819802023771476550153307121760.loadEmpObjs('tsinghua2_car3/index.js', 'car3', 'car3_');
+    // _124324387819802023771476550153307121760.loadEmpObjs('tsinghua2_car1/index.js', 'car1', 'car1_');
+    // _124324387819802023771476550153307121760.loadEmpObjs('tsinghua2_car2/index.js', 'car2', 'car2_');
+    _124324387819802023771476550153307121760.loadEmpObjs('tsinghua2_car3/index.js', 'car3', 'car3_','',function(){showCarModel('car3');setCarColor('car3','#000000');});
 
+    (function() {
+        // showCarModel('car1');
+        // setCarColor('car1','#000000');
+    })();
     (function() {
         var defaultLight = _124324387819802023771476550153307121760.findObjectByName('_1433554002181051684713614094411073901394');
         if (!defaultLight) {
