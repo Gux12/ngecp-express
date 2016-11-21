@@ -36,34 +36,34 @@ var ResizePolicy = 4;
 
 <body style="background-color:#000000;-webkit-touch-callout:none;-webkit-user-select:none;">
     <!--<div class="guxblock-move hide col-md-2" style="padding:20px;left:50px;top:200px;">-->
-        <!--<h5 class="demo-panel-title font-gray">型号</h5>-->
-        <!--<label class="radio">-->
-            <!--<input type="radio" name="optionsRadios1" id="ES210" value="210">ES210-->
-        <!--</label>-->
-        <!--<label class="radio">-->
-            <!--<input type="radio" name="optionsRadios1" id="ES260" value="260" checked="">ES260-->
-        <!--</label>-->
-        <!--<label class="radio">-->
-            <!--<input type="radio" name="optionsRadios1" id="EV200" value="200">EV200-->
-        <!--</label>-->
-        <!--<hr>-->
-        <!--<h5 class="demo-panel-title font-gray">颜色</h5>-->
-        <!--<label class="radio">-->
-            <!--<input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>-->
-        <!--</label>-->
-        <!--<label class="radio">-->
-            <!--<input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>-->
-        <!--</label>-->
-        <!--<label class="radio">-->
-            <!--<input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>-->
-        <!--</label>-->
-        <!--<hr>-->
+    <!--<h5 class="demo-panel-title font-gray">型号</h5>-->
+    <!--<label class="radio">-->
+    <!--<input type="radio" name="optionsRadios1" id="ES210" value="210">ES210-->
+    <!--</label>-->
+    <!--<label class="radio">-->
+    <!--<input type="radio" name="optionsRadios1" id="ES260" value="260" checked="">ES260-->
+    <!--</label>-->
+    <!--<label class="radio">-->
+    <!--<input type="radio" name="optionsRadios1" id="EV200" value="200">EV200-->
+    <!--</label>-->
+    <!--<hr>-->
+    <!--<h5 class="demo-panel-title font-gray">颜色</h5>-->
+    <!--<label class="radio">-->
+    <!--<input type="radio" name="optionsRadios2" id="color1" value="black"><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>-->
+    <!--</label>-->
+    <!--<label class="radio">-->
+    <!--<input type="radio" name="optionsRadios2" id="color2" value="white" checked=""><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>-->
+    <!--</label>-->
+    <!--<label class="radio">-->
+    <!--<input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>-->
+    <!--</label>-->
+    <!--<hr>-->
     <div class="guxblock-move hide col-md-3" style="padding:20px;left:50px;top:100px;">
-        <h5 class="demo-panel-title font-gray">型号</h5>
-        <div class="row">
+        <!-- <h5 class="demo-panel-title font-gray">型号</h5> -->
+        <div class="row hidden">
             <div class="col-md-4">
                 <label class="radio">
-                    <input type="radio" name="optionsRadios1" id="ES210" value="210" checked>ES210
+                    <input type="radio" name="optionsRadios1" id="ES210" value="210">ES210
                 </label>
             </div>
             <div class="col-md-3">
@@ -73,31 +73,46 @@ var ResizePolicy = 4;
             </div>
             <div class="col-md-4">
                 <label class="radio">
-                    <input type="radio" name="optionsRadios1" id="EV200" value="200">EV200
+                    <input type="radio" name="optionsRadios1" id="EV200" value="200" checked>EV200
                 </label>
             </div>
         </div>
         <hr>
-        <h5 class="demo-panel-title font-gray">颜色</h5>
+        <h5 class="demo-panel-title font-gray">款式</h5>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color1" value="black" checked><i class="fa fa-stop" aria-hidden="true" style="color: black"></i>
+                    <input type="radio" name="optionsRadios2" id="color1" value="white" onclick="showEV200color([255,255,255])" checked>阿尔卑斯白<i class="fa fa-stop" aria-hidden="true" style="color: rgb(255,255,255)"></i>
                 </label>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color2" value="white"><i class="fa fa-stop" aria-hidden="true" style="color: white"></i>
+                    <input type="radio" name="optionsRadios2" id="color2" value="black" onclick="showEV200color([198,215,222])">米兰银<i class="fa fa-stop" aria-hidden="true" style="color: rgb(198,215,222)"></i>
                 </label>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color3" value="red"><i class="fa fa-stop" aria-hidden="true" style="color: red"></i>
+                    <input type="radio" name="optionsRadios2" id="color3" value="red" onclick="showEV200color([237,21,76])">马德里红<i class="fa fa-stop" aria-hidden="true" style="color: rgb(237,21,76)"></i>
+                </label>
+            </div>
+            <div class="col-md-12">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios2" id="color4" value="red" onclick="showEV200color([159,176,186])">汉堡灰<i class="fa fa-stop" aria-hidden="true" style="color: rgb(159,176,186)"></i>
+                </label>
+            </div>
+            <div class="col-md-12">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios2" id="color5" value="red" onclick="showEV200color([177,169,158])">香榭丽舍金<i class="fa fa-stop" aria-hidden="true" style="color: rgb(177,169,158)"></i>
+                </label>
+            </div>
+            <div class="col-md-12">
+                <label class="radio">
+                    <input type="radio" name="optionsRadios2" id="color6" value="red" onclick="showEV200color([149,190,206])">冰岛蓝<i class="fa fa-stop" aria-hidden="true" style="color: rgb(149,190,206)"></i>
                 </label>
             </div>
         </div>
         <hr>
-        <h5 class="demo-panel-title font-gray">马力</h5>
+        <!-- <h5 class="demo-panel-title font-gray">马力</h5>
         <div class="row">
             <div class="col-md-4">
                 <label class="radio">
@@ -137,18 +152,20 @@ var ResizePolicy = 4;
                 </label>
             </div>
         </div>
-        <hr>
+        <hr> -->
         <div class="row">
             <div class="col-md-6" style="padding: 0px;">
-                <a style="width: 100%;margin: 0px;" href="/sc_smart_chain.html" class="button button-primary button-small">确认订单</a>
+                <a style="width: 100%;margin: 0px;" href="/sc_smart_chain.html" class="button button-primary button-small">开启定制</a>
             </div>
             <div class="col-md-6" style="padding: 0px;">
-                <a style="width: 100%;margin: 0px;" href="/product_info_car.html" class="button button-caution button-small">返回</a>
+                <a style="width: 100%;margin: 0px;" href="/product_info_car.html" class="button button-action button-small">确认订单</a>
             </div>
+            <!--             <div class="col-md-4" style="padding: 0px;">
+                <a style="width: 100%;margin: 0px;" href="/product_info_car.html" class="button button-caution button-small">返回</a>
+            </div> -->
         </div>
-
     </div>
-<!--     <div class="col-md-4 col-md-offset-4" style="top:400px;z-index:1000">
+    <!--     <div class="col-md-4 col-md-offset-4" style="top:400px;z-index:1000">
         <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
             </div>
@@ -358,6 +375,12 @@ function showblack() {
         che200.color.setRGB(0.0, 0.05, 0);
 }
 
+function showEV200color(colorParam) {
+    var che200 = _3585716817803179332060543381977708624.getMaterialByObjName("Mesh60");
+    if (che200)
+        che200.color.setRGB(colorParam[0] / 255, colorParam[1] / 255, colorParam[2] / 255);
+}
+
 scene3DFunction["Mesh88_up"] = function() {
     show210();
     showblack();
@@ -407,13 +430,13 @@ scene3DFunction["Mesh92_up"] = Mesh92_up;
 $(document).ready(function() {
     $(':radio').radiocheck();
     $('.radio').addClass('font-gray');
-    $(':radio').on('change.radiocheck', function() {
-        // Do something
-        var car_type = $(":checked[name='optionsRadios1']").val();
-        var car_color = $(":checked[name='optionsRadios2']").val();
-        eval('show' + car_type + '()');
-        eval('show' + car_color + '()');
-    });
+    // $(':radio').on('change.radiocheck', function() {
+    //     // Do something
+    //     var car_type = $(":checked[name='optionsRadios1']").val();
+    //     var car_color = $(":checked[name='optionsRadios2']").val();
+    //     eval('show' + car_type + '()');
+    //     eval('show' + car_color + '()');
+    // });
 
 });
 </script>
