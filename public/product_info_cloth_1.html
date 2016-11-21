@@ -1,0 +1,250 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/buttons.min.css">
+    <link rel="stylesheet/less" type="text/css" href="/css/supplycell.less" />
+    <link rel="stylesheet" href="/css/jquery.sidr.dark.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/amazeui.flat.min.css">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/js/myTrick.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/hammerjs/hammer.min.js"></script>
+    <script src="/interact/dist/interact.min.js"></script>
+    <script src="/js/vendor/jquery.row-grid.js"></script>
+    <script src="/js/vendor/echarts2.min.js"></script>
+    <script src="/js/vendor/jquery.sidr.min.js"></script>
+    <script src="/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/vendor/map/china.js"></script>
+    <script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+    <script src="/assets/js/amazeui.min.js"></script>
+    <script src="/assets/js/amazeui.widgets.helper.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/handlebars.min.js"></script>
+    <style>
+    div {
+        font-family: Microsoft YaHei;
+    }
+    
+    .p-info {
+        color: #222;
+        font-size: 20px;
+    }
+    
+    .button5 {
+        background-color: rgba(0, 0, 0, 0);
+        color: #222;
+        border: 2px solid #555555;
+        width: 120px;
+        margin-top: 20px;
+    }
+    
+    .button5:hover {
+        background-color: #555555;
+        /*outline: 0;*/
+        color: #222;
+    }
+    
+    .button5:focus {
+        /*background-color: rgba(0, 0, 0, 0);*/
+        /*background-color: #555555;*/
+        color: #222;
+        border: 2px solid #555555;
+        outline: 0;
+        width: 120px;
+        margin-top: 20px;
+    }
+    
+    .button5:active {
+        outline: 0;
+    }
+    </style>
+</head>
+<style>
+body {
+    background-color: #eeeeee;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+                <div class="row" style="text-align: center;border-style: solid;border-color: #222;border-width: 2px;width:100%;height:440px;padding: 20px;margin-top: 50px">
+                    <p class="p-info">名称 ：Kinsdelis长袖衬衣</p>
+                    <p class="p-info">设计师 ：John</p>
+                    <p class="p-info">种类 ：衬衣</p>
+                    <p class="p-info">外形：普通</p>
+                    <p class="p-info">厚薄 ：薄款</p>
+                    <p class="p-info">编号 ：HYT61</p>
+                    <p class="p-info">颜色 ：白色（可定制）</p>
+                    <p class="p-info">材质 ：纤维（可定制）</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="evaluation" style="width:100%;height:540px;padding-top: 50px"></div>
+                <script type="text/javascript">
+                $(document).ready(function() {
+                    var evaluation = echarts.init(document.getElementById("evaluation"));
+
+                    var dataBJ = [
+                        [267, 216, 200, 230, 200, 240]
+                    ];
+
+                    var lineStyle = {
+                        normal: {
+                            width: 1,
+                            opacity: 0.5
+                        }
+                    };
+
+                    option = {
+                        title: {
+                            text: '评价图',
+                            left: 'center',
+                            textStyle: {
+                                color: '#222'
+                            },
+                        },
+
+                        tooltip: {
+                            trigger: "item",
+                            formatter: '稳定性：0.9<br/>舒适程度：0.7<br/>隔音效果：0.7<br/>耐用程度：0.8<br/>环保性能：0.8',
+                        },
+
+                        legend: {
+                            bottom: 5,
+                            data: [],
+                            itemGap: 20,
+                            textStyle: {
+                                color: '#222',
+                                fontSize: 14
+                            },
+                            selectedMode: 'single'
+                        },
+                        radar: {
+                            indicator: [{
+                                name: '稳定性',
+                                max: 300
+                            }, {
+                                name: '舒适程度',
+                                max: 300
+                            }, {
+                                name: '隔音效果',
+                                max: 300
+                            }, {
+                                name: '耐用程度',
+                                max: 300
+                            }, {
+                                name: '环保性能',
+                                max: 300
+                            }],
+                            shape: 'circle',
+                            splitNumber: 5,
+                            name: {
+                                textStyle: {
+                                    color: 'rgb(32, 32, 32)'
+                                }
+                            },
+                            splitLine: {
+                                lineStyle: {
+                                    color: [
+                                        'rgba(32, 32, 32, 0.1)', 'rgba(32, 32, 32, 0.2)',
+                                        'rgba(32, 32, 32, 0.4)', 'rgba(32, 32, 32, 0.6)',
+                                        'rgba(32, 32, 32, 0.8)', 'rgba(32, 32, 32, 1)'
+                                    ].reverse()
+                                }
+                            },
+                            splitArea: {
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: 'rgba(32, 32, 32, 0.5)'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: '北京',
+                            type: 'radar',
+                            lineStyle: lineStyle,
+                            data: dataBJ,
+                            symbol: 'none',
+                            itemStyle: {
+                                normal: {
+                                    // color: '#F9713C'
+                                    color: '#80c4d1'
+                                }
+                            },
+                            areaStyle: {
+                                normal: {
+                                    opacity: 0.8
+                                }
+                            }
+                        }]
+                    };
+
+                    evaluation.setOption(option);
+                });
+                </script>
+            </div>
+            <div class="col-md-4">
+                <div class="row" style="text-align: center;border-style: solid;border-color: #222;border-width: 2px;width:100%;height:440px;padding: 20px;margin-top: 50px">
+                    <div class="col-md-12">
+                        <!-- <p class="p-info">评价1：室内防冷，室外防晒！很喜欢！</p>
+                        <p class="p-info">评价2：买回来有些味道，水洗一下会变形。</p>
+                        <p class="p-info">评价3：超级显瘦啊，关键是质感好！</p>
+                        <p class="p-info">评价4：衣服款式大方，透气性好。</p>
+                        <p class="p-info">评价5：感觉很捧，面料舒适、清凉。</p>
+                        <p class="p-info">评价6：穿了几天真的很好看 修身 透气</p>
+                        <p class="p-info">评价7：夏天穿不会很热还能防晒。</p>
+                        <p class="p-info">评价8：相信我。值得拥有的一件衣服。</p> -->
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+                            <!--列表标题-->
+                            <div class="am-list-news-hd am-cf">
+                                <!--带更多链接-->
+                                <a href="##" class="" style="color: #222;">
+                                    <h2>用户评论</h2><span class="am-list-news-more am-fr">更多 &raquo;</span>
+                                </a>
+                            </div>
+                            <div class="am-list-news-bd">
+                                <ul class="am-list">
+                                    <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                        <a href="##" class="am-list-item-hd" style="color: #222;">室内防冷，室外防晒！很喜欢！</a>
+                                        <span class="am-list-date">2016-07-06</span>
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                        <a href="##" class="am-list-item-hd" style="color: #222;">买回来有些味道，水洗一下会变形。</a>
+                                        <span class="am-list-date">2016-07-02</span>
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                        <a href="##" class="am-list-item-hd" style="color: #222;">超级显瘦啊，关键是质感好！</a>
+                                        <span class="am-list-date">2016-06-19</span>
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                        <a href="##" class="am-list-item-hd" style="color: #222;">衣服款式大方，透气性好。</a>
+                                        <span class="am-list-date">2016-06-12</span>
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="background-color:rgba(0,0,0,0);">
+                                        <a href="##" class="am-list-item-hd" style="color: #222;">感觉很捧，面料舒适、清凉。</a>
+                                        <span class="am-list-date">2016-06-10</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
