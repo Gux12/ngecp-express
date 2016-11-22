@@ -78,37 +78,59 @@ var ResizePolicy = 4;
             </div>
         </div>
         <hr>
-        <h5 class="demo-panel-title font-gray">款式</h5>
-        <div class="row">
-            <div class="col-md-12">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color1" value="white" onclick="showEV200color([255,255,255])" checked>阿尔卑斯白 轻快版<i class="fa fa-stop" aria-hidden="true" style="color: rgb(255,255,255)"></i>
-                </label>
+        <div class="col-md-6">
+            <h5 class="demo-panel-title font-gray">颜色</h5>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color1" value="white" onclick="showEV200color([255,255,255])" checked>阿尔卑斯白<i class="fa fa-stop" aria-hidden="true" style="color: rgb(255,255,255)"></i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color2" value="black" onclick="showEV200color([198,215,222])">米兰银<i class="fa fa-stop" aria-hidden="true" style="color: rgb(198,215,222)"></i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color3" value="red" onclick="showEV200color([237,21,76])">马德里红<i class="fa fa-stop" aria-hidden="true" style="color: rgb(237,21,76)"></i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color4" value="red" onclick="showEV200color([159,176,186])">汉堡灰<i class="fa fa-stop" aria-hidden="true" style="color: rgb(159,176,186)"></i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color5" value="red" onclick="showEV200color([177,169,158])">香榭丽舍金<i class="fa fa-stop" aria-hidden="true" style="color: rgb(177,169,158)"></i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios2" id="color6" value="red" onclick="showEV200color([149,190,206])">冰岛蓝<i class="fa fa-stop" aria-hidden="true" style="color: rgb(149,190,206)"></i>
+                    </label>
+                </div>
             </div>
-            <div class="col-md-12">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color2" value="black" onclick="showEV200color([198,215,222])">米兰银 轻快版<i class="fa fa-stop" aria-hidden="true" style="color: rgb(198,215,222)"></i>
-                </label>
-            </div>
-            <div class="col-md-12">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color3" value="red" onclick="showEV200color([237,21,76])">马德里红 轻快版<i class="fa fa-stop" aria-hidden="true" style="color: rgb(237,21,76)"></i>
-                </label>
-            </div>
-            <div class="col-md-12">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color4" value="red" onclick="showEV200color([159,176,186])">汉堡灰 轻快版<i class="fa fa-stop" aria-hidden="true" style="color: rgb(159,176,186)"></i>
-                </label>
-            </div>
-            <div class="col-md-12">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color5" value="red" onclick="showEV200color([177,169,158])">香榭丽舍金 轻快版<i class="fa fa-stop" aria-hidden="true" style="color: rgb(177,169,158)"></i>
-                </label>
-            </div>
-            <div class="col-md-12">
-                <label class="radio">
-                    <input type="radio" name="optionsRadios2" id="color6" value="red" onclick="showEV200color([149,190,206])">冰岛蓝 轻快版<i class="fa fa-stop" aria-hidden="true" style="color: rgb(149,190,206)"></i>
-                </label>
+        </div>
+        <div class="col-md-6">
+            <h5 class="demo-panel-title font-gray">款式</h5>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios1" checked>轻快版</i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios1">轻享版</i>
+                    </label>
+                </div>
+                <div class="col-md-12">
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios1">轻秀版</i>
+                    </label>
+                </div>
             </div>
         </div>
         <hr>
@@ -154,12 +176,12 @@ var ResizePolicy = 4;
         </div>
         <hr> -->
         <div class="row">
-            <div class="col-md-6" style="padding: 0px;">
-                <a style="width: 100%;margin: 0px;" href="/sc_smart_chain.html" class="button button-primary button-small">开启定制</a>
+            <div class="col-md-6 col-md-offset-3" style="padding: 0px;">
+                <a style="width: 100%;margin: 0px;" href="/3Dmodels/carConfigIndividual/" class="button button-primary button-small">开启定制</a>
             </div>
-            <div class="col-md-6" style="padding: 0px;">
+            <!--             <div class="col-md-6" style="padding: 0px;">
                 <a style="width: 100%;margin: 0px;" href="/product_info_car.html" class="button button-action button-small">确认订单</a>
-            </div>
+            </div> -->
         </div>
     </div>
     <!--     <div class="col-md-4 col-md-offset-4" style="top:400px;z-index:1000">
