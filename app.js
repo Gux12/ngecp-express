@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var XDmodels = require('./3Dmodels');
+var audioWizard = require('./audioWizard');
 var speech = require('./speech');
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/3Dmodels', XDmodels);
+app.use('/audioWizard', audioWizard);
 app.use('/speech', speech);
 
 // catch 404 and forward to error handler
