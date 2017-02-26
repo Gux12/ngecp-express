@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <title>NGECP</title>
+        <meta name="keywords" content="free mobile website templates, free mobile website template, free iphone template, free android template, free high end touch mobile templates, free high end touch mobile template" />
+        <meta name="description" content="Get free mobile website templates for Iphone , Android and High end touch mobile devices" />
+        <style>
+        body {
+        margin: 0px;
+        }
+        </style>
+    </head>
+    <body>
+        <button id='read'>read</button>
+        <h2 id='iat_result'>语音听写</h2>
+        <div style="position:relative">
+            <div id='tip'>提示提示</div>
+            <div id= 'start-btn'>
+                <div id="canvas_wrapper" style="display:none;position: absolute;width: 102px;height: 102px;margin: 51px 0 0 51px">
+                    <canvas id="volume" width="102" height="102"></canvas>
+                </div>
+                <img id='mic' src="./images/mic.png" alt="" style="position: absolute;">
+                
+            </div>
+        </div>
+        <script type="text/javascript" src='./js/jquery-3.1.1.min.js'></script>
+        <script>
+        onerror=function(a,b,c){
+        alert(a+b+c);
+        }
+        </script>
+        <!-- <script>
+        function iframeOnload(hasLoaded,callback){
+            var iframes = document.getElementsByTagName("iframe");
+            var count = hasLoaded;
+            if(count < iframes.length){
+                for(var i = 0; i < iframes.length ; i ++)
+                {
+                    iframes[i].onload = function(){
+                        count++;
+                        if(count == iframes.length){
+                            iframeOnload(count,callback);
+                        }
+                    }
+                }
+            }
+            else{
+                callback();
+            }
+        }
+
+        var iframe = document.createElement("iframe");
+        iframe.width = 1920;
+        iframe.height = 1080;
+        iframe.src = "http://5ke68a.axshare.com/#g=1&p=入口&c=1";
+        document.body.appendChild(iframe);
+
+        iframeOnload(0,pageOperation);
+
+        function pageOperation(){
+            var btn1 = document.getElementById("u8881_img");
+            btn1.click();
+        }
+        </script> -->
+        <script type="text/javascript" src="./js/fingerprint.js"></script>
+        <script type="text/javascript" src="./js/tts.min.js"></script>
+        <script type="text/javascript" src="./js/tts_demo.js"></script>
+        <script type="text/javascript" src='./js/fingerprint2.min.js'></script>
+        <script type="text/javascript" src="./js/iat.all.js"></script>
+        <script type="text/javascript" src="./js/demo.js"></script>
+        <script>
+            document.getElementById('read').onclick = function(){
+                play_tts('你好啊','aisxping');
+            }
+        </script>
+    </body>
+</html>

@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var XDmodels = require('./3Dmodels');
 var audioWizard = require('./audioWizard');
 var speech = require('./speech');
+var xiaoi = require('./xiaoi');
 
 var app = express();
 // view engine setup
@@ -30,6 +31,7 @@ app.use('/users', users);
 app.use('/3Dmodels', XDmodels);
 app.use('/audioWizard', audioWizard);
 app.use('/speech', speech);
+app.use('/xiaoi', xiaoi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
