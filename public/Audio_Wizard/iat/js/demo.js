@@ -199,7 +199,7 @@ var iflytek = (function(document) {
         if (event.keyCode == 84) {
             startupIAT();
         };
-        return false;
+        // return false;
     });
     // mic.addEventListener("click", function() {
     //     play();
