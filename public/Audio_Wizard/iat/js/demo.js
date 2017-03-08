@@ -1,16 +1,22 @@
 /**
  * Created by zhangqi on 16/10/12.
  */
-var iflytek = (function(document){
+var iflytek = (function(document) {
     var iat_result = document.getElementById('iat_result');
-    var tip = document.getElementById('tip');
+    var start_btn = document.getElementById('start-btn');
     var mic = document.getElementById('mic');
     var volumeTip = document.getElementById('volume');
     var volumeWrapper = document.getElementById('canvas_wrapper');
-    var oldText = tip.innerHTML;
+    $(volumeWrapper).css('width', parseInt($(start_btn).css('width')) / 2);
+    $(volumeWrapper).css('height', parseInt($(start_btn).css('height')) / 2);
+    $(volumeWrapper).css('margin-left', parseInt($(start_btn).css('width')) / 4);
+    $(volumeWrapper).css('margin-top', parseInt($(start_btn).css('height')) / 4);
+    volumeTip.width = parseInt($(start_btn).css('width')) / 2;
+    volumeTip.height = parseInt($(start_btn).css('height')) / 2;
+    var msg;
     /* 标识麦克风按钮状态，按下状态值为true，否则为false */
     var mic_pressed = false;
-    var volumeEvent = (function () {
+    var volumeEvent = (function() {
         var lastVolume = 0;
         var eventId = 0;
         var canvas = volumeTip,
@@ -26,30 +32,30 @@ var iflytek = (function(document){
 
         volumeWrapper.style.display = "none";
 
-        var listen = function(volume){
+        var listen = function(volume) {
             lastVolume = volume;
         };
-        var draw = function(){
-            if(volumeWrapper.style.display == "none"){
+        var draw = function() {
+            if (volumeWrapper.style.display == "none") {
                 cancelAnimationFrame(animationId);
             }
             ctx.clearRect(0, 0, cwidth, cheight);
             ctx.fillStyle = gradient;
-            ctx.fillRect(0, cheight - 1 - lastVolume*cheight/30, cwidth, cheight);
+            ctx.fillRect(0, cheight - 1 - lastVolume * cheight / 30, cwidth, cheight);
             animationId = requestAnimationFrame(draw);
         };
-        var start = function(){
+        var start = function() {
             animationId = requestAnimationFrame(draw);
             volumeWrapper.style.display = "block";
         };
-        var stop = function(){
+        var stop = function() {
             clearInterval(eventId);
             // volumeWrapper.style.display = "none";
         };
         return {
-            "listen":listen,
-            "start":start,
-            "stop":stop
+            "listen": listen,
+            "start": start,
+            "stop": stop
         };
     })();
     /***********************************************local Variables**********************************************************/
@@ -58,32 +64,48 @@ var iflytek = (function(document){
      * 初始化Session会话
      */
     var session = new IFlyIatSession({
-        "callback":{
+        "callback": {
             // 
             //  重要！！！！！！！！！！！
             // 
             // 
             // 
             // 
-            "onResult": function (err, result) {
+            "onResult": function(err, result) {
+                var iat_result_buf;
                 /* 若回调的err为空或错误码为0，则会话成功，可提取识别结果进行显示*/
                 if (err == null || err == undefined || err == 0) {
                     if (result == '' || result == null)
-                        iat_result.innerHTML = "没有获取到识别结果";
+                        iat_result_buf = "没有获取到识别结果";
                     else
-                        iat_result.innerHTML = result;
+                        iat_result_buf = result;
                     /* 若回调的err不为空且错误码不为0，则会话失败，可提取错误码 */
                 } else {
-                    iat_result.innerHTML = 'error code : ' + err + ", error description : " + result;
+                    iat_result_buf = 'error code : ' + err + ", error description : " + result;
                 }
+                toastr.options = remain_option;
+                toastr.info(iat_result_buf);
                 mic_pressed = false;
                 volumeEvent.stop();
 
-                $.post('/xiaoi', {'userId': '1234','sessionId':'123','question':iat_result.innerHTML,'platform':'web'}, function(data, textStatus, xhr) {
+                $.post('/xiaoi', {
+                    'userId': '1234',
+                    'sessionId': '123',
+                    'question': iat_result_buf,
+                    'platform': 'web'
+                }, function(data, textStatus, xhr) {
                     /*optional stuff to do after success */
                     console.log("success");
-                    json = eval('(' + data + ')');
-                    play_tts(json.result.content,'aisxping');
+                    console.log(data);
+                    // Messenger().post({
+                    //     message: data.Response.Content[0],
+                    //     type: 'info',
+                    //     showCloseButton: true
+                    // });
+                    $('#iat_panel').fadeOut('750', function() {});
+                    toastr.options = remain_option;
+                    toastr.info(data.Response.Content[0]);
+                    play_tts(data.Response.Content[0], 'aisxping');
                 });
             },
             // 
@@ -92,39 +114,42 @@ var iflytek = (function(document){
             // 
             // 
             // 
-            "onVolume": function (volume) {
+            "onVolume": function(volume) {
                 volumeEvent.listen(volume);
             },
-            "onError":function(){
+            "onError": function() {
                 mic_pressed = false;
                 volumeEvent.stop();
             },
-            "onProcess":function(status){
-                switch (status){
+            "onProcess": function(status) {
+                switch (status) {
                     case 'onStart':
-                        tip.innerHTML = "服务初始化...";
+                        toastr.options = general_option;
+                        toastr.info('服务初始化...');
                         break;
                     case 'normalVolume':
                     case 'started':
-                        tip.innerHTML = "倾听中...";
+                        toastr.options = general_option;
+                        toastr.info('倾听中...');
                         break;
                     case 'onStop':
-                        tip.innerHTML = "等待结果...";
+                        toastr.options = general_option;
+                        toastr.info('等待结果...');
                         break;
                     case 'onEnd':
-                        tip.innerHTML = oldText;
-                        break;
+                        toastr.options = general_option;
+                        toastr.info('完毕！');
                     case 'lowVolume':
-                        tip.innerHTML = "倾听中...(声音过小)";
                         break;
                     default:
-                        tip.innerHTML = status;
+                        toastr.options = general_option;
+                        toastr.info(status);
                 }
             }
         }
     });
 
-    if(!session.isSupport()){
+    if (!session.isSupport()) {
         tip.innerHTML = "当前浏览器不支持！";
         return;
     }
@@ -140,8 +165,7 @@ var iflytek = (function(document){
             session.start(ssb_param);
             mic_pressed = true;
             volumeEvent.start();
-        }
-        else {
+        } else {
             //停止麦克风录音，仍会返回已传录音的识别结果.
             session.stop();
         }
@@ -154,14 +178,36 @@ var iflytek = (function(document){
         session.cancel();
     }
 
-    mic.addEventListener("click",function(){
-        play();
+    function startupIAT() {
+        $('#iat_panel').fadeIn('750', function() {
+            iat_result = document.getElementById('iat_result');
+            start_btn = document.getElementById('start-btn');
+            mic = document.getElementById('mic');
+            volumeTip = document.getElementById('volume');
+            volumeWrapper = document.getElementById('canvas_wrapper');
+            $(volumeWrapper).css('width', parseInt($(start_btn).css('width')) / 2);
+            $(volumeWrapper).css('height', parseInt($(start_btn).css('height')) / 2);
+            $(volumeWrapper).css('margin-left', parseInt($(start_btn).css('width')) / 4);
+            $(volumeWrapper).css('margin-top', parseInt($(start_btn).css('height')) / 4);
+            volumeTip.width = parseInt($(start_btn).css('width')) / 2;
+            volumeTip.height = parseInt($(start_btn).css('height')) / 2;
+            play();
+        });
+    }
+
+    $(document).keydown(function(event) {
+        if (event.keyCode == 84) {
+            startupIAT();
+        };
+        return false;
     });
+    // mic.addEventListener("click", function() {
+    //     play();
+    // });
     //页面不可见，断开麦克风调用
-    document.addEventListener("visibilitychange",function(){
-        if(document.hidden == true){
+    document.addEventListener("visibilitychange", function() {
+        if (document.hidden == true) {
             session.kill();
         }
     });
 })(document)
-

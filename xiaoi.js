@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const http = require('http');
 const querystring = require('querystring');
+const xml2js = require('xml2js').parseString;
 
 router.post('', function(req, res) {
 
@@ -11,9 +12,9 @@ router.post('', function(req, res) {
     console.log(reqJsonData);
     // the post options  
     var tokenoptionspost = {
-        host: '222.73.115.173',
-        port: '8688',
-        path: '/dev/ask.action?' + reqJsonData,
+        host: 'cluster.xiaoi.com',
+        port: '80',
+        path: '/robot/app/qhdxzljqr/ask.action?' + reqJsonData,
         method: 'POST',
         header: {
             'Content-Type': 'text/json;utf-8;charset=utf-8',
@@ -22,11 +23,14 @@ router.post('', function(req, res) {
     };
     console.log(tokenoptionspost);
     var reqPost = http.request(tokenoptionspost, function(resPost) {
-    	console.log(`STATUS: ${resPost.statusCode}`);
-  		console.log(`HEADERS: ${JSON.stringify(resPost.headers)}`);
+        console.log(`STATUS: ${resPost.statusCode}`);
+        console.log(`HEADERS: ${JSON.stringify(resPost.headers)}`);
         resPost.setEncoding('utf8');
         resPost.on('data', function(d) {
-            res.send(d);
+            xml2js(d, function(err, result) {
+                console.dir(JSON.stringify(result));
+                res.send(result);
+            });
             console.log(`BODY: ${d}`);
         });
         resPost.on('end', function() {

@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-        <title>NGECP</title>
-        <meta name="keywords" content="free mobile website templates, free mobile website template, free iphone template, free android template, free high end touch mobile templates, free high end touch mobile template" />
-        <meta name="description" content="Get free mobile website templates for Iphone , Android and High end touch mobile devices" />
-        <style>
-        body {
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <title>NGECP</title>
+    <meta name="keywords" content="free mobile website templates, free mobile website template, free iphone template, free android template, free high end touch mobile templates, free high end touch mobile template" />
+    <meta name="description" content="Get free mobile website templates for Iphone , Android and High end touch mobile devices" />
+    <link rel="stylesheet" href="/css/buttons.min.css">
+    <link rel="stylesheet" href="/toastr/toastr.min.css">
+    <style>
+    body {
         margin: 0px;
-        }
-        </style>
-    </head>
-    <body>
-        <button id='read'>read</button>
-        <h2 id='iat_result'>语音听写</h2>
-        <div style="position:relative">
-            <div id='tip'>提示提示</div>
-            <div id= 'start-btn'>
-                <div id="canvas_wrapper" style="display:none;position: absolute;width: 102px;height: 102px;margin: 51px 0 0 51px">
-                    <canvas id="volume" width="102" height="102"></canvas>
-                </div>
-                <img id='mic' src="./images/mic.png" alt="" style="position: absolute;">
-                
+    }
+    
+    #start-btn {
+        background: transparent;
+        border: 0px;
+        padding: 0px;
+        width: 200px;
+        height: 200px;
+    }
+    
+    #start-btn:hover {
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <p id='iat_result'></p>
+    <div id='iat_panel' style="position: fixed;top: 50%;left: 50%;width: 200px;height: 200px;margin-left: -100px;margin-top: -100px;display: none">
+        <button id='start-btn' class="button">
+            <div id="canvas_wrapper" style="display:none;position: absolute;">
+                <canvas id="volume"></canvas>
             </div>
-        </div>
-        <script type="text/javascript" src='./js/jquery-3.1.1.min.js'></script>
-        <script>
-        onerror=function(a,b,c){
-        alert(a+b+c);
-        }
-        </script>
-        <!-- <script>
+            <img id='mic' src="./images/mic.png" alt="" style="position: relative;width: 100%;height: 100%">
+        </button>
+    </div>
+    <!-- <iframe src="http://5ke68a.axshare.com/%E5%86%85%E8%A7%86%E5%9B%BE.html" height='1080' width='1920'></iframe> -->
+    <script type="text/javascript" src='./js/jquery-3.1.1.min.js'></script>
+    <script type="text/javascript" src='/toastr/toastr.min.js'></script>
+    <script>
+    onerror = function(a, b, c) {
+        alert(a + b + c);
+    }
+    </script>
+    <!-- <script>
         function iframeOnload(hasLoaded,callback){
             var iframes = document.getElementsByTagName("iframe");
             var count = hasLoaded;
@@ -64,16 +79,47 @@
             btn1.click();
         }
         </script> -->
-        <script type="text/javascript" src="./js/fingerprint.js"></script>
-        <script type="text/javascript" src="./js/tts.min.js"></script>
-        <script type="text/javascript" src="./js/tts_demo.js"></script>
-        <script type="text/javascript" src='./js/fingerprint2.min.js'></script>
-        <script type="text/javascript" src="./js/iat.all.js"></script>
-        <script type="text/javascript" src="./js/demo.js"></script>
-        <script>
-            document.getElementById('read').onclick = function(){
-                play_tts('你好啊','aisxping');
-            }
-        </script>
-    </body>
+    <script>
+    var general_option = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": true,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    var remain_option = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": true,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "0",
+        "extendedTimeOut": "0",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.options = general_option;
+    </script>
+    <script type="text/javascript" src="./js/fingerprint.js"></script>
+    <script type="text/javascript" src="./js/tts.min.js"></script>
+    <script type="text/javascript" src="./js/tts_demo.js"></script>
+    <script type="text/javascript" src='./js/fingerprint2.min.js'></script>
+    <script type="text/javascript" src="./js/iat.all.js"></script>
+    <script type="text/javascript" src="./js/demo.js"></script>
+</body>
+
 </html>
