@@ -88,25 +88,7 @@ var iflytek = (function(document) {
                 mic_pressed = false;
                 volumeEvent.stop();
 
-                $.post('/xiaoi', {
-                    'userId': '1234',
-                    'sessionId': '123',
-                    'question': iat_result_buf,
-                    'platform': 'web'
-                }, function(data, textStatus, xhr) {
-                    /*optional stuff to do after success */
-                    console.log("success");
-                    console.log(data);
-                    // Messenger().post({
-                    //     message: data.Response.Content[0],
-                    //     type: 'info',
-                    //     showCloseButton: true
-                    // });
-                    $('#iat_panel').fadeOut('750', function() {});
-                    toastr.options = remain_option;
-                    toastr.info(data.Response.Content[0]);
-                    play_tts(data.Response.Content[0], 'aisxping');
-                });
+                xiaoi(iat_result_buf);
             },
             // 
             // 
@@ -150,7 +132,7 @@ var iflytek = (function(document) {
     });
 
     if (!session.isSupport()) {
-        tip.innerHTML = "当前浏览器不支持！";
+        alert("当前浏览器不支持！");
         return;
     }
 

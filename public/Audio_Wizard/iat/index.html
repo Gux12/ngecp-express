@@ -29,7 +29,9 @@
 </head>
 
 <body>
-    <p id='iat_result'></p>
+<!--     <button onclick='xiaoi("冯帅右侧")'>冯帅右侧</button>
+    <button onclick='xiaoi("冯帅")'>冯帅</button>
+    <button onclick='xiaoi("汽车的选购")'>汽车的选购</button> -->
     <div id='iat_panel' style="position: fixed;top: 50%;left: 50%;width: 200px;height: 200px;margin-left: -100px;margin-top: -100px;display: none">
         <button id='start-btn' class="button">
             <div id="canvas_wrapper" style="display:none;position: absolute;">
@@ -38,7 +40,7 @@
             <img id='mic' src="./images/mic.png" alt="" style="position: relative;width: 100%;height: 100%">
         </button>
     </div>
-    <!-- <iframe src="http://5ke68a.axshare.com/%E5%86%85%E8%A7%86%E5%9B%BE.html" height='1080' width='1920'></iframe> -->
+    <iframe src="http://5ke68a.axshare.com/%E5%86%85%E8%A7%86%E5%9B%BE.html" height='1080' width='1920' id='ifr' frameborder="0"></iframe>
     <script type="text/javascript" src='./js/jquery-3.1.1.min.js'></script>
     <script type="text/javascript" src='/toastr/toastr.min.js'></script>
     <script>
@@ -113,6 +115,31 @@
         "hideMethod": "fadeOut"
     }
     toastr.options = general_option;
+
+    function xiaoi(iat_result_buf) {
+        $.post('/xiaoi', {
+            'userId': '1234',
+            'sessionId': '123',
+            'question': iat_result_buf,
+            'platform': 'web'
+        }, function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            console.log("success");
+            $('#iat_panel').fadeOut('750', function() {});
+            if (data.Response.hasOwnProperty("Commands")) {
+                console.log(data.Response.Commands[0].Command[0].$.name);
+                console.log(data.Response.Commands[0].Command[0].Arg[0]);
+                if (data.Response.Commands[0].Command[0].$.name == 'p4') {
+                    document.getElementById('ifr').src = data.Response.Commands[0].Command[0].Arg[0];
+                    // window.location.href = data.Response.Commands[0].Command[0].Arg[0];
+                    return;
+                }
+            }
+            toastr.options = remain_option;
+            toastr.info(data.Response.Content[0]);
+            play_tts(data.Response.Content[0], 'aisxping');
+        });
+    }
     </script>
     <script type="text/javascript" src="./js/fingerprint.js"></script>
     <script type="text/javascript" src="./js/tts.min.js"></script>
