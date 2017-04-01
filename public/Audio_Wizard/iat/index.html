@@ -9,6 +9,7 @@
     <meta name="description" content="Get free mobile website templates for Iphone , Android and High end touch mobile devices" />
     <link rel="stylesheet" href="/css/buttons.min.css">
     <link rel="stylesheet" href="/toastr/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
     <style>
     body {
         margin: 0px;
@@ -29,9 +30,13 @@
 </head>
 
 <body>
-<!--     <button onclick='xiaoi("冯帅右侧")'>冯帅右侧</button>
+    <!--    <button onclick='xiaoi("冯帅右侧")'>冯帅右侧</button>
     <button onclick='xiaoi("冯帅")'>冯帅</button>
-    <button onclick='xiaoi("汽车的选购")'>汽车的选购</button> -->
+    <button onclick='xiaoi("汽车的选购")'>汽车的选购</button>
+    <button onclick='xiaoi("送一辆汽车到我家")'>送一辆汽车到我家</button> -->
+    <div class='col-md-2' style="position: fixed;margin-top: 20px">
+        <input class="form-control input-lg" placeholder="输入您的需求" type="text" name="" id="iat_textInput">
+    </div>
     <div id='iat_panel' style="position: fixed;top: 50%;left: 50%;width: 200px;height: 200px;margin-left: -100px;margin-top: -100px;display: none">
         <button id='start-btn' class="button">
             <div id="canvas_wrapper" style="display:none;position: absolute;">
@@ -40,7 +45,7 @@
             <img id='mic' src="./images/mic.png" alt="" style="position: relative;width: 100%;height: 100%">
         </button>
     </div>
-    <iframe src="https://5ke68a.axshare.com/%E5%86%85%E8%A7%86%E5%9B%BE.html" height='1080' width='1920' id='ifr' frameborder="0"></iframe>
+    <iframe src="https://5ke68a.axshare.com/%E5%86%85%E8%A7%86%E5%9B%BE.html" height='1080' width='1920' id='ifr' frameborder="0" style='display: none'></iframe>
     <script type="text/javascript" src='./js/jquery-3.1.1.min.js'></script>
     <script type="text/javascript" src='/toastr/toastr.min.js'></script>
     <script>
@@ -115,6 +120,17 @@
         "hideMethod": "fadeOut"
     }
     toastr.options = general_option;
+    $('#iat_textInput').keypress(function(event) {
+        /* Act on the event */
+        if (event.keyCode == 13) {
+            xiaoi(this.value);
+        };
+    });
+
+    function RQ_click(element) {
+        var q = element.innerHTML;
+        xiaoi(q);
+    }
 
     function xiaoi(iat_result_buf) {
         $.post('/xiaoi', {
@@ -135,9 +151,23 @@
                     return;
                 }
             }
-            toastr.options = remain_option;
-            toastr.info(data.Response.Content[0]);
-            play_tts(data.Response.Content[0], 'aisxping');
+
+
+            if (data.Response.Type[0] == '11') {
+                toastr.options = remain_option;
+                relatedQuestionHtml = '';
+                for (var i = data.Response.RelatedQuestions[0].Question.length - 1; i >= 0; i--) {
+                    var q = data.Response.RelatedQuestions[0].Question[i];
+                    relatedQuestionHtml = '<a onclick="RQ_click(this)" class="button button-border button-plain" style="margin-top: 5px;width: 100%;height:auto;">' + q + '</a>' + relatedQuestionHtml;
+                }
+                relatedQuestionHtml = '试试下面的问题' + relatedQuestionHtml;
+                toastr.info(relatedQuestionHtml, data.Response.Content[0]);
+                play_tts(data.Response.Content[0] + '. 试试下面的问题' + relatedQuestionHtml, 'aisxping');
+            } else {
+                toastr.options = remain_option;
+                toastr.info(data.Response.Content[0]);
+                play_tts(data.Response.Content[0], 'aisxping');
+            }
         });
     }
     </script>

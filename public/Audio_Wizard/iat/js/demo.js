@@ -177,7 +177,7 @@ var iflytek = (function(document) {
         });
     }
 
-    $(document).keydown(function(event) {
+    $(document).keypress(function(event) {
         if (event.keyCode == 84) {
             startupIAT();
         };
