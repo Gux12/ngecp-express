@@ -98,7 +98,11 @@ router.post('', function (req, res) {
 router.get('/tex2voice', async function (req, res) {
     const {
         tex,
-        lan = 'zh'
+        lan = 'zh',
+        spd,
+        pit,
+        vol,
+        per
     } = req.query
     if (tex === undefined) {
         res.status(500).send('参数有误')
@@ -106,7 +110,11 @@ router.get('/tex2voice', async function (req, res) {
     res.set('Content-Type', 'audio/mp3')
     res.end(await t2v({
         tex,
-        lan
+        lan,
+        spd,
+        pit,
+        vol,
+        per
     }))
 });
 

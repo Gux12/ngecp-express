@@ -7,19 +7,28 @@ const getVoice = async ({
     lan,
     cuid,
     ctp,
-    tok
+    tok,
+    spd = 5,
+    pit = 5,
+    vol = 5,
+    per = 0
 }) => {
     const url = 'http://tsn.baidu.com/text2audio'
-    const res = await axios.get(`${url}?tex=${tex}&lan=${lan}&cuid=${cuid}&ctp=${ctp}&tok=${tok}`, {
+    const res = await axios.get(`${url}?tex=${tex}&lan=${lan}&cuid=${cuid}&ctp=${ctp}&tok=${tok}&spd=${spd}&pit=${pit}&vol=${vol}&per=${per}`, {
         responseType: 'arraybuffer'
     })
-    // console.log(`${url}?tex=${tex}&lan=${lan}&cuid=${cuid}&ctp=${ctp}&tok=${tok}`)
+    console.log(`${url}?
+    tex=${tex}&lan=${lan}&cuid=${cuid}&ctp=${ctp}&tok=${tok}&spd=${spd}&pit=${pit}&vol=${vol}&per=${per}`)
     return res.data
 }
 
 const text2Voice = async ({
     tex,
-    lan
+    lan,
+    spd,
+    pit,
+    vol,
+    per
 }) => {
     const url = 'https://openapi.baidu.com/oauth/2.0/token'
     const grant_type = 'client_credentials'
@@ -31,7 +40,11 @@ const text2Voice = async ({
         lan,
         cuid: 'wo',
         ctp: '1',
-        tok: res.data.access_token
+        tok: res.data.access_token,
+        spd,
+        pit,
+        vol,
+        per
     })
 
 }
