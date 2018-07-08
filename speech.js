@@ -1,15 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var http = require('http');
-var rf = require("fs");
 var BufferHelper = require('bufferhelper');
-var audio;
-router.post('', function(req, res) {
+const t2v = require('./text2Voice')
+router.post('', function (req, res) {
     var bufferHelper = new BufferHelper();
-    req.on('data', function(chunk) {
+    req.on('data', function (chunk) {
         bufferHelper.concat(chunk);
     })
-    req.on('end', function() {
+    req.on('end', function () {
         // var audio = req._readableState.buffer;
         // post = querystring.parse(post);
         var data = bufferHelper.toBuffer();
@@ -31,26 +30,26 @@ router.post('', function(req, res) {
         };
         // do the POST call  
         // 服务器端发送REST请求  
-        var tokenreqPost = http.request(tokenoptionspost, function(tokenreqPost) {
-            tokenreqPost.on('data', function(d) {
+        var tokenreqPost = http.request(tokenoptionspost, function (tokenreqPost) {
+            tokenreqPost.on('data', function (d) {
                 json = eval('(' + d + ')');
                 // 发送音频请求，获取字符串
                 // Request of JSON data  
                 // 接收客户端的JSON数据  
                 var buffer = {
-                        "format": "wav",
-                        "rate": 16000,
-                        "channel": 1,
-                        "token": json.access_token,
-                        "cuid": "baidu_workshop",
-                        "len": "",
-                        "speech": "",
-                    }
-                    // 直接load音频文件
-                    // var data = rf.readFileSync("public/audio/test.wav");
-                    // buffer.speech = new Buffer(data).toString('base64');
-                    // buffer.len = Buffer.byteLength(data);
-                    // 用前端传来的blob
+                    "format": "wav",
+                    "rate": 16000,
+                    "channel": 1,
+                    "token": json.access_token,
+                    "cuid": "baidu_workshop",
+                    "len": "",
+                    "speech": "",
+                }
+                // 直接load音频文件
+                // var data = rf.readFileSync("public/audio/test.wav");
+                // buffer.speech = new Buffer(data).toString('base64');
+                // buffer.len = Buffer.byteLength(data);
+                // 用前端传来的blob
                 buffer.speech = new Buffer(audio[0]).toString('base64');
                 buffer.len = new Buffer(audio[0]).byteLength;
                 //json转换为字符串
@@ -74,8 +73,8 @@ router.post('', function(req, res) {
                 };
 
                 // do the POST call  
-                var reqPost = http.request(optionspost, function(resPost) {
-                    resPost.on('data', function(d) {
+                var reqPost = http.request(optionspost, function (resPost) {
+                    resPost.on('data', function (d) {
                         res.send(d);
                     });
                 });
@@ -84,24 +83,31 @@ router.post('', function(req, res) {
                 // 发送REST请求时传入JSON数据  
                 reqPost.write(reqJosnData);
                 reqPost.end();
-                reqPost.on('error', function(e) {
+                reqPost.on('error', function (e) {
                     console.error(e);
                 });
             });
         });
         tokenreqPost.end();
-        tokenreqPost.on('error', function(e) {
+        tokenreqPost.on('error', function (e) {
             console.error(e);
         });
     });
 });
 
-// router.post('/audio', function(req, res) {
-//     req.on('readable', function() {
-//         audio = req.read();
-//         // audio = buf.toString('base64');
-//         res.send('ok!');
-//     });
-// });
+router.get('/tex2voice', async function (req, res) {
+    const {
+        tex,
+        lan = 'zh'
+    } = req.query
+    if (tex === undefined) {
+        res.status(500).send('参数有误')
+    }
+    res.set('Content-Type', 'audio/mp3')
+    res.end(await t2v({
+        tex,
+        lan
+    }))
+});
 
 module.exports = router;
