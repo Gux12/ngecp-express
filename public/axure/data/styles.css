@@ -630,14 +630,14 @@
 .box_12 {
 }
 .hint_text {
-  font-family:'Roboto';
+  font-family:'Roboto Regular', 'Roboto';
   font-weight:400;
   font-style:normal;
   font-size:16px;
   color:rgba(0, 0, 0, 0.258823529411765);
 }
 .secondary_text_dark {
-  font-family:'Roboto';
+  font-family:'Roboto Regular', 'Roboto';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -648,8 +648,8 @@
 .vertical_line {
 }
 .flat_button {
-  font-family:'Roboto';
-  font-weight:400;
+  font-family:'Roboto Regular', 'Roboto';
+  font-weight:500;
   font-style:normal;
   font-size:14px;
   color:#2196F3;
