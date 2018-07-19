@@ -1,0 +1,817 @@
+﻿body {
+  margin:0px;
+  background-image:none;
+  position:static;
+  left:auto;
+  width:1920px;
+  margin-left:0;
+  margin-right:0;
+  text-align:left;
+}
+#base {
+  position:absolute;
+  z-index:0;
+}
+#u15462 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1916px;
+  height:1076px;
+}
+#u15462_input {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1916px;
+  height:1076px;
+}
+#u15463 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15464_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:534px;
+  height:211px;
+}
+#u15464 {
+  position:absolute;
+  left:0px;
+  top:869px;
+  width:534px;
+  height:211px;
+  font-family:'Microsoft YaHei UI';
+  font-weight:400;
+  font-style:normal;
+}
+#u15465 {
+  position:absolute;
+  left:2px;
+  top:98px;
+  width:530px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15466_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:97px;
+  height:100px;
+}
+#u15466 {
+  position:absolute;
+  left:66px;
+  top:925px;
+  width:97px;
+  height:100px;
+  font-family:'Microsoft YaHei UI';
+  font-weight:400;
+  font-style:normal;
+}
+#u15466_img.mouseOver {
+}
+#u15466.mouseOver {
+  opacity:0.6;
+}
+#u15467 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:93px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15468_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:97px;
+  height:100px;
+}
+#u15468 {
+  position:absolute;
+  left:219px;
+  top:925px;
+  width:97px;
+  height:100px;
+  font-family:'Microsoft YaHei UI';
+  font-weight:400;
+  font-style:normal;
+}
+#u15468_img.mouseOver {
+}
+#u15468.mouseOver {
+  opacity:0.6;
+}
+#u15469 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:93px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15470_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:97px;
+  height:100px;
+}
+#u15470 {
+  position:absolute;
+  left:363px;
+  top:925px;
+  width:97px;
+  height:100px;
+  font-family:'Microsoft YaHei UI';
+  font-weight:400;
+  font-style:normal;
+}
+#u15470_img.mouseOver {
+}
+#u15470.mouseOver {
+  opacity:0.6;
+}
+#u15471 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:93px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15472 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15473_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:900px;
+  height:100px;
+}
+#u15473 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:900px;
+  height:100px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15474 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:896px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15475 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15476 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15477 {
+  position:absolute;
+  left:116px;
+  top:11px;
+  width:35px;
+  height:36px;
+  overflow:hidden;
+  visibility:hidden;
+}
+#u15477_state0 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:35px;
+  height:36px;
+  -ms-overflow-x:hidden;
+  overflow-x:hidden;
+  -ms-overflow-y:hidden;
+  overflow-y:hidden;
+  background-image:none;
+}
+#u15477_state0_content {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1px;
+  height:1px;
+}
+#u15478 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:195px;
+  height:25px;
+}
+#u15478_input {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:195px;
+  height:25px;
+  background-color:transparent;
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  text-decoration:none;
+  color:#000000;
+  text-align:left;
+}
+#u15479 {
+  position:absolute;
+  left:116px;
+  top:11px;
+  width:763px;
+  height:78px;
+}
+#u15479_input {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:763px;
+  height:78px;
+  background-color:rgba(174, 174, 174, 0.498039215686275);
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  font-size:36px;
+  text-decoration:none;
+  color:#FFFFFF;
+  text-align:left;
+  border-color:transparent;
+  outline-style:none;
+}
+#u15480_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:78px;
+  height:78px;
+}
+#u15480 {
+  position:absolute;
+  left:16px;
+  top:11px;
+  width:78px;
+  height:78px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15481 {
+  position:absolute;
+  left:2px;
+  top:31px;
+  width:74px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15482 {
+  position:absolute;
+  left:790px;
+  top:7px;
+  width:89px;
+  height:89px;
+  overflow:hidden;
+  visibility:hidden;
+}
+#u15482_state0 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:89px;
+  height:89px;
+  -ms-overflow-x:hidden;
+  overflow-x:hidden;
+  -ms-overflow-y:hidden;
+  overflow-y:hidden;
+  background-image:none;
+}
+#u15482_state0_content {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1px;
+  height:1px;
+}
+#u15483_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+}
+#u15483 {
+  position:absolute;
+  left:20px;
+  top:20px;
+  width:50px;
+  height:50px;
+  font-family:'Arial-Black', 'Arial Black';
+  font-weight:700;
+  font-style:normal;
+  font-size:48px;
+  color:#FFFFFF;
+}
+#u15484 {
+  position:absolute;
+  left:0px;
+  top:-4px;
+  width:50px;
+  word-wrap:break-word;
+}
+#u15485 {
+  position:absolute;
+  left:68px;
+  top:63px;
+  width:26px;
+  height:26px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15486 {
+  position:absolute;
+  left:16px;
+  top:63px;
+  width:26px;
+  height:26px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15487 {
+  position:absolute;
+  left:42px;
+  top:37px;
+  width:26px;
+  height:26px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15488 {
+  position:absolute;
+  left:68px;
+  top:11px;
+  width:26px;
+  height:26px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15489 {
+  position:absolute;
+  left:16px;
+  top:11px;
+  width:26px;
+  height:26px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15490 {
+  position:absolute;
+  left:888px;
+  top:874px;
+  width:1031px;
+  height:206px;
+  overflow:hidden;
+}
+#u15490_state0 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1031px;
+  height:206px;
+  -ms-overflow-x:hidden;
+  overflow-x:hidden;
+  -ms-overflow-y:hidden;
+  overflow-y:hidden;
+  background-image:none;
+}
+#u15490_state0_content {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1px;
+  height:1px;
+}
+#u15491 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15492_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1031px;
+  height:206px;
+}
+#u15492 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:1031px;
+  height:206px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15493 {
+  position:absolute;
+  left:2px;
+  top:95px;
+  width:1027px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15494 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15495_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:128px;
+  height:100px;
+}
+#u15495 {
+  position:absolute;
+  left:403px;
+  top:75px;
+  width:128px;
+  height:100px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15495_img.mouseOver {
+}
+#u15495.mouseOver {
+  opacity:0.6;
+}
+#u15496 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:124px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15497_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:110px;
+  height:34px;
+}
+#u15497 {
+  position:absolute;
+  left:407px;
+  top:175px;
+  width:100px;
+  height:24px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  font-size:18px;
+  color:#FFFFFF;
+  text-align:center;
+}
+#u15498 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  word-wrap:break-word;
+}
+#u15499 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15500_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:113px;
+  height:100px;
+}
+#u15500 {
+  position:absolute;
+  left:723px;
+  top:74px;
+  width:113px;
+  height:100px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15500_img.mouseOver {
+}
+#u15500.mouseOver {
+  opacity:0.6;
+}
+#u15501 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:109px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15502_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:110px;
+  height:34px;
+}
+#u15502 {
+  position:absolute;
+  left:730px;
+  top:175px;
+  width:100px;
+  height:24px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  font-size:18px;
+  color:#FFFFFF;
+  text-align:center;
+}
+#u15503 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  word-wrap:break-word;
+}
+#u15504 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15505_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:102px;
+  height:102px;
+}
+#u15505 {
+  position:absolute;
+  left:885px;
+  top:74px;
+  width:102px;
+  height:102px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15505_img.mouseOver {
+}
+#u15505.mouseOver {
+  opacity:0.6;
+}
+#u15506 {
+  position:absolute;
+  left:2px;
+  top:43px;
+  width:98px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15507_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:110px;
+  height:34px;
+}
+#u15507 {
+  position:absolute;
+  left:886px;
+  top:175px;
+  width:100px;
+  height:24px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  font-size:18px;
+  color:#FFFFFF;
+  text-align:center;
+}
+#u15508 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  word-wrap:break-word;
+}
+#u15509 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15510_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:100px;
+}
+#u15510 {
+  position:absolute;
+  left:569px;
+  top:74px;
+  width:100px;
+  height:100px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15510_img.mouseOver {
+}
+#u15510.mouseOver {
+  opacity:0.6;
+}
+#u15511 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:96px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15512_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:110px;
+  height:34px;
+}
+#u15512 {
+  position:absolute;
+  left:576px;
+  top:175px;
+  width:100px;
+  height:24px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  font-size:18px;
+  color:#FFFFFF;
+  text-align:center;
+}
+#u15513 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  word-wrap:break-word;
+}
+#u15514 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:0px;
+  height:0px;
+}
+#u15515_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:100px;
+}
+#u15515 {
+  position:absolute;
+  left:263px;
+  top:74px;
+  width:100px;
+  height:100px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  color:#FFFFFF;
+}
+#u15515_img.mouseOver {
+}
+#u15515.mouseOver {
+  opacity:0.6;
+}
+#u15516 {
+  position:absolute;
+  left:2px;
+  top:42px;
+  width:96px;
+  visibility:hidden;
+  word-wrap:break-word;
+}
+#u15517_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:110px;
+  height:34px;
+}
+#u15517 {
+  position:absolute;
+  left:251px;
+  top:175px;
+  width:100px;
+  height:24px;
+  font-family:'Microsoft YaHei UI Bold', 'Microsoft YaHei UI Regular', 'Microsoft YaHei UI';
+  font-weight:700;
+  font-style:normal;
+  font-size:18px;
+  color:#FFFFFF;
+  text-align:center;
+}
+#u15518 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  word-wrap:break-word;
+}
+#u15519 {
+  position:absolute;
+  left:387px;
+  top:831px;
+  width:50px;
+  height:50px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15520 {
+  position:absolute;
+  left:242px;
+  top:831px;
+  width:50px;
+  height:50px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15521 {
+  position:absolute;
+  left:90px;
+  top:831px;
+  width:50px;
+  height:50px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
+#u15522 {
+  position:absolute;
+  left:521px;
+  top:950px;
+  width:50px;
+  height:50px;
+  overflow:hidden;
+  background-image:url('../../resources/images/transparent.gif');
+}
