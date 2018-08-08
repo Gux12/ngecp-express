@@ -1,333 +1,125 @@
+<!DOCTYPE HTML>
+<html style="font-size:100px">
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>物流首界面</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/物流首界面/styles.css" type="text/css" rel="stylesheet"/>
-    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
-    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
-    <script src="resources/scripts/axure/axQuery.js"></script>
-    <script src="resources/scripts/axure/globals.js"></script>
-    <script src="resources/scripts/axutils.js"></script>
-    <script src="resources/scripts/axure/annotation.js"></script>
-    <script src="resources/scripts/axure/axQuery.std.js"></script>
-    <script src="resources/scripts/axure/doc.js"></script>
-    <script src="data/document.js"></script>
-    <script src="resources/scripts/messagecenter.js"></script>
-    <script src="resources/scripts/axure/events.js"></script>
-    <script src="resources/scripts/axure/recording.js"></script>
-    <script src="resources/scripts/axure/action.js"></script>
-    <script src="resources/scripts/axure/expr.js"></script>
-    <script src="resources/scripts/axure/geometry.js"></script>
-    <script src="resources/scripts/axure/flyout.js"></script>
-    <script src="resources/scripts/axure/ie.js"></script>
-    <script src="resources/scripts/axure/model.js"></script>
-    <script src="resources/scripts/axure/repeater.js"></script>
-    <script src="resources/scripts/axure/sto.js"></script>
-    <script src="resources/scripts/axure/utils.temp.js"></script>
-    <script src="resources/scripts/axure/variables.js"></script>
-    <script src="resources/scripts/axure/drag.js"></script>
-    <script src="resources/scripts/axure/move.js"></script>
-    <script src="resources/scripts/axure/visibility.js"></script>
-    <script src="resources/scripts/axure/style.js"></script>
-    <script src="resources/scripts/axure/adaptive.js"></script>
-    <script src="resources/scripts/axure/tree.js"></script>
-    <script src="resources/scripts/axure/init.temp.js"></script>
-    <script src="files/物流首界面/data.js"></script>
-    <script src="resources/scripts/axure/legacy.js"></script>
-    <script src="resources/scripts/axure/viewer.js"></script>
-    <script src="resources/scripts/axure/math.js"></script>
-    <script type="text/javascript">
-      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
-    </script>
-  </head>
-  <body>
-    <div id="base" class="">
+<head>
+	<script type="text/javascript">var empSizeObj = { builderMode: false, winFixSize: { x: 1024, y: 768 }, resizePolicy: 1, bgImgSize: { x: 0, y: 0 }, zoomRange: [0.1, 2], align: 0 };  </script>
+	<style>
+		.pageStage {
+			margin-left: 0rem;
+			margin-top: 0rem;
+		}
 
-      <!-- Unnamed (Inline Frame) -->
-      <div id="u24441" class="ax_default">
-        <iframe id="u24441_input" scrolling="no" frameborder="1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      </div>
+		.overlay {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: .5;
+			background: #000;
+		}
 
-      <!-- Unnamed (Group) -->
-      <div id="u24442" class="ax_default" data-width="534" data-height="211">
+		.modal {
+			border-radius: 4px;
+			background: #ffffff;
+			border: 1px solid #ebeef5;
+			box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+			backface-visibility: hidden;
+		}
 
-        <!-- Unnamed (Image) -->
-        <div id="u24443" class="ax_default _图片3">
-          <img id="u24443_img" class="img " src="images/消费者首界面/u34.png"/>
-          <!-- Unnamed () -->
-          <div id="u24444" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
-        </div>
+		.header-button {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			padding: 0;
+			border: none;
+			outline: none;
+			background: transparent;
+			font-size: 16px;
+			cursor: pointer;
+			color: #909399;
+		}
+	</style>
+	<title>New Project-EMP.VRP3D.COM</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0'>
+	<meta name="apple-touch-fullscreen" content="YES">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<script src="min.empcommon/pace.min.js" type="text/javascript"></script>
+	<link href="min.empcommon/themes/blue/pace-theme-center-atom.css" rel="stylesheet" type="text/css">
+	<script src="min.empcommon/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/empRuntime.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/animo.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/three.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/stats.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/Detector.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/OrbitControls.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/FirstPersonControls.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/JsonEmpLoader.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/Tween.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/empBuilder.min.js" type="text/javascript"></script>
+	<link href="min.empcommon/animate-animo.min.css" rel="stylesheet" type="text/css">
+	<script src="min.empcommon/jgestures.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/pageSwitch.min.js" type="text/javascript"></script>
+	<script src="min.empcommon/jQueryTimer1.2.min.js" type="text/javascript"></script>
+	<script src="./vue.js"></script>
+</head>
 
-        <!-- Unnamed (Image) -->
-        <div id="u24445" class="ax_default _图片3">
-          <img id="u24445_img" class="img " src="images/消费者首界面/u36.png"/>
-          <!-- Unnamed () -->
-          <div id="u24446" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
-        </div>
+<body style="margin:0px;-webkit-touch-callout:none;-webkit-user-select:none;overflow:hidden;">
+	<div id="app" style="position: absolute;width: 100vw;height: 100vh;display: flex;justify-content: center;">
+		<div v-if="modalOpen" style="z-index: 4000;width: 1230px;align-self: center;position: relative;height: 850px;" class="modal">
+			<button class="header-button" @click="modalOpen = false">×</button>
+			<iframe :src="url" frameborder="0" style="width: 100%;height: 100%"></iframe>
+		</div>
+		<div v-if="modalOpen" style="z-index: 3000;" class="overlay"></div>
+	</div>
+</body>
 
-        <!-- Unnamed (Image) -->
-        <div id="u24447" class="ax_default _图片3">
-          <img id="u24447_img" class="img " src="images/消费者首界面/u38.png"/>
-          <!-- Unnamed () -->
-          <div id="u24448" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u24449" class="ax_default _图片3">
-          <img id="u24449_img" class="img " src="images/消费者首界面/u40.png"/>
-          <!-- Unnamed () -->
-          <div id="u24450" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 搜索框 (Group) -->
-      <div id="u24451" class="ax_default" data-label="搜索框" data-width="900" data-height="100">
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u24452" class="ax_default _形状2">
-          <img id="u24452_img" class="img " src="images/消费者首界面/u43.png"/>
-          <!-- Unnamed () -->
-          <div id="u24453" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
-        </div>
-
-        <!-- Unnamed (Group) -->
-        <div id="u24454" class="ax_default" data-width="763" data-height="78">
-
-          <!-- Unnamed (Group) -->
-          <div id="u24455" class="ax_default" data-width="763" data-height="78">
-
-            <!-- textfield control (Dynamic Panel) -->
-            <div id="u24456" class="ax_default ax_default_hidden" data-label="textfield control" style="display:none; visibility: hidden">
-              <div id="u24456_state0" class="panel_state" data-label="State1">
-                <div id="u24456_state0_content" class="panel_state_content">
-
-                  <!-- label storage (ignore) (Text Field) -->
-                  <div id="u24457" class="ax_default _文本框1" data-label="label storage (ignore)">
-                    <input id="u24457_input" type="text" value=""/>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- textfield (Text Field) -->
-            <div id="u24458" class="ax_default _文本框1" data-label="textfield">
-              <input id="u24458_input" type="text" value="Search"/>
-            </div>
-          </div>
-        </div>
-
-        <!-- Unnamed (Image) -->
-        <div id="u24459" class="ax_default _图片3">
-          <img id="u24459_img" class="img " src="images/消费者首界面/u50.png"/>
-          <!-- Unnamed () -->
-          <div id="u24460" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
-        </div>
-
-        <!-- Cancel (Dynamic Panel) -->
-        <div id="u24461" class="ax_default ax_default_hidden" data-label="Cancel" style="display:none; visibility: hidden">
-          <div id="u24461_state0" class="panel_state" data-label="State1">
-            <div id="u24461_state0_content" class="panel_state_content">
-
-              <!-- Unnamed (Ellipse) -->
-              <div id="u24462" class="ax_default _形状2">
-                <img id="u24462_img" class="img " src="images/消费者首界面/u53.png"/>
-                <!-- Unnamed () -->
-                <div id="u24463" class="text">
-                  <p><span>×</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- QiCheChangXuanGou (Hot Spot) -->
-        <div id="u24464" class="ax_default" data-label="QiCheChangXuanGou">
-        </div>
-
-        <!-- QiCheXuanGou (Hot Spot) -->
-        <div id="u24465" class="ax_default" data-label="QiCheXuanGou">
-        </div>
-
-        <!-- FuZhuangDingZhi (Hot Spot) -->
-        <div id="u24466" class="ax_default" data-label="FuZhuangDingZhi">
-        </div>
-
-        <!-- FuZhuangChangXuanGou (Hot Spot) -->
-        <div id="u24467" class="ax_default" data-label="FuZhuangChangXuanGou">
-        </div>
-
-        <!-- FuZhuangXuanGou (Hot Spot) -->
-        <div id="u24468" class="ax_default" data-label="FuZhuangXuanGou">
-        </div>
-      </div>
-
-      <!-- Unnamed (Dynamic Panel) -->
-      <div id="u24469" class="ax_default">
-        <div id="u24469_state0" class="panel_state" data-label="初始状态">
-          <div id="u24469_state0_content" class="panel_state_content">
-
-            <!-- Unnamed (Group) -->
-            <div id="u24470" class="ax_default" data-width="1031" data-height="206">
-
-              <!-- Unnamed (Image) -->
-              <div id="u24471" class="ax_default _图片3">
-                <img id="u24471_img" class="img " src="images/消费者首界面/u6.png"/>
-                <!-- Unnamed () -->
-                <div id="u24472" class="text" style="display:none; visibility: hidden">
-                  <p><span></span></p>
-                </div>
-              </div>
-
-              <!-- Unnamed (Group) -->
-              <div id="u24473" class="ax_default" data-width="128" data-height="124">
-
-                <!-- Unnamed (Image) -->
-                <div id="u24474" class="ax_default _图片3">
-                  <img id="u24474_img" class="img " src="images/消费者首界面/u9.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24475" class="text" style="display:none; visibility: hidden">
-                    <p><span></span></p>
-                  </div>
-                </div>
-
-                <!-- Unnamed (Paragraph) -->
-                <div id="u24476" class="ax_default _文本段落3">
-                  <img id="u24476_img" class="img " src="images/消费者首界面/u11.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24477" class="text">
-                    <p><span>企业需求</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Unnamed (Group) -->
-              <div id="u24478" class="ax_default" data-width="113" data-height="125">
-
-                <!-- Unnamed (Image) -->
-                <div id="u24479" class="ax_default _图片3">
-                  <img id="u24479_img" class="img " src="images/消费者首界面/u14.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24480" class="text" style="display:none; visibility: hidden">
-                    <p><span></span></p>
-                  </div>
-                </div>
-
-                <!-- Unnamed (Paragraph) -->
-                <div id="u24481" class="ax_default _文本段落3">
-                  <img id="u24481_img" class="img " src="images/消费者首界面/u11.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24482" class="text">
-                    <p><span>企业空间</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Unnamed (Group) -->
-              <div id="u24483" class="ax_default" data-width="102" data-height="125">
-
-                <!-- Unnamed (Image) -->
-                <div id="u24484" class="ax_default _图片3">
-                  <img id="u24484_img" class="img " src="images/消费者首界面/u19.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24485" class="text" style="display:none; visibility: hidden">
-                    <p><span></span></p>
-                  </div>
-                </div>
-
-                <!-- Unnamed (Paragraph) -->
-                <div id="u24486" class="ax_default _文本段落3">
-                  <img id="u24486_img" class="img " src="images/消费者首界面/u11.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24487" class="text">
-                    <p><span>企业设置</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Unnamed (Group) -->
-              <div id="u24488" class="ax_default" data-width="107" data-height="125">
-
-                <!-- Unnamed (Image) -->
-                <div id="u24489" class="ax_default _图片3">
-                  <img id="u24489_img" class="img " src="images/消费者首界面/u24.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24490" class="text" style="display:none; visibility: hidden">
-                    <p><span></span></p>
-                  </div>
-                </div>
-
-                <!-- Unnamed (Paragraph) -->
-                <div id="u24491" class="ax_default _文本段落3">
-                  <img id="u24491_img" class="img " src="images/消费者首界面/u11.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24492" class="text">
-                    <p><span>企业供给</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Unnamed (Group) -->
-              <div id="u24493" class="ax_default" data-width="112" data-height="125">
-
-                <!-- Unnamed (Image) -->
-                <div id="u24494" class="ax_default _图片3">
-                  <img id="u24494_img" class="img " src="images/消费者首界面/u29.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24495" class="text" style="display:none; visibility: hidden">
-                    <p><span></span></p>
-                  </div>
-                </div>
-
-                <!-- Unnamed (Paragraph) -->
-                <div id="u24496" class="ax_default _文本段落3">
-                  <img id="u24496_img" class="img " src="images/消费者首界面/u11.png"/>
-                  <!-- Unnamed () -->
-                  <div id="u24497" class="text">
-                    <p><span>企业信息</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- QiCheXuanGou (Hot Spot) -->
-      <div id="u24498" class="ax_default" data-label="QiCheXuanGou">
-      </div>
-
-      <!-- FuZhuangChangXuanGou (Hot Spot) -->
-      <div id="u24499" class="ax_default" data-label="FuZhuangChangXuanGou">
-      </div>
-
-      <!-- FuZhuangXuanGou (Hot Spot) -->
-      <div id="u24500" class="ax_default" data-label="FuZhuangXuanGou">
-      </div>
-
-      <!-- QiCheXuanGou (Hot Spot) -->
-      <div id="u24501" class="ax_default" data-label="QiCheXuanGou">
-      </div>
-    </div>
-  </body>
 </html>
+
+<script type="text/javascript">
+	var EmpFirstShowPage = { 'pages': ['1876045389-797527353-1236428445-1610886599', 'END'], 'first': 0, '1876045389-797527353-1236428445-1610886599': [[''], ['']] };
+	var PageInitFunc = {}, PageExitFunc = {};
+
+	window.addEventListener("load", (function () { if (PageInitFunc['1876045389-797527353-1236428445-1610886599']) PageInitFunc['1876045389-797527353-1236428445-1610886599'](); }), false);  
+</script>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app',
+		data() {
+			return {
+				message: 'Hello',
+				modalOpen: false,
+				url: ''
+			}
+		},
+		mounted() {
+			/* page:  新主页_1 */
+			var _187604538979752735312364284451610886599 = empCreatePage('1876045389-797527353-1236428445-1610886599', "position:absolute; margin:0rem;  background-color:rgba(58,58,58,1); width:100%; height:100%;display:none;", " background-color:rgba(105,105,105,0.8);position:absolute;width:10.24rem;height:7.68rem;  z-index: 2;overflow:hidden;");
+			PageInitFunc['1876045389-797527353-1236428445-1610886599'] = (function () { _1464279138980253093194985919443237806.enable(); });
+			PageExitFunc['1876045389-797527353-1236428445-1610886599'] = (function () { _1464279138980253093194985919443237806.disable(); });
+			/*  3DScene:  3D场景_1  */
+			empCreateDiv('1464279138-980253093-194985919-443237806', "pointer-events:auto;position:fixed;left:0%;top:0%;width:100%;height:100%;opacity:1; z-index:10;", '1876045389-797527353-1236428445-1610886599_stage');
+			var _1464279138980253093194985919443237806 = create3dScene('1464279138-980253093-194985919-443237806', { 'size': [1024, 768], 'bgcolor': 0xffffff, 'bgalpha': 0, 'controls': 'orbit' });
+			if (_1464279138980253093194985919443237806) {
+				_1464279138980253093194985919443237806.showSkybox(true, ['resources/skybox1_RT.jpg', 'resources/skybox1_LF.jpg', 'resources/skybox1_UP.jpg', 'resources/skybox1_DN.jpg', 'resources/skybox1_BK.jpg', 'resources/skybox1_FR.jpg']);
+				_1464279138980253093194985919443237806.loadEmpObjs('resources/1464279138-980253093-194985919-443237806/index.json', '', '', {}, function () { /* 在这里添加场景加载完毕后的回调代码 */ });
+				scene3DFunction['Plane001_down'] = () => {
+					console.log('Plane001.down');
+					this.modalOpen = true
+					this.url = '/axure/#g=1&p=调度中心&c=1';
+				}
+				scene3DFunction['Plane002_down'] = () => {
+					console.log('Plane002.down');
+					this.modalOpen = true
+					this.url = '/axure/#g=1&p=监控中心&c=1';
+				}
+			}
+		},
+		methods: {
+
+		}
+	})
+</script>
