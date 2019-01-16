@@ -12,4 +12,4 @@ npm install
 npm start
 ```
 
-> 默认为本地3000端口，可以通过http://localhost:3000/axure访问
+> 默认为本地3000端口，可以通过 http://localhost:3000/axure 访问
